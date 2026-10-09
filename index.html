@@ -1,0 +1,1008 @@
+<!doctype html>
+<html lang="en-ZA" data-prov="none">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NAPTOSA Workshop Module Proposal</title>
+<meta name="description" content="Proposal LBTEC-NAPTOSA-WS-PROP-001 from LB TEC (PTY) LTD to NAPTOSA National: the workshop module for the provinces NAPTOSA National chooses, priced per province.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/naptosa-shield.webp" type="image/webp">
+<link rel="stylesheet" href="scrollcraft.css">
+<style>
+/* NAPTOSA workshop proposal. Split stage grammar. Theme: the NAPTOSA longform documents
+   (navy, blue, gold, Georgia headings, sans labels and money). One light print look. */
+:root {
+  color-scheme: light;
+  --navy: #0F2D55;
+  --blue: #1B4F8F;
+  --gold: #C9A227;
+  --gold-ink: #7E6110;
+  --gold-soft: #FBF3D8;
+  --ink: #16212E;
+  --muted: #56606C;
+  --rule: #D8DEE6;
+  --field: #F2F5F9;
+  --mist: #C9D5E3;
+  --paper: #FFFFFF;
+  --on-navy: #FFFFFF;
+  --on-navy-soft: #C9D5E3;
+  --shade: #0F2D55;
+
+  --sc-canvas: var(--paper);
+  --sc-surface: var(--field);
+  --sc-ink: var(--ink);
+  --sc-ink-soft: var(--muted);
+  --sc-accent: var(--gold-ink);
+  --sc-accent-ink: var(--on-navy);
+  --sc-font-display: Georgia, "Times New Roman", serif;
+  --sc-font-text: Georgia, "Times New Roman", serif;
+  --sans: "Segoe UI", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --serif: Georgia, "Times New Roman", serif;
+  --sc-shadow-color: 214 70% 12%;
+  --sc-e1: 0 1px 2px hsl(var(--sc-shadow-color) / 0.10), 0 3px 8px -2px hsl(var(--sc-shadow-color) / 0.10);
+  --sc-e2: 0 2px 4px hsl(var(--sc-shadow-color) / 0.10), 0 10px 22px -6px hsl(var(--sc-shadow-color) / 0.18);
+  --sc-gutter: clamp(1.25rem, 4vw, 4rem);
+  --strip-h: 0px;
+  --sweep: 0;
+  --strike: 0;
+  --prog: 0;
+}
+@media (max-width: 860px) { :root { --strip-h: 52px; } }
+@media (max-width: 600px) { :root { --sc-gutter: 16px; } }
+
+html { background: var(--paper); }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  letter-spacing: 0;
+}
+p, h1, h2, h3, figure, ul, ol, dl, dd { margin: 0; }
+ul, ol { padding: 0; }
+img { height: auto; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(calc(100% / 2)); white-space: nowrap; }
+[hidden] { display: none !important; }
+
+/* type */
+.lbl {
+  font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--muted); line-height: 1.4;
+}
+.kicker { color: var(--gold-ink); }
+.h1 {
+  font-family: var(--serif); font-weight: 700; color: var(--navy);
+  font-size: clamp(2.1rem, 1.2rem + 2.3vw, 3.3rem); line-height: 1.08; letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.h2 {
+  font-family: var(--serif); font-weight: 700; color: var(--navy);
+  font-size: clamp(1.7rem, 1.15rem + 1.45vw, 2.5rem); line-height: 1.12; letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.h3 { font-family: var(--serif); font-weight: 700; color: var(--blue); font-size: 1.2rem; line-height: 1.3; }
+.lede { font-size: clamp(1.1rem, 1rem + 0.35vw, 1.3rem); line-height: 1.5; color: var(--ink); max-width: 40ch; text-wrap: pretty; }
+.prose > * + * { margin-top: 1rem; }
+.prose p { max-width: 60ch; text-wrap: pretty; }
+.money { font-family: var(--sans); font-variant-numeric: tabular-nums lining-nums; letter-spacing: 0; }
+.amt { white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; }
+.rule-gold { display: block; width: 72px; height: 3px; background: var(--gold); margin: 0 0 1.1rem; border: 0; }
+figcaption { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); line-height: 1.45; margin-top: 0.6rem; max-width: 52ch; }
+
+/* controls */
+.cta {
+  display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.25rem;
+  background: var(--navy); color: var(--on-navy); text-decoration: none;
+  font-family: var(--sans); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.02em; white-space: nowrap;
+  box-shadow: inset 0 -3px 0 var(--gold);
+  transition: background-color 160ms var(--sc-ease-out), transform 120ms var(--sc-ease-out);
+}
+.cta:active { transform: translateY(1px); }
+@media (hover: hover) and (pointer: fine) { .cta:hover { background: var(--blue); } }
+select.prov-select {
+  font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: var(--navy);
+  background: var(--paper); border: 1px solid var(--navy); border-radius: 0; min-height: 40px; padding: 0 0.6rem;
+  max-width: 100%;
+}
+select.prov-select option { color: var(--ink); background: var(--paper); }
+
+/* ------------------------------------------------------------ split ---- */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.story { min-width: 0; }
+.side { position: relative; background: var(--field); border-left: 1px solid var(--navy); min-width: 0; }
+
+/* ------------------------------------------------------------ act 1 ---- */
+.hero { position: relative; padding: clamp(2.6rem, 7vh, 4.8rem) var(--sc-gutter) var(--sc-7); }
+.hero::before { content: ""; position: absolute; left: 0; top: 0; width: min(240px, 34%); height: 6px; background: var(--gold); }
+.hero .h1 { margin-top: 0.9rem; max-width: 20ch; }
+.hero .lede { margin-top: 1.1rem; }
+.plate { position: relative; margin-top: clamp(1.4rem, 4vh, 2.4rem); }
+.plate__frame { position: relative; height: clamp(220px, 36vh, 400px); overflow: hidden; border-top: 4px solid var(--gold); background: var(--field); }
+.plate__frame img { position: absolute; left: 0; top: -14%; width: 100%; height: 128%; max-width: none; object-fit: cover; }
+.seal {
+  position: absolute; z-index: 5; top: -34px; right: calc(-1 * var(--sc-gutter) - 46px);
+  width: 92px; height: 92px; border-radius: 999px; background: var(--paper); border: 4px solid var(--gold);
+  display: grid; place-items: center; box-shadow: var(--sc-e2);
+}
+.seal img { width: 58px; height: auto; }
+.hero__body { margin-top: var(--sc-7); }
+.hero__body .h3 { margin-bottom: 0.6rem; }
+.provnote { margin-top: 1.1rem; padding: 0.9rem 1rem; background: var(--gold-soft); border-left: 3px solid var(--navy); max-width: 60ch; }
+
+/* the proposal masthead with the picker (desktop: top of the side column) */
+.quote-top { padding: clamp(2.6rem, 7vh, 4.8rem) clamp(1.25rem, 3.4vw, 3.25rem) var(--sc-7); }
+.mast { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 1.25rem; font-family: var(--sans); font-size: 0.86rem; color: var(--ink); }
+.mast dt { color: var(--muted); }
+.mast dd { font-weight: 600; color: var(--navy); }
+.quote-title { margin-top: 1.4rem; }
+.picker { border: 0; padding: 0; margin: 1.4rem 0 0; min-width: 0; }
+.picker legend { padding: 0; margin-bottom: 0.7rem; }
+.picker__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.pv { position: relative; display: block; }
+.pv input { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.pv span {
+  display: flex; align-items: center; min-height: 46px; padding: 0.55rem 0.7rem;
+  background: var(--paper); border: 1px solid var(--rule); color: var(--navy);
+  font-family: var(--sans); font-size: 0.9rem; font-weight: 600; line-height: 1.2;
+  transition: background-color 160ms var(--sc-ease-out), border-color 160ms var(--sc-ease-out), transform 120ms var(--sc-ease-out);
+}
+.pv input:checked + span { background: var(--navy); color: var(--on-navy); border-color: var(--navy); box-shadow: inset 0 -3px 0 var(--gold); }
+.pv input:focus-visible + span { outline: 2px solid var(--gold-ink); outline-offset: 2px; }
+.pv input:active + span { transform: translateY(1px); }
+@media (hover: hover) and (pointer: fine) { .pv input:not(:checked):hover + span { border-color: var(--navy); } }
+.picker__note { margin-top: 0.8rem; font-family: var(--sans); font-size: 0.82rem; color: var(--muted); max-width: 44ch; }
+.quote-top .cta { margin-top: 1.4rem; }
+
+/* ------------------------------------------------------------ ledger --- */
+.ledger {
+  position: sticky; top: 0; z-index: 10; height: 100vh; height: 100svh;
+  display: flex; flex-direction: column; padding: 64px clamp(1.25rem, 3.4vw, 3.25rem) 20px;
+}
+.spine { position: absolute; left: -2px; top: 0; bottom: 0; width: 3px; pointer-events: none; }
+.spine__fill { position: absolute; inset: 0; background: var(--gold); transform-origin: center top; transform: scaleY(var(--prog)); }
+.chip {
+  position: absolute; top: 14px; left: 0; transform: translateX(calc(-100% / 2)); display: flex; white-space: nowrap;
+  font-family: var(--sans); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.chip span { padding: 0.45rem 0.8rem; }
+.chip .l { background: var(--paper); color: var(--navy); border: 1px solid var(--rule); border-right: 0; }
+.chip .r { background: var(--field); color: var(--navy); border: 1px solid var(--rule); border-left: 1px solid var(--navy); }
+.chip b { color: var(--gold-ink); }
+.ledger__head { padding-bottom: 0.9rem; border-bottom: 2px solid var(--navy); }
+.ledger__prov { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.6rem; margin-top: 0.55rem;
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--navy); }
+.stages { display: flex; flex-wrap: wrap; gap: 0.15rem 1rem; list-style: none; margin-top: 0.7rem; }
+.stages a {
+  display: inline-block; padding: 0.3rem 0; font-family: var(--sans); font-size: 0.8rem; font-weight: 600;
+  color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent;
+  transition: color 160ms var(--sc-ease-out), border-color 160ms var(--sc-ease-out);
+}
+.stages a[aria-current="step"] { color: var(--navy); border-bottom-color: var(--gold); }
+@media (hover: hover) and (pointer: fine) { .stages a:hover { color: var(--navy); } }
+.ledger__body { flex: 1; min-height: 0; overflow: auto; padding-top: 0.4rem; }
+.ledger__sec { margin-top: 0.9rem; color: var(--blue); }
+.lines { list-style: none; margin-top: 0.2rem; }
+.line {
+  display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 0.15rem 0.7rem; align-items: start;
+  padding: 0.5rem 0; border-bottom: 1px solid var(--rule);
+  font-family: var(--sans); font-size: 0.88rem; line-height: 1.35; color: var(--muted);
+  transition: color 240ms var(--sc-ease-out);
+}
+.line .tk { width: 14px; height: 14px; margin-top: 2px; border: 1.5px solid var(--mist); background: var(--paper); transition: background-color 240ms var(--sc-ease-out), border-color 240ms var(--sc-ease-out); }
+.line .st { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-ink); max-width: 11rem; text-align: right; opacity: 0; transition: opacity 240ms var(--sc-ease-out); }
+.line .nt { grid-column: 2 / -1; font-size: 0.78rem; color: var(--muted); }
+.line.is-lit { color: var(--ink); }
+.line.is-lit .tk { background: var(--navy); border-color: var(--navy); box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 7px var(--gold); }
+.line.is-lit .st { opacity: 1; }
+.ledger__foot { margin-top: 0.8rem; font-family: var(--sans); font-size: 0.8rem; color: var(--muted); }
+@media (max-height: 820px) and (min-width: 861px) {
+  .ledger { padding-top: 56px; }
+  .line { padding: 0.36rem 0; font-size: 0.82rem; }
+  .ledger__prov { font-size: 1.02rem; }
+}
+
+/* ------------------------------------------------------------ chapters - */
+.ch { position: relative; padding: var(--sc-9) var(--sc-gutter) var(--sc-8); }
+.ch .h2 { max-width: 18ch; }
+.ch .prose { margin-top: 1.2rem; }
+.pair { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 1rem; align-items: end; margin-top: var(--sc-6); }
+.pair img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+.pair figure:nth-child(2) img { aspect-ratio: 4 / 5; }
+.figure-wide img { width: 100%; height: auto; display: block; }
+
+/* act 3: the day, pinned inside the story column */
+.day {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: calc(var(--strip-h) + clamp(1.5rem, 5vh, 3rem)) var(--sc-gutter) clamp(1.5rem, 5vh, 3rem);
+}
+/* the owner's film of the hall: the one scrub clip on the page, inside the story column */
+.day__film { position: relative; height: clamp(170px, 34vh, 340px); margin-top: 1rem; overflow: hidden; border-top: 4px solid var(--gold); background: var(--mist); }
+.day__film .sc-stage__poster, .day__film video { object-position: center 62%; }
+.day__film figcaption { position: absolute; z-index: 2; left: 0.6rem; bottom: 0.6rem; margin: 0; padding: 0.3rem 0.55rem; background: var(--paper); color: var(--muted); font-size: 0.76rem; }
+.tt { width: 100%; border-collapse: collapse; margin-top: 1rem; font-family: var(--sans); font-size: 0.92rem; line-height: 1.4; }
+.tt th { text-align: left; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--on-navy); background: var(--navy); padding: 0.55rem 0.75rem; }
+.tt td { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink); }
+.tt td:first-child { width: 9.5rem; font-weight: 700; color: var(--navy); }
+/* the register is printed empty; each line fills in as the day runs */
+.tt .fill { display: block; will-change: opacity, transform; }
+.day__cap { margin-top: 0.9rem; font-family: var(--sans); font-size: 0.86rem; color: var(--muted); max-width: 56ch; }
+
+/* act 4: reveal */
+.wipe { position: relative; margin-top: var(--sc-6); aspect-ratio: 3 / 2; overflow: hidden; border-top: 4px solid var(--gold); }
+.wipe img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.wipe__top { position: absolute; inset: 0; }
+
+/* act 5: quiet list */
+.added .h2 { max-width: 20ch; }
+.items { list-style: none; margin-top: var(--sc-6); border-top: 2px solid var(--navy); }
+.items li { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.25rem; padding: 0.9rem 0; border-bottom: 1px solid var(--rule); }
+.items .q { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); max-width: 58ch; }
+.items .s { font-family: var(--sans); font-size: 0.84rem; color: var(--muted); max-width: 60ch; }
+.items .s b { color: var(--gold-ink); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem; margin-right: 0.4rem; }
+
+/* mobile helpers, hidden on desktop */
+.strip, .picker--inline, .stamp { display: none; }
+
+/* ------------------------------------------------------------ act 6 ---- */
+.pk { background: var(--paper); }
+.pk__photo { position: absolute; inset: 0 calc(100% / 2) 0 0; overflow: hidden; }
+.pk__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pk__photo figcaption { position: absolute; left: var(--sc-gutter); bottom: 1rem; margin: 0; padding: 0.35rem 0.6rem; background: var(--paper); color: var(--muted); }
+.pk__field { position: absolute; inset: 0; background: var(--field); clip-path: inset(0 0 0 calc(100% / 2 * (1 - var(--sweep)))); }
+.pk__divider { position: absolute; top: 0; bottom: 0; left: calc(100% / 2); width: 100%; border-left: 2px solid var(--navy); transform: translateX(calc(var(--sweep) * -100% / 2)); pointer-events: none; }
+.pk__quiet { position: absolute; left: calc(100% / 2 + clamp(1.25rem, 3.4vw, 3.25rem)); right: var(--sc-gutter); top: 38%; max-width: 26ch;
+  font-family: var(--serif); font-size: clamp(1.3rem, 1rem + 1vw, 1.9rem); line-height: 1.3; color: var(--navy); }
+.pk__in { position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); grid-template-rows: auto auto; align-content: center; gap: 1.6rem clamp(1.5rem, 4vw, 4rem); padding: 4rem var(--sc-gutter); max-width: 92rem; margin-inline: auto; }
+.pk__was { grid-column: 1; grid-row: 1 / span 2; align-self: start; padding-top: 1.5rem; }
+.pk__how { margin-top: 0.6rem; font-family: var(--sans); font-size: 0.98rem; color: var(--ink); max-width: 34ch; }
+.was { position: relative; display: inline-block; margin-top: 1rem; }
+.was del { text-decoration: none; display: inline-block; font-size: clamp(2.6rem, 1.2rem + 4.4vw, 5.6rem); font-weight: 700; color: var(--navy); line-height: 1.05;
+  opacity: calc(1 - var(--strike) * 0.55); }
+.was .unit { display: block; margin-top: 0.3rem; font-family: var(--sans); font-size: 0.86rem; color: var(--muted); }
+.was__bar { position: absolute; left: -4%; right: -4%; top: 0.6em; height: 6px; background: var(--gold-ink); font-size: clamp(2.6rem, 1.2rem + 4.4vw, 5.6rem);
+  transform-origin: left center; transform: rotate(-4deg) scaleX(var(--strike)); }
+.band {
+  grid-column: 2; grid-row: 1; align-self: end;
+  background: var(--navy); color: var(--on-navy); border-left: 5px solid var(--gold);
+  padding: 1.5rem clamp(1.25rem, 2.5vw, 2rem) 1.4rem; box-shadow: var(--sc-e2);
+  --sc-accent: var(--gold);
+}
+.band .lbl { color: var(--on-navy-soft); }
+.band ins { display: block; text-decoration: none; margin-top: 0.4rem; font-size: clamp(2.8rem, 1.3rem + 4.6vw, 6rem); font-weight: 700; color: var(--gold); line-height: 1.02; }
+.band .unit { font-family: var(--sans); font-size: 0.9rem; color: var(--on-navy-soft); }
+.band dl { margin-top: 1.1rem; border-top: 1px solid var(--blue); font-family: var(--sans); font-size: 0.92rem; }
+.band dl div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.45rem 0; border-bottom: 1px solid var(--blue); }
+.band dt { color: var(--on-navy-soft); }
+.band dd { font-weight: 700; color: var(--on-navy); }
+.band dl div:last-child dt, .band dl div:last-child dd { color: var(--on-navy); font-weight: 700; }
+.saving { grid-column: 2; grid-row: 2; align-self: start; font-family: var(--serif); font-size: clamp(1.15rem, 0.95rem + 0.6vw, 1.45rem); color: var(--navy); max-width: 34ch; }
+.saving strong { font-family: var(--sans); font-variant-numeric: tabular-nums lining-nums; color: var(--navy); border-bottom: 3px solid var(--gold); }
+
+/* ------------------------------------------------------------ act 7 ---- */
+.terms { background: var(--field); padding: var(--sc-7) var(--sc-gutter) var(--sc-9); border-top: 2px solid var(--navy); }
+.terms__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(2rem, 5vw, 5rem); max-width: var(--sc-maxw); margin-inline: auto; align-items: start; }
+.cl { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: 0.4rem 1.4rem; padding: 1.2rem 0; border-top: 1px solid var(--rule); }
+.cl:first-of-type { margin-top: var(--sc-6); border-top: 2px solid var(--navy); }
+.cl__k { padding-top: 0.2rem; color: var(--navy); }
+.cl__v > * + * { margin-top: 0.6rem; }
+.cl__v p { max-width: 58ch; }
+.big { font-family: var(--sans); font-variant-numeric: tabular-nums lining-nums; font-size: clamp(1.45rem, 1.2rem + 0.8vw, 1.9rem); font-weight: 700; color: var(--navy); line-height: 1.2; }
+.big small { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+.heads { font-family: var(--serif); font-style: italic; color: var(--blue); }
+.terms__pic { position: sticky; top: calc(var(--strip-h) + 2rem); }
+.terms__pic .wipe { margin-top: 0; aspect-ratio: 4 / 5; }
+
+/* ------------------------------------------------------------ act 8 ---- */
+.close { background: var(--field); padding: var(--sc-6) var(--sc-gutter) var(--sc-9); }
+.slip {
+  max-width: var(--sc-maxw); margin-inline: auto; background: var(--paper); border-top: 5px solid var(--navy);
+  box-shadow: var(--sc-e1); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+}
+.slip__main { padding: clamp(1.5rem, 4vw, 3.25rem); }
+.slip__side { padding: clamp(1.5rem, 4vw, 3rem); background: var(--field); border-left: 1px solid var(--rule); font-family: var(--sans); font-size: 0.88rem; }
+.slip .h2 { margin-top: 0.4rem; }
+.reading { margin-top: 0.6rem; font-family: var(--sans); font-size: 0.95rem; color: var(--muted); }
+.steps { list-style: none; margin-top: var(--sc-6); counter-reset: s; }
+.steps > li { counter-increment: s; position: relative; padding-left: 2.6rem; margin-top: 1.4rem; }
+.steps > li::before {
+  content: counter(s); position: absolute; left: 0; top: 0.1rem; width: 1.8rem; height: 1.8rem; border-radius: 999px;
+  background: var(--navy); color: var(--gold); font-family: var(--sans); font-size: 0.85rem; font-weight: 700;
+  display: grid; place-items: center;
+}
+.copyrow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-top: 0.55rem; }
+.copytext {
+  font-family: var(--sans); font-size: 1.05rem; font-weight: 700; color: var(--navy); background: var(--gold-soft);
+  padding: 0.55rem 0.8rem; border: 1px solid var(--rule); user-select: all; -webkit-user-select: all; overflow-wrap: anywhere;
+}
+.copybtn {
+  min-height: 44px; padding: 0 1rem; background: var(--paper); color: var(--navy); border: 1.5px solid var(--navy); border-radius: 0;
+  font-family: var(--sans); font-size: 0.88rem; font-weight: 700; cursor: pointer;
+  transition: background-color 140ms var(--sc-ease-out), color 140ms var(--sc-ease-out), transform 110ms var(--sc-ease-out);
+}
+.copybtn:active { transform: translateY(1px); }
+.copybtn:disabled { opacity: 0.5; cursor: default; }
+@media (hover: hover) and (pointer: fine) { .copybtn:hover { background: var(--navy); color: var(--on-navy); } }
+.copystatus { font-family: var(--sans); font-size: 0.85rem; color: var(--gold-ink); min-height: 1.3em; margin-top: 0.4rem; }
+.sum { margin-top: var(--sc-6); width: 100%; max-width: 34rem; border-collapse: collapse; font-family: var(--sans); font-size: 0.95rem; }
+.sum td { padding: 0.5rem 0; border-bottom: 1px solid var(--rule); }
+.sum td + td { text-align: right; font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+.sum tr.tot td { border-bottom: 0; background: var(--navy); color: var(--on-navy); padding: 0.75rem 0.8rem; }
+.sum tr.tot td + td { color: var(--gold); font-size: 1.2rem; }
+.terms-small { margin-top: 1.2rem; font-family: var(--sans); font-size: 0.86rem; color: var(--muted); max-width: 62ch; }
+.terms-small + .terms-small { margin-top: 0.5rem; }
+.slip__side h3 { margin-top: 1.4rem; }
+.slip__side h3:first-child { margin-top: 0; }
+.slip__side p, .slip__side dl { margin-top: 0.45rem; line-height: 1.55; }
+.bankrows div { display: flex; justify-content: space-between; gap: 0.8rem; padding: 0.3rem 0; border-bottom: 1px solid var(--rule); }
+.bankrows dt { color: var(--muted); }
+.bankrows dd { font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums lining-nums; text-align: right; }
+.colophon { max-width: var(--sc-maxw); margin: 1.4rem auto 0; display: flex; align-items: center; gap: 0.9rem; font-family: var(--sans); font-size: 0.82rem; color: var(--muted); }
+.colophon img { width: 40px; height: auto; }
+.dl { max-width: var(--sc-maxw); margin: var(--sc-7) auto 0; padding-top: var(--sc-6); border-top: 2px solid var(--navy);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem 1.1rem; }
+.dl .cta { min-height: 52px; font-size: 1rem; }
+.dl__size { font-family: var(--sans); font-size: 0.9rem; color: var(--muted); }
+.wcnote { grid-column: 2; grid-row: 2; align-self: start; font-family: var(--serif); font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem); color: var(--navy); max-width: 36ch;
+  padding: 0.8rem 1rem; background: var(--gold-soft); border-left: 3px solid var(--navy); }
+.band .unit2 { display: block; margin-top: 0.15rem; font-family: var(--sans); font-size: 0.86rem; color: var(--on-navy-soft); }
+
+/* ---------------------------------------------------------- phones ----- */
+@media (max-width: 860px) {
+  body { padding-top: var(--strip-h); }
+  .split { display: block; }
+  .side { display: none; }
+  .strip {
+    display: flex; position: fixed; top: 0; left: 0; right: 0; z-index: 40; height: var(--strip-h);
+    align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0 var(--sc-gutter);
+    background: var(--navy); color: var(--on-navy); --sc-accent: var(--gold);
+  }
+  .strip__stage { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-navy-soft); line-height: 1.25; min-width: 0; }
+  .strip__stage b { display: block; color: var(--on-navy); letter-spacing: 0.04em; }
+  .strip select.prov-select { background: var(--navy); color: var(--on-navy); border-color: var(--on-navy-soft); min-height: 36px; font-size: 0.85rem; max-width: 48vw; }
+  .strip__bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--gold); transform-origin: left center; transform: scaleX(var(--prog)); }
+  .picker--inline { display: block; margin-top: var(--sc-6); padding: 1.1rem 1rem 1.2rem; background: var(--field); border-top: 4px solid var(--navy); }
+  .picker--inline .picker { margin-top: 0.8rem; }
+  .picker--inline .cta { margin-top: 1rem; }
+  .picker__grid { gap: 5px; }
+  .pv span { min-height: 48px; font-size: 0.82rem; padding: 0.45rem 0.5rem; }
+  .stamp { display: block; margin-top: var(--sc-6); padding: 0.9rem 1rem; background: var(--field); border-top: 3px solid var(--navy); font-family: var(--sans); }
+  .stamp ul { list-style: none; margin-top: 0.4rem; }
+  .stamp li { display: grid; grid-template-columns: 14px 1fr; gap: 0.6rem; padding: 0.3rem 0; font-size: 0.86rem; color: var(--ink); }
+  .stamp li::before { content: ""; width: 12px; height: 12px; margin-top: 3px; background: var(--navy); box-shadow: inset 0 0 0 2px var(--field), inset 0 0 0 6px var(--gold); }
+  .hero { padding-top: 2rem; }
+  .hero .h1 { max-width: none; }
+  .seal { right: 10px; top: -30px; width: 76px; height: 76px; }
+  .seal img { width: 46px; }
+  .ch { padding: var(--sc-8) var(--sc-gutter) var(--sc-7); }
+  .pair { grid-template-columns: minmax(0, 1fr); }
+  .pair figure:nth-child(2) img { aspect-ratio: 16 / 10; }
+  .tt { font-size: 0.86rem; }
+  .tt thead { display: none; }
+  .tt tr { display: block; padding: 0.45rem 0; border-bottom: 1px solid var(--rule); }
+  .tt td { display: block; padding: 0.1rem 0; border: 0; }
+  .tt td:first-child { width: auto; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .day { justify-content: flex-start; padding-top: calc(var(--strip-h) + 0.9rem); padding-bottom: 0.75rem; }
+  .day .h2 { font-size: 1.55rem; }
+  .day .lede { font-size: 0.95rem; line-height: 1.4; margin-top: 0.3rem; }
+  .day__film { height: clamp(120px, 21svh, 200px); margin-top: 0.7rem; }
+  .tt { margin-top: 0.6rem; font-size: 0.82rem; line-height: 1.32; }
+  .tt tr { padding: 0.3rem 0; }
+  .tt td:first-child { font-size: 0.66rem; }
+  .day__cap { font-size: 0.78rem; margin-top: 0.5rem; }
+
+  .pk__photo { inset: 0 0 58% 0; }
+  .pk__field { clip-path: inset(calc(42% * (1 - var(--sweep))) 0 0 0); }
+  .pk__divider { left: 0; top: 42%; width: 100%; height: 100%; border-left: 0; border-top: 2px solid var(--navy); transform: translateY(calc(var(--sweep) * -42%)); }
+  .pk__quiet { left: var(--sc-gutter); top: 47%; max-width: none; }
+  .pk__in { display: flex; flex-direction: column; justify-content: center; gap: 1rem; padding: calc(var(--strip-h) + 1rem) var(--sc-gutter) 1rem; }
+  .pk__was { padding-top: 0; }
+  .pk__how { font-size: 0.9rem; }
+  .was { margin-top: 0.4rem; }
+  .was del, .was__bar { font-size: 2.5rem; }
+  .band { padding: 1rem 1rem 0.9rem; }
+  .band ins { font-size: 2.7rem; }
+  .band dl { margin-top: 0.7rem; font-size: 0.86rem; }
+  .band dl div { padding: 0.3rem 0; }
+  .saving, .wcnote { font-size: 1.05rem; }
+  .dl .cta { white-space: normal; }
+
+  .terms__grid { grid-template-columns: minmax(0, 1fr); }
+  .terms__pic { position: static; }
+  .terms__pic .wipe { aspect-ratio: 16 / 10; }
+  .cl { grid-template-columns: minmax(0, 1fr); }
+  .slip { grid-template-columns: minmax(0, 1fr); }
+  .slip__side { border-left: 0; border-top: 1px solid var(--rule); }
+}
+@media (max-width: 860px) and (max-height: 760px) {
+  .day__film { height: clamp(96px, 16svh, 140px); }
+  .day .lede { font-size: 0.9rem; }
+}
+@media (max-width: 400px) {
+  .pv span { font-size: 0.78rem; }
+}
+
+/* ------------------------------------------------------ reduced motion -- */
+@media (prefers-reduced-motion: reduce) {
+  .pk__field { clip-path: none; }
+  .pk__photo { z-index: 1; opacity: calc(1 - var(--sweep)); }
+  .pk__divider { display: none; }
+  .pk__in, .pk__quiet { z-index: 2; }
+  .was__bar { transform: rotate(-4deg); opacity: var(--strike); }
+  .line, .line .tk, .line .st, .pv span, .cta, .copybtn, .stages a { transition-duration: 0ms; }
+}
+</style>
+</head>
+<body>
+
+<div class="strip" role="region" aria-label="Where you are and which province this page is written for">
+  <p class="strip__stage">One workshop's life <b data-stage-name>Creation</b></p>
+  <label><span class="vh">Province this page shows</span>
+    <select class="prov-select js-prov" aria-label="Province this page shows">
+      <option value="">Choose a province</option>
+      <option value="eastern-cape">Eastern Cape</option><option value="free-state">Free State</option><option value="gauteng">Gauteng</option>
+      <option value="kwazulu-natal">KwaZulu-Natal</option><option value="limpopo">Limpopo</option><option value="mpumalanga">Mpumalanga</option>
+      <option value="north-west">North West</option><option value="northern-cape">Northern Cape</option><option value="western-cape">Western Cape</option>
+    </select>
+  </label>
+  <span class="strip__bar" aria-hidden="true"></span>
+</div>
+
+<p id="prov-live" class="vh" aria-live="polite"></p>
+
+<main>
+<div class="split" id="split">
+
+  <div class="story">
+
+    <!-- 1 RECOGNITION: parallax planes, the split established -->
+    <section id="create" class="hero" data-sc-act="flow" aria-labelledby="h-create">
+      <p class="lbl kicker">Workshop module proposal</p>
+      <h1 id="h-create" class="h1">
+        <span data-pv="none">One workshop's life, from creation to certificate.</span>
+        <span data-pv="other" hidden>One workshop's life, as NAPTOSA <span data-pname="a province">a province</span> would run it.</span>
+        <span data-pv="wc" hidden>One workshop's life, as the Western Cape runs it today.</span>
+      </h1>
+      <p class="lede">Follow one workshop from the day it is created to the certificate, then see the price per province, paid by NAPTOSA National.</p>
+
+      <figure class="plate">
+        <div class="plate__frame">
+          <img src="assets/a1-create.webp" width="1344" height="752" data-sc-parallax="1.1"
+               alt="A NAPTOSA staff member at her desk, creating a workshop on a laptop.">
+        </div>
+        <div class="seal" data-sc-parallax="-0.9" aria-hidden="true"><img src="assets/naptosa-shield.webp" width="200" height="239" alt=""></div>
+        <figcaption>It starts with one form.</figcaption>
+      </figure>
+
+      <div class="picker--inline">
+        <p class="lbl">Proposal LBTEC-NAPTOSA-WS-PROP-001</p>
+        <h2 class="h3">The workshop module, per province, paid by NAPTOSA National</h2>
+        <fieldset class="picker">
+          <legend class="lbl">Which province would you like to see?</legend>
+          <div class="picker__grid">
+            <label class="pv"><input type="radio" name="prov-b" value="eastern-cape"><span>Eastern Cape</span></label>
+            <label class="pv"><input type="radio" name="prov-b" value="free-state"><span>Free State</span></label>
+            <label class="pv"><input type="radio" name="prov-b" value="gauteng"><span>Gauteng</span></label>
+            <label class="pv"><input type="radio" name="prov-b" value="kwazulu-natal"><span>KwaZulu-Natal</span></label>
+            <label class="pv"><input type="radio" name="prov-b" value="limpopo"><span>Limpopo</span></label>
+            <label class="pv"><input type="radio" name="prov-b" value="mpumalanga"><span>Mpumalanga</span></label>
+            <label class="pv"><input type="radio" name="prov-b" value="north-west"><span>North West</span></label>
+            <label class="pv"><input type="radio" name="prov-b" value="northern-cape"><span>Northern Cape</span></label>
+            <label class="pv"><input type="radio" name="prov-b" value="western-cape"><span>Western Cape</span></label>
+          </div>
+        </fieldset>
+        <p class="picker__note">The page then shows what that province gets. It remembers your choice on this device.</p>
+        <a class="cta" href="#accept">Accept the proposal</a>
+      </div>
+
+      <div class="hero__body prose">
+        <h2 class="h3">Created on one form, published with one link</h2>
+        <p>Office staff create a workshop on one form: the title, the dates, in person, online or hybrid, the venue, the member and non-member price, the number of places, the CPTD points and a picture. They preview it, publish it and get a booking link to share.</p>
+        <p class="provnote" data-pv="none">Pick a province to see what it gets. Every price on this page is per province, paid by NAPTOSA National.</p>
+        <p class="provnote" data-pv="wc" hidden>The Western Cape already runs the workshop module, so it is left out of the pricing in this proposal. Pick any other province to see what it gets.</p>
+        <p class="provnote" data-pv="other" hidden>NAPTOSA <span data-pname="a province">a province</span> does not run the module yet. If NAPTOSA National includes <span data-pname="this province">this province</span>, we set up its workshops, its staff logins and its bank account for EFT payments. The provinces are set up one after another, about 5 working days each, in an order agreed with National.</p>
+        <aside class="stamp" aria-label="What each province gets">
+          <p class="lbl"><span data-pv="none">What each province gets</span><span data-pv="other" hidden>What NAPTOSA <span data-pname="a province">a province</span> gets</span><span data-pv="wc" hidden>In use in the Western Cape today</span></p>
+          <ul><li>The creation of the workshop</li></ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 2 CONFIDENCE: flow + in -->
+    <section id="book" class="ch" data-sc-act="flow" aria-labelledby="h-book">
+      <div class="sc-stack" data-sc-in data-sc-stagger="70">
+        <span class="rule-gold" aria-hidden="true"></span>
+        <h2 id="h-book" class="h2">Bookings and payments, captured.</h2>
+        <div class="prose">
+          <p>Teachers, schools and companies book through the link without needing an account. Every booking and every payment is recorded against the person, so the office sees who has paid and who still owes.</p>
+          <p>Anyone who chooses EFT gets the bank details and their own payment reference on screen and by email. The same reference shows on the staff row, so Finance can match it to the bank statement.</p>
+          <p>A Finance tick on a staff account lets that person mark an EFT as paid, which emails the invoice and receipt at once. Workshop creators without the tick cannot mark anything paid.</p>
+          <p data-pv="other" hidden>Once NAPTOSA <span data-pname="a province">a province</span> is set up, its EFT instructions carry its own bank account.</p>
+        </div>
+      </div>
+      <div class="pair" data-sc-in data-sc-stagger="90">
+        <figure>
+          <img src="assets/a2-book.webp" width="1344" height="752" loading="lazy" alt="A teacher outside his school, booking a workshop on his phone.">
+          <figcaption>Booked from a phone, no account needed.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/a2-paid-desk.webp" width="552" height="690" loading="lazy" alt="A finance officer at her desk after marking a payment as paid.">
+          <figcaption>Marked paid by Finance. The invoice and receipt go out at once.</figcaption>
+        </figure>
+      </div>
+      <aside class="stamp" aria-label="What each province gets">
+        <p class="lbl"><span data-pv="none">What each province gets</span><span data-pv="other" hidden>What NAPTOSA <span data-pname="a province">a province</span> gets</span><span data-pv="wc" hidden>In use in the Western Cape today</span></p>
+        <ul><li>The bookings and payments captured</li><li>The EFTs</li><li>The EFT enablement for the finance department</li></ul>
+      </aside>
+    </section>
+
+    <!-- 3 WARMTH: scrub, the owner's film of the hall; the register fills as the camera reaches the door table -->
+    <section id="day" data-sc-act="scrub" data-sc-span="2.2" data-sc-dwell="0.3" aria-labelledby="h-day">
+      <div data-sc-stage class="day">
+        <h2 id="h-day" class="h2">The day itself.</h2>
+        <p class="lede">People walk in, check themselves in at the door or online, and the register fills by itself.</p>
+        <figure class="day__film">
+          <img class="sc-stage__poster" src="assets/day-hall-poster.webp" width="1280" height="720"
+               alt="A school hall set out for a workshop: rows of navy chairs, a projector screen, and a check-in tablet on the table by the door.">
+          <video data-sc-scrub data-sc-src="assets/day-hall.mp4" playsinline muted preload="none" aria-hidden="true" tabindex="-1"></video>
+          <figcaption>The hall before the doors open.</figcaption>
+        </figure>
+        <table class="tt">
+          <thead><tr><th scope="col">When</th><th scope="col">What happens</th></tr></thead>
+          <tbody>
+            <tr><td>The day before</td><td><span class="fill" data-sc-cue="0 1 0 0">Paid attendees get a reminder that the workshop starts soon.</span></td></tr>
+            <tr><td>At the door</td><td><span class="fill" data-sc-cue="0.10 1 0.12 0">A check-in QR code waits at the door. Online attendees use the same link.</span></td></tr>
+            <tr><td>Finding themselves</td><td><span class="fill" data-sc-cue="0.24 1 0.12 0">Each attendee finds themselves by name, email, ID, PERSAL or NAP number and sees only their own masked match.</span></td></tr>
+            <tr><td>Confirming</td><td><span class="fill" data-sc-cue="0.38 1 0.12 0">They confirm with the last 4 digits or their email and tap I'm present.</span></td></tr>
+            <tr><td>On the staff screen</td><td><span class="fill" data-sc-cue="0.52 1 0.12 0">The register updates by itself, with no reload. Only paid bookings can be marked present.</span></td></tr>
+          </tbody>
+        </table>
+        <p class="day__cap" data-sc-cue="0.64 1 0.12 0"><span data-pv="wc" hidden>Self check-in is in use in the Western Cape today. It is one of the five added items.</span><span data-pv="none">Self check-in is in use in the Western Cape today. It is one of the five added items, and it comes with the module for every province.</span><span data-pv="other" hidden>Self check-in is in use in the Western Cape today. It is one of the five added items, and it comes with the module for NAPTOSA <span data-pname="a province">a province</span>.</span></p>
+      </div>
+    </section>
+    <div class="stamp-wrap">
+      <aside class="stamp" aria-label="What each province gets" style="margin-inline: var(--sc-gutter)">
+        <p class="lbl"><span data-pv="none">What each province gets</span><span data-pv="other" hidden>What NAPTOSA <span data-pname="a province">a province</span> gets</span><span data-pv="wc" hidden>In use in the Western Cape today</span></p>
+        <ul><li>The self-check-in feature that we created extra</li></ul>
+      </aside>
+    </div>
+
+    <!-- 4 REASSURANCE: reveal, the day becomes the morning after -->
+    <section id="after" class="ch" data-sc-act="flow" aria-labelledby="h-after">
+      <span class="rule-gold" aria-hidden="true"></span>
+      <h2 id="h-after" class="h2">After the day.</h2>
+      <figure class="wipe">
+        <img src="assets/a3-day.webp" width="1600" height="900" loading="lazy" alt="">
+        <div class="wipe__top" data-sc-reveal="left" data-sc-reveal-at="0.22 0.55">
+          <img src="assets/a4-after-phone.webp" width="1536" height="864" loading="lazy" alt="The morning after, a teacher in a school corridor reads her certificate email on her phone.">
+        </div>
+      </figure>
+      <div class="prose">
+        <p>Staff issue a numbered certificate to everyone who paid and was marked present, and it is emailed to them. People marked present get a thank-you email; people marked absent get a "We missed you" email.</p>
+        <p>Staff download an Excel workbook for one workshop or many: bookings, payments, school places with the teachers who used them, and an attendance register. A creator without the Finance tick gets the same file with the money columns removed.</p>
+        <p>A summary report emailed to staff the morning after a workshop ends is being built.</p>
+      </div>
+      <aside class="stamp" aria-label="What each province gets">
+        <p class="lbl"><span data-pv="none">What each province gets</span><span data-pv="other" hidden>What NAPTOSA <span data-pname="a province">a province</span> gets</span><span data-pv="wc" hidden>In use in the Western Cape today</span></p>
+        <ul><li>Sheets and reports going out</li></ul>
+      </aside>
+    </section>
+
+    <!-- 5 ANTICIPATION, the quiet act before the peak: flow + in -->
+    <section id="added" class="ch added" data-sc-act="flow" aria-labelledby="h-added">
+      <h2 id="h-added" class="h2">The five items we are adding.</h2>
+      <div class="prose">
+        <p>At the demo and in our meetings we came across a few things that need a bit more development. So we are adding five items. Two are already in use; three are still to be built. Each added item reaches every province as it is finished.</p>
+        <p data-pv="other" hidden>All five come with the module for NAPTOSA <span data-pname="a province">a province</span>.</p>
+      </div>
+      <ul class="items" data-sc-in data-sc-stagger="70">
+        <li><span class="q">The dedicated auditor portal.</span><span class="s"><b>To be built</b>A separate read-only login for auditors. They can view and export the workshop money records, but cannot change anything.</span></li>
+        <li><span class="q">The built-in approval methods for publishing a workshop and changing any details, including banking details.</span><span class="s"><b>To be built</b>A named approver approves a workshop before it goes public. New bank details take effect only after a second person approves them. Approval for other detail changes, such as a date, venue or price, is new work within this item.</span></li>
+        <li><span class="q">The automated audit trail.</span><span class="s"><b>In use for money changes, being extended</b>Every money change is logged with who made it and when. It is being extended to more of the system.</span></li>
+        <li><span class="q">The self-check-in feature that we created extra.</span><span class="s"><b>In use</b>In the Western Cape today. You saw it on the day itself.</span></li>
+        <li><span class="q">The on-site or on-premises invoicing system for walk-ins who need to be registered and paid.</span><span class="s"><b>To be built</b>Register the person, record the payment, mark them present and email the receipt, in one step at the door.</span></li>
+      </ul>
+      <aside class="stamp" aria-label="The five added items">
+        <p class="lbl"><span data-pv="none wc">The five added items</span><span data-pv="other" hidden>Added for NAPTOSA <span data-pname="a province">a province</span></span></p>
+        <ul><li>The dedicated auditor portal</li><li>The built-in approval methods</li><li>The automated audit trail</li><li>The self check-in feature (in use)</li><li>The on-site invoicing for walk-ins</li></ul>
+      </aside>
+    </section>
+
+  </div>
+
+  <aside class="side" aria-label="The proposal">
+    <div class="quote-top">
+      <dl class="mast">
+        <dt>Proposal</dt><dd>LBTEC-NAPTOSA-WS-PROP-001</dd>
+        <dt>Dated</dt><dd>9 October 2026</dd>
+        <dt>Valid until</dt><dd>28 November 2026</dd>
+        <dt>For</dt><dd>NAPTOSA National</dd>
+        <dt>From</dt><dd>LB TEC (PTY) LTD</dd>
+      </dl>
+      <h2 class="h2 quote-title">The workshop module, per province, paid by NAPTOSA National</h2>
+      <fieldset class="picker">
+        <legend class="lbl">Which province would you like to see?</legend>
+        <div class="picker__grid">
+          <label class="pv"><input type="radio" name="prov-a" value="eastern-cape"><span>Eastern Cape</span></label>
+          <label class="pv"><input type="radio" name="prov-a" value="free-state"><span>Free State</span></label>
+          <label class="pv"><input type="radio" name="prov-a" value="gauteng"><span>Gauteng</span></label>
+          <label class="pv"><input type="radio" name="prov-a" value="kwazulu-natal"><span>KwaZulu-Natal</span></label>
+          <label class="pv"><input type="radio" name="prov-a" value="limpopo"><span>Limpopo</span></label>
+          <label class="pv"><input type="radio" name="prov-a" value="mpumalanga"><span>Mpumalanga</span></label>
+          <label class="pv"><input type="radio" name="prov-a" value="north-west"><span>North West</span></label>
+          <label class="pv"><input type="radio" name="prov-a" value="northern-cape"><span>Northern Cape</span></label>
+          <label class="pv"><input type="radio" name="prov-a" value="western-cape"><span>Western Cape</span></label>
+        </div>
+      </fieldset>
+      <p class="picker__note">The page then shows what that province gets. It remembers your choice on this device.</p>
+      <a class="cta" href="#accept">Accept the proposal</a>
+    </div>
+
+    <div class="ledger" id="ledger" data-sc-verify-state="">
+      <div class="spine" aria-hidden="true"><span class="spine__fill"></span></div>
+      <p class="chip" aria-hidden="true"><span class="l">One workshop's life: <b data-stage-name>Creation</b></span><span class="r">The proposal</span></p>
+      <div class="ledger__head">
+        <p class="lbl">Proposal LBTEC-NAPTOSA-WS-PROP-001</p>
+        <label class="ledger__prov">Showing NAPTOSA
+          <select class="prov-select js-prov">
+            <option value="">Choose a province</option>
+            <option value="eastern-cape">Eastern Cape</option><option value="free-state">Free State</option><option value="gauteng">Gauteng</option>
+            <option value="kwazulu-natal">KwaZulu-Natal</option><option value="limpopo">Limpopo</option><option value="mpumalanga">Mpumalanga</option>
+            <option value="north-west">North West</option><option value="northern-cape">Northern Cape</option><option value="western-cape">Western Cape</option>
+          </select>
+        </label>
+        <nav aria-label="Stages of the workshop's life">
+          <ol class="stages">
+            <li><a href="#create">Creation</a></li>
+            <li><a href="#book">Bookings</a></li>
+            <li><a href="#day">The day</a></li>
+            <li><a href="#after">After the day</a></li>
+            <li><a href="#added">Added</a></li>
+            <li><a href="#price">The price</a></li>
+            <li><a href="#accept">Accept</a></li>
+          </ol>
+        </nav>
+      </div>
+      <div class="ledger__body">
+        <h3 class="lbl ledger__sec">The module as built today</h3>
+        <ul class="lines">
+          <li class="line" data-light="create"><span class="tk" aria-hidden="true"></span><span>The creation of the workshop</span><span class="st"><span data-pv="none other">Included</span><span data-pv="wc" hidden>In use</span></span></li>
+          <li class="line" data-light="book"><span class="tk" aria-hidden="true"></span><span>The bookings and payments captured</span><span class="st"><span data-pv="none other">Included</span><span data-pv="wc" hidden>In use</span></span></li>
+          <li class="line" data-light="book"><span class="tk" aria-hidden="true"></span><span>The EFTs</span><span class="st"><span data-pv="none other">Included</span><span data-pv="wc" hidden>In use</span></span></li>
+          <li class="line" data-light="book"><span class="tk" aria-hidden="true"></span><span>The EFT enablement for the finance department</span><span class="st"><span data-pv="none other">Included</span><span data-pv="wc" hidden>In use</span></span></li>
+          <li class="line" data-light="after"><span class="tk" aria-hidden="true"></span><span>Sheets and reports going out</span><span class="st"><span data-pv="none other">Included</span><span data-pv="wc" hidden>In use</span></span><span class="nt">Excel sheets today; a summary report email is being built.</span></li>
+        </ul>
+        <h3 class="lbl ledger__sec">The five added items</h3>
+        <ul class="lines">
+          <li class="line" data-light="added"><span class="tk" aria-hidden="true"></span><span>The dedicated auditor portal</span><span class="st">To be built</span></li>
+          <li class="line" data-light="added"><span class="tk" aria-hidden="true"></span><span>The built-in approval methods for publishing a workshop and changing any details, including banking details</span><span class="st">To be built</span></li>
+          <li class="line" data-light="added"><span class="tk" aria-hidden="true"></span><span>The automated audit trail</span><span class="st">In use for money changes, being extended</span></li>
+          <li class="line" data-light="day"><span class="tk" aria-hidden="true"></span><span>The self-check-in feature that we created extra</span><span class="st">In use</span></li>
+          <li class="line" data-light="added"><span class="tk" aria-hidden="true"></span><span>The on-site or on-premises invoicing system for walk-ins who need to be registered and paid</span><span class="st">To be built</span></li>
+        </ul>
+      </div>
+      <p class="ledger__foot"><span data-pv="none other">The price arrives at the end of the workshop's life: per province, paid by NAPTOSA National.</span><span data-pv="wc" hidden>The Western Cape already runs the module and is left out of the pricing.</span></p>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 6 SURPRISE, THE PEAK: pin, the divider sweeps, R 30,000.00 is struck out -->
+<section id="price" data-sc-act="pin" data-sc-span="3" aria-labelledby="h-price">
+  <div data-sc-stage class="pk" id="pk" data-sc-verify-state="">
+    <figure class="pk__photo">
+      <img src="assets/a4-table.webp" width="1280" height="720" loading="lazy" alt="The check-in table by the door of a school hall, set out with folders and a tablet before a workshop.">
+      <figcaption>The hall, ready for the next workshop.</figcaption>
+    </figure>
+    <div class="pk__field" aria-hidden="true"></div>
+    <div class="pk__divider" aria-hidden="true"></div>
+    <p class="pk__quiet" data-sc-cue="0 0.33 0 0.1">Billed by the hour, the way we normally work.</p>
+    <div class="pk__in">
+      <div class="pk__was" data-pv="none other" data-sc-cue="0.31 1 0.15 0">
+        <h2 id="h-price" class="lbl"><span data-pv="none wc">Normally, per province</span><span data-pv="other" hidden>Normally, for NAPTOSA <span data-pname="a province">a province</span></span></h2>
+        <p class="pk__how">About 40 hours, about 5 working days, at <span class="amt">R 750.00</span> excl. VAT an hour.</p>
+        <p class="was money"><del>R 30,000.00</del><span class="was__bar" aria-hidden="true"></span><span class="unit">excl. VAT per province, billed by the hour</span></p>
+      </div>
+      <div class="band money" data-pv="none other" data-sc-cue="0.6 1 0.18 0">
+        <p class="lbl"><span data-pv="none">What each province gets</span><span data-pv="other" hidden>What NAPTOSA <span data-pname="a province">a province</span> gets</span><span data-pv="wc" hidden>Each province other than the Western Cape</span>, once-off, never charged again</p>
+        <p class="band__price"><ins>R 12,499.00</ins> <span class="unit">per province, paid by NAPTOSA National</span></p>
+        <span class="unit2">excl. VAT</span>
+        <dl>
+          <div><dt>The module as built today</dt><dd>R 8,999.00</dd></div>
+          <div><dt>The five added items</dt><dd>R 3,500.00</dd></div>
+          <div><dt>VAT</dt><dd>R 1,874.85</dd></div>
+          <div><dt>Per province, incl. VAT</dt><dd>R 14,373.85</dd></div>
+        </dl>
+      </div>
+      <p class="saving" data-pv="none other" data-sc-cue="0.74 1 0.2 0">That is <strong>R 17,501.00</strong> less, per province, than billing by the hour.</p>
+      <p class="wcnote" data-pv="wc" hidden data-sc-cue="0.74 1 0.2 0">The Western Cape is left out of this pricing. It already runs the workshop module and has paid for it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 REASSURANCE: reveal, plain terms in the winning column -->
+<section id="terms" class="terms" data-sc-act="flow" aria-labelledby="h-terms">
+  <div class="terms__grid">
+    <div>
+      <span class="rule-gold" aria-hidden="true"></span>
+      <h2 id="h-terms" class="h2">Training, support and timing, plainly.</h2>
+      <div class="cl">
+        <h3 class="lbl cl__k">Training</h3>
+        <div class="cl__v">
+          <p class="big">R 2,500.00 <small>excl. VAT per person trained</small></p>
+          <p>Billed separately, to NAPTOSA National. That is <span class="amt">R 2,875.00</span> incl. VAT for each person we train.</p>
+        </div>
+      </div>
+      <div class="cl">
+        <h3 class="lbl cl__k">Further training</h3>
+        <div class="cl__v">
+          <p class="big">R 750.00 <small>excl. VAT an hour</small></p>
+          <p>For example when a new person takes over, or someone needs a refresher on the modules.</p>
+        </div>
+      </div>
+      <div class="cl">
+        <h3 class="lbl cl__k">Support</h3>
+        <div class="cl__v">
+          <p class="heads">A heads-up, not an upsell.</p>
+          <p>We do offer service and support packages. We are not saying NAPTOSA needs one: we build systems that need little support. But when the system or its logic must change, when new features are asked for, or when something outside the system changes and we must adjust for it, hourly work gets expensive.</p>
+          <p class="big">R 7,500.00 to R 15,000.00 <small>excl. VAT</small></p>
+          <p>One change can take 10 to 20 hours to build, so that is what one change costs in that month. This is simply a heads-up.</p>
+        </div>
+      </div>
+      <div class="cl">
+        <h3 class="lbl cl__k">Timing</h3>
+        <div class="cl__v">
+          <p class="big">About 5 working days <small>per province</small></p>
+          <p>Work starts once NAPTOSA National's payment is received. The provinces are then set up one after another, about 5 working days each, in an order agreed with National. Each added item reaches every province as it is finished. If this is approved, we will endeavour to work through the holidays.</p>
+        </div>
+      </div>
+    </div>
+    <div class="terms__pic">
+      <figure>
+        <div class="wipe">
+          <div data-sc-reveal="up" data-sc-reveal-at="0.12 0.42" class="wipe__top">
+            <img src="assets/a7-training.webp" width="1600" height="900" loading="lazy" alt="Three NAPTOSA staff members working through the module together at a laptop.">
+          </div>
+        </div>
+        <figcaption>Training is billed to NAPTOSA National, per person trained.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 8 CLARITY, THE CLOSE: the slip in the winning column, addressed to NAPTOSA National, holds -->
+<section id="accept" class="close" data-sc-act="flow" aria-labelledby="h-accept">
+  <div class="slip" data-sc-in>
+    <div class="slip__main">
+      <p class="lbl kicker">Proposal LBTEC-NAPTOSA-WS-PROP-001</p>
+      <h2 id="h-accept" class="h2">Accept the proposal</h2>
+      <p class="reading">NAPTOSA National accepts once, for all the provinces it chooses to pay for.</p>
+      <ol class="steps">
+        <li><p>Download the proposal (PDF) at the bottom of this page. Its last page is the acceptance page: NAPTOSA National signs it once, ticks the provinces it is paying for and writes how many.</p></li>
+        <li>
+          <p>Email the signed page to</p>
+          <div class="copyrow">
+            <span class="copytext" id="acc-email">loxly@lbtec.co.za</span>
+            <button type="button" class="copybtn" data-copy="acc-email">Copy address</button>
+          </div>
+        </li>
+        <li>
+          <p>Use this subject line</p>
+          <div class="copyrow">
+            <span class="copytext" id="acc-subject">Acceptance of LBTEC-NAPTOSA-WS-PROP-001, NAPTOSA National</span>
+            <button type="button" class="copybtn" data-copy="acc-subject">Copy subject</button>
+          </div>
+        </li>
+        <li><p>We reply with the invoice for the provinces listed. NAPTOSA National pays in full upfront, by EFT into either account, with the invoice number as the reference. We start the work once the payment is received.</p></li>
+      </ol>
+      <p class="copystatus" id="copy-status" role="status" aria-live="polite"></p>
+      <table class="sum money">
+        <caption class="vh">Price per province</caption>
+        <tbody>
+          <tr><td>The module as built today</td><td>R 8,999.00</td></tr>
+          <tr><td>The five added items</td><td>R 3,500.00</td></tr>
+          <tr><td>VAT</td><td>R 1,874.85</td></tr>
+          <tr class="tot"><td>Per province, once-off, incl. VAT</td><td>R 14,373.85</td></tr>
+        </tbody>
+      </table>
+      <p class="terms-small"><span class="amt">R 12,499.00</span> excl. VAT per province, paid by NAPTOSA National, once-off, never charged again. Every price is per province.</p>
+      <p class="terms-small">A province NAPTOSA National adds later is the same <span class="amt">R 12,499.00</span> per province while the offer holds. Training is billed to NAPTOSA National, separately.</p>
+      <p class="terms-small">The Western Cape is left out of this pricing: it already runs the workshop module and has paid for it (INV-NAPTOSA-WS-2026-01).</p>
+      <p class="terms-small">Dated 9 October 2026 and valid until 28 November 2026. If NAPTOSA accepts by 28 November 2026, this price holds for go-lives in its next financial year. This proposal replaces Option 1 (Regional access) of <span style="white-space:nowrap">LBTEC-NAPTOSA-WS-OPT-001</span>, dated 29 September 2026.</p>
+    </div>
+    <div class="slip__side">
+      <h3 class="lbl">To</h3>
+      <p><strong>NAPTOSA National</strong>, National Professional Teachers' Organisation of South Africa.<br>Attn: Wongeka Salami, Financial Manager, and Mr Basil Manuel.</p>
+      <p>In answer to Wongeka Salami's email of 9 October 2026: NAPTOSA plans to implement the system from its next financial year and is preparing budgets now.</p>
+      <h3 class="lbl">From</h3>
+      <p><strong>LB TEC (PTY) LTD</strong><br>Reg. 2020/138701/07<br>VAT No. 4440290809<br>53 Olinia Crescent, Rouxville, Kuilsrivier, 7580<br>Loxly Atkinson, loxly@lbtec.co.za, 083 713 2113</p>
+      <h3 class="lbl">Payment</h3>
+      <p>NAPTOSA National pays in full upfront for the provinces it lists, by EFT, with the invoice number as the reference. The banking details are in the proposal PDF and on the invoice.</p>
+    </div>
+  </div>
+  <p class="colophon"><img src="assets/naptosa-shield.webp" width="200" height="239" alt="NAPTOSA shield">Prepared by LB TEC (PTY) LTD for NAPTOSA National. Photographs are illustrative.</p>
+  <div class="dl">
+    <a class="cta" id="dl-link" href="downloads/LBTec-NAPTOSA-Workshop-Module-Proposal.pdf" download>Download the proposal (PDF)</a>
+    <span class="dl__size" id="dl-size">PDF</span>
+  </div>
+</section>
+
+</main>
+
+<script src="scrollcraft.js"></script>
+<script>
+(function () {
+  'use strict';
+  if (!document.documentElement.lang) document.documentElement.lang = 'en-ZA';
+  // The hall film is 16:9 only. On phones, and wherever the engine treats the
+  // device as mobile, the poster holds as a still: drop the source before mount
+  // so the clip is never fetched.
+  var small = matchMedia('(max-width: 860px)').matches || matchMedia('(hover: none) and (pointer: coarse)').matches;
+  if (small) Array.prototype.forEach.call(document.querySelectorAll('video[data-sc-src]'), function (v) { v.removeAttribute('data-sc-src'); });
+  var api = ScrollCraft.mount(document.body);
+
+  // ------------------------------------------------------ the province picker
+  var PROVS = [
+    { id: 'eastern-cape', name: 'Eastern Cape', alias: 'ec' },
+    { id: 'free-state', name: 'Free State', alias: 'fs' },
+    { id: 'gauteng', name: 'Gauteng', alias: 'gp' },
+    { id: 'kwazulu-natal', name: 'KwaZulu-Natal', alias: 'kzn' },
+    { id: 'limpopo', name: 'Limpopo', alias: 'lp' },
+    { id: 'mpumalanga', name: 'Mpumalanga', alias: 'mp' },
+    { id: 'north-west', name: 'North West', alias: 'nw' },
+    { id: 'northern-cape', name: 'Northern Cape', alias: 'nc' },
+    { id: 'western-cape', name: 'Western Cape', alias: 'wc' }
+  ];
+  var byKey = {};
+  PROVS.forEach(function (p) { byKey[p.id] = p; byKey[p.alias] = p; });
+  var KEY = 'naptosa-ws-proposal-province';
+  var docEl = document.documentElement;
+  var live = document.getElementById('prov-live');
+  var each = function (sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); };
+
+  function readStored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function writeStored(id) { try { localStorage.setItem(KEY, id); } catch (e) {} }
+  function fromHash() {
+    var h = '';
+    try { h = decodeURIComponent((location.hash || '').replace(/^#/, '')).toLowerCase(); } catch (e) {}
+    return byKey[h] || null;
+  }
+
+  function apply(p, byUser) {
+    var mode = !p ? 'none' : (p.id === 'western-cape' ? 'wc' : 'other');
+    docEl.setAttribute('data-prov', mode);
+    each('[data-pv]', function (el) {
+      var want = el.getAttribute('data-pv').split(/\s+/);
+      el.hidden = !(want.indexOf(mode) > -1 || (mode !== 'none' && want.indexOf('some') > -1));
+    });
+    each('[data-pname]', function (el) { el.textContent = p ? p.name : el.getAttribute('data-pname'); });
+    each('input[type="radio"][name^="prov-"]', function (r) { r.checked = !!p && r.value === p.id; });
+    each('select.js-prov', function (s) { s.value = p ? p.id : ''; });
+    if (byUser && p) {
+      writeStored(p.id);
+      try { history.replaceState(null, '', '#' + p.id); } catch (e) {}
+      if (live) live.textContent = 'This page now shows NAPTOSA ' + p.name + '.';
+    }
+    if (api && api.layout) api.layout();
+    schedule();
+  }
+
+  each('input[type="radio"][name^="prov-"]', function (r) {
+    r.addEventListener('change', function () { if (r.checked) apply(byKey[r.value], true); });
+  });
+  each('select.js-prov', function (s) {
+    s.addEventListener('change', function () { if (byKey[s.value]) apply(byKey[s.value], true); });
+  });
+  addEventListener('hashchange', function () { var p = fromHash(); if (p) { writeStored(p.id); apply(p, false); } });
+
+  var first = fromHash();
+  if (first) writeStored(first.id);
+  apply(first || byKey[readStored() || ''] || null, false);
+
+  // A keyboard user can tab into a block that has not faded in yet; show it at once.
+  addEventListener('focusin', function (e) {
+    var host = e.target && e.target.closest ? e.target.closest('[data-sc-in]') : null;
+    if (!host || host.classList.contains('sc-in')) return;
+    host.classList.add('sc-in');
+    Array.prototype.forEach.call(host.children, function (k) { k.classList.add('sc-in'); });
+  });
+
+  // ---------------------------------------------------------- copy buttons
+  var status = document.getElementById('copy-status');
+  function selectNode(el) {
+    try {
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var sel = getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } catch (e) {}
+  }
+  each('.copybtn', function (btn) {
+    btn.addEventListener('click', function () {
+      var target = document.getElementById(btn.getAttribute('data-copy'));
+      if (!target) return;
+      var text = target.textContent.replace(/\s+/g, ' ').trim();
+      var fallback = function () {
+        selectNode(target);
+        if (status) status.textContent = 'Selected. Press Ctrl+C (or Cmd+C) to copy it.';
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            if (status) status.textContent = 'Copied: ' + text;
+          }, fallback);
+        } else { fallback(); }
+      } catch (e) { fallback(); }
+    });
+  });
+
+  // ------------------------------------------- the size beside the download
+  // Read from the file itself, so the label is right whichever PDF is placed.
+  var dl = document.getElementById('dl-link'), dlSize = document.getElementById('dl-size');
+  if (dl && dlSize && window.fetch) {
+    fetch(dl.getAttribute('href'), { method: 'HEAD', cache: 'no-store' }).then(function (r) {
+      var n = r.ok ? parseInt(r.headers.get('content-length') || '0', 10) : 0;
+      if (n > 0) dlSize.textContent = 'PDF, ' + (n >= 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(n / 1024)) + ' KB');
+    }).catch(function () {});
+  }
+
+  // -------------------------- the running ledger, the divider and the peak
+  var CH = ['create', 'book', 'day', 'after', 'added', 'price', 'accept'];
+  var NAMES = ['Creation', 'Bookings', 'The day', 'After the day', 'Added', 'The price', 'Accept'];
+  var chapters = CH.map(function (id) { return document.getElementById(id); });
+  var links = {};
+  each('.stages a', function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  var lines = Array.prototype.slice.call(document.querySelectorAll('.line[data-light]'));
+  var ledger = document.getElementById('ledger');
+  var split = document.getElementById('split');
+  var price = document.getElementById('price');
+  var pk = document.getElementById('pk');
+  var day = document.getElementById('day');
+  var clamp01 = function (x) { return x < 0 ? 0 : x > 1 ? 1 : x; };
+  var smooth = function (x) { x = clamp01(x); return x * x * (3 - 2 * x); };
+  var pinned = function (el, vh) { var r = el.getBoundingClientRect(); return clamp01(-r.top / Math.max(r.height - vh, 1)); };
+  var lastStage = -1;
+
+  function frame() {
+    queued = false;
+    var vh = innerHeight;
+    var stage = 0;
+    chapters.forEach(function (c, i) { if (c && c.getBoundingClientRect().top <= vh * 0.5) stage = i; });
+    if (stage !== lastStage) {
+      lastStage = stage;
+      each('[data-stage-name]', function (el) { el.textContent = NAMES[stage]; });
+      CH.forEach(function (id, i) { if (links[id]) { if (i === stage) links[id].setAttribute('aria-current', 'step'); else links[id].removeAttribute('aria-current'); } });
+    }
+    var lit = {
+      create: true,
+      book: chapters[1].getBoundingClientRect().top < vh * 0.55,
+      day: pinned(day, vh) > 0.58,
+      after: chapters[3].getBoundingClientRect().top < vh * 0.5,
+      added: chapters[4].getBoundingClientRect().top < vh * 0.55
+    };
+    var n = 0;
+    lines.forEach(function (l) { var on = !!lit[l.getAttribute('data-light')]; l.classList.toggle('is-lit', on); if (on) n++; });
+    var sr = split.getBoundingClientRect();
+    var prog = clamp01(-sr.top / Math.max(sr.height - vh, 1));
+    docEl.style.setProperty('--prog', prog.toFixed(4));
+    if (ledger) ledger.setAttribute('data-sc-verify-state', 'lit' + n + ' st' + stage + ' sp' + Math.round(prog * 40));
+
+    var p = pinned(price, vh);
+    var sweep = smooth((p - 0.06) / 0.24);
+    var strike = smooth((p - 0.5) / 0.12);
+    pk.style.setProperty('--sweep', sweep.toFixed(4));
+    pk.style.setProperty('--strike', strike.toFixed(4));
+    pk.setAttribute('data-sc-verify-state', 'sw' + sweep.toFixed(2) + ' sk' + strike.toFixed(2));
+  }
+  var queued = false;
+  function schedule() { if (!queued) { queued = true; requestAnimationFrame(frame); } }
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', schedule, { passive: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (api && api.layout) api.layout(); schedule(); });
+  frame();
+})();
+</script>
+</body>
+</html>
