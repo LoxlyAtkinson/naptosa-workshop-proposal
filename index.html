@@ -162,7 +162,7 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
 .spine { position: absolute; left: -2px; top: 0; bottom: 0; width: 3px; pointer-events: none; }
 .spine__fill { position: absolute; inset: 0; background: var(--gold); transform-origin: center top; transform: scaleY(var(--prog)); }
 .chip {
-  position: absolute; top: 14px; left: 0; transform: translateX(calc(-100% / 2)); display: flex; white-space: nowrap;
+  position: absolute; top: 14px; left: 0; right: 0; display: flex; justify-content: center; white-space: nowrap;
   font-family: var(--sans); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
 }
 .chip span { padding: 0.45rem 0.8rem; }
@@ -259,7 +259,7 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
 .pk__how { margin-top: 0.6rem; font-family: var(--sans); font-size: 0.98rem; color: var(--ink); max-width: 34ch; }
 .was { position: relative; display: inline-block; margin-top: 1rem; }
 .was del { text-decoration: none; display: inline-block; font-size: clamp(2.6rem, 1.2rem + 4.4vw, 5.6rem); font-weight: 700; color: var(--navy); line-height: 1.05;
-  opacity: calc(1 - var(--strike) * 0.55); }
+  opacity: calc(1 - var(--strike) * 0.3); }
 .was .unit { display: block; margin-top: 0.3rem; font-family: var(--sans); font-size: 0.86rem; color: var(--muted); }
 .was__bar { position: absolute; left: -4%; right: -4%; top: 0.6em; height: 6px; background: var(--gold-ink); font-size: clamp(2.6rem, 1.2rem + 4.4vw, 5.6rem);
   transform-origin: left center; transform: rotate(-4deg) scaleX(var(--strike)); }
@@ -347,6 +347,12 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
 .wcnote { grid-column: 2; grid-row: 2; align-self: start; font-family: var(--serif); font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem); color: var(--navy); max-width: 36ch;
   padding: 0.8rem 1rem; background: var(--gold-soft); border-left: 3px solid var(--navy); }
 .band .unit2 { display: block; margin-top: 0.15rem; font-family: var(--sans); font-size: 0.86rem; color: var(--on-navy-soft); }
+/* the Western Cape view of the price act: no price, the same two-column composition */
+.wcleft { margin-top: 1rem; font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: clamp(2rem, 1.1rem + 2.6vw, 3.6rem); line-height: 1.08; letter-spacing: -0.01em; max-width: 12ch; text-wrap: balance; }
+.wcleft + .pk__how { margin-top: 1rem; max-width: 38ch; }
+.band__state { margin-top: 0.4rem; font-family: var(--serif); font-weight: 700; color: var(--gold); font-size: clamp(2rem, 1.2rem + 2.2vw, 3.4rem); line-height: 1.05; }
+.band--wc .unit { display: block; margin-top: 0.35rem; }
+.band--wc dd { text-align: right; }
 
 /* ---------------------------------------------------------- phones ----- */
 @media (max-width: 860px) {
@@ -386,7 +392,7 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
   .day { justify-content: flex-start; padding-top: calc(var(--strip-h) + 0.9rem); padding-bottom: 0.75rem; }
   .day .h2 { font-size: 1.55rem; }
   .day .lede { font-size: 0.95rem; line-height: 1.4; margin-top: 0.3rem; }
-  .day__film { height: clamp(120px, 21svh, 200px); margin-top: 0.7rem; }
+  .day__film { height: clamp(120px, 27svh, 240px); margin-top: 0.7rem; }
   .tt { margin-top: 0.6rem; font-size: 0.82rem; line-height: 1.32; }
   .tt tr { padding: 0.3rem 0; }
   .tt td:first-child { font-size: 0.66rem; }
@@ -406,6 +412,9 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
   .band dl { margin-top: 0.7rem; font-size: 0.86rem; }
   .band dl div { padding: 0.3rem 0; }
   .saving, .wcnote { font-size: 1.05rem; }
+  .wcleft { font-size: 2rem; margin-top: 0.5rem; }
+  .wcleft + .pk__how { margin-top: 0.5rem; }
+  .band__state { font-size: 2.2rem; }
   .dl .cta { white-space: normal; }
 
   .terms__grid { grid-template-columns: minmax(0, 1fr); }
@@ -468,11 +477,14 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
 
       <figure class="plate">
         <div class="plate__frame">
-          <img src="assets/a1-create.webp" width="1344" height="752" data-sc-parallax="1.1"
+          <!-- The office picture has a Cape landmark in it, so only the Western Cape view uses it. -->
+          <img data-pv="none other" src="assets/a1-plan.webp" width="1344" height="896" data-sc-parallax="1.1"
+               alt="Two NAPTOSA staff members at a table planning a workshop, with notes, a notebook and a tablet.">
+          <img data-pv="wc" hidden src="assets/a1-create.webp" width="1344" height="752" loading="lazy" data-sc-parallax="1.1"
                alt="A NAPTOSA staff member at her desk, creating a workshop on a laptop.">
         </div>
         <div class="seal" data-sc-parallax="-0.9" aria-hidden="true"><img src="assets/naptosa-shield.webp" width="200" height="239" alt=""></div>
-        <figcaption>It starts with one form.</figcaption>
+        <figcaption><span data-pv="none other">It starts with a plan, then one form.</span><span data-pv="wc" hidden>It starts with one form.</span></figcaption>
       </figure>
 
       <div class="picker--inline">
@@ -699,10 +711,12 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
     <div class="pk__divider" aria-hidden="true"></div>
     <p class="pk__quiet" data-sc-cue="0 0.33 0 0.1">Billed by the hour, the way we normally work.</p>
     <div class="pk__in">
-      <div class="pk__was" data-pv="none other" data-sc-cue="0.31 1 0.15 0">
-        <h2 id="h-price" class="lbl"><span data-pv="none wc">Normally, per province</span><span data-pv="other" hidden>Normally, for NAPTOSA <span data-pname="a province">a province</span></span></h2>
-        <p class="pk__how">About 40 hours, about 5 working days, at <span class="amt">R 750.00</span> excl. VAT an hour.</p>
-        <p class="was money"><del>R 30,000.00</del><span class="was__bar" aria-hidden="true"></span><span class="unit">excl. VAT per province, billed by the hour</span></p>
+      <div class="pk__was" data-sc-cue="0.31 1 0.15 0">
+        <h2 id="h-price" class="lbl"><span data-pv="none">Normally, per province</span><span data-pv="other" hidden>Normally, for NAPTOSA <span data-pname="a province">a province</span></span><span data-pv="wc" hidden>NAPTOSA Western Cape and this pricing</span></h2>
+        <p class="pk__how" data-pv="none other">About 40 hours, about 5 working days, at <span class="amt">R 750.00</span> excl. VAT an hour.</p>
+        <p class="was money" data-pv="none other"><del>R 30,000.00</del><span class="was__bar" aria-hidden="true"></span><span class="unit">excl. VAT per province, billed by the hour</span></p>
+        <p class="wcleft" data-pv="wc" hidden>Left out of the pricing.</p>
+        <p class="pk__how" data-pv="wc" hidden>The price in this proposal is per province, for the provinces NAPTOSA National chooses. The Western Cape already runs the workshop module and has paid for it, so no price is offered to it here.</p>
       </div>
       <div class="band money" data-pv="none other" data-sc-cue="0.6 1 0.18 0">
         <p class="lbl"><span data-pv="none">What each province gets</span><span data-pv="other" hidden>What NAPTOSA <span data-pname="a province">a province</span> gets</span><span data-pv="wc" hidden>Each province other than the Western Cape</span>, once-off, never charged again</p>
@@ -715,8 +729,18 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
           <div><dt>Per province, incl. VAT</dt><dd>R 14,373.85</dd></div>
         </dl>
       </div>
+      <div class="band band--wc" data-pv="wc" hidden data-sc-cue="0.6 1 0.18 0">
+        <p class="lbl">The Western Cape today</p>
+        <p class="band__state">In use today</p>
+        <p class="unit">The workshop module runs in the Western Cape now.</p>
+        <dl>
+          <div><dt>The module as built today</dt><dd>In use</dd></div>
+          <div><dt>Self check-in</dt><dd>In use</dd></div>
+          <div><dt>Paid for on</dt><dd>INV-NAPTOSA-WS-2026-01</dd></div>
+        </dl>
+      </div>
       <p class="saving" data-pv="none other" data-sc-cue="0.74 1 0.2 0">That is <strong>R 17,501.00</strong> less, per province, than billing by the hour.</p>
-      <p class="wcnote" data-pv="wc" hidden data-sc-cue="0.74 1 0.2 0">The Western Cape is left out of this pricing. It already runs the workshop module and has paid for it.</p>
+      <p class="wcnote" data-pv="wc" hidden data-sc-cue="0.74 1 0.2 0">To see what any other province gets, and its price per province, choose it in the province list at the top of the page.</p>
     </div>
   </div>
 </section>
@@ -779,9 +803,9 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
       <h2 id="h-accept" class="h2">Accept the proposal</h2>
       <p class="reading">NAPTOSA National accepts once, for all the provinces it chooses to pay for.</p>
       <ol class="steps">
-        <li><p>Download the proposal (PDF) at the bottom of this page. Its last page is the acceptance page: NAPTOSA National signs it once, ticks the provinces it is paying for and writes how many.</p></li>
+        <li><p>Download the proposal (PDF) at the bottom of this page. Its last page is the acceptance page, and it can be filled in and signed digitally in the PDF: NAPTOSA National ticks the provinces it is paying for, writes how many and signs it once.</p></li>
         <li>
-          <p>Email the signed page to</p>
+          <p>Email the signed page back to</p>
           <div class="copyrow">
             <span class="copytext" id="acc-email">loxly@lbtec.co.za</span>
             <button type="button" class="copybtn" data-copy="acc-email">Copy address</button>
@@ -797,7 +821,7 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
         <li><p>We reply with the invoice for the provinces listed. NAPTOSA National pays in full upfront, by EFT, with the invoice number as the reference. We start the work once the payment is received.</p></li>
       </ol>
       <p class="copystatus" id="copy-status" role="status" aria-live="polite"></p>
-      <table class="sum money">
+      <table class="sum money" data-pv="none other">
         <caption class="vh">Price per province</caption>
         <tbody>
           <tr><td>The module as built today</td><td>R 8,999.00</td></tr>
@@ -806,8 +830,8 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
           <tr class="tot"><td>Per province, once-off, incl. VAT</td><td>R 14,373.85</td></tr>
         </tbody>
       </table>
-      <p class="terms-small"><span class="amt">R 12,499.00</span> excl. VAT per province, paid by NAPTOSA National, once-off, never charged again. Every price is per province.</p>
-      <p class="terms-small">A province NAPTOSA National adds later is the same <span class="amt">R 12,499.00</span> per province while the offer holds. Training is billed to NAPTOSA National, separately.</p>
+      <p class="terms-small" data-pv="none other"><span class="amt">R 12,499.00</span> excl. VAT per province, paid by NAPTOSA National, once-off, never charged again. Every price is per province.</p>
+      <p class="terms-small" data-pv="none other">A province NAPTOSA National adds later is the same <span class="amt">R 12,499.00</span> per province while the offer holds. Training is billed to NAPTOSA National, separately.</p>
       <p class="terms-small">The Western Cape is left out of this pricing: it already runs the workshop module and has paid for it (INV-NAPTOSA-WS-2026-01).</p>
       <p class="terms-small">Dated 9 October 2026 and valid until 28 November 2026. If NAPTOSA accepts by 28 November 2026, this price holds for go-lives in its next financial year.</p>
     </div>
@@ -840,6 +864,16 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
   // so the clip is never fetched.
   var small = matchMedia('(max-width: 860px)').matches || matchMedia('(hover: none) and (pointer: coarse)').matches;
   if (small) Array.prototype.forEach.call(document.querySelectorAll('video[data-sc-src]'), function (v) { v.removeAttribute('data-sc-src'); });
+  // With the film held as a still, the register no longer waits for the camera:
+  // on phones it fills in the first part of the act, so the screen is not half blank.
+  if (small) {
+    var dayAct = document.getElementById('day');
+    if (dayAct) dayAct.setAttribute('data-sc-span', '1.6');
+    var PHONE_CUES = ['0 1 0 0', '0.08 1 0.1 0', '0.2 1 0.1 0', '0.32 1 0.1 0', '0.44 1 0.1 0', '0.56 1 0.1 0'];
+    Array.prototype.forEach.call(document.querySelectorAll('#day .tt .fill, #day .day__cap'), function (el, i) {
+      if (PHONE_CUES[i]) el.setAttribute('data-sc-cue', PHONE_CUES[i]);
+    });
+  }
   var api = ScrollCraft.mount(document.body);
 
   // ------------------------------------------------------ the province picker
@@ -879,10 +913,11 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
     each('[data-pname]', function (el) { el.textContent = p ? p.name : el.getAttribute('data-pname'); });
     each('input[type="radio"][name^="prov-"]', function (r) { r.checked = !!p && r.value === p.id; });
     each('select.js-prov', function (s) { s.value = p ? p.id : ''; });
-    if (byUser && p) {
-      writeStored(p.id);
-      try { history.replaceState(null, '', '#' + p.id); } catch (e) {}
-      if (live) live.textContent = 'This page now shows NAPTOSA ' + p.name + '.';
+    if (byUser) {
+      if (p) writeStored(p.id);
+      else { try { localStorage.removeItem(KEY); } catch (e) {} }
+      try { history.replaceState(null, '', p ? '#' + p.id : location.pathname + location.search); } catch (e) {}
+      if (live) live.textContent = p ? 'This page now shows NAPTOSA ' + p.name + '.' : 'Choose a province to see its proposal.';
     }
     if (api && api.layout) api.layout();
     schedule();
@@ -892,7 +927,7 @@ select.prov-select option { color: var(--ink); background: var(--paper); }
     r.addEventListener('change', function () { if (r.checked) apply(byKey[r.value], true); });
   });
   each('select.js-prov', function (s) {
-    s.addEventListener('change', function () { if (byKey[s.value]) apply(byKey[s.value], true); });
+    s.addEventListener('change', function () { apply(byKey[s.value] || null, true); });
   });
   addEventListener('hashchange', function () { var p = fromHash(); if (p) { writeStored(p.id); apply(p, false); } });
 
