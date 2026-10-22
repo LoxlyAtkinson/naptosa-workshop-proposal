@@ -1,5 +1,5 @@
 ## Current Phase
-Final publication of the approved text/layout correction, followed by live verification. Contract: [contract-and-section-map.md](contract-and-section-map.md). Official task list: active Codex goal `01a1615f-8b77-7ce2-b4a7-f33f38d4858e`.
+Published and live-verified. Contract: [contract-and-section-map.md](contract-and-section-map.md). Official task list: active Codex goal `01a1615f-8b77-7ce2-b4a7-f33f38d4858e`.
 
 ## Completed Since Last Checkpoint
 - Read official Scroll Craft and mandatory experience acceptance instructions.
@@ -11,6 +11,8 @@ Final publication of the approved text/layout correction, followed by live verif
 - Replaced “no agreed price” wording with the original shared-Western-Cape-database assumption and explicit no-separate-storage-charge explanation.
 - Added stylesheet cache-busting to the published page so the corrected in-flow PDF action is used after browser caching.
 - Re-captured final desktop, mobile and reduced-motion scroll evidence after the stylesheet URL change; all suites completed without dead scroll.
+- Published the cache-busted stylesheet link and verified the real GitHub Pages response loads `proposal.css?v=20261022-2`, computes the PDF action as in-flow (`position: relative`), and includes the original shared-data/no-separate-storage-charge explanation.
+- Confirmed the live hero scrubs while scrolling, quotation navigation works, PDF and both video assets return HTTP 200, viewport width stays 1440px without overflow, and there are no console or failed-request errors.
 
 ## Files Created/Modified
 - Page: `index.html`, `proposal.css`, `scrollcraft.js`, `scrollcraft.css`
@@ -28,7 +30,7 @@ Final publication of the approved text/layout correction, followed by live verif
 - Latest browser workflow at 1440×900 and 360×640 passed: render/no overflow, moving hero, quotation navigation, official PDF download, mobile rail/video and reduced-motion fallback. Zero browser console errors and failed requests. Details and route/state screenshots: `evidence/workflow-results.json`, `evidence/outcomes/`.
 - Keyboard Enter navigation reaches `#network`, retains visible focus, announces the active location and shows the expected section heading: `evidence/keyboard-results.json`.
 - Final source Scroll Craft captures passed at desktop 1440×900 (26 frames, no dead scroll, scrub video moves), mobile 390×844 (no dead scroll) and reduced motion (poster at every sampled state, no dead scroll). Contact sheets and reports: `evidence/final6-desktop/`, `final6-mobile-390/`, `final6-reduced-motion/`.
-- Earlier live build check returned HTTP 200 for HTML, official PDF and both hero video assets; the live hero scrubbed 0.00s to 2.52s and the quotation link worked. Re-run after deployment to verify the cache-busted stylesheet and live layout.
+- Final live check at 1440×900 passed; live quotation screenshot confirms original prices remain visible and discounted offers are yellow. Evidence: `evidence/live-results.json`, `evidence/outcomes/live-quotation.png`.
 
 ## Errors / Fixes
 - First mobile screenshots showed the nav rail hiding the R499 rate; grid min-content sizing from a no-wrap rate caused it. Fixed grid min-width and allowed the highlighted rate to wrap, then recaptured.
@@ -41,13 +43,11 @@ Final publication of the approved text/layout correction, followed by live verif
 - Headless Chrome cannot verify actual phone video decoder or touch behavior.
 
 ## Open Issues
-- Deploy and verify the cache-busted stylesheet link and live layout.
 - Obtain a fresh independent visual reviewer and run the acceptance checker only against that judge-authored verdict.
 
 ## Exact Next Steps
-1. Review staged changes and commit/push current HTML, cache-busted stylesheet link, updated browser evidence and this progress file.
-2. Recheck the deployed page, PDF and hero assets in a browser; capture final live evidence and verify stylesheet-computed layout.
-3. Keep experience acceptance BLOCKED until an independent visual reviewer inspects the final evidence and supplies their raw report. If supplied, run `python scripts/check-experience-acceptance.py <judge-verdict.json>`; do not author or promote that verdict.
+1. Commit/push the final live verification screenshot, result record and refreshed progress file.
+2. Keep experience acceptance BLOCKED until an independent visual reviewer inspects the final evidence and supplies their raw report. If supplied, run `python scripts/check-experience-acceptance.py <judge-verdict.json>`; do not author or promote that verdict.
 
 ## Safe Recovery Instructions
 Read `AGENTS.md`, `docs/standards/experience-acceptance.md`, `contract-and-section-map.md`, this file and `evidence/workflow-results.json`, then inspect `git status`. Do not regenerate Higgsfield media or repeat successful checks unless page sources change. The page implementation is ready; independent visual acceptance remains a separate required gate.

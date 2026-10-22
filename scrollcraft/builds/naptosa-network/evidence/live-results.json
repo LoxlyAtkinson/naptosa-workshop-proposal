@@ -1,16 +1,16 @@
 {
   "url": "https://loxlyatkinson.github.io/naptosa-workshop-proposal/",
-  "checkedAt": "2026-10-22T09:37:01.965Z",
+  "checkedAt": "2026-10-22T09:46:27.178Z",
   "initial": {
     "title": "NAPTOSA National | Website Network and Workshop Module Proposal",
     "h1": "One NAPTOSA network.\nTen distinct voices.",
     "viewport": 1440,
     "docWidth": 1440,
-    "video": "blob:https://loxlyatkinson.github.io/cd618c49-62a3-4fa0-bca7-12895442f99d",
+    "video": "blob:https://loxlyatkinson.github.io/f58465c9-8282-4162-b5c4-2a856b9ab09b",
     "nav": true,
     "assets": [
       {
-        "src": "blob:https://loxlyatkinson.github.io/cd618c49-62a3-4fa0-bca7-12895442f99d",
+        "src": "blob:https://loxlyatkinson.github.io/f58465c9-8282-4162-b5c4-2a856b9ab09b",
         "readyState": 4,
         "duration": 8.041667
       }
@@ -18,7 +18,7 @@
   },
   "heroScrub": {
     "from": 0,
-    "to": 2.518118,
+    "to": 2.517986,
     "pass": true
   },
   "quotationChapter": "Once-off build by entity",
@@ -41,5 +41,11 @@
   },
   "consoleErrors": [],
   "failedRequests": [],
-  "pass": true
+  "pass": true,
+  "layout": {
+    "stylesheet": "proposal.css?v=20261022-2",
+    "pdfActionPosition": "relative",
+    "sharedDataAssumption": "Present: original shared database uses existing Western Cape environment; no separate storage charge.",
+    "quotationScreenshot": "outcomes/live-quotation.png"
+  }
 }
