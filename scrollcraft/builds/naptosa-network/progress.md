@@ -9,6 +9,8 @@ Final publication of the approved text/layout correction, followed by live verif
 - Built the chapter-story proposal with custom network and database diagrams, four distinct scroll devices, permanent right rail, and PDF link.
 - Fixed mobile 360px overflow, the obscured highlighted R499 offer, and mobile/desktop PDF-button overlap.
 - Replaced “no agreed price” wording with the original shared-Western-Cape-database assumption and explicit no-separate-storage-charge explanation.
+- Added stylesheet cache-busting to the published page so the corrected in-flow PDF action is used after browser caching.
+- Re-captured final desktop, mobile and reduced-motion scroll evidence after the stylesheet URL change; all suites completed without dead scroll.
 
 ## Files Created/Modified
 - Page: `index.html`, `proposal.css`, `scrollcraft.js`, `scrollcraft.css`
@@ -25,8 +27,8 @@ Final publication of the approved text/layout correction, followed by live verif
 ## Browser Testing Results
 - Latest browser workflow at 1440×900 and 360×640 passed: render/no overflow, moving hero, quotation navigation, official PDF download, mobile rail/video and reduced-motion fallback. Zero browser console errors and failed requests. Details and route/state screenshots: `evidence/workflow-results.json`, `evidence/outcomes/`.
 - Keyboard Enter navigation reaches `#network`, retains visible focus, announces the active location and shows the expected section heading: `evidence/keyboard-results.json`.
-- Final source Scroll Craft captures passed at desktop 1440×900 (26 frames, no dead scroll, scrub video moves), mobile 390×844 (no dead scroll) and reduced motion (poster at every sampled state, no dead scroll). Contact sheets: `evidence/final5-desktop/`, `final5-mobile-390/`, `final5-reduced-motion/`.
-- Earlier live build check returned HTTP 200 for HTML, official PDF and both hero video assets; the live hero scrubbed 0.00s to 2.52s and the quotation link worked. The final small wording/layout correction still needs deployment and live verification.
+- Final source Scroll Craft captures passed at desktop 1440×900 (26 frames, no dead scroll, scrub video moves), mobile 390×844 (no dead scroll) and reduced motion (poster at every sampled state, no dead scroll). Contact sheets and reports: `evidence/final6-desktop/`, `final6-mobile-390/`, `final6-reduced-motion/`.
+- Earlier live build check returned HTTP 200 for HTML, official PDF and both hero video assets; the live hero scrubbed 0.00s to 2.52s and the quotation link worked. Re-run after deployment to verify the cache-busted stylesheet and live layout.
 
 ## Errors / Fixes
 - First mobile screenshots showed the nav rail hiding the R499 rate; grid min-content sizing from a no-wrap rate caused it. Fixed grid min-width and allowed the highlighted rate to wrap, then recaptured.
@@ -39,12 +41,12 @@ Final publication of the approved text/layout correction, followed by live verif
 - Headless Chrome cannot verify actual phone video decoder or touch behavior.
 
 ## Open Issues
-- Deploy and verify the last text/layout correction.
+- Deploy and verify the cache-busted stylesheet link and live layout.
 - Obtain a fresh independent visual reviewer and run the acceptance checker only against that judge-authored verdict.
 
 ## Exact Next Steps
-1. Review staged changes and commit/push current HTML, CSS, updated browser evidence and this progress file.
-2. Recheck the deployed page, PDF and hero assets in a browser; capture final live evidence.
+1. Review staged changes and commit/push current HTML, cache-busted stylesheet link, updated browser evidence and this progress file.
+2. Recheck the deployed page, PDF and hero assets in a browser; capture final live evidence and verify stylesheet-computed layout.
 3. Keep experience acceptance BLOCKED until an independent visual reviewer inspects the final evidence and supplies their raw report. If supplied, run `python scripts/check-experience-acceptance.py <judge-verdict.json>`; do not author or promote that verdict.
 
 ## Safe Recovery Instructions
