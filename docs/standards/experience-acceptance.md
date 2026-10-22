@@ -1,0 +1,39 @@
+# Mandatory experience acceptance method
+
+Version: 1.1. Scope: any user-facing design, layout, content hierarchy, motion, media integration or journey implementation. Platform and model independent. Apply proportionately to the affected surface; audit-only requests stay audit-only. Explicit user scope and higher-priority instructions prevail.
+
+## Contract before changes
+Record the user's outcomes, preserved identity/features, permitted changes, entry routes, roles, supported viewports/locales and a numbered change list. Distinguish implementation from an audit. Existing implementation authorization persists; do not silently downgrade work into recommendations.
+
+## Gates (all mandatory)
+1. COVERAGE: inventory every section/control in the affected page, including conditional/empty states. Give each section a purpose, narrative position, neighbouring relationship and deliberate motion/static treatment. Omission is a failure. Static treatment must explain its reading or accessibility purpose.
+2. COMPOSITION: review whole sections and adjacent transitions, not inserted components alone. Shared headings govern their intended content; related visuals share alignment and hierarchy, with accurate captions and a clear next action. No isolated decorative insertion accepted as integration.
+3. BEHAVIOUR: verify real browser entry → action → feedback → destination → recovery. Include keyboard, narrow and desktop layouts, relevant translations, reduced motion and loading/failure fallbacks. Measure actual viewport. Builds and source inspection do not substitute for browser evidence.
+4. EVIDENCE: capture the final changed states and inspect captures before review. Record route, state, viewport, source revision/hash and test outcome. Missing, clipped, stale or blank evidence cannot pass. Invalidate evidence affected by subsequent edits.
+5. INDEPENDENT JUDGMENT: use a fresh adversarial judge who did not build the work. Supply frozen acceptance criteria and a neutral numbered change checklist, validated rendered evidence and observed interactions. Exclude builder rationale, prior scores, desired verdict and authorship labels. Separate source/wiring review from visual judgment. Disclose procedural/shared-filesystem and runtime blinding limits. A model judging its own work is not independent.
+6. REPAIR LOOP: retain each judge's own raw report. Fix every actionable failure, rerun the complete affected journey, recapture and obtain a fresh independent review. Never weaken criteria, coach a pass, rewrite a verdict or re-review unchanged evidence to seek a better score. No arbitrary iteration cap.
+7. COMPLETION: report complete only when all applicable gates pass and the independent judge reports no remaining meaningful achievable defects or missing required evidence. If the user requires a perfect rating, 100/100 means all frozen criteria passed with zero unresolved failures and zero required checks unverified; it is scoped acceptance, not a claim of universal aesthetic perfection. A blocked check is BLOCKED, never PASS or N/A merely to finish. Continue independent work and report the exact dependency honestly.
+
+## Required portable artifacts
+Keep one task directory containing contract-and-section-map.md, progress.md, evidence/, and reviews/. The progress file links raw verdicts, changed files, reproducible checks, open defects and exact resume step. Small tasks may combine documents, but not erase reviewer-authored reports. Record genuine N/A reasons before acceptance.
+
+## Fresh-session and platform handoff
+At resume read this method, the task contract, latest progress and latest raw verdict. Resume unresolved work rather than restarting or treating previous recommendations as completed fixes. When a platform lacks independent agents or browser capability, use an external independent reviewer or mark those gates blocked; do not impersonate a reviewer. Store this file with the project so it travels with the repository. Native agent entry files must point to it; unsupported platforms must be given this method explicitly. Instructions cannot guarantee compliance by systems that do not load or obey them.
+
+## Mandatory startup and completion checks
+At task start, name the active contract and progress path in the working record. At handoff, leave the latest verdict and exact unresolved step there. A new model or session does not reset a failed gate. Before any completion claim, rerun `python scripts/check-experience-acceptance.py <judge-verdict.json>` against the current files. For projects without the script, use the sibling `check-experience-acceptance.py` in the shared standards directory, or copy it with this method into the project. Python 3 is the only checker dependency. If it cannot run, record BLOCKED; never replace its result with a guessed pass.
+
+The checker is a record-integrity check, not proof of visual quality, authenticated identity or truthful observations. Independent judgment must also verify content, coverage, provenance and that every changed source was included. No software-only result replaces that judgment. There is no automatic publishing or deployment authorization in this method.
+
+## Judge-authored machine record
+The judge writes the final JSON directly; the builder must not translate or upgrade a failed report into PASS. Keep all earlier raw reports. Paths are relative to the JSON file (absolute paths also work locally); use relative paths for cross-machine portability. SHA256 values bind exact bytes. Required fields:
+
+- `reviewer`, `authored_by`: same nonempty reviewer identity; `builders`: all named builders, excluding the reviewer; `run_id`: unique nonempty review identifier.
+- `contract`: `{path, sha256}` for the frozen criteria; criteria IDs must start lines as `C1`, `C2`, etc. `sources`: a nonempty list of `{path, sha256}` covering all changed implementation files.
+- `artifacts`: ID-to-object mapping. Every object has `path`, `sha256`, `kind`. Include final `screenshot` PNGs and a `browser_log` JSON. Screenshots additionally record `route`, `state`, `viewport: {width, height}` using observed CSS dimensions, and timezone-aware ISO `timestamp`. The checker supports non-interlaced, 8-bit RGB/RGBA PNGs and validates their compressed pixel data; the judge still inspects what each image actually shows.
+- A browser log is a nonempty array of observations with `route`, `state`, `viewport`, `timestamp`, `action`, `expected`, `actual`, `result`, and `screenshot` (artifact ID). Route/state/viewport must match that capture. Record explicit `PASS`, `FAIL` or `BLOCKED`; failed or blocked required observations prevent acceptance. Preserve failed historical runs separately from the final repaired run.
+- `criteria`: every frozen criterion ID mapped to its verdict. `gates`: coverage, composition, behaviour, evidence, independence, repair_loop, completion; each contains `status` and a nonempty `evidence` array of artifact IDs.
+- `score`, `verdict`, `unresolved`, `unverified`: completion requires 100, PASS, [], [] respectively. This template does not award those values: the independent judge must establish them.
+
+## Platform adoption
+Keep the project copy authoritative for that repository. Shared defaults live in `~/.agents/standards/`; Codex, Claude and Gemini global entry instructions point there. Project entry instructions cover Codex/AGENTS, Claude, Gemini, CodeBuddy, Qoder, Cursor and Windsurf. On another machine or platform, carry the repository copy and checker, link them from that platform's native instruction entry, and confirm at startup that they were loaded. Do not assume an unknown platform reads a particular filename. Changes to the shared default must be reviewed, mirrored deliberately and recorded; a project-specific contract must never be silently replaced by a newer global default.

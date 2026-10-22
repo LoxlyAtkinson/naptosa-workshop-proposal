@@ -1,0 +1,46 @@
+const { chromium } = require('playwright-core');
+const fs = require('fs');
+const path = require('path');
+(async () => {
+  const browser = await chromium.launch({ channel: 'chrome', headless: true });
+  const base = 'http://localhost:4500/';
+  const out = path.join(__dirname, 'outcomes');
+  fs.mkdirSync(out, { recursive: true });
+  const result = { localRoute: base, checks: [], observations: [], consoleErrors: [], failedRequests: [] };
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, acceptDownloads: true });
+  page.on('console', m => { if (m.type() === 'error') result.consoleErrors.push(m.text()); });
+  page.on('pageerror', e => result.consoleErrors.push(e.message));
+  page.on('requestfailed', r => result.failedRequests.push({ url: r.url(), error: r.failure()?.errorText }));
+  async function capture(state, action, expected, actual, resultName, viewport={width:page.viewportSize().width,height:page.viewportSize().height}) {
+    const file = state.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')+'.png';
+    await page.screenshot({ path: path.join(out,file), fullPage: false });
+    result.observations.push({ route:base, state, viewport, timestamp:new Date().toISOString(), action, expected, actual, result:resultName, screenshot:'outcomes/'+file });
+  }
+  await page.goto(base, { waitUntil: 'networkidle' }); await page.waitForTimeout(700);
+  let metrics = await page.evaluate(() => ({ width: innerWidth, docWidth: document.documentElement.scrollWidth, acts: window.ScrollCraft?.instances?.[0]?.acts?.map(a => a.device), height: document.documentElement.scrollHeight }));
+  const desktopPass = metrics.docWidth <= metrics.width + 1;
+  result.checks.push({ name:'desktop initial render and document width', pass:desktopPass, metrics });
+  await capture('Desktop overview','Open public proposal','Proposal renders without horizontal overflow',JSON.stringify(metrics),desktopPass?'PASS':'FAIL');
+  const video = page.locator('video[data-sc-scrub]'); const firstTime = await video.evaluate(v=>v.currentTime);
+  await page.evaluate(()=>scrollTo(0,520)); await page.waitForTimeout(800); const laterTime=await video.evaluate(v=>v.currentTime);
+  const videoPass=laterTime>firstTime+0.2; result.checks.push({name:'hero responds to scroll',pass:videoPass,firstTime,laterTime});
+  await capture('Desktop hero scrub','Scroll through the hero','Silent hero clip advances with scroll',`video time ${firstTime.toFixed(2)}s to ${laterTime.toFixed(2)}s`,videoPass?'PASS':'FAIL');
+  await page.locator('.chapter-nav a[href="#investment"]').click(); await page.waitForTimeout(1400);
+  const destination=(await page.locator('#investment h2').textContent())?.trim();
+  const activeNav=await page.locator('.chapter-nav a[href="#investment"]').getAttribute('aria-current');
+  const navPass=/Once-off build/.test(destination||''); result.checks.push({name:'chapter navigation reaches quotation',pass:navPass,activeNav,destination});
+  await capture('Desktop quotation chapter','Select Quotation in chapter rail','The quotation heading is reached',`${destination}; aria-current=${activeNav}`,navPass?'PASS':'FAIL');
+  const downloadEvent=page.waitForEvent('download'); await page.locator('.content > .download').click(); const download=await downloadEvent;
+  const downloadPass=/\.pdf$/i.test(download.suggestedFilename()); result.checks.push({name:'quotation PDF download',pass:downloadPass,file:download.suggestedFilename()});
+  await capture('Desktop PDF download','Activate official quotation PDF','A PDF with the official filename downloads',download.suggestedFilename(),downloadPass?'PASS':'FAIL');
+  await page.setViewportSize({width:360,height:640}); await page.goto(base,{waitUntil:'networkidle'}); await page.waitForTimeout(450);
+  metrics=await page.evaluate(()=>({width:innerWidth,docWidth:document.documentElement.scrollWidth,navVisible:(()=>{const r=document.querySelector('.chapter-nav').getBoundingClientRect();return r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight})(),video:!!document.querySelector('video[data-sc-scrub]')?.currentSrc}));
+  const mobilePass=metrics.docWidth<=metrics.width+1&&metrics.navVisible&&metrics.video; result.checks.push({name:'360px mobile layout, rail and video',pass:mobilePass,metrics});
+  await capture('Mobile 360 layout','Open proposal at 360px','Right chapter rail and video remain available with no overflow',JSON.stringify(metrics),mobilePass?'PASS':'FAIL');
+  await page.emulateMedia({reducedMotion:'reduce'}); await page.goto(base,{waitUntil:'networkidle'}); await page.waitForTimeout(350);
+  metrics=await page.evaluate(()=>({motion:matchMedia('(prefers-reduced-motion: reduce)').matches,videoSource:document.querySelector('video[data-sc-scrub]')?.currentSrc,posterVisible:getComputedStyle(document.querySelector('.sc-stage__poster')).display!=='none',width:innerWidth,docWidth:document.documentElement.scrollWidth}));
+  const reducedPass=metrics.motion&&!metrics.videoSource&&metrics.posterVisible&&metrics.docWidth<=metrics.width+1; result.checks.push({name:'reduced-motion poster fallback',pass:reducedPass,metrics});
+  await capture('Reduced motion poster','Enable reduced-motion preference','Static poster replaces moving video',JSON.stringify(metrics),reducedPass?'PASS':'FAIL');
+  result.timestamp=new Date().toISOString(); result.pass=result.checks.every(c=>c.pass)&&result.consoleErrors.length===0&&result.failedRequests.length===0;
+  fs.writeFileSync(path.join(__dirname,'workflow-results.json'),JSON.stringify(result,null,2)); console.log(JSON.stringify(result,null,2)); await browser.close(); if(!result.pass)process.exitCode=1;
+})();

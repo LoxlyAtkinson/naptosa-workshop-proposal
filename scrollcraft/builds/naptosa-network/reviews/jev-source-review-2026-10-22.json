@@ -1,0 +1,41 @@
+{
+  "reviewer": "TypeSafe Jev 1.13 (OpenRouter)",
+  "review_type": "source-level only; no rendered screenshot access",
+  "run_id": "jev-naptosa-source-2026-10-22-final",
+  "truncated": false,
+  "mode": "per-file",
+  "action": "escalate",
+  "composite": 0.551375,
+  "safe_to_apply": 0.24,
+  "reason_codes": ["confidence_below_review", "safe_to_apply_below_review"],
+  "thresholds": {"auto_accept": 0.8, "review_at": 0.4, "composite_floor": 0.7},
+  "files": [
+    {
+      "path": "index.html",
+      "action": "escalate",
+      "composite": 0.5655,
+      "limiting_rubrics": ["spec_match"],
+      "safe_to_apply": 0.24,
+      "scores": {
+        "correctness": {"score": 1.5, "confidence": 0.25, "probabilities": {"0": 0.06, "1": 0.38, "2": 0.56}},
+        "spec_match": {"score": 1.3, "confidence": 0, "probabilities": {"0": 0.26, "1": 0.17, "2": 0.56}},
+        "test_gap": {"score": 1.17, "confidence": 0.44, "probabilities": {"0": 0.1, "1": 0.63, "2": 0.27}},
+        "blast_radius": {"score": 1.89, "confidence": 0.83, "probabilities": {"0": 0.03, "1": 0.05, "2": 0.92}}
+      }
+    },
+    {
+      "path": "proposal.css",
+      "action": "escalate",
+      "composite": 0.53725,
+      "limiting_rubrics": ["test_gap"],
+      "safe_to_apply": 0.24,
+      "scores": {
+        "correctness": {"score": 1.16, "confidence": 0.37, "probabilities": {"0": 0.13, "1": 0.58, "2": 0.29}},
+        "spec_match": {"score": 1.58, "confidence": 0.37, "probabilities": {"0": 0.12, "1": 0.18, "2": 0.7}},
+        "test_gap": {"score": 1.22, "confidence": 0.3, "probabilities": {"0": 0.12, "1": 0.53, "2": 0.35}},
+        "blast_radius": {"score": 1.87, "confidence": 0.8, "probabilities": {"0": 0.03, "1": 0.07, "2": 0.9}}
+      }
+    }
+  ],
+  "limitations": "This tool did not inspect screenshots or interact with the page. It is not the independent visual acceptance judgment required by docs/standards/experience-acceptance.md. Its low-confidence escalation contains no specific authored defect description."
+}
