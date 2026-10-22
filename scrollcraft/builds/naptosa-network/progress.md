@@ -51,3 +51,51 @@ Published and live-verified. Contract: [contract-and-section-map.md](contract-an
 
 ## Safe Recovery Instructions
 Read `AGENTS.md`, `docs/standards/experience-acceptance.md`, `contract-and-section-map.md`, this file and `evidence/workflow-results.json`, then inspect `git status`. Do not regenerate Higgsfield media or repeat successful checks unless page sources change. The page implementation is ready; independent visual acceptance remains a separate required gate.
+
+## Current Phase
+Email and visual additions implemented and deployed. Independent visual acceptance remains BLOCKED under the required experience-acceptance method.
+
+## Completed Since Last Checkpoint
+- Generated and integrated three original NAPTOSA people-focused visuals into the network, workshop and training chapters; scroll parallax responds to scroll and image zoom is restrained, while reduced-motion removes transforms and transitions.
+- Prepared a bullet-led email draft that guides NAPTOSA through all proposal chapters, identifies the first PDF button below the opening image, explains the changed monthly database assumptions, and itemizes website, workshop and combined-training savings.
+- Verified image load, natural dimensions, descriptive alt text, no overflow at 1440px and 390px, scroll-linked parallax changes in normal motion, and static transforms in reduced-motion mode.
+- Re-ran desktop, mobile, hero scrub, chapter navigation, PDF download, reduced-motion, and keyboard navigation workflows; all passed without console errors or failed requests.
+- Inspected the final desktop, mobile and reduced-motion scroll-capture sheets after adding imagery.
+
+## Files Created/Modified
+- `index.html`, `proposal.css`, `.gitignore`
+- `assets/teachers-together.webp`, `assets/teacher-workshop.webp`, `assets/teacher-community.webp`
+- Portable build mirrors for HTML, CSS, all three WebPs, and `email-draft.md`
+- Root `email-draft.md`
+- `evidence/image-check.cjs`, updated browser workflow results and desktop/mobile outcome screenshots
+- Final7 desktop/mobile/reduced-motion scroll-capture contact sheets and reports
+
+## Architecture Decisions
+- Use generated web-optimized images as chapter-specific editorial moments: network collaboration, workshop learning and educator community.
+- Keep these visual moments interactive through subtle parallax and hover zoom, with transforms disabled for reduced-motion preferences.
+- Send the reader to the interactive proposal first and explain the fixed right-side chapter rail and PDF button in ordinary language.
+- Treat Western Cape as retained existing infrastructure; exclude it from the new monthly website and dedicated workshop database totals.
+
+## Browser Testing Results
+- `image-check.cjs`: PASS for all three loaded images, alt text, 1440px/390px widths, parallax transform change, and static reduced-motion transforms.
+- `browser-workflow.cjs`: PASS for 1440px desktop, hero scrub, quotation chapter, PDF download, 360px mobile, reduced-motion poster; no console errors or failed requests.
+- `keyboard-check.cjs`: PASS; Enter on Network reaches the Network chapter, retains focus and active location, and displays its heading.
+- Scroll Craft final7 captures completed for desktop, 390px mobile and reduced motion. All sampled scroll positions settled; no dead scroll; reduced-motion uses poster. Contact sheets and raw reports are in `evidence/final7-*`.
+
+## Errors / Fixes
+- The first targeted image check read lazy-loaded images before scrolling them into view and therefore reported incomplete loads. The test was corrected to scroll each image into view and await `decode()`; all images then passed. No product defect was found.
+
+## Current Risks
+- Independent visual acceptance remains BLOCKED: previous review attempts produced no reviewer-authored verdict. The builder's contact-sheet inspection does not substitute for an independent judge.
+- Live hosting still requires the external push step and subsequent public-route verification.
+
+## Open Issues
+- Obtain a fresh independent reviewer for current final evidence. Preserve the gate as BLOCKED until then.
+
+## Exact Next Steps
+1. Publish the reviewed page and verify the public route serves all three new image assets and updated page.
+2. Hand off the email draft and deployed page link. Do not send the email.
+3. Independent visual review remains the acceptance dependency.
+
+## Safe Recovery Instructions
+Read `AGENTS.md`, `docs/standards/experience-acceptance.md`, `contract-and-section-map.md`, this file, and the current git status. The proposal is implemented and browser-tested. Do not repeat successful checks without new source changes. Do not claim final acceptance while independent judgment remains blocked.
