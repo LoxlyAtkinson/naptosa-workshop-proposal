@@ -1,0 +1,272 @@
+{
+  "reviewer": "/root/network_scene_accessibility",
+  "authored_by": "/root/network_scene_accessibility",
+  "builders": [
+    "/root"
+  ],
+  "run_id": "network-scene-acceptance-r3-2026-10-22T18-26+02-00",
+  "verdict": "PASS",
+  "score": 100,
+  "unresolved": [],
+  "unverified": [],
+  "judgment_scope": "Independent Network/Higgsfield integration review based on final local browser captures and reports; does not assert external GitHub Pages availability.",
+  "contract": {
+    "path": "../contract-and-section-map.md",
+    "sha256": "27a736f10323bb862af1313fd8231db9d6e256caf11939383f985a29842e9c5b"
+  },
+  "sources": [
+    {
+      "path": "../../../index.html",
+      "sha256": "4e8c0fa21802b9c87418eddb062e774edd270cd68808be072539a20f920abc0b"
+    },
+    {
+      "path": "../../../proposal.css",
+      "sha256": "b67b3cd9d2d22e7b11ee5cad5b2a28a84dea597789863bca4eefddf52105ac67"
+    },
+    {
+      "path": "../../../scrollcraft/builds/naptosa-network/BRIEF.md",
+      "sha256": "57d14d869d5f90f166139447b9ef978417e4ec1cd67c7b97fbf4fa07378f6859"
+    }
+  ],
+  "artifacts": {
+    "S_320": {
+      "kind": "screenshot",
+      "path": "../evidence/network-film-320.png",
+      "sha256": "e66ca20174fb0bfae95ae329ada4abacb42d8bcd670ab9bb018593d4f427b432",
+      "route": "http://127.0.0.1:4173/",
+      "state": "network-compact-320",
+      "viewport": {
+        "width": 320,
+        "height": 640
+      },
+      "timestamp": "2026-10-22T18:22:43.4812327+02:00"
+    },
+    "S_360": {
+      "kind": "screenshot",
+      "path": "../evidence/network-film-360.png",
+      "sha256": "272502d267ecbe44e75b710a3836545ba0e4477f21ca96874fd051a4b84bdadd",
+      "route": "http://127.0.0.1:4173/",
+      "state": "network-compact-360",
+      "viewport": {
+        "width": 360,
+        "height": 640
+      },
+      "timestamp": "2026-10-22T18:22:37.6796855+02:00"
+    },
+    "S_DESKTOP_EARLY": {
+      "kind": "screenshot",
+      "path": "../evidence/network-film-early.png",
+      "sha256": "3e79069a1c7c545de12fd4d756d0cf1096631d1be68697202bb4cd3bc33bccfc",
+      "route": "http://127.0.0.1:4173/",
+      "state": "network-desktop-forward-early",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "timestamp": "2026-10-22T18:21:36.1173618+02:00"
+    },
+    "S_DESKTOP_LATE": {
+      "kind": "screenshot",
+      "path": "../evidence/network-film-late.png",
+      "sha256": "5002b7e30ed960c5ea7742d62a3c78787f93586d291d6e77648d5909f416589f",
+      "route": "http://127.0.0.1:4173/",
+      "state": "network-desktop-forward-late",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "timestamp": "2026-10-22T18:21:38.4747724+02:00"
+    },
+    "S_DESKTOP_REVERSE": {
+      "kind": "screenshot",
+      "path": "../evidence/network-film-reverse.png",
+      "sha256": "bf7988c1bf12ebbb69257453a84e507bd5de74ed31310b1bfc6dd553f989e549",
+      "route": "http://127.0.0.1:4173/",
+      "state": "network-desktop-reverse",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "timestamp": "2026-10-22T18:21:40.7658151+02:00"
+    },
+    "S_MOBILE_EARLY": {
+      "kind": "screenshot",
+      "path": "../evidence/network-film-mobile-early.png",
+      "sha256": "06944917a7761fd79eaa19e350b58824599ce7e733f88cb9f1bf25d3a8c2c484",
+      "route": "http://127.0.0.1:4173/",
+      "state": "network-mobile-forward-early",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "timestamp": "2026-10-22T18:22:09.7817496+02:00"
+    },
+    "S_MOBILE_LATE": {
+      "kind": "screenshot",
+      "path": "../evidence/network-film-mobile-late.png",
+      "sha256": "51b6700094384a1f6a848c396559e18faa576c21d129f8dfc0c9c551bc595b65",
+      "route": "http://127.0.0.1:4173/",
+      "state": "network-mobile-forward-late",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "timestamp": "2026-10-22T18:22:11.5226442+02:00"
+    },
+    "S_MOBILE_REVERSE": {
+      "kind": "screenshot",
+      "path": "../evidence/network-film-mobile-reverse.png",
+      "sha256": "223e0a0ebc1b9670a6e8b5a41565cef7782cbaee82ab83466f2690530336e6db",
+      "route": "http://127.0.0.1:4173/",
+      "state": "network-mobile-reverse",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "timestamp": "2026-10-22T18:22:13.1737302+02:00"
+    },
+    "S_REDUCED": {
+      "kind": "screenshot",
+      "path": "../evidence/network-film-reduced.png",
+      "sha256": "ce8db3391ada598123657617b80befe6035b44ba5244b34b7e2a6d902eb855a1",
+      "route": "http://127.0.0.1:4173/",
+      "state": "network-reduced-motion-poster",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "timestamp": "2026-10-22T18:22:50.1621284+02:00"
+    },
+    "S_ACCEPT": {
+      "kind": "screenshot",
+      "path": "../evidence/accept-desktop.png",
+      "sha256": "dd93a319df72fe76c5c7ea7fd7dc0e097b05ffd6d39acf2a61376f1fbdc2a69f",
+      "route": "http://127.0.0.1:4173/",
+      "state": "acceptance-desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "timestamp": "2026-10-22T18:21:43.7462714+02:00"
+    },
+    "BROWSER_OBSERVATIONS": {
+      "kind": "browser_log",
+      "path": "browser-observations-r3.json",
+      "sha256": "676140225ee36d789247ebb3581fc8588fa0d3145d53bb02102b9a834c488d28"
+    },
+    "BROWSER_TEST": {
+      "kind": "browser_test_report",
+      "path": "../evidence/browser-test.json",
+      "sha256": "0aae96c8e551991093a0c496ab34c6a250ac4e0cfa6412cfd5535ec9cfdf6277"
+    },
+    "HIGGSFIELD_PROVENANCE": {
+      "kind": "media_provenance",
+      "path": "../evidence/higgsfield-media-provenance.json",
+      "sha256": "4b511aa41eaf30005f3c715ab03ccc86ba90359cf81b92fff9eb90a7ae8b210c"
+    },
+    "PRIOR_RAW_FINDINGS": {
+      "kind": "independent_raw_review",
+      "path": "network-scene-final-raw-2026-10-22-r2.md",
+      "sha256": "0b80a29562e31a92eb4f4f920807c2e0edbc0c9fc4d20293eeaac5fc26c2beca"
+    }
+  },
+  "criteria": {
+    "C1": "PASS",
+    "C2": "PASS",
+    "C3": "PASS",
+    "C4": "PASS",
+    "C5": "PASS",
+    "C6": "PASS"
+  },
+  "gates": {
+    "coverage": {
+      "status": "PASS",
+      "evidence": [
+        "S_DESKTOP_EARLY",
+        "S_DESKTOP_LATE",
+        "S_DESKTOP_REVERSE",
+        "S_MOBILE_EARLY",
+        "S_MOBILE_LATE",
+        "S_MOBILE_REVERSE",
+        "S_REDUCED",
+        "BROWSER_TEST"
+      ]
+    },
+    "composition": {
+      "status": "PASS",
+      "evidence": [
+        "S_DESKTOP_EARLY",
+        "S_DESKTOP_LATE",
+        "S_MOBILE_EARLY",
+        "S_MOBILE_LATE",
+        "S_REDUCED",
+        "S_320",
+        "S_360"
+      ]
+    },
+    "behaviour": {
+      "status": "PASS",
+      "evidence": [
+        "BROWSER_OBSERVATIONS",
+        "BROWSER_TEST",
+        "S_DESKTOP_EARLY",
+        "S_DESKTOP_LATE",
+        "S_DESKTOP_REVERSE",
+        "S_MOBILE_EARLY",
+        "S_MOBILE_LATE",
+        "S_MOBILE_REVERSE",
+        "S_REDUCED"
+      ]
+    },
+    "evidence": {
+      "status": "PASS",
+      "evidence": [
+        "BROWSER_OBSERVATIONS",
+        "BROWSER_TEST",
+        "HIGGSFIELD_PROVENANCE",
+        "S_DESKTOP_EARLY",
+        "S_DESKTOP_LATE",
+        "S_DESKTOP_REVERSE",
+        "S_MOBILE_EARLY",
+        "S_MOBILE_LATE",
+        "S_MOBILE_REVERSE",
+        "S_REDUCED",
+        "S_320",
+        "S_360",
+        "S_ACCEPT"
+      ]
+    },
+    "independence": {
+      "status": "PASS",
+      "evidence": [
+        "PRIOR_RAW_FINDINGS",
+        "HIGGSFIELD_PROVENANCE",
+        "BROWSER_TEST"
+      ]
+    },
+    "repair_loop": {
+      "status": "PASS",
+      "evidence": [
+        "PRIOR_RAW_FINDINGS",
+        "BROWSER_TEST",
+        "S_320",
+        "S_360"
+      ]
+    },
+    "completion": {
+      "status": "PASS",
+      "evidence": [
+        "BROWSER_OBSERVATIONS",
+        "BROWSER_TEST",
+        "HIGGSFIELD_PROVENANCE",
+        "S_DESKTOP_EARLY",
+        "S_DESKTOP_LATE",
+        "S_DESKTOP_REVERSE",
+        "S_MOBILE_EARLY",
+        "S_MOBILE_LATE",
+        "S_MOBILE_REVERSE",
+        "S_REDUCED"
+      ]
+    }
+  }
+}

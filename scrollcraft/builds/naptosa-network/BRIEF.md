@@ -11,7 +11,7 @@ Self-authored under explicit creative delegation. The user directed the build, r
 5. **Signature move:** A scroll-controlled journey turns the proposal's data architecture into an instantly legible before/after diagram, then carries those exact offered rates into the quotation.
 6. **Aesthetic range:** Editorial premium, approachable and restrained; prioritize readability for management readers and visual learners.
 7. **Structure:** Distinct chapters, not an unbroken camera flight. Use a short scrub hero, then network reveal, workshop pan, data architecture reveal, pricing flow, and a clear acceptance close.
-8. **Available assets:** NAPTOSA shield, current official proposal content and PDF, existing site asset collection. Hero still/video to be generated with the user's requested Higgsfield workflow. Icons and diagrams are custom inline SVG/CSS.
+8. **Available assets:** NAPTOSA shield, current official proposal content and PDF, existing site asset collection. The scroll hero retains its existing Higgsfield footage. A second original 8.04-second silent Seedance 2.5 clip shows provincial educators moving from close-up preparation to group collaboration. It is scrubbed by the Network chapter using Scroll Craft's `scrub` act, with high-quality desktop encoding, a lighter mobile encoding and reduced-motion poster. Higgsfield's Reframe workflow produced a 9:16 mobile version so educators remain visible on narrow screens. The clip maps its full motion across the pinned stage. Icons and diagrams are custom inline SVG/CSS.
 
 ## Feeling curve
 

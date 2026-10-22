@@ -1,0 +1,155 @@
+{
+  "chapters": [
+    "01Overview",
+    "02Network",
+    "03Scope",
+    "04Workshop",
+    "05Data",
+    "06Accreditation",
+    "07Monthly",
+    "08Training",
+    "09Delivery",
+    "10Accept"
+  ],
+  "labelsVisible": true,
+  "forward1": {
+    "time": 0.905968,
+    "duration": 8.041667,
+    "readyState": 1,
+    "src": "blob:http://127.0.0.1:4173/ecdbc3b1-cc61-4d64-b2f2-4ee469fd48d8"
+  },
+  "forward2": {
+    "time": 5.411285,
+    "duration": 8.041667,
+    "readyState": 1,
+    "src": "blob:http://127.0.0.1:4173/ecdbc3b1-cc61-4d64-b2f2-4ee469fd48d8"
+  },
+  "reverse": {
+    "time": 2.266858,
+    "duration": 8.041667,
+    "readyState": 1,
+    "src": "blob:http://127.0.0.1:4173/ecdbc3b1-cc61-4d64-b2f2-4ee469fd48d8"
+  },
+  "overflow": {
+    "viewport": [
+      1440,
+      900
+    ],
+    "doc": [
+      1440,
+      1440
+    ],
+    "network": false
+  },
+  "chapterStates": [
+    {
+      "id": "#overview",
+      "current": "location"
+    },
+    {
+      "id": "#network",
+      "current": "location"
+    },
+    {
+      "id": "#scope",
+      "current": "location"
+    },
+    {
+      "id": "#workshop-detail",
+      "current": "location"
+    },
+    {
+      "id": "#data",
+      "current": "location"
+    },
+    {
+      "id": "#investment",
+      "current": "location"
+    },
+    {
+      "id": "#monthly",
+      "current": "location"
+    },
+    {
+      "id": "#training",
+      "current": "location"
+    },
+    {
+      "id": "#delivery",
+      "current": "location"
+    },
+    {
+      "id": "#acceptance",
+      "current": "location"
+    }
+  ],
+  "pdfStatus": 200,
+  "mobile": {
+    "viewport": [
+      390,
+      844
+    ],
+    "doc": [
+      390,
+      390
+    ],
+    "filmWidth": 317,
+    "videoSrc": "blob:http://127.0.0.1:4173/91a2bc7e-91ca-4834-9c70-59eed8500888"
+  },
+  "mobileScrub": {
+    "early": {
+      "time": 1.190289,
+      "duration": 8.041667,
+      "readyState": 4,
+      "src": "blob:http://127.0.0.1:4173/91a2bc7e-91ca-4834-9c70-59eed8500888"
+    },
+    "late": {
+      "time": 6.24887,
+      "duration": 8.041667,
+      "readyState": 4,
+      "src": "blob:http://127.0.0.1:4173/91a2bc7e-91ca-4834-9c70-59eed8500888"
+    },
+    "reverse": {
+      "time": 2.009426,
+      "duration": 8.041667,
+      "readyState": 4,
+      "src": "blob:http://127.0.0.1:4173/91a2bc7e-91ca-4834-9c70-59eed8500888"
+    }
+  },
+  "narrowWidths": [
+    {
+      "viewport": [
+        360,
+        640
+      ],
+      "doc": [
+        360,
+        360
+      ],
+      "network": {
+        "client": 287,
+        "scroll": 287
+      }
+    },
+    {
+      "viewport": [
+        320,
+        640
+      ],
+      "doc": [
+        320,
+        320
+      ],
+      "network": {
+        "client": 247,
+        "scroll": 247
+      }
+    }
+  ],
+  "reducedMotion": {
+    "display": "none",
+    "src": "",
+    "posterVisible": "1"
+  },
+  "errors": []
+}

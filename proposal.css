@@ -194,3 +194,19 @@ body{background:#08131b;color:#e9f2ef}
 .story-scene.data-scene .dedicated-cell{font-size:12px;padding:9px 4px;color:#102e52}
 .story-scene.data-scene .dedicated-cell .lock-icon{width:23px;height:19px}
 .story-scene.data-scene .storage-model>small,.story-scene.data-scene .storage-model .wc-existing{font-size:11px;line-height:1.45}
+
+.community-film{position:relative;margin:30px 0 12px;min-height:125svh;background:#102338;border-radius:18px;overflow:clip;isolation:isolate}
+.community-film .sc-stage{height:100svh;min-height:560px;background:#102338}
+.community-film .sc-stage__poster,.community-film video[data-sc-scrub]{object-fit:cover;object-position:center 54%}
+.community-film .sc-scrim{background:linear-gradient(90deg,#071a2be8 0%,#0b2441b8 35%,#0b244148 70%,transparent 100%),linear-gradient(0deg,#091a2bb0,transparent 56%)}
+.community-film__copy{position:absolute;z-index:2;left:clamp(24px,8vw,112px);bottom:clamp(36px,10vh,110px);width:min(540px,calc(100% - 100px));padding:clamp(18px,3vw,34px);border-left:4px solid #e7bd58;background:#0b2037c9;color:#fff;backdrop-filter:blur(8px)}
+.community-film__copy>span{color:#ffe58a;font-size:.72rem;font-weight:850;letter-spacing:.15em}
+.community-film__copy h3{margin:10px 0;font-size:clamp(2rem,4.4vw,4rem);line-height:.98;color:#fff}
+.community-film__copy p{margin:0;max-width:40ch;color:#f3f6f8;font-size:clamp(1rem,1.4vw,1.2rem);line-height:1.5}
+@media(max-width:760px){.community-film{margin:24px 0 8px;min-height:115svh;border-radius:14px}.community-film .sc-stage{min-height:460px}.community-film .sc-stage__poster,.community-film video[data-sc-scrub]{object-position:56% center}.community-film__copy{left:14px;bottom:20px;width:calc(100% - 78px);padding:16px;border-left-width:3px}.community-film__copy h3{font-size:clamp(1.8rem,8vw,2.8rem)}.community-film__copy p{font-size:.95rem}}
+@media(prefers-reduced-motion:reduce){.community-film video[data-sc-scrub]{display:none!important}.community-film .sc-stage__poster{opacity:1!important}}
+.community-film .sc-stage__poster img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 54%}
+@media(max-width:760px){.community-film .sc-stage__poster img{object-position:56% center}}
+.content>section#network .story-scene{margin-inline:0}
+.content>section .community-film__copy h3{color:#fff!important}
+.content>section .community-film__copy p{color:#f3f6f8!important}
