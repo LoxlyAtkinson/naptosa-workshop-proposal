@@ -1,54 +1,51 @@
 ## Current Phase
-Publish the verified build, then check the live GitHub Pages route. Contract: [contract-and-section-map.md](contract-and-section-map.md). Official task list: active Codex goal `01a1615f-8b77-7ce2-b4a7-f33f38d4858e`.
+Final publication of the approved text/layout correction, followed by live verification. Contract: [contract-and-section-map.md](contract-and-section-map.md). Official task list: active Codex goal `01a1615f-8b77-7ce2-b4a7-f33f38d4858e`.
 
 ## Completed Since Last Checkpoint
-- Read official Scroll Craft and the mandatory experience-acceptance method.
-- Read the user-designated Outcome Based Thinking lessons 27, 28, and 30. Applied outcome-first planning, intent-matching, and post-action checks.
-- Created the requested detailed nine-item checklist in the official Codex goal/task feature.
-- Generated a silent hero video through Higgsfield, plus portrait version and poster.
-- Built the chapter-based visual proposal, custom network/data diagrams, four scroll-device families, persistent chapter rail, PDF link, and reduced-motion path.
-- Repaired the initial 360px overflow and mobile overlay defects. Phone evidence now shows the complete yellow R499 offer and text without the fixed PDF button covering it.
+- Read official Scroll Craft and mandatory experience acceptance instructions.
+- Read the designated Outcome Based Thinking lessons 27, 28 and 30; applied outcome-first, intent and post-action verification.
+- Recorded the nine-step detailed checklist in the official Codex goal/task list.
+- Generated the silent landscape and portrait hero video with Higgsfield and encoded a poster fallback.
+- Built the chapter-story proposal with custom network and database diagrams, four distinct scroll devices, permanent right rail, and PDF link.
+- Fixed mobile 360px overflow, the obscured highlighted R499 offer, and mobile/desktop PDF-button overlap.
+- Replaced “no agreed price” wording with the original shared-Western-Cape-database assumption and explicit no-separate-storage-charge explanation.
 
 ## Files Created/Modified
-- Public page: `index.html`, `proposal.css`, `scrollcraft.js`, `scrollcraft.css`
-- Final media: `assets/hero.mp4`, `assets/hero-mobile.mp4`, `assets/hero-poster.webp`
-- Portable build package: `scrollcraft/builds/naptosa-network/` (brief, contract, sources, media, progress, screenshots, browser scripts/results, source review report)
-- Acceptance method and checker: `docs/standards/experience-acceptance.md`, `scripts/check-experience-acceptance.py`
-- Registry and ignores: `scrollcraft/FINGERPRINTS.md`, `.gitignore`
+- Page: `index.html`, `proposal.css`, `scrollcraft.js`, `scrollcraft.css`
+- Media: `assets/hero.mp4`, `assets/hero-mobile.mp4`, `assets/hero-poster.webp`
+- Portable Scroll Craft build, contract, brief, latest progress, screenshots, test scripts/results and source-review report: `scrollcraft/builds/naptosa-network/`
+- Acceptance instructions and checker: `docs/standards/experience-acceptance.md`, `scripts/check-experience-acceptance.py`
 
 ## Architecture Decisions
-- Editorial proposal told through distinct chapters, not one unbroken camera flight.
-- Silent Higgsfield clip is scrubbed by scroll; portrait video is selected on mobile; reduced-motion visitors see a static poster.
-- Shared Western Cape data assumption is diagrammed beside the new separated-environment model before monthly charges.
-- Western Cape existing website/workshop build and monthly services remain outside new totals; preserve current domain and route the new subdomain to that site.
-- No third-party quote comparisons appear in the proposal.
+- Distinct chapter scrollytelling grammar; silent Higgsfield hero is scrubbed by scroll and has separate mobile media.
+- Reduced-motion visitors receive a static poster.
+- Shared Western Cape data assumption appears visually before monthly costs; dedicated option clearly shows 9 new encrypted environments and the yellow R499 offer.
+- The Western Cape website/workshop build and new monthly charges remain excluded; no supplier comparisons are in the proposal.
 
 ## Browser Testing Results
-- Final source Scroll Craft 1440×900: 26 frames, no dead scroll; video advanced as the hero entered view.
-- Final source Scroll Craft 390×844: no dead scroll; complete mobile screenshots inspected, including the dedicated data offer.
-- Final source reduced-motion: 26 frames use the poster; no dead scroll.
-- Latest Playwright workflow (`evidence/workflow-results.json`): desktop width 1440/1440 PASS; video scrub 0.00s→2.52s PASS; chapter rail to quotation PASS with `aria-current=location`; PDF filename/download PASS; 360px viewport/doc width both 360, rail/video visible PASS; reduced motion uses poster/no video source PASS; zero console errors and failed requests.
-- Keyboard: visible focus then Enter reaches `#network`, retains focus, marks active location, and exposes the expected heading. Script/result under `evidence/keyboard-check.cjs` and `keyboard-results.json`.
-- Final contact sheets are in `evidence/final3-desktop`, `final3-mobile-390`, and `final3-reduced-motion`; individual hero/data/acceptance frames are retained locally.
+- Latest browser workflow at 1440×900 and 360×640 passed: render/no overflow, moving hero, quotation navigation, official PDF download, mobile rail/video and reduced-motion fallback. Zero browser console errors and failed requests. Details and route/state screenshots: `evidence/workflow-results.json`, `evidence/outcomes/`.
+- Keyboard Enter navigation reaches `#network`, retains visible focus, announces the active location and shows the expected section heading: `evidence/keyboard-results.json`.
+- Final source Scroll Craft captures passed at desktop 1440×900 (26 frames, no dead scroll, scrub video moves), mobile 390×844 (no dead scroll) and reduced motion (poster at every sampled state, no dead scroll). Contact sheets: `evidence/final5-desktop/`, `final5-mobile-390/`, `final5-reduced-motion/`.
+- Earlier live build check returned HTTP 200 for HTML, official PDF and both hero video assets; the live hero scrubbed 0.00s to 2.52s and the quotation link worked. The final small wording/layout correction still needs deployment and live verification.
 
 ## Errors / Fixes
-- Desktop harness was initially clean while mobile content was hidden under the nav and download controls. Reviewed actual mobile pixels, constrained grid items, allowed the highlighted rate to wrap, preserved reserved rail space, and placed the PDF link back into content flow on mobile. Re-ran the complete desktop/mobile/reduced-motion capture and the Playwright workflow afterward.
-- Initial browser test sampled `aria-current` too early during smooth scroll; the settled repeat and keyboard path confirm the active state.
+- First mobile screenshots showed the nav rail hiding the R499 rate; grid min-content sizing from a no-wrap rate caused it. Fixed grid min-width and allowed the highlighted rate to wrap, then recaptured.
+- Fixed PDF link initially covered page content. Moved it into document flow on desktop and mobile.
+- First Scroll Craft desktop recapture timed out while three screenshot suites ran concurrently. Re-ran the final desktop suite serially; it passed all 26 positions.
 
 ## Current Risks
-- TypeSafe Jev 1.13 source review returned `escalate` due low confidence; it supplied no concrete issue. Raw result is retained in `reviews/jev-source-review-2026-10-22.json`. It cannot inspect rendered images.
-- Required fresh independent visual judgment has not been obtained. Per acceptance method, this gate is BLOCKED; do not mark experience acceptance complete or run the checker with a self-authored verdict.
-- Headless Chrome does not verify physical iOS/Android video decoding/touch behavior.
+- TypeSafe Jev source review escalated with low confidence and no specific defect text; raw tool output is in `reviews/jev-source-review-2026-10-22.json`. It is source-only, not visual judgment.
+- Independent visual acceptance remains BLOCKED. No independent reviewer has inspected and authored a verdict for the final screenshots.
+- Headless Chrome cannot verify actual phone video decoder or touch behavior.
 
 ## Open Issues
-- Push the authorized build and verify the live URL and public PDF.
-- Visual independent reviewer remains outstanding; a source review is not a substitute.
+- Deploy and verify the last text/layout correction.
+- Obtain a fresh independent visual reviewer and run the acceptance checker only against that judge-authored verdict.
 
 ## Exact Next Steps
-1. Confirm all test sessions ended and inspect git status; stage only page, final media, portable brief/contract/progress, checker, and final evidence; never stage `.claude/` or raw generated source frames.
-2. Commit and push the site to the existing GitHub Pages branch.
-3. Verify live HTML, encoded media, and PDF with a browser and HTTP responses; record timestamps/route.
-4. Update progress with commit and live evidence. Leave acceptance in BLOCKED until a fresh independent visual reviewer assesses final evidence and writes their own report.
+1. Review staged changes and commit/push current HTML, CSS, updated browser evidence and this progress file.
+2. Recheck the deployed page, PDF and hero assets in a browser; capture final live evidence.
+3. Keep experience acceptance BLOCKED until an independent visual reviewer inspects the final evidence and supplies their raw report. If supplied, run `python scripts/check-experience-acceptance.py <judge-verdict.json>`; do not author or promote that verdict.
 
 ## Safe Recovery Instructions
-Read `AGENTS.md`, `docs/standards/experience-acceptance.md`, `contract-and-section-map.md`, this file, and `evidence/workflow-results.json`; inspect `git status` first. Do not regenerate Higgsfield assets or repeat successful capture runs unless page sources change. The task remains active until live publication is verified; independent visual acceptance is a separate blocked gate.
+Read `AGENTS.md`, `docs/standards/experience-acceptance.md`, `contract-and-section-map.md`, this file and `evidence/workflow-results.json`, then inspect `git status`. Do not regenerate Higgsfield media or repeat successful checks unless page sources change. The page implementation is ready; independent visual acceptance remains a separate required gate.

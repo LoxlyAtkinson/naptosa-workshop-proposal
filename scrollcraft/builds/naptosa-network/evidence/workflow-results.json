@@ -20,14 +20,14 @@
           "pan",
           "flow"
         ],
-        "height": 15458
+        "height": 15565
       }
     },
     {
       "name": "hero responds to scroll",
       "pass": true,
       "firstTime": 0,
-      "laterTime": 2.518311
+      "laterTime": 2.524305
     },
     {
       "name": "chapter navigation reaches quotation",
@@ -70,10 +70,10 @@
         "width": 1440,
         "height": 900
       },
-      "timestamp": "2026-10-22T09:23:12.445Z",
+      "timestamp": "2026-10-22T09:30:41.942Z",
       "action": "Open public proposal",
       "expected": "Proposal renders without horizontal overflow",
-      "actual": "{\"width\":1440,\"docWidth\":1440,\"acts\":[\"scrub\",\"flow\",\"pin\",\"flow\",\"pan\",\"flow\",\"pin\",\"flow\",\"pin\",\"pan\",\"flow\"],\"height\":15458}",
+      "actual": "{\"width\":1440,\"docWidth\":1440,\"acts\":[\"scrub\",\"flow\",\"pin\",\"flow\",\"pan\",\"flow\",\"pin\",\"flow\",\"pin\",\"pan\",\"flow\"],\"height\":15565}",
       "result": "PASS",
       "screenshot": "outcomes/desktop-overview.png"
     },
@@ -84,7 +84,7 @@
         "width": 1440,
         "height": 900
       },
-      "timestamp": "2026-10-22T09:23:14.876Z",
+      "timestamp": "2026-10-22T09:30:44.574Z",
       "action": "Scroll through the hero",
       "expected": "Silent hero clip advances with scroll",
       "actual": "video time 0.00s to 2.52s",
@@ -98,7 +98,7 @@
         "width": 1440,
         "height": 900
       },
-      "timestamp": "2026-10-22T09:23:16.829Z",
+      "timestamp": "2026-10-22T09:30:46.461Z",
       "action": "Select Quotation in chapter rail",
       "expected": "The quotation heading is reached",
       "actual": "Once-off build by entity; aria-current=location",
@@ -112,7 +112,7 @@
         "width": 1440,
         "height": 900
       },
-      "timestamp": "2026-10-22T09:23:17.097Z",
+      "timestamp": "2026-10-22T09:30:47.664Z",
       "action": "Activate official quotation PDF",
       "expected": "A PDF with the official filename downloads",
       "actual": "LBTec-NAPTOSA-National-Web-and-Workshop-Proposal.pdf",
@@ -126,7 +126,7 @@
         "width": 360,
         "height": 640
       },
-      "timestamp": "2026-10-22T09:23:18.729Z",
+      "timestamp": "2026-10-22T09:30:49.943Z",
       "action": "Open proposal at 360px",
       "expected": "Right chapter rail and video remain available with no overflow",
       "actual": "{\"width\":360,\"docWidth\":360,\"navVisible\":true,\"video\":true}",
@@ -140,7 +140,7 @@
         "width": 360,
         "height": 640
       },
-      "timestamp": "2026-10-22T09:23:19.972Z",
+      "timestamp": "2026-10-22T09:30:51.260Z",
       "action": "Enable reduced-motion preference",
       "expected": "Static poster replaces moving video",
       "actual": "{\"motion\":true,\"videoSource\":\"\",\"posterVisible\":true,\"width\":360,\"docWidth\":360}",
@@ -150,6 +150,6 @@
   ],
   "consoleErrors": [],
   "failedRequests": [],
-  "timestamp": "2026-10-22T09:23:19.972Z",
+  "timestamp": "2026-10-22T09:30:51.261Z",
   "pass": true
 }
