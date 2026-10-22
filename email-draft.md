@@ -8,7 +8,7 @@ Thank you for the discussion and workshop demonstration. We have brought the nat
 
 **Review the proposal online**
 - Open the [NAPTOSA interactive proposal](https://loxlyatkinson.github.io/naptosa-workshop-proposal/).
-- Scroll down from the opening picture to follow the story in order. The numbered links on the right remain visible and let you jump directly to a chapter.
+- Scroll down from the opening picture to follow the story in order. On a computer, use the numbered chapter rail on the right to jump to a section. On a phone, tap the chapter icon on the right to reveal the named sections, then select one to jump there.
 - **Overview and network:** what the combined programme covers and how national oversight connects to provincial sites.
 - **Scope and workshop schedule:** website deliverables, workshop functions, staff and participant steps, and the upgrades identified in the meeting and demonstration.
 - **Workshop data:** the original shared Western Cape database assumption and the separate-data option.
