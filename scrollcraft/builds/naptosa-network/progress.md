@@ -39,15 +39,15 @@ Published and live-verified. Contract: [contract-and-section-map.md](contract-an
 
 ## Current Risks
 - TypeSafe Jev source review escalated with low confidence and no specific defect text; raw tool output is in `reviews/jev-source-review-2026-10-22.json`. It is source-only, not visual judgment.
-- Independent visual acceptance remains BLOCKED. No independent reviewer has inspected and authored a verdict for the final screenshots.
+- Independent visual acceptance remains BLOCKED. Two fresh Jev browser attempts did not produce a visual verdict: the live-site journey stopped at its 24-step cap with no criterion findings, and the screenshot-only attempt declared itself done before acting or inspecting the image. Procedural details are in `reviews/jev-visual-review-attempts-2026-10-22.json`; neither attempt is represented as a review.
 - Headless Chrome cannot verify actual phone video decoder or touch behavior.
 
 ## Open Issues
-- Obtain a fresh independent visual reviewer and run the acceptance checker only against that judge-authored verdict.
+- Obtain a fresh independent visual reviewer who can inspect the frozen final desktop/mobile/reduced-motion captures and author a verdict. The current tools did not provide that capability. Then repair any actionable findings, rerun affected browser journeys and capture new evidence; only the judge-authored report may be checked.
 
 ## Exact Next Steps
-1. Commit/push the final live verification screenshot, result record and refreshed progress file.
-2. Keep experience acceptance BLOCKED until an independent visual reviewer inspects the final evidence and supplies their raw report. If supplied, run `python scripts/check-experience-acceptance.py <judge-verdict.json>`; do not author or promote that verdict.
+1. Obtain an independent reviewer with access to the frozen screenshots and live page, or resume in a platform that supports independent visual review.
+2. Keep the current acceptance result BLOCKED; do not create a verdict on the judge's behalf. If a judge-authored report arrives, run `python scripts/check-experience-acceptance.py <judge-verdict.json>` against the current source hashes and continue the repair loop.
 
 ## Safe Recovery Instructions
 Read `AGENTS.md`, `docs/standards/experience-acceptance.md`, `contract-and-section-map.md`, this file and `evidence/workflow-results.json`, then inspect `git status`. Do not regenerate Higgsfield media or repeat successful checks unless page sources change. The page implementation is ready; independent visual acceptance remains a separate required gate.

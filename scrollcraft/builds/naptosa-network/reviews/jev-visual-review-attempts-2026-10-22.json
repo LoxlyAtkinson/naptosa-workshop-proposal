@@ -1,0 +1,26 @@
+{
+  "record_type": "reviewer-capability attempt log; not an acceptance verdict",
+  "recorded_by": "implementer",
+  "date": "2026-10-22",
+  "attempts": [
+    {
+      "reviewer_service": "Jev browser 1.14.0",
+      "target": "https://loxlyatkinson.github.io/naptosa-workshop-proposal/",
+      "requested": "Fresh adversarial review against frozen C1-C8 criteria, contact-sheet inspection, chapter/PDF interaction and mobile check.",
+      "result": "max_steps",
+      "limit": 24,
+      "observed": "Returned a truncated page-content payload after scrolling and clicking a PDF link; no criterion verdict or visual findings were authored.",
+      "acceptance_use": "Not a valid independent review."
+    },
+    {
+      "reviewer_service": "Jev browser 1.14.0",
+      "target": "https://raw.githubusercontent.com/LoxlyAtkinson/naptosa-workshop-proposal/main/scrollcraft/builds/naptosa-network/evidence/final6-desktop/sheet.png",
+      "requested": "Independent visual composition review of the frozen desktop contact sheet.",
+      "result": "done_without_action",
+      "observed": "The agent proposed done before executing an action; page content was empty and it provided no visual verdict or findings.",
+      "acceptance_use": "Not a valid independent review."
+    }
+  ],
+  "status": "BLOCKED",
+  "blocker": "No available fresh independent reviewer has inspected the final rendered evidence and authored a verdict."
+}
