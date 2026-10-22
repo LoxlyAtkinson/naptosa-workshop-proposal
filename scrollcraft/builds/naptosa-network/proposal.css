@@ -101,3 +101,96 @@ html{scroll-behavior:smooth;scroll-padding-top:30px}body{background:#f2f5f7;colo
 .monthly-scene .barrow{min-width:0;width:100%;box-sizing:border-box}
 .monthly-scene .barrow .bar-label{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
 .monthly-scene .money-visual{max-width:100%;box-sizing:border-box}
+/* Reference-led finish: editorial dark canvas, compact teal panels, and a real hero split. */
+:root{--ink:#e9f2ef;--muted:#a6b8b6;--line:#24434a;--sc-canvas:#08131b;--sc-surface:#10242d;--sc-ink:#e9f2ef;--sc-ink-soft:#a6b8b6;--sc-accent:#80dfc2;--navy:#102d37;--blue:#20635f;--gold:#e7bd58}
+body{background:#08131b;color:#e9f2ef}
+.topbar{background:#0b2028ed;border-bottom:1px solid #28434a}
+.content{color:#d8e5e1}
+.content>section{border-color:#24434a}
+.content>section h2,.content>section:not([data-sc-act="pin"]) h3{color:#f2f7f4}
+.content>section:not([data-sc-act="pin"]) p,.content>section:not([data-sc-act="pin"]) li{color:#c8d8d4}
+.content>section[data-sc-act="pin"]{color:#182633}
+.content>section[data-sc-act="pin"] h2,.content>section[data-sc-act="pin"] h3,.content>section[data-sc-act="pin"] p,.content>section[data-sc-act="pin"] li{color:#182633}
+.content>section[data-sc-act="pin"]{border:1px solid #29474d}
+.footer{background:#10242d;color:#d8e5e1;border-top:1px solid #28434a}
+@media(min-width:761px){
+  .cover{min-height:100svh}
+  .hero-copy{inset:104px 178px 38px clamp(42px,6vw,96px);max-width:none;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);grid-template-rows:min-content min-content min-content auto min-content;align-content:center;align-items:center;gap:8px clamp(24px,4vw,58px)}
+  .hero-copy>.eyebrow{grid-column:1;grid-row:1;margin:0}
+  .hero-copy>h1{grid-column:1;grid-row:2;max-width:100%;font-size:clamp(3rem,5.5vw,5.4rem);margin:10px 0 14px}
+  .hero-copy>.lead{grid-column:1;grid-row:3;max-width:100%;font-size:clamp(1.05rem,1.35vw,1.28rem);line-height:1.55}
+  .cover .grid{display:grid!important;grid-column:1;grid-row:4;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-width:none;margin:14px 0 8px}
+  .cover .card{min-width:0;padding:13px 12px;background:#12313a;color:#eaf4ef;border:1px solid #3b6669;border-radius:12px;box-shadow:0 18px 40px #020c1170}
+  .cover .card strong{display:block;margin:8px 0 5px;color:#f4f8f5;font-size:clamp(1.15rem,1.55vw,1.6rem);white-space:nowrap}
+  .cover .card .label{color:#8de3c5;font-size:10px}
+  .cover .card span:last-child{color:#c1d2ce;font-size:11px;line-height:1.45}
+  .cover .network-map{display:block!important;grid-column:2;grid-row:1/5;width:100%;max-width:620px;margin:0;padding:clamp(18px,2vw,30px);background:#0d242dE8;border:1px solid #316068;border-radius:24px;box-shadow:0 24px 75px #020a10a8;backdrop-filter:blur(16px);color:#eef6f2}
+  .cover .network-map> b{display:block;color:#90e5c9;font-size:clamp(1rem,1.4vw,1.3rem);margin-bottom:18px}
+  .cover .network-map .branches{grid-template-columns:1fr;gap:10px}
+  .cover .network-map .branch{display:grid;grid-template-columns:minmax(125px,.8fr) 1.2fr;align-items:center;gap:12px;text-align:left;padding:14px 16px;color:#d4e2de;background:#15333b;border:1px solid #31575c;border-top:1px solid #31575c;border-radius:11px;font-size:12px;line-height:1.5}
+  .cover .network-map .branch b{color:#f4f8f6;font-size:13px}
+  .cover .network-map .branch.retained{background:#1b3d3c;border-color:#65a891}
+  .cover-meta{display:flex!important;grid-column:1;grid-row:5;max-width:none;gap:14px 22px;margin:10px 0 0;padding-top:12px;color:#e8f1ee;border-color:#ffffff50;font-size:11px}
+  .cover-meta>div{max-width:33%}.cover-meta span{color:#92dec3;font-size:9px}
+  .hero-copy>.download{display:none!important}
+}
+@media(max-width:760px){
+  body{background:#08131b}
+  .content{background:#08131b;color:#d8e5e1}
+  .content>section h2{color:#f2f7f4}
+  .content>section p,.content>section li{color:#c8d8d4}
+  .content>section[data-sc-act="pin"]{color:#182633}
+  .content>section[data-sc-act="pin"] h2,.content>section[data-sc-act="pin"] h3,.content>section[data-sc-act="pin"] p,.content>section[data-sc-act="pin"] li{color:#182633}
+  .footer{background:#10242d;color:#d8e5e1}
+}
+@media(min-width:761px){.hero-copy{top:86px;bottom:auto;height:calc(100svh - 116px);align-content:center}}
+.content>section:not([data-sc-act="pin"]) h3{color:var(--navy)}
+.content>section .callout{color:#182633}
+.content>section .photo-caption b{color:#112e52}
+.content>section .photo-caption span{color:#536371}
+.content>section .network-map .hub,.content>section .route,.content>section .flow,.content>section .topology-card,.content>section .journey article,.content>section .timeline div,.content>section .status-card{color:#182633}
+.content>section:not([data-sc-act="pin"])>h3,.content>section:not([data-sc-act="pin"])>.two h3{color:#f2f7f4}
+.story-scene .sc-stage{align-items:flex-start;box-sizing:border-box;padding-top:clamp(18px,3vw,34px)}
+.content>section .network-map .branch{color:#465b64}
+.content>section .network-map .branch b{color:#102d37}
+.content>section .storage-model{color:#182633}
+.content>section .storage-model>small{color:#536371}
+.content>section .storage-model .wc-existing{color:#536371}
+/* Pinned infographic frames should read as immersive scenes, not empty white slabs. */
+.story-scene .sc-stage{background:transparent}
+.story-scene.data-scene .sc-stage{background:transparent}
+.story-scene .network-map{background:#10242d;border-color:#31555b;color:#e9f2ef;box-shadow:0 22px 60px #020a1070}
+.story-scene .network-map .hub{background:#164b4a;color:#f3f7f5}
+.story-scene .network-map .hub small{color:#c5d9d4}
+.story-scene .network-map .branch{background:#15313a;color:#c8d8d4;border-color:#31565d;border-top-color:#68bca1}
+.story-scene .network-map .branch b{color:#f2f7f4}
+.story-scene .network-map .branch.retained{background:#2e342c;border-color:#d7b65d}
+.story-scene.data-scene .storage-model{background:#10242d;color:#e8f1ee;border-color:#31555b}
+.story-scene.data-scene .storage-model h3{color:#f2f7f4}
+.story-scene.data-scene .storage-model:nth-child(2){background:#123537;border-color:#7cd3b4}
+.story-scene.data-scene .storage-model:nth-child(2)>h3:after{background:#ffe58a;color:#172c42}
+.story-scene.data-scene .shared-sources span{background:#17343b;color:#e6f0ed;border-color:#385d61}
+.story-scene.data-scene .shared-db{background:#1c5954;color:#f2f7f4}
+.story-scene.data-scene .storage-model>small,.story-scene.data-scene .storage-model .wc-existing{color:#c7d7d3}
+.story-scene.data-scene .national-oversight{background:#1c454b;color:#e5f2ee}
+.story-scene.data-scene .wc-existing{background:#282f2b;border-left-color:#e7bd58}
+.content>section .story-scene .network-map .hub{color:#f3f7f5}
+.content>section .story-scene .network-map .branch{color:#c8d8d4}
+.content>section .story-scene .network-map .branch b{color:#f2f7f4}
+.content>section .story-scene.data-scene .storage-model{color:#e8f1ee}
+.content>section .story-scene.data-scene .storage-model h3{color:#f2f7f4}
+.content>section .story-scene.data-scene .storage-model>small,.content>section .story-scene.data-scene .storage-model .wc-existing{color:#c7d7d3}
+.story-scene .network-map{width:min(1180px,92vw);min-height:520px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,3vw,40px)}
+.story-scene .network-map> b{margin-bottom:22px;font-size:clamp(1.05rem,1.5vw,1.4rem)}
+.story-scene .network-map .hub{max-width:420px;margin-bottom:22px;padding:18px;font-size:1.1rem}
+.story-scene .network-map .branch{min-height:74px;box-sizing:border-box;padding:13px 10px}
+.story-scene.data-scene .storage-model{min-height:480px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(18px,2vw,28px)}
+@media(max-width:760px){
+  .story-scene .network-map{min-height:0;width:min(92vw,520px);padding:14px}
+  .story-scene .network-map .branch{min-height:64px}
+  .story-scene.data-scene .storage-model{min-height:0;padding:16px}
+}
+.story-scene .network-map{min-height:460px}
+.story-scene.data-scene .dedicated-cell{font-size:12px;padding:9px 4px;color:#102e52}
+.story-scene.data-scene .dedicated-cell .lock-icon{width:23px;height:19px}
+.story-scene.data-scene .storage-model>small,.story-scene.data-scene .storage-model .wc-existing{font-size:11px;line-height:1.45}
