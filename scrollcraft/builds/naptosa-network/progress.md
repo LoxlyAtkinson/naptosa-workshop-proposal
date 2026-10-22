@@ -105,3 +105,9 @@ Read `AGENTS.md`, `docs/standards/experience-acceptance.md`, `contract-and-secti
 - Repair: keep both parent sections in natural flow and scope each `pan` act to its title + diagram only. Supporting lists and terms now extend the parent section normally. Scroll-specific CSS now targets the nested acts.
 - Local browser proof: `experience-design/evidence/browser-acceptance.json` confirms no list items remain in view at data chapter entry, the workshop section ends where data begins, and delivery section height contains its terms through the acceptance chapter.
 - Final8 Scroll Craft sweeps were rerun after the repair: 87 desktop, 87 mobile, and 87 reduced-motion samples; all settled, no dead scroll, reduced motion poster throughout.
+
+## Orchestrated mobile table improvement
+- The fresh mobile audit found three wide quote/monthly-cost tables exceeded the available content width and were clipped behind the persistent chapter rail.
+- Added labelled, focusable horizontal table regions with visible mobile swipe guidance. The full table title is now outside the scroll region so the quote context remains visible while pricing columns move; original, offer, savings and VAT language are unchanged.
+- Verified on 390px: per-site pricing 593px within 311px scroll region, own-estimate comparison 462px within 311px, monthly services 715px within 251px. Every table scrolls horizontally, the region has a programmatic name and tab stop, keyboard ArrowRight moves the first table to the far column, and document width remains exactly 390px.
+- Final9 Scroll Craft sweeps were recaptured after table changes: desktop 1440×900, mobile 390×844 and reduced motion; each sampled 87 scroll positions with no dead scroll, and reduced-motion remained on the poster.
