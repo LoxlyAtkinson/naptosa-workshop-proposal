@@ -29,3 +29,15 @@ scrollcraft/builds/naptosa-network/evidence/final7-reduced-motion/*
 scrollcraft/builds/naptosa-network/evidence/outcomes/*
 !scrollcraft/builds/naptosa-network/evidence/outcomes/*.png
 !scrollcraft/builds/naptosa-network/evidence/image-check.cjs
+!scrollcraft/builds/naptosa-network/evidence/final8-desktop/
+!scrollcraft/builds/naptosa-network/evidence/final8-mobile-390/
+!scrollcraft/builds/naptosa-network/evidence/final8-reduced-motion/
+scrollcraft/builds/naptosa-network/evidence/final8-desktop/*
+scrollcraft/builds/naptosa-network/evidence/final8-mobile-390/*
+scrollcraft/builds/naptosa-network/evidence/final8-reduced-motion/*
+!scrollcraft/builds/naptosa-network/evidence/final8-desktop/sheet.png
+!scrollcraft/builds/naptosa-network/evidence/final8-desktop/report.json
+!scrollcraft/builds/naptosa-network/evidence/final8-mobile-390/sheet.png
+!scrollcraft/builds/naptosa-network/evidence/final8-mobile-390/report.json
+!scrollcraft/builds/naptosa-network/evidence/final8-reduced-motion/sheet.png
+!scrollcraft/builds/naptosa-network/evidence/final8-reduced-motion/report.json

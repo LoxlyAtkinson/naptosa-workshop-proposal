@@ -99,3 +99,9 @@ Email and visual additions implemented and deployed. Independent visual acceptan
 
 ## Safe Recovery Instructions
 Read `AGENTS.md`, `docs/standards/experience-acceptance.md`, `contract-and-section-map.md`, this file, and the current git status. The proposal is implemented and browser-tested. Do not repeat successful checks without new source changes. Do not claim final acceptance while independent judgment remains blocked.
+
+## Orchestrated review finding (before repair)
+- Independent local inspection found workshop feature lists visually overlapping the next Workshop data chapter, and delivery/terms content overflowing its fixed-height chapter. Root cause: `data-sc-act="pan"` and `data-sc-span="1.4"` applied to whole long sections, whose act box remained about 1.4 viewport heights.
+- Repair: keep both parent sections in natural flow and scope each `pan` act to its title + diagram only. Supporting lists and terms now extend the parent section normally. Scroll-specific CSS now targets the nested acts.
+- Local browser proof: `experience-design/evidence/browser-acceptance.json` confirms no list items remain in view at data chapter entry, the workshop section ends where data begins, and delivery section height contains its terms through the acceptance chapter.
+- Final8 Scroll Craft sweeps were rerun after the repair: 87 desktop, 87 mobile, and 87 reduced-motion samples; all settled, no dead scroll, reduced motion poster throughout.
