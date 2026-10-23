@@ -1,0 +1,68 @@
+/* =========================================================================
+   fonts.css: the page's two families, self-hosted (OFL, fonts/OFL-*.txt)
+   -------------------------------------------------------------------------
+   Archivo variable (wght 100 to 900, wdth 62 to 125) and Public Sans
+   variable (wght 100 to 900), Google Fonts latin subsets, font-display swap.
+   tools/build.mjs stamps each url() below with ?v=<content hash>.
+
+   No layout shift while the woff2 files load: each family has a local
+   fallback face whose size and vertical metrics are matched to the web face
+   (lab/f0/font_metrics.py: frequency-weighted advance widths, Public Sans at
+   wght 400, Archivo at wght 600 and wdth 75). The token stacks in
+   css/tokens.css are restated here with the fallback faces inserted second;
+   the families and their order are otherwise unchanged. The kept hero does
+   not use these families (css/hero.css).
+   ========================================================================= */
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/archivo-var-latin.woff2?v=e3a28eade2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("../fonts/public-sans-var-latin.woff2?v=5ed4d31c98") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Metric-matched fallbacks (Windows and macOS ship Arial; Arial Narrow ships
+   with Office and macOS). A missing local face is skipped. */
+@font-face {
+  font-family: "Public Sans Fallback";
+  src: local("Arial"), local("ArialMT");
+  size-adjust: 104.73%;
+  ascent-override: 90.71%;
+  descent-override: 21.48%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Archivo Fallback";
+  src: local("Arial Narrow Bold"), local("ArialNarrow-Bold");
+  size-adjust: 91.79%;
+  ascent-override: 95.66%;
+  descent-override: 22.88%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Archivo Fallback Wide";
+  src: local("Arial Bold"), local("Arial-BoldMT");
+  size-adjust: 75.28%;
+  ascent-override: 116.64%;
+  descent-override: 27.9%;
+  line-gap-override: 0%;
+}
+
+:root {
+  --nq-font-display: "Archivo", "Archivo Fallback", "Archivo Fallback Wide", "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+  --nq-font-text: "Public Sans", "Public Sans Fallback", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}

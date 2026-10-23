@@ -1,0 +1,297 @@
+/* =========================================================================
+   act-05-quotation.css: act 5, The quotation (Day, flow), piece P3, and the
+   shared table component (design-system.md 12.5), which act 7 also uses.
+   -------------------------------------------------------------------------
+   Ground: Day (paper). Type: three sizes only in this act: the "10" at the
+   mono size, the heading and the saving figure at the head size, and every
+   other line, column label and original price at the body size, with weight
+   and soft ink carrying the hierarchy (bar.md mechanism 3).
+   C23: every table row, cell and light surface states its own ink with
+   color: var(--nq-ink), never by inheritance alone.
+   Motion (js/act-05-quotation.js): rows land as they rise into the lower part
+   of the screen and stay landed; each landed row ticks its locator map; the
+   saving figure counts up once. Reduced motion: rows and figures are simply
+   there, and the ticks change state without animating.
+   ========================================================================= */
+
+/* ---- the shared table component (design-system.md 12.5) ---------------- */
+.nq-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: var(--nq-numerals);
+  color: var(--nq-ink);
+}
+.nq-table caption {
+  caption-side: top;
+  text-align: left;
+  padding-bottom: var(--nq-s-3);
+  font-weight: var(--nq-wght-strong);
+  color: var(--nq-ink);
+}
+/* C23: rows and cells state their own ink */
+.nq-table tr,
+.nq-table th,
+.nq-table td { color: var(--nq-ink); }
+.nq-table th,
+.nq-table td {
+  padding: var(--nq-s-3) var(--nq-s-4);
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px dashed var(--nq-hairline);
+}
+.nq-table thead tr { background: var(--nq-raise-1); }
+.nq-table thead th {
+  background: transparent;
+  border-top: 0;
+  font-size: var(--nq-t-small);
+  font-weight: 600;
+  line-height: var(--nq-lh-small);
+  color: var(--nq-ink);
+}
+.nq-table tbody th { font-weight: 600; }
+.nq-table .nq-row--total { background: var(--nq-raise-2); color: var(--nq-ink); }
+.nq-table .nq-row--total th,
+.nq-table .nq-row--total td {
+  color: var(--nq-ink);
+  font-weight: var(--nq-wght-strong);
+}
+.nq-offer { font-weight: var(--nq-wght-strong); }
+.nq-orig { display: block; color: var(--nq-ink-soft); font-size: var(--nq-t-small); font-weight: 500; }
+
+/* ---- act 5: the frame ---------------------------------------------------- */
+.nq-quote { padding-block: var(--nq-section); }
+
+/* the opener: "10" beside the title, the terms under the title */
+.nq-quote__open {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: clamp(1.5rem, 3.2vw, 3.5rem);
+  row-gap: var(--nq-s-6);
+  align-items: end;
+}
+.nq-quote__ten {
+  grid-column: 1;
+  grid-row: 1;
+  color: var(--nq-ink);
+  /* the numeral's own box is taller than its ink: pull the baseline down to
+     the title's last line */
+  margin-bottom: -0.06em;
+}
+.nq-quote__title { grid-column: 2; grid-row: 1; display: grid; gap: var(--nq-s-3); padding-bottom: 0.2rem; }
+.nq-quote__title .nq-lead { color: var(--nq-ink); }
+.nq-quote__terms {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 0.8fr);
+  column-gap: clamp(1.5rem, 3vw, 3rem);
+  margin-top: var(--nq-s-4);
+  padding-block: var(--nq-s-4);
+  border-top: 1px dashed var(--nq-hairline);
+  border-bottom: 1px dashed var(--nq-hairline);
+  color: var(--nq-ink-soft);
+}
+.nq-quote__terms > li { color: var(--nq-ink-soft); }
+
+/* ---- the ledger ---------------------------------------------------------- */
+.nq-ledger { margin-top: var(--nq-s-8); display: grid; gap: var(--nq-s-5); }
+.nq-table--entities caption { padding-bottom: var(--nq-s-4); }
+/* one size for the whole ledger: labels and original prices are body size,
+   set apart by weight and soft ink, never by a fourth size */
+.nq-table--entities thead th {
+  font-size: var(--nq-t-body);
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--nq-ink-soft);
+  padding-block: var(--nq-s-3);
+}
+.nq-table--entities th,
+.nq-table--entities td { vertical-align: middle; padding-block: var(--nq-s-3); }
+.nq-table--entities thead th:first-child { width: 34%; }
+.nq-table--entities td,
+.nq-table--entities thead th:not(:first-child) { text-align: right; white-space: nowrap; }
+.nq-table--entities .nq-orig { font-size: var(--nq-t-body); font-weight: 400; line-height: 1.45; }
+.nq-table--entities tbody th { white-space: nowrap; }
+/* each entity's own total reads first when the eye runs down the right edge */
+.nq-table--entities tbody td:last-child { font-weight: 600; }
+.nq-ledger__name { vertical-align: middle; }
+/* Western Cape: its words, not a wide column, carry the retained state */
+.nq-row--retained td { white-space: normal; }
+.nq-row--retained td:last-child { font-weight: var(--nq-wght-strong); }
+.nq-table--entities .nq-row--grand th,
+.nq-table--entities .nq-row--grand td { padding-block: var(--nq-s-4); }
+
+/* the locator: the network object in ledger mode, one small map per row */
+.nq-loc {
+  display: inline-block;
+  vertical-align: middle;
+  width: 3.5rem;
+  aspect-ratio: 1036 / 931;
+  margin-inline-end: var(--nq-s-3);
+}
+.nq-loc:empty { display: none; }
+.nq-loc > svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.nq-loc__land,
+.nq-loc__mine {
+  fill: var(--nq-day-raise-2);
+  fill: color-mix(in srgb, var(--nq-day-edge) 30%, var(--nq-day));
+  stroke: var(--nq-day);
+  stroke-width: 0.75px;
+  transition: fill var(--nq-d-enter) var(--nq-ease-out), stroke var(--nq-d-enter) var(--nq-ease-out);
+}
+.nq-loc__hub {
+  fill: var(--nq-day);
+  stroke: var(--nq-day-edge);
+  stroke-width: 1px;
+  transition: fill var(--nq-d-enter) var(--nq-ease-out), stroke var(--nq-d-enter) var(--nq-ease-out);
+}
+/* a landed row lights its destination in the network's light on paper */
+.is-landed .nq-loc__mine { fill: var(--nq-gold-deep); stroke: var(--nq-day); }
+.is-landed .nq-loc__hub { fill: var(--nq-gold-deep); stroke: var(--nq-gold-deep); }
+/* Western Cape is lit from the start, as on every map on the page, and drawn
+   as the retained site: outlined in gold, a light gold fill */
+.nq-row--retained .nq-loc__mine,
+.nq-row--retained.is-landed .nq-loc__mine {
+  fill: var(--nq-map-land);
+  fill: color-mix(in srgb, var(--nq-gold-deep) 24%, var(--nq-map-land));
+  stroke: var(--nq-gold-deep);
+  stroke-width: 1.25px;
+}
+
+/* rows land as they rise into the lower part of the screen (js arms this) */
+.nq-ledger--armed tbody tr {
+  opacity: var(--land, 0);
+  transform: translate3d(0, calc((1 - var(--land, 0)) * var(--nq-rise)), 0);
+}
+
+.nq-quote__notes { gap: var(--nq-s-2); }
+.nq-quote__notes > li { color: var(--nq-ink-soft); }
+
+/* ---- the saving ---------------------------------------------------------- */
+.nq-savings { margin-top: var(--nq-s-9); display: grid; gap: var(--nq-s-4); }
+.nq-savings__lines { max-width: none; gap: var(--nq-s-3); }
+.nq-savings__lines > li { max-width: var(--nq-measure); color: var(--nq-ink); }
+/* the Combined line, set with its figure at the head size on a raised band */
+.nq-savings__lines > li.nq-saving {
+  max-width: none;
+  margin-block: var(--nq-s-4);
+  padding: var(--nq-s-6) clamp(1.25rem, 3vw, 2.5rem);
+  background-color: var(--nq-raise-1);
+  color: var(--nq-ink);
+  border-radius: var(--nq-r-1);
+  font-weight: 500;
+  line-height: 1.4;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(9rem, 22%, 14rem);
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.nq-saving__text { display: block; color: var(--nq-ink); }
+.nq-saving__first { display: block; margin-bottom: var(--nq-s-2); color: var(--nq-ink); }
+/* the network, complete: every destination quoted (lights as the line lands) */
+.nq-saving__map { display: block; width: 100%; aspect-ratio: 1036 / 931; }
+.nq-saving__map > svg { display: block; width: 100%; height: 100%; }
+.nq-saving__map .za-network .lbl,
+.nq-saving__map .za-network .leader,
+.nq-saving__map .za-network .labels { display: none; }
+.nq-saving__map .za-network .prov { fill: var(--nq-raise-1); }
+.nq-saving__fig {
+  position: relative;
+  display: inline-block;
+  margin-inline: 0.2em 0.12em;
+  font-family: var(--nq-font-display);
+  font-size: var(--nq-t-head);
+  font-stretch: var(--nq-stretch-head);
+  font-weight: var(--nq-wght-head);
+  line-height: 1;
+  letter-spacing: var(--nq-track-head);
+  font-variant-numeric: var(--nq-numerals);
+  white-space: nowrap;
+  color: var(--nq-ink);
+}
+/* while counting, the real figure keeps its place and the overlay shows the
+   count (js/act-05-quotation.js); the text in the page is always the final
+   figure */
+/* While the count runs, the real figure keeps its place at opacity 0 (still
+   read by assistive technology) and a pseudo-element draws the counting
+   digits with empty alternative text, so the page's text is always the
+   final figure (js/act-05-quotation.js). */
+.nq-saving__real { display: inline-block; }
+.nq-saving__fig.is-counting > .nq-saving__real { opacity: 0; }
+.nq-saving__fig.is-counting::after {
+  content: attr(data-show);
+  content: attr(data-show) / "";
+  position: absolute;
+  inset: 0;
+  text-align: left;
+  color: var(--nq-ink);
+  pointer-events: none;
+}
+/* the Combined line lands like the rows before it counts */
+.nq-saving--armed {
+  opacity: var(--land, 0);
+  transform: translate3d(0, calc((1 - var(--land, 0)) * var(--nq-rise)), 0);
+}
+
+/* ---- reference values and exclusions: quieter, two columns ------------- */
+.nq-quote__more {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--nq-s-7) clamp(2rem, 4vw, 4rem);
+  margin-top: var(--nq-s-8);
+  padding-top: var(--nq-s-6);
+  border-top: 1px dashed var(--nq-hairline);
+}
+.nq-quote__more > .nq-block + .nq-block { margin-top: 0; }
+.nq-quote__ref { gap: var(--nq-s-3); color: var(--nq-ink); }
+.nq-quote__ref .nq-lines > li { color: var(--nq-ink-soft); }
+
+/* ---- phones: every row becomes a stacked block (C17) -------------------- */
+@media (max-width: 719.98px) {
+  .nq-quote__open { grid-template-columns: minmax(0, 1fr); row-gap: var(--nq-s-4); align-items: start; }
+  .nq-quote__ten, .nq-quote__title, .nq-quote__terms { grid-column: 1; grid-row: auto; }
+  .nq-quote__terms { grid-template-columns: minmax(0, 1fr); row-gap: var(--nq-s-2); margin-top: 0; }
+  .nq-quote__ten { margin-bottom: 0; }
+  .nq-ledger { margin-top: var(--nq-s-8); }
+
+  .nq-table--entities,
+  .nq-table--entities tbody,
+  .nq-table--entities tr,
+  .nq-table--entities th,
+  .nq-table--entities td { display: block; }
+  .nq-table--entities caption { display: block; }
+  .nq-table--entities thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .nq-table--entities tr { padding: var(--nq-s-4) 0; border-top: 1px dashed var(--nq-hairline); color: var(--nq-ink); }
+  .nq-table--entities tr.nq-row--total { padding-inline: var(--nq-s-3); border-top-color: transparent; margin-top: 2px; }
+  .nq-table--entities th,
+  .nq-table--entities td { border-top: 0; padding: var(--nq-s-1) 0; background: transparent; }
+  .nq-table--entities .nq-row--total th,
+  .nq-table--entities .nq-row--total td { background: transparent; }
+  .nq-table--entities tbody th { display: flex; align-items: center; padding-bottom: var(--nq-s-2); white-space: normal; }
+  .nq-table--entities td {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--nq-s-3);
+    text-align: right;
+    white-space: normal;
+  }
+  .nq-table--entities td::before {
+    content: attr(data-label);
+    text-align: left;
+    color: var(--nq-ink-soft);
+    font-weight: 500;
+  }
+  .nq-table--entities td > .nq-orig { grid-column: 2; }
+  .nq-table--entities .nq-row--grand th,
+  .nq-table--entities .nq-row--grand td { padding-block: var(--nq-s-1); }
+  .nq-loc { width: 2.75rem; }
+
+  .nq-savings { margin-top: var(--nq-s-8); }
+  .nq-savings__lines > li.nq-saving { padding: var(--nq-s-5) var(--nq-s-4); grid-template-columns: minmax(0, 1fr) 5.5rem; column-gap: var(--nq-s-4); }
+  .nq-quote__more { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nq-loc__mine, .nq-loc__hub { transition: none; }
+}

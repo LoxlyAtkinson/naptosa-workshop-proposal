@@ -1,0 +1,108 @@
+/* =========================================================================
+   map.css: the network map in every mode (design-system.md 12.8)
+   -------------------------------------------------------------------------
+   js/network-map.js inlines the svg and sets, on its root:
+     .mode-lit | .mode-blueprint | .mode-data-A | .mode-data-B |
+     .mode-timeline | .mode-resolved   (and data-mode)
+     --map-p (0 to 1), data-lit (how many destinations are lit)
+   and on each part (path.prov, circle.node, g.hub, path.link, text.lbl,
+   all carrying data-prov): .is-lit, .is-outline, .is-hl.
+   Colours come from the ground tokens (--nq-map-land, --nq-map-edge,
+   --nq-map-light, --nq-map-label, --nq-map-halo), so the same drawing sits
+   on night and on paper. No blur, glow, drop shadow or gradient.
+   "lit" is finished here; the other modes carry their base state, and their
+   bespoke visuals belong to the act builders (plumbing, blueprint, timeline).
+   ========================================================================= */
+
+.nq-map { position: relative; width: 100%; }
+.nq-map > svg.nq-map__svg { display: block; width: 100%; height: auto; max-height: 100%; overflow: visible; }
+.nq-map__fallback { display: block; width: 100%; height: auto; }
+.nq-map.is-failed { display: none; }
+
+/* --- shared base ------------------------------------------------------- */
+.za-network .prov {
+  fill: var(--nq-map-land);
+  stroke: var(--nq-map-edge);
+  stroke-width: var(--nq-map-edge-w);
+  vector-effect: non-scaling-stroke;
+  transition: stroke var(--nq-d-enter) var(--nq-ease-out), fill var(--nq-d-enter) var(--nq-ease-out);
+}
+.za-network .prov.is-lit {
+  stroke: var(--nq-map-light);
+  stroke-width: var(--nq-map-line-w);
+}
+.za-network .prov.is-outline { stroke: var(--nq-map-light); stroke-dasharray: 4 3; }
+.za-network .node {
+  fill: var(--nq-map-land);
+  stroke: var(--nq-map-edge);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+  transition: fill var(--nq-d-enter) var(--nq-ease-out), stroke var(--nq-d-enter) var(--nq-ease-out);
+}
+.za-network .node.is-lit { fill: var(--nq-map-light); stroke: var(--nq-map-light); }
+.za-network .node.is-outline { stroke: var(--nq-map-light); }
+.za-network .node--existing.is-lit { fill: var(--nq-map-light); stroke: var(--nq-map-light); }
+.za-network .hub .hub-core { fill: var(--nq-map-edge); transition: fill var(--nq-d-enter) var(--nq-ease-out); }
+.za-network .hub .hub-ring {
+  fill: var(--nq-map-halo);
+  stroke: var(--nq-map-edge);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+  transition: stroke var(--nq-d-enter) var(--nq-ease-out);
+}
+.za-network .hub.is-lit .hub-core { fill: var(--nq-map-light); }
+.za-network .hub.is-lit .hub-ring { stroke: var(--nq-map-light); }
+.za-network .link {
+  fill: none;
+  stroke: var(--nq-map-light);
+  stroke-width: var(--nq-map-line-w);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--nq-d-replumb) var(--nq-ease-out);
+}
+.za-network .link.is-lit { stroke-dashoffset: 0; }
+.za-network .lbl {
+  fill: var(--nq-map-label);
+  stroke: var(--nq-map-halo);
+  stroke-width: 3px;
+  paint-order: stroke;
+  font-family: var(--nq-font-text);
+  font-weight: 600;
+  transition: opacity var(--nq-d-enter) var(--nq-ease-out);
+}
+.za-network .lbl-note { font-weight: 400; }
+.za-network .leader { stroke: var(--nq-map-label); vector-effect: non-scaling-stroke; }
+
+/* --- lit (act 1): names appear as their province lights ----------------- */
+.za-network.mode-lit .lbl:not(.is-lit),
+.za-network.mode-lit .leader:not(.is-lit) { opacity: 0; }
+
+/* --- timeline (act 6): hub first, then the eight together --------------- */
+.za-network.mode-timeline .lbl { opacity: 1; }
+
+/* --- data (act 4): base states; the re-plumbing is the act builder's ---- */
+.za-network.mode-data-A .link,
+.za-network.mode-data-B .link { stroke-dashoffset: 1; }
+.za-network.mode-data-B .node { stroke-width: 2px; }
+
+/* --- highlight (province details) ---------------------------------------- */
+.za-network .prov.is-hl { stroke: var(--nq-map-light); stroke-width: 2px; }
+.za-network .node.is-hl { fill: var(--nq-map-light); }
+
+/* --- the mini-map in the quote panel: no labels, 1 px strokes ------------ */
+.za-network--mini .lbl,
+.za-network--mini .leader,
+.za-network--mini .labels { display: none; }
+.za-network--mini .prov.is-lit { stroke-width: 1px; }
+.za-network--mini .link { stroke-width: 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .za-network .prov,
+  .za-network .node,
+  .za-network .hub .hub-core,
+  .za-network .hub .hub-ring,
+  .za-network .link,
+  .za-network .lbl { transition: none; }
+}

@@ -1,0 +1,374 @@
+{
+  "meta": {
+    "svg": "za-network.svg",
+    "viewBox": [
+      -12,
+      -12,
+      1024,
+      919
+    ],
+    "units": "SVG user units. Albers equal-area conic (standard parallels 24 S and 33 S, origin 29 S 25 E); the mainland is 1000 units wide; y grows southwards.",
+    "positions": "Node and label positions are illustrative and do not mark office locations.",
+    "hub": "The national hub is drawn offshore so it cannot be read as an office location.",
+    "source": "Natural Earth admin-1 states and provinces, public domain, simplified (Douglas-Peucker 0.4 unit, shared borders simplified once).",
+    "prices": "Once-off build prices in rand, excl. VAT (contract C1).",
+    "gaps": {
+      "Eswatini": {
+        "x": 912.7,
+        "y": 308.8
+      },
+      "Lesotho": {
+        "x": 707.9,
+        "y": 514.7
+      }
+    },
+    "labelSets": {
+      "wide": {
+        "fontSize": 18.0,
+        "use": "maps about 690 px wide or more: labels 12.1 px at 690 px, 16.9 px at 960 px"
+      },
+      "narrow": {
+        "fontSize": 37.5,
+        "nodeScale": 2.6,
+        "use": "phone maps: labels 13.1 px at 358 px, 12.0 px at 328 px"
+      },
+      "switch": "The embedded CSS shows the narrow set at viewport widths of 720 px or less. Set data-density=\"wide\" or \"narrow\" on the svg element to choose by the map's own width instead (narrow below about 690 px)."
+    },
+    "order": [
+      "national",
+      "ZA-EC",
+      "ZA-FS",
+      "ZA-GT",
+      "ZA-NL",
+      "ZA-LP",
+      "ZA-MP",
+      "ZA-NW",
+      "ZA-NC",
+      "ZA-WC"
+    ]
+  },
+  "entities": {
+    "national": {
+      "name": "NAPTOSA National",
+      "status": "national",
+      "statusText": "The national mother site: a new, modern national website.",
+      "websiteBuild": 8999,
+      "workshopBuild": 12499,
+      "websiteBuildText": "R 8,999.00",
+      "workshopBuildText": "R 12,499.00",
+      "node": {
+        "x": 905.0,
+        "y": 745.0
+      },
+      "label": {
+        "x": 889.7,
+        "y": 777.4,
+        "anchor": "end",
+        "lines": [
+          "NAPTOSA National"
+        ]
+      },
+      "labelNarrow": {
+        "x": 869.1,
+        "y": 816.5,
+        "anchor": "end",
+        "lines": [
+          "NAPTOSA",
+          "National"
+        ]
+      }
+    },
+    "ZA-EC": {
+      "name": "Eastern Cape",
+      "status": "new",
+      "statusText": "A new site.",
+      "websiteBuild": 8999,
+      "workshopBuild": 12499,
+      "websiteBuildText": "R 8,999.00",
+      "workshopBuildText": "R 12,499.00",
+      "node": {
+        "x": 612.3,
+        "y": 682.4
+      },
+      "iso": "ZA-EC",
+      "label": {
+        "x": 597.0,
+        "y": 688.8,
+        "anchor": "end",
+        "lines": [
+          "Eastern Cape"
+        ]
+      },
+      "labelNarrow": {
+        "x": 612.3,
+        "y": 752.2,
+        "anchor": "middle",
+        "lines": [
+          "Eastern Cape"
+        ]
+      }
+    },
+    "ZA-FS": {
+      "name": "Free State",
+      "status": "new",
+      "statusText": "A new site.",
+      "websiteBuild": 7700,
+      "workshopBuild": 9500,
+      "websiteBuildText": "R 7,700.00",
+      "workshopBuildText": "R 9,500.00",
+      "node": {
+        "x": 583.4,
+        "y": 457.8
+      },
+      "iso": "ZA-FS",
+      "label": {
+        "x": 583.4,
+        "y": 442.9,
+        "anchor": "middle",
+        "lines": [
+          "Free State"
+        ]
+      },
+      "labelNarrow": {
+        "x": 583.4,
+        "y": 424.4,
+        "anchor": "middle",
+        "lines": [
+          "Free State"
+        ]
+      }
+    },
+    "ZA-GT": {
+      "name": "Gauteng",
+      "status": "new",
+      "statusText": "Has a site today, rebuilt into the network.",
+      "websiteBuild": 8999,
+      "workshopBuild": 12499,
+      "websiteBuildText": "R 8,999.00",
+      "workshopBuildText": "R 12,499.00",
+      "node": {
+        "x": 702.7,
+        "y": 281.5
+      },
+      "iso": "ZA-GP",
+      "label": {
+        "x": 637.0,
+        "y": 288.0,
+        "anchor": "end",
+        "lines": [
+          "Gauteng"
+        ],
+        "leader": [
+          697.2,
+          281.5,
+          639.0,
+          281.5
+        ]
+      },
+      "labelNarrow": {
+        "x": 602.5,
+        "y": 172.6,
+        "anchor": "end",
+        "lines": [
+          "Gauteng"
+        ],
+        "leader": [
+          693.8,
+          272.5,
+          603.9,
+          182.7
+        ]
+      }
+    },
+    "ZA-NL": {
+      "name": "KwaZulu-Natal",
+      "status": "new",
+      "statusText": "Has a site today, rebuilt into the network.",
+      "websiteBuild": 8999,
+      "workshopBuild": 12499,
+      "websiteBuildText": "R 8,999.00",
+      "workshopBuildText": "R 12,499.00",
+      "node": {
+        "x": 866.4,
+        "y": 433.8
+      },
+      "iso": "ZA-KZN",
+      "label": {
+        "x": 866.4,
+        "y": 414.3,
+        "anchor": "middle",
+        "lines": [
+          "KwaZulu-Natal"
+        ]
+      },
+      "labelNarrow": {
+        "x": 866.4,
+        "y": 503.6,
+        "anchor": "middle",
+        "lines": [
+          "KwaZulu-",
+          "Natal"
+        ]
+      }
+    },
+    "ZA-LP": {
+      "name": "Limpopo",
+      "status": "new",
+      "statusText": "A new site.",
+      "websiteBuild": 7700,
+      "workshopBuild": 9500,
+      "websiteBuildText": "R 7,700.00",
+      "workshopBuildText": "R 9,500.00",
+      "node": {
+        "x": 805.0,
+        "y": 104.1
+      },
+      "iso": "ZA-LP",
+      "label": {
+        "x": 820.3,
+        "y": 110.6,
+        "anchor": "start",
+        "lines": [
+          "Limpopo"
+        ]
+      },
+      "labelNarrow": {
+        "x": 805.0,
+        "y": 70.6,
+        "anchor": "middle",
+        "lines": [
+          "Limpopo"
+        ]
+      }
+    },
+    "ZA-MP": {
+      "name": "Mpumalanga",
+      "status": "new",
+      "statusText": "A new site.",
+      "websiteBuild": 7700,
+      "workshopBuild": 9500,
+      "websiteBuildText": "R 7,700.00",
+      "workshopBuildText": "R 9,500.00",
+      "node": {
+        "x": 813.6,
+        "y": 286.5
+      },
+      "iso": "ZA-MP",
+      "label": {
+        "x": 813.6,
+        "y": 271.5,
+        "anchor": "middle",
+        "lines": [
+          "Mpumalanga"
+        ]
+      },
+      "labelNarrow": {
+        "x": 813.6,
+        "y": 183.7,
+        "anchor": "middle",
+        "lines": [
+          "Mpumalanga"
+        ],
+        "leader": [
+          813.6,
+          273.8,
+          813.6,
+          194.3
+        ]
+      }
+    },
+    "ZA-NW": {
+      "name": "North West",
+      "status": "new",
+      "statusText": "A new site.",
+      "websiteBuild": 7700,
+      "workshopBuild": 9500,
+      "websiteBuildText": "R 7,700.00",
+      "workshopBuildText": "R 9,500.00",
+      "node": {
+        "x": 531.5,
+        "y": 312.2
+      },
+      "iso": "ZA-NW",
+      "label": {
+        "x": 520.4,
+        "y": 297.0,
+        "anchor": "end",
+        "lines": [
+          "North West"
+        ]
+      },
+      "labelNarrow": {
+        "x": 531.5,
+        "y": 278.7,
+        "anchor": "middle",
+        "lines": [
+          "North West"
+        ]
+      }
+    },
+    "ZA-NC": {
+      "name": "Northern Cape",
+      "status": "new",
+      "statusText": "A new site.",
+      "websiteBuild": 7700,
+      "workshopBuild": 9500,
+      "websiteBuildText": "R 7,700.00",
+      "workshopBuildText": "R 9,500.00",
+      "node": {
+        "x": 333.6,
+        "y": 508.6
+      },
+      "iso": "ZA-NC",
+      "label": {
+        "x": 318.3,
+        "y": 515.1,
+        "anchor": "end",
+        "lines": [
+          "Northern Cape"
+        ]
+      },
+      "labelNarrow": {
+        "x": 333.6,
+        "y": 578.4,
+        "anchor": "middle",
+        "lines": [
+          "Northern Cape"
+        ]
+      }
+    },
+    "ZA-WC": {
+      "name": "Western Cape",
+      "status": "existing",
+      "statusText": "Its existing site, domain and paid workshop build are retained.",
+      "websiteBuild": 0,
+      "workshopBuild": 0,
+      "websiteBuildText": "R 0.00",
+      "workshopBuildText": "R 0.00",
+      "node": {
+        "x": 224.0,
+        "y": 801.9
+      },
+      "iso": "ZA-WC",
+      "label": {
+        "x": 224.0,
+        "y": 761.6,
+        "anchor": "middle",
+        "lines": [
+          "Western Cape",
+          "Existing site retained"
+        ]
+      },
+      "labelNarrow": {
+        "x": 224.0,
+        "y": 715.5,
+        "anchor": "middle",
+        "lines": [
+          "Western Cape",
+          "Existing site retained"
+        ]
+      },
+      "note": "Existing website, domain, infrastructure and paid workshop build retained; no new build charge. Its monthly arrangement stays separate."
+    }
+  }
+}

@@ -1,0 +1,289 @@
+/* act-04-data.css: act 4, Your data, your choice (Night, pin 6.0, THE PEAK)
+   and its coda. Piece P1 (design loop round 1).
+   Desktop: the map is the object on the left with the giant option letter
+   standing in its empty upper left; the right column holds the chosen
+   option's pages above the console (the switch and the monthly figure).
+   Phones: the letter beside the map, the key under it, the pages, then the
+   console in the lower third above the bar (BRIEF, phone composition).
+   Three type sizes on every screen: the letter (mono), the heading and the
+   monthly figure (head), everything else at body size.
+   The data switch follows design-system.md 12.3. The plumbing styles at the
+   end serve every map in data mode (the act 4 map and the panel's mini-map). */
+
+/* ------------------------------------------------------------ the stage -- */
+.nq-data {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+  grid-template-rows: minmax(0, 1fr);
+  column-gap: clamp(2rem, 4.5vw, 5rem);
+  align-items: stretch;
+}
+.nq-data__visual {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: var(--nq-s-5);
+  min-width: 0;
+  min-height: 0;
+}
+.nq-data__figure { position: relative; width: 100%; }
+.nq-data__map { width: 100%; }
+.nq-data__map .nq-map { width: 100%; max-width: min(100%, calc((100svh - 14rem) * 1.114)); aspect-ratio: 1024 / 919; }
+/* the giant option letter stands in the map's empty upper left */
+.nq-data__letter {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: -0.2em;
+  color: var(--nq-accent);
+  pointer-events: none;
+}
+.nq-data__mask { display: block; overflow: hidden; padding: 0.06em 0.04em 0.1em; margin: -0.06em -0.04em -0.1em; }
+.nq-data__glyph { display: block; }
+.nq-data__letter .nq-changed { text-decoration: none; }
+.nq-data__glyph.is-swapping { animation: nq-letter-in 620ms var(--nq-ease-out) both; }
+@keyframes nq-letter-in { from { transform: translateY(105%); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* the key under the map: what the gold marks mean, in the chosen option */
+.nq-data__legend { display: grid; gap: var(--nq-s-2); }
+.nq-data__key { margin: 0; display: flex; align-items: center; gap: var(--nq-s-3); font-weight: var(--nq-wght-strong); color: var(--nq-ink); }
+.nq-data__keynote { margin: 0; color: var(--nq-ink-soft); }
+.nq-data__icon { flex: none; overflow: visible; fill: var(--nq-canvas); stroke: var(--nq-gold); stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
+.nq-data__icon .nq-data__iconkey { fill: var(--nq-gold); stroke: none; }
+.nq-data__key--existing .nq-data__icon { stroke: var(--nq-edge); stroke-width: 1px; }
+.nq-data__key--existing .nq-data__icon .nq-data__iconkey { fill: var(--nq-edge); }
+
+/* the right column: the pages over the console */
+.nq-data__side {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  row-gap: var(--nq-s-7);
+  min-width: 0;
+  min-height: 0;
+}
+.nq-data__q { grid-column: 1; grid-row: 1 / 3; align-self: center; display: grid; gap: var(--nq-s-4); }
+.nq-data__eyebrow { font-size: var(--nq-t-body); font-weight: 600; letter-spacing: 0; color: var(--nq-ink-soft); }
+.nq-data__text { grid-column: 1; grid-row: 1; display: grid; align-content: start; min-height: 0; padding-top: clamp(1rem, 8svh, 5rem); }
+.nq-data__text > .nq-state,
+.nq-data__panel > .nq-state { grid-area: 1 / 1; align-self: start; }
+.nq-data__panel { display: contents; }
+.nq-data__page { display: grid; gap: var(--nq-s-3); align-content: start; margin: 0; }
+.nq-data__page.nq-lines { gap: var(--nq-s-4); }
+.nq-data__option { margin: 0; }
+.nq-data__keyline { font-weight: var(--nq-wght-strong); }
+.nq-data__rule { color: var(--nq-ink); max-width: var(--nq-measure); }
+.nq-data__page--phone { display: none; }
+
+/* the console: the switch and the monthly figure */
+.nq-data__console {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  gap: var(--nq-s-6);
+  padding-top: var(--nq-s-5);
+  border-top: 1px dashed var(--nq-hairline);
+}
+.nq-choice { display: grid; gap: var(--nq-s-2); }
+.nq-choice__label { margin: 0; font-weight: var(--nq-wght-strong); }
+/* the signing rule sits under the switch (design-system 12.3); on phones
+   it becomes a page of its own, between the notes and the option pages */
+.nq-choice__rule { margin: var(--nq-s-1) 0 0; color: var(--nq-ink-soft); max-width: var(--nq-measure); }
+.nq-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nq-s-3);
+  width: fit-content;
+  max-width: 100%;
+  min-height: var(--nq-tap-lg);
+  padding: 0 var(--nq-s-2);
+  margin-left: calc(-1 * var(--nq-s-2));
+  border: 0;
+  border-radius: var(--nq-r-1);
+  background: transparent;
+  color: var(--nq-ink);
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.nq-switch__side { color: var(--nq-ink-soft); white-space: nowrap; transition: color var(--nq-d-ui) var(--nq-ease-out); }
+.nq-switch[aria-checked="false"] .nq-switch__side--a,
+.nq-switch[aria-checked="true"] .nq-switch__side--b { color: var(--nq-ink); font-weight: 600; }
+.nq-switch__track {
+  position: relative;
+  flex: none;
+  width: 60px;
+  height: 36px;
+  border-radius: var(--nq-r-pill);
+  border: 1px solid var(--nq-edge);
+  background: var(--nq-raise-2);
+  transition: border-color var(--nq-d-hover) var(--nq-ease-out);
+}
+.nq-switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--nq-r-pill);
+  background: var(--nq-gold);
+  color: var(--nq-on-gold);
+  display: grid;
+  place-items: center;
+  font-weight: var(--nq-wght-strong);
+  line-height: 1;
+  transition: transform var(--nq-d-ui) var(--nq-ease-out);
+}
+.nq-switch__thumb.nq-changed { text-decoration: none; }
+.nq-switch[aria-checked="true"] .nq-switch__thumb { transform: translateX(24px); }
+.nq-switch:active .nq-switch__thumb { transform: scale(0.96); }
+.nq-switch[aria-checked="true"]:active .nq-switch__thumb { transform: translateX(24px) scale(0.96); }
+@media (hover: hover) and (pointer: fine) {
+  .nq-switch:hover .nq-switch__track { border-color: var(--nq-ink); }
+}
+
+.nq-monthly { display: grid; gap: var(--nq-s-1); }
+.nq-monthly__label { margin: 0; color: var(--nq-ink-soft); }
+.nq-monthly__value { color: var(--nq-ink); }
+.nq-monthly__note { margin: var(--nq-s-2) 0 0; color: var(--nq-ink-soft); max-width: var(--nq-measure); }
+
+/* depth: the map eases in while the lines are drawn; the letter rides a
+   plane of its own, a little ahead of the map */
+@media (prefers-reduced-motion: no-preference) {
+  .nq-data__map .nq-map { transform: scale(calc(0.965 + 0.035 * min(1, var(--sc-p, 0) * 2.5))); transform-origin: 30% 80%; }
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
+  .nq-data__mask { transform: translate3d(0, calc(var(--sc-p, 0) * -28px), 0); }
+}
+
+html:not(.nq-js) .nq-data__page--phone { display: none !important; }
+html:not(.nq-js) .nq-data__letter { position: static; }
+
+/* --------------------------------------------------------------- phones -- */
+@media (max-width: 1023.98px) {
+  .nq-data {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    row-gap: var(--nq-s-3);
+    align-content: stretch;
+    align-items: stretch;
+    padding-top: clamp(0.75rem, 3svh, 2rem);
+    /* the phone bar is taller than --nq-bar-h once its two lines wrap */
+    padding-bottom: calc(var(--nq-bar-h) + env(safe-area-inset-bottom, 0px) + 2.25rem);
+  }
+  .nq-data__visual { grid-column: 1; grid-row: 1; gap: var(--nq-s-2); justify-items: stretch; align-content: start; }
+  .nq-data__figure { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--nq-s-3); }
+  .nq-data__letter { position: static; flex: none; margin-top: -0.06em; }
+  .nq-data__map { flex: 1 1 0; min-width: 0; display: flex; justify-content: flex-end; }
+  .nq-data__map .nq-map { width: 100%; max-width: min(100%, 22rem, calc((100svh - 30rem) * 1.114)); }
+  .nq-data__legend { gap: 0; }
+  .nq-data__keynote { display: none; }
+  .nq-data__side { grid-column: 1; grid-row: 2; row-gap: var(--nq-s-3); }
+  .nq-data__q { gap: var(--nq-s-2); align-self: start; }
+  .nq-data__text { align-content: start; }
+  .nq-data__page.nq-lines { gap: var(--nq-s-2); }
+  .nq-data__page, .nq-data__page .nq-lines { line-height: 1.5; }
+  .nq-data__page--phone { display: grid; gap: var(--nq-s-2); color: var(--nq-ink-soft); }
+  .nq-data__page--phone .nq-data__pkey { color: var(--nq-ink); font-weight: var(--nq-wght-strong); }
+  .nq-data__console { gap: var(--nq-s-2); padding-top: var(--nq-s-3); }
+  .nq-choice { gap: 0; }
+  .nq-monthly { grid-template-columns: auto auto; justify-content: space-between; align-items: baseline; column-gap: var(--nq-s-4); }
+  .nq-monthly__note { display: none; }
+  .nq-choice__rule { display: none; }
+  .nq-data__rule { color: var(--nq-ink); }
+  .nq-switch { gap: var(--nq-s-2); padding: 0; margin-left: 0; }
+}
+@media (max-width: 380px) {
+  .nq-switch { gap: 6px; }
+}
+@media (max-width: 1023.98px) {
+  .nq-data__text { padding-top: var(--nq-s-2); }
+}
+@media (max-width: 1023.98px) and (max-height: 700px) {
+  .nq-data { row-gap: var(--nq-s-2); }
+  .nq-data__side { row-gap: var(--nq-s-2); }
+  .nq-data__console { padding-top: var(--nq-s-2); gap: var(--nq-s-1); }
+  .nq-data__page, .nq-data__page .nq-lines { line-height: 1.45; }
+  .nq-data__text { padding-top: 0; }
+}
+
+/* ------------------------------------------------------------ the coda -- */
+.nq-ledger { display: grid; gap: var(--nq-s-9); padding-top: var(--nq-s-7); }
+.nq-ledger__block {
+  display: grid;
+  grid-template-columns: minmax(0, 0.36fr) minmax(0, 1fr);
+  column-gap: clamp(2rem, 5vw, 5rem);
+  padding-top: var(--nq-s-5);
+  border-top: 1px dashed var(--nq-hairline);
+}
+.nq-ledger__h { margin: 0; }
+.nq-ledger__body { margin: 0; }
+.nq-ledger .nq-lines { gap: var(--nq-s-4); }
+.nq-qa { display: grid; gap: var(--nq-s-6); }
+.nq-qa__item { display: grid; gap: var(--nq-s-2); }
+.nq-qa dt { font-weight: var(--nq-wght-strong); }
+.nq-qa dd { margin: 0; display: grid; gap: var(--nq-s-2); color: var(--nq-ink-soft); }
+.nq-ledger__note { margin: 0; color: var(--nq-ink-soft); }
+@media (max-width: 719.98px) {
+  .nq-ledger { gap: var(--nq-s-8); }
+  .nq-ledger__block { grid-template-columns: minmax(0, 1fr); row-gap: var(--nq-s-4); }
+}
+
+/* --------------------------------------------------------- label plates -- */
+/* js/network-map.js puts a knock-out behind each label of a map that carries
+   data-nq-map-plates, filled with whatever lies beneath the label (land, or
+   the sea, which is the ground). Lines and edges stop at it; it is otherwise
+   invisible. A plate is shown only while its label is. */
+.za-network .lbl-plate { stroke: none; transition: fill var(--nq-d-enter) var(--nq-ease-out); }
+.za-network .lbl-plate--land { fill: var(--nq-map-land); }
+.za-network .lbl-plate--sea { fill: var(--nq-map-halo); }
+.za-network .lbl-plates { transition: opacity var(--nq-d-enter) var(--nq-ease-out); }
+.za-network.mode-lit .lbl-plates:has(+ .lbl:not(.is-lit)) { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .za-network .lbl-plate,
+  .za-network .lbl-plates { transition: none; }
+}
+
+/* ------------------------------------------------- the data plumbing -- */
+/* Drawn by js/network-map.js inside any map in mode data-A or data-B. Lines
+   and marks take the ground's map tokens, so they sit on night and paper. */
+.za-network .plumb-line {
+  fill: none;
+  stroke: var(--nq-map-light);
+  stroke-width: var(--nq-map-line-w);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.za-network .plumb-store ellipse,
+.za-network .plumb-vault .plumb-body,
+.za-network .plumb-vault .plumb-shackle {
+  stroke: var(--nq-map-light);
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.za-network .plumb-store ellipse,
+.za-network .plumb-vault .plumb-body { fill: var(--nq-map-land); }
+.za-network .plumb-vault .plumb-shackle { fill: none; }
+.za-network .plumb-vault .plumb-key { fill: var(--nq-map-light); stroke: none; }
+.za-network .plumb-vault--existing .plumb-key { fill: var(--nq-map-edge); }
+.za-network .plumb-vault--existing .plumb-body,
+.za-network .plumb-vault--existing .plumb-shackle { stroke: var(--nq-map-edge); stroke-width: 1px; }
+.za-network--mini .plumb-line { stroke-width: 1px; }
+.za-network--mini .plumb-store ellipse,
+.za-network--mini .plumb-vault .plumb-body,
+.za-network--mini .plumb-vault .plumb-shackle { stroke-width: 1px; }
+/* the act 4 map is about records, not places: only the hub keeps its name */
+#data .za-network .lbl:not(.lbl--hub),
+#data .za-network .leader { display: none; }
+#data .za-network[data-scale="large"] .labels--narrow { font-size: calc(var(--map-k, 1) * var(--nq-t-body)); }
+#data .za-network .link { display: none; }
+#data .za-network .prov { fill: var(--nq-map-land); }
+#data .za-network .prov.is-lit { stroke: var(--nq-map-edge); stroke-width: var(--nq-map-edge-w); }
+#data .za-network .prov--existing.is-lit { stroke: var(--nq-map-light); stroke-width: var(--nq-map-line-w); }
+/* a node stays dim until its line leaves it (or its padlock locks on) */
+#data .za-network .node.is-dim { fill: var(--nq-map-land); stroke: var(--nq-map-edge); }

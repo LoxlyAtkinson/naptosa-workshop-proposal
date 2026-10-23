@@ -1,0 +1,253 @@
+/* =========================================================================
+   act-02-sites.css: act 2, What every site gets (design-loop piece P2)
+   -------------------------------------------------------------------------
+   Day, a flow act whose top is an aperture: the night map (lit) under the
+   engine's iris, centred on Free State, opening paper onto the site plan.
+   1200 px and wider: the frame is sticky and the copy column scrolls over
+   it. Narrower: frame first, copy after. js/act-02-sites.js writes the
+   geometry (--fx, --fy, --R, --fw, --fh, --mx, --my, --mw), the plan's
+   progress --q and every part's window (--a, --b).
+   Colours come only from the ground tokens; no shadow, glow or gradient.
+   ========================================================================= */
+
+.nq-act--sites {
+  position: relative;
+  --sites-copy-w: min(26rem, 31vw);
+  --sites-gap: clamp(2rem, 3.4vw, 3.5rem);
+}
+
+/* ---------------------------------------------------------- the frame -- */
+.nq-sites__frame {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  /* defaults until the script measures; the sheet then covers the frame */
+  --fx: 45vw;
+  --fy: 46svh;
+  --R: 150vmax;
+  --fw: 100vw;
+  --fh: 100svh;
+}
+.nq-sites__night { position: absolute; inset: 0; z-index: 0; }
+.nq-sites__map {
+  position: absolute;
+  left: var(--mx, 6vw);
+  top: var(--my, 2svh);
+  width: var(--mw, min(64vw, 98svh));
+}
+/* The aperture is calm: the network lit as act 1 left it, and only the
+   province that opens is named. */
+.nq-sites__night .za-network .lbl:not([data-prov="ZA-FS"]),
+.nq-sites__night .za-network .leader { opacity: 0; }
+.nq-sites__night .za-network .node[data-prov="ZA-FS"] {
+  scale: 2.2;
+  fill: var(--nq-gold);
+  stroke: var(--nq-night);
+  stroke-width: 1.5px;
+}
+
+/* The iris: an oversized square centred on the node. The engine clips it to
+   circle(t * 78% at 50% 50%); the sheet inside is shifted back so its own
+   coordinates are the frame's. */
+.nq-sites__iris {
+  position: absolute;
+  z-index: 1;
+  left: calc(var(--fx) - var(--R));
+  top: calc(var(--fy) - var(--R));
+  width: calc(2 * var(--R));
+  height: calc(2 * var(--R));
+}
+.nq-sites__sheet {
+  position: absolute;
+  left: calc(var(--R) - var(--fx));
+  top: calc(var(--R) - var(--fy));
+  width: var(--fw);
+  height: var(--fh);
+}
+/* the marker only tells the quote panel which ground it is over */
+.nq-act--sites .nq-sites__marker {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: none;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* the sheet: the key plan, then the drawing */
+.nq-sites__sheet-in {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: grid;
+  align-content: start;
+}
+.nq-sites__head,
+.nq-sites__copyhead { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--nq-s-5); }
+.nq-sites__copyhead { display: none; }
+.nq-sites__nine { color: var(--nq-ink); }
+.nq-sites__key { width: clamp(8.5rem, 34vw, 11.5rem); flex: none; }
+
+/* ------------------------------------------------------- the key plan -- */
+/* the network in blueprint mode: line drawing, the nine destinations this
+   plan is built for in gold deep, Western Cape kept as it is (outline) */
+.nq-sites__key .za-network .prov { fill: none; stroke: var(--nq-day-edge); }
+.nq-sites__key .za-network .prov.is-lit { stroke: var(--nq-day-edge); stroke-width: 1px; }
+.nq-sites__key .za-network .lbl,
+.nq-sites__key .za-network .leader,
+.nq-sites__key .za-network .labels { display: none; }
+.nq-sites__key .za-network .link { stroke-width: 1px; }
+.nq-sites__key .za-network .node--existing,
+.nq-sites__key .za-network .node--existing.is-lit { fill: var(--nq-day); stroke: var(--nq-day-ink-soft); }
+.nq-sites__key .za-network .prov--existing { stroke-dasharray: 3 2; }
+
+/* ------------------------------------------------------------ the plan -- */
+.nq-plan { margin: 0; }
+.nq-plan__draw { position: relative; }
+.nq-plan__svg { display: block; width: 100%; height: auto; overflow: visible; }
+.nq-plan__svg--phone { display: none; }
+.nq-plan__part {
+  --k: clamp(0, (var(--q, 1) - var(--a, 0)) / (var(--b, 1) - var(--a, 0)), 1);
+}
+.nq-plan__leader {
+  --k: clamp(0, (var(--q, 1) - var(--a, 0)) / (var(--b, 1) - var(--a, 0)), 1);
+}
+.nq-plan .pl,
+.nq-plan .pl-leader {
+  fill: none;
+  stroke: var(--nq-day-ink-soft);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--k));
+}
+.nq-plan .pl--fine { stroke: var(--nq-day-edge); }
+/* a dashed line cannot also be drawn by its dash offset, so it fades in */
+.nq-plan .pl--dash {
+  stroke: var(--nq-day-edge);
+  stroke-dasharray: 3 3;
+  stroke-dashoffset: 0;
+  opacity: var(--k);
+}
+.nq-plan .pl--body { fill: var(--nq-day); fill-opacity: min(1, calc(var(--k) * 6)); }
+.nq-plan .pl--mark { fill: var(--nq-day-ink-soft); fill-opacity: var(--k); }
+.nq-plan .pl-leader { stroke: var(--nq-day-ink-soft); }
+.nq-plan .pl-dot { fill: var(--nq-day-ink-soft); opacity: var(--k); }
+/* the province's node, kept on paper as the phone's header mark */
+.nq-plan .pl-node { fill: var(--nq-gold-deep); }
+
+.nq-plan__labels {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nq-plan__labels li {
+  --k: clamp(0, (var(--q, 1) - var(--a, 0)) / (var(--b, 1) - var(--a, 0)), 1);
+  position: absolute;
+  left: 71.29%;
+  top: var(--dy);
+  max-width: 28.2%;
+  transform: translate3d(calc((1 - var(--k)) * -0.5rem), -50%, 0);
+  opacity: var(--k);
+  font-size: var(--nq-t-small);
+  font-weight: 600;
+  line-height: var(--nq-lh-small);
+  letter-spacing: var(--nq-track-small);
+  color: var(--nq-ink-soft);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------- the copy -- */
+.nq-sites__copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: start;
+  gap: var(--nq-s-4);
+  padding: var(--nq-s-8) var(--nq-gutter) var(--nq-s-9);
+}
+.nq-sites__copy > .nq-head { margin-top: var(--nq-s-2); }
+.nq-sites__lines { margin-top: var(--nq-s-3); }
+.nq-sites__search { display: grid; gap: var(--nq-s-4); margin-top: var(--nq-s-8); }
+.nq-sites__added { margin-top: var(--nq-s-3); }
+/* body lines fade over 360 px of scroll (js); the rise is dropped below */
+.nq-act--sites.is-live [data-nq-line] { opacity: 0; }
+
+/* ---------------------------------------------- desktop: 1200 and wider -- */
+@media (min-width: 1200px) {
+  .nq-sites__frame { position: sticky; top: 0; z-index: 0; }
+  .nq-sites__copy {
+    width: calc(var(--sites-copy-w) + var(--nq-gutter));
+    margin-top: -100vh;
+    margin-top: -100svh;
+    padding: 18svh 0 26svh var(--nq-gutter);
+    gap: var(--nq-s-4);
+  }
+  .nq-sites__copyhead { display: flex; justify-content: flex-start; gap: clamp(1.5rem, 3vw, 3rem); }
+  .nq-sites__head { display: none; }
+  /* the sheet's zone: right of the copy column, clear of the quote panel */
+  .nq-sites__sheet-in {
+    left: calc(var(--nq-gutter) + var(--sites-copy-w) + var(--sites-gap));
+    right: calc(var(--nq-panel-w) + var(--nq-panel-inset) + clamp(1.5rem, 2.5vw, 2.5rem));
+    width: auto;
+    height: 100%;
+    align-content: center;
+    gap: clamp(1.5rem, 4svh, 2.75rem);
+  }
+  .nq-sites__key--copy { width: clamp(8rem, 10.5vw, 10rem); margin-bottom: 0.4rem; }
+}
+
+/* ----------------------------------------- tablets: 720 to 1199 px -- */
+@media (max-width: 1199.98px) {
+  .nq-sites__sheet-in {
+    padding: clamp(3rem, 9svh, 5.5rem) var(--nq-gutter) calc(var(--nq-bar-h) + var(--nq-s-6));
+    gap: var(--nq-s-6);
+  }
+  .nq-sites__copy { padding-top: var(--nq-s-7); }
+  .nq-sites__copy .nq-head,
+  .nq-sites__copy .nq-lead,
+  .nq-sites__copy .nq-lines,
+  .nq-sites__copy .nq-small { max-width: var(--nq-measure); }
+}
+@media (min-width: 1024px) and (max-width: 1199.98px) {
+  .nq-sites__sheet-in { padding-right: calc(var(--nq-panel-w) + var(--nq-panel-inset) + var(--nq-gutter)); }
+  .nq-sites__copy { padding-right: calc(var(--nq-panel-w) + 2 * var(--nq-gutter)); }
+}
+
+/* ----------------------------------------------- phones: below 720 px -- */
+@media (max-width: 719.98px) {
+  .nq-plan__svg--desk { display: none; }
+  .nq-plan__svg--phone { display: block; }
+  .nq-plan__labels li {
+    left: auto;
+    right: 57.895%;
+    top: var(--py);
+    max-width: 42%;
+    text-align: right;
+    white-space: normal;
+    transform: translate3d(calc((1 - var(--k)) * 0.5rem), -50%, 0);
+  }
+  .nq-sites__sheet-in { gap: var(--nq-s-5); }
+}
+
+/* ------------------------------------------------------ reduced motion -- */
+@media (prefers-reduced-motion: reduce) {
+  .nq-plan { --q: 1 !important; }
+  .nq-plan__labels li { transform: translate3d(0, -50%, 0); }
+}
+
+/* --------------------------------------------- without JavaScript -- */
+/* nothing drives the iris or the drawing: the frame is an ordinary block
+   with the paper on top, and the copy follows it */
+html:not(.nq-js) .nq-sites__frame { position: relative; height: auto; overflow: visible; }
+html:not(.nq-js) .nq-sites__night,
+html:not(.nq-js) .nq-sites__marker { display: none; }
+html:not(.nq-js) .nq-sites__iris,
+html:not(.nq-js) .nq-sites__sheet,
+html:not(.nq-js) .nq-sites__sheet-in { position: static; width: auto; height: auto; }
+html:not(.nq-js) .nq-sites__copy { margin-top: 0; width: auto; padding-top: var(--nq-s-7); }
+html:not(.nq-js) .nq-sites__sheet-in { padding: var(--nq-section) var(--nq-gutter) 0; }

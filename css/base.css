@@ -1,0 +1,341 @@
+/* =========================================================================
+   base.css: page floor for acts 1 to 7, the silence and the footer
+   -------------------------------------------------------------------------
+   Load order: scrollcraft.css, tokens.css, fonts.css, base.css, then the
+   component and act files. Element selectors here are limited to html and
+   body; everything else is an nq- class or a data attribute, so nothing
+   reaches the kept hero (css/hero.css).
+   Ground, ink and gold values come only from tokens.css (design-system.md).
+   ========================================================================= */
+
+html {
+  overflow-x: clip;
+  /* sticky chrome never hides a focused element (design-system.md 5) */
+  scroll-padding-top: 1rem;
+}
+@media (max-width: 1023.98px) {
+  html { scroll-padding-bottom: calc(var(--nq-bar-h) + env(safe-area-inset-bottom, 0px) + 1rem); }
+}
+
+body {
+  font-family: var(--nq-font-text);
+  font-size: var(--nq-t-body);
+  font-weight: var(--nq-wght-body);
+  line-height: var(--nq-lh-body);
+  letter-spacing: var(--nq-track-body);
+  background-color: var(--nq-night);
+}
+
+/* Every ground restates the inherited type settings with its colour, because
+   an inherited value does not follow a token redefined lower in the tree. */
+[data-ground] {
+  font-weight: var(--nq-wght-body);
+  line-height: var(--nq-lh-body);
+  letter-spacing: var(--nq-track-body);
+}
+
+/* ---------------------------------------------------------------- type -- */
+.nq-mono {
+  margin: 0;
+  font-family: var(--nq-font-display);
+  font-size: var(--nq-t-mono);
+  font-stretch: var(--nq-stretch-mono);
+  font-weight: var(--nq-wght-mono);
+  line-height: var(--nq-lh-mono);
+  letter-spacing: var(--nq-track-mono);
+  font-variant-numeric: var(--nq-numerals);
+}
+.nq-head {
+  margin: 0;
+  font-family: var(--nq-font-display);
+  font-size: var(--nq-t-head);
+  font-stretch: var(--nq-stretch-head);
+  font-weight: var(--nq-wght-head);
+  line-height: var(--nq-lh-head);
+  letter-spacing: var(--nq-track-head);
+  text-wrap: balance;
+}
+.nq-h3 {
+  margin: 0;
+  font-size: var(--nq-t-body);
+  font-weight: var(--nq-wght-strong);
+  line-height: 1.4;
+  text-wrap: balance;
+}
+.nq-lead {
+  margin: 0;
+  max-width: var(--nq-measure);
+  font-weight: 500;
+  text-wrap: pretty;
+}
+.nq-text { margin: 0; max-width: var(--nq-measure); text-wrap: pretty; }
+.nq-small {
+  margin: 0;
+  max-width: var(--nq-measure);
+  font-size: var(--nq-t-small);
+  font-weight: 500;
+  line-height: var(--nq-lh-small);
+  letter-spacing: var(--nq-track-small);
+  color: var(--nq-ink-soft);
+  text-wrap: pretty;
+}
+.nq-eyebrow {
+  margin: 0;
+  font-size: var(--nq-t-small);
+  font-weight: 600;
+  line-height: var(--nq-lh-small);
+  letter-spacing: var(--nq-track-small);
+  color: var(--nq-ink-soft);
+}
+.nq-fig, .nq-money { font-variant-numeric: var(--nq-numerals); }
+.nq-money { white-space: nowrap; }
+
+/* One idea per line, revealed as a list (copy-deck "line" items). */
+.nq-lines {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: var(--nq-measure);
+  display: grid;
+  gap: var(--nq-s-3);
+}
+.nq-lines > li { text-wrap: pretty; }
+
+/* -------------------------------------------------------------- layout -- */
+.nq-act { position: relative; }
+.nq-wrap {
+  width: 100%;
+  max-width: var(--nq-maxw);
+  margin-inline: auto;
+  padding-inline: var(--nq-gutter);
+}
+.nq-flow { padding-block: var(--nq-section); }
+.nq-coda { padding-block: var(--nq-section-after-pin) var(--nq-section); }
+.nq-stack { display: grid; gap: var(--nq-s-4); align-content: start; }
+.nq-stack > .nq-head,
+.nq-stack > .nq-h3 { margin-top: var(--nq-s-5); }
+.nq-stack > :first-child { margin-top: 0; }
+.nq-block { display: grid; gap: var(--nq-s-4); align-content: start; }
+.nq-block + .nq-block { margin-top: var(--nq-s-8); }
+@media (max-width: 719.98px) {
+  .nq-block + .nq-block { margin-top: var(--nq-s-7); }
+}
+
+/* Pinned stage interiors. The engine owns the stage box (.sc-stage: sticky,
+   100svh); these rules lay out what is inside it and never set position. */
+.nq-stage {
+  display: grid;
+  align-content: center;
+  padding: clamp(4.5rem, 9svh, 6rem) var(--nq-gutter) clamp(2rem, 6svh, 4rem);
+}
+/* Safety net on phones and tablets while the piece builders compose each
+   stage: a dense rail item or the close scrolls inside itself instead of
+   being cut off. Never on cued copy (its rise would make a scroll range)
+   and not on desktop screens tall enough for every stage to fit. */
+.nq-stage__body { min-height: 0; }
+@media (max-width: 1023.98px), (max-height: 760px) {
+  .nq-stage__body {
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+}
+/* the same net for a cued column, on phones and tablets only */
+@media (max-width: 1023.98px) {
+  .nq-stage__body--phone {
+    align-self: stretch;
+    min-height: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+}
+
+/* Desktop: text never runs under the quote panel (design-system.md 8). */
+@media (min-width: 1024px) {
+  .nq-wrap,
+  .nq-stage { padding-inline-end: calc(var(--nq-panel-w) + 2 * var(--nq-gutter)); }
+}
+/* Phones and tablets: keep the last line clear of the bottom bar. */
+@media (max-width: 1023.98px) {
+  .nq-stage { padding-bottom: calc(var(--nq-bar-h) + env(safe-area-inset-bottom, 0px) + var(--nq-s-4)); }
+}
+
+/* ------------------------------------------------- figures and captions -- */
+.nq-figure { margin: 0; display: grid; gap: var(--nq-s-2); min-width: 0; }
+.nq-figure img,
+.nq-figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--nq-r-0);
+  background: var(--nq-raise-1);
+}
+.nq-figure figcaption {
+  font-size: var(--nq-t-small);
+  font-weight: 500;
+  line-height: var(--nq-lh-small);
+  color: var(--nq-ink-soft);
+}
+/* Media another builder has not delivered yet (tools/build.mjs marks the
+   figure): a flat raised plate of the right shape, no caption. */
+[data-nq-pending] {
+  background: var(--nq-raise-1);
+  aspect-ratio: var(--nq-ratio, 3 / 2);
+}
+[data-nq-pending] > img,
+[data-nq-pending] > video,
+[data-nq-pending] > figcaption { visibility: hidden; }
+
+/* ---------------------------------------------------------- status chips -- */
+.nq-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: var(--nq-r-pill);
+  font-size: var(--nq-t-small);
+  font-weight: 600;
+  line-height: var(--nq-lh-small);
+  letter-spacing: var(--nq-track-small);
+  white-space: nowrap;
+}
+.nq-chip { position: relative; }
+/* Shape is the third cue (design-system.md 6): solid, half-filled, hollow. */
+.nq-chip::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  flex: none;
+}
+.nq-chip--inuse { color: var(--nq-chip-inuse-ink); background: var(--nq-chip-inuse-fill); }
+.nq-chip--inuse::before { background: currentColor; }
+.nq-chip--extending { color: var(--nq-chip-extending-ink); background: var(--nq-chip-extending-fill); }
+.nq-chip--extending::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  width: 4px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 4px 0 0 4px;
+  background: currentColor;
+}
+.nq-chip--planned {
+  color: var(--nq-chip-planned-ink);
+  background: var(--nq-chip-planned-fill);
+  outline: 1px dashed var(--nq-chip-planned-border);
+  outline-offset: -1px;
+}
+.nq-chip--step { color: var(--nq-ink-soft); background: var(--nq-raise-2); }
+.nq-chip--step::before { display: none; }
+
+/* -------------------------------------------------------- buttons, links -- */
+.nq-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--nq-s-2);
+  min-height: var(--nq-tap);
+  padding: 0 var(--nq-s-4);
+  border-radius: var(--nq-r-1);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--nq-d-hover) var(--nq-ease-out), background-color var(--nq-d-hover) var(--nq-ease-out), transform var(--nq-d-press) var(--nq-ease-out);
+}
+.nq-btn:active { transform: translateY(1px); }
+.nq-btn--outline {
+  color: var(--nq-ink);
+  background: transparent;
+  border: 1px solid var(--nq-edge);
+}
+@media (hover: hover) and (pointer: fine) {
+  .nq-btn--outline:hover { border-color: var(--nq-ink); }
+}
+.nq-btn--filled {
+  min-height: var(--nq-tap-lg);
+  padding: 12px 24px;
+  color: var(--nq-on-gold);
+  background: var(--nq-gold);
+  border: 1px solid var(--nq-accent-border);
+  font-weight: var(--nq-wght-strong);
+}
+@media (hover: hover) and (pointer: fine) {
+  .nq-btn--filled:hover { background: var(--nq-gold-hover); }
+}
+.nq-btn--filled:active { background: var(--nq-gold-press); }
+.nq-link {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: var(--nq-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+@media (hover: hover) and (pointer: fine) {
+  .nq-link:hover { text-decoration-thickness: 2px; }
+}
+:focus-visible {
+  outline: var(--nq-focus-w) solid var(--nq-accent);
+  outline-offset: var(--nq-focus-offset);
+  border-radius: var(--nq-r-1);
+}
+
+/* ---------------------------------------------------------- utilities -- */
+/* the hidden attribute always wins over a component's own display value */
+[hidden] { display: none !important; }
+.nq-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+/* Controls that only work with JavaScript are not drawn without it. */
+html:not(.nq-js) .nq-needs-js { display: none !important; }
+
+/* State variants (js/bind.js). Without JavaScript every Option A and Option B
+   variant shows, each naming its option; with it, only the chosen one. */
+html.nq-js:not([data-nq-option="B"]) [data-nq-when="B"],
+html.nq-js[data-nq-option="B"] [data-nq-when="A"] { display: none !important; }
+
+/* Main is a skip-link target, not a focus stop to draw. */
+main:focus { outline: none; }
+
+/* ---------------------------------------------------- authored silence -- */
+/* BRIEF.md: 0.8 viewport heights of the night-deep ground, nothing in it. */
+.nq-silence { height: 80vh; height: 80svh; }
+@media (prefers-reduced-motion: reduce) {
+  .nq-silence { height: 30vh; height: 30svh; }
+}
+
+/* -------------------------------------------------------------- footer -- */
+/* The footer is the page's contentinfo landmark. tools: js/main.js measures
+   it into --nq-foot-h, and it overlaps the last screen of act 7 so the close
+   holds with the contentinfo line inside it (BRIEF.md, Ending). Without
+   JavaScript it simply follows the close. */
+.nq-foot {
+  position: relative;
+  z-index: 2;
+  padding: var(--nq-s-5) var(--nq-gutter) calc(var(--nq-s-5) + env(safe-area-inset-bottom, 0px));
+  border-top: 1px dashed var(--nq-hairline);
+}
+.nq-js .nq-foot { margin-top: calc(-1 * var(--nq-foot-h, 0px)); }
+.nq-foot__inner { display: grid; gap: var(--nq-s-1); max-width: var(--nq-maxw); }
+.nq-foot .nq-small { max-width: none; }
+
+/* Without JavaScript the engine never cross-fades a stage's copy states, so
+   states that share one grid cell (acts 1 and 4) flow one after another. */
+html:not(.nq-js) .nq-state { grid-area: auto !important; }
+html:not(.nq-js) .nq-state + .nq-state { margin-top: var(--nq-s-6); }

@@ -1,0 +1,264 @@
+/* =========================================================================
+   tokens.css: NAPTOSA guided quotation design tokens
+   -------------------------------------------------------------------------
+   Load order: scrollcraft.css, then tokens.css, then styles.css. This file
+   follows the engine stylesheet so its :root values replace the engine
+   defaults (same specificity, later wins). The engine files stay unedited.
+
+   Two grounds and one rare accent:
+     Night: the NAPTOSA navy family (network mode)
+     Day:   warm paper (document mode)
+     Gold:  decisions and the network's light, nothing else
+
+   tools/contrast.py reads every hex colour below. After any colour change
+   run "python tools/contrast.py"; every pair must PASS before it ships.
+   Surfaces are a flat two-step stack. There are no drop shadows.
+   ========================================================================= */
+
+:root {
+  /* Night ground: the NAPTOSA navy family */
+  --nq-night-deep: #061021;       /* the authored silence only */
+  --nq-night: #0a1a31;            /* night canvas */
+  --nq-night-raise-1: #0f233d;    /* step 1: quote panel, map land */
+  --nq-night-raise-2: #152c4a;    /* step 2: switch track, selected rows, sheet header */
+  --nq-night-ink: #f3f0ea;        /* warm off-white, never #fff */
+  --nq-night-ink-soft: #c3bcb0;   /* secondary text: a real colour, never opacity */
+  --nq-night-edge: #5d789c;       /* province edges, control borders: 3:1 on every night surface */
+  --nq-night-hairline: #34496a;   /* 1px dashed dividers, decorative */
+
+  /* Day ground: warm paper */
+  --nq-day: #f2f0eb;              /* paper canvas */
+  --nq-day-raise-1: #e8e5dd;      /* step 1: quote panel, table head, map land */
+  --nq-day-raise-2: #dedad0;      /* step 2: total rows, selected rows */
+  --nq-day-ink: #0a1c37;          /* NAPTOSA navy ink, never #000 */
+  --nq-day-ink-soft: #344158;     /* secondary text: a real colour, never opacity */
+  --nq-day-edge: #66738a;         /* province edges, control borders on paper */
+  --nq-day-hairline: #b9b3a6;     /* 1px dashed dividers, decorative */
+
+  /* Gold: the one rare accent */
+  --nq-gold: #d4ab55;             /* fills, the network's light, gold text and focus ring on night */
+  --nq-gold-hover: #e0bb68;
+  --nq-gold-press: #c99f48;
+  --nq-gold-deep: #735400;        /* small gold text, lines, lit nodes and focus ring on paper */
+  --nq-on-gold: #0a1a31;          /* text and glyphs on a gold fill */
+
+  /* Status chips: the text label always carries the meaning */
+  --nq-status-inuse-ink-night: #a9dfc0;
+  --nq-status-inuse-fill-night: #11352f;
+  --nq-status-extending-ink-night: #b9d0f3;
+  --nq-status-extending-fill-night: #173863;
+  --nq-status-planned-ink-night: #d6d3cc;
+  --nq-status-planned-fill-night: #1d2a3c;
+  --nq-status-planned-border-night: #8f8c86;
+  --nq-status-inuse-ink-day: #17573a;
+  --nq-status-inuse-fill-day: #d9eadc;
+  --nq-status-extending-ink-day: #1b4a84;
+  --nq-status-extending-fill-day: #dce5f2;
+  --nq-status-planned-ink-day: #454b57;
+  --nq-status-planned-fill-day: #e4e2dc;
+  --nq-status-planned-border-day: #737a89;
+
+  /* Type: Archivo (display, numerals) and Public Sans (text). Four sizes. */
+  --nq-font-display: "Archivo", "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+  --nq-font-text: "Public Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --nq-t-mono: clamp(6rem, 1.6rem + 9.4vw, 10rem);      /* one opener element per act: 6x body or more */
+  --nq-t-head: clamp(2.25rem, 1.5rem + 2.4vw, 3.5rem);  /* headings and figures after the opener */
+  --nq-t-body: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem); /* 16px on phones, 17px on desktop */
+  --nq-t-small: 0.8125rem;                              /* 13px: captions, chips, column labels */
+  --nq-stretch-mono: 62%;
+  --nq-stretch-head: 75%;
+  --nq-wght-mono: 700;
+  --nq-wght-head: 600;
+  --nq-wght-strong: 650;
+  --nq-lh-mono: 0.9;
+  --nq-lh-head: 1.04;
+  --nq-lh-small: 1.45;
+  --nq-track-mono: -0.03em;
+  --nq-track-head: -0.018em;
+  --nq-track-small: 0.01em;
+  --nq-measure: 62ch;
+  --nq-numerals: tabular-nums lining-nums;
+
+  /* Space: 4px base */
+  --nq-s-1: 0.25rem;
+  --nq-s-2: 0.5rem;
+  --nq-s-3: 0.75rem;
+  --nq-s-4: 1rem;
+  --nq-s-5: 1.5rem;
+  --nq-s-6: 2rem;
+  --nq-s-7: 3rem;
+  --nq-s-8: 4rem;
+  --nq-s-9: 6rem;
+  --nq-s-10: 8rem;
+  --nq-s-11: 12rem;
+  --nq-gutter: clamp(1rem, 4.5vw, 4.5rem);
+  --nq-section: clamp(4rem, 8vw, 9rem);
+  --nq-section-after-pin: clamp(1.5rem, 3vw, 3rem);
+  --nq-maxw: 82rem;
+
+  /* Radius: three values, nothing else */
+  --nq-r-0: 0;
+  --nq-r-1: 6px;
+  --nq-r-pill: 999px;
+
+  /* Lines and marks */
+  --nq-hairline-w: 1px;
+  --nq-focus-w: 2px;
+  --nq-focus-offset: 3px;
+  --nq-map-edge-w: 1px;
+  --nq-map-line-w: 1.5px;
+  --nq-map-node: 8px;
+  --nq-map-hub: 14px;
+
+  /* Chrome and targets */
+  --nq-panel-w: 17.5rem;
+  --nq-panel-inset: 1rem;
+  --nq-bar-h: 4rem;
+  --nq-sheet-max: 85svh;
+  --nq-tap: 2.75rem;
+  --nq-tap-lg: 3rem;
+  --nq-z-panel: 60;
+  --nq-z-sheet: 70;
+  --nq-z-skip: 80;
+
+  /* Motion */
+  --nq-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --nq-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --nq-ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --nq-d-press: 100ms;
+  --nq-d-hover: 160ms;
+  --nq-d-ui: 240ms;
+  --nq-d-sheet: 420ms;
+  --nq-d-enter: 620ms;
+  --nq-d-replumb: 900ms;
+  --nq-d-count: 1200ms;
+  --nq-rise: 14px;
+  --nq-fade-window: 360px;
+
+  /* Scroll Craft engine values that do not change per ground */
+  --sc-font-display: var(--nq-font-display);
+  --sc-font-text: var(--nq-font-text);
+  --sc-t-base: var(--nq-t-body);
+  --sc-r-sm: var(--nq-r-1);
+  --sc-r-md: var(--nq-r-1);
+  --sc-r-lg: var(--nq-r-1);
+  --sc-r-pill: var(--nq-r-pill);
+  --sc-e1: 0 0 #0000;
+  --sc-e2: 0 0 #0000;
+  --sc-e3: 0 0 #0000;
+  --sc-edge: 0 0 #0000;
+  --sc-gutter: var(--nq-gutter);
+  --sc-section: var(--nq-section);
+  --sc-maxw: var(--nq-maxw);
+  --sc-measure: var(--nq-measure);
+  --sc-ease-out: var(--nq-ease-out);
+  --sc-d-fast: var(--nq-d-hover);
+  --sc-d-base: var(--nq-d-ui);
+  --sc-d-slow: var(--nq-d-sheet);
+}
+
+/* -------------------------------------------------------------------------
+   Grounds. Every act, the quote panel, the phone bar and the sheet carry
+   data-ground="night" | "night-deep" | "day". Each ground restates the
+   semantic tokens on its own element; the shared rule further down re-points
+   the Scroll Craft theme tokens and restates colour, because an inherited
+   colour does not follow a token that is redefined lower in the tree.
+   ------------------------------------------------------------------------- */
+
+:root,
+[data-ground="night"],
+[data-ground="night-deep"] {
+  --nq-canvas: var(--nq-night);
+  --nq-raise-1: var(--nq-night-raise-1);
+  --nq-raise-2: var(--nq-night-raise-2);
+  --nq-ink: var(--nq-night-ink);
+  --nq-ink-soft: var(--nq-night-ink-soft);
+  --nq-edge: var(--nq-night-edge);
+  --nq-hairline: var(--nq-night-hairline);
+  --nq-accent: var(--nq-gold);
+  --nq-accent-fill: var(--nq-gold);
+  --nq-accent-border: var(--nq-gold);
+  --nq-on-accent: var(--nq-on-gold);
+  --nq-selection-ink: var(--nq-on-gold);
+  --nq-chip-inuse-ink: var(--nq-status-inuse-ink-night);
+  --nq-chip-inuse-fill: var(--nq-status-inuse-fill-night);
+  --nq-chip-extending-ink: var(--nq-status-extending-ink-night);
+  --nq-chip-extending-fill: var(--nq-status-extending-fill-night);
+  --nq-chip-planned-ink: var(--nq-status-planned-ink-night);
+  --nq-chip-planned-fill: var(--nq-status-planned-fill-night);
+  --nq-chip-planned-border: var(--nq-status-planned-border-night);
+  --nq-map-land: var(--nq-night-raise-1);
+  --nq-map-edge: var(--nq-night-edge);
+  --nq-map-light: var(--nq-gold);
+  --nq-map-label: var(--nq-night-ink);
+  --nq-map-halo: var(--nq-night);
+  /* light text on a dark ground: a touch more weight, leading and tracking */
+  --nq-wght-body: 430;
+  --nq-lh-body: 1.66;
+  --nq-track-body: 0.006em;
+}
+
+[data-ground="night-deep"] {
+  --nq-canvas: var(--nq-night-deep);
+  --nq-map-halo: var(--nq-night-deep);
+}
+
+[data-ground="day"] {
+  --nq-canvas: var(--nq-day);
+  --nq-raise-1: var(--nq-day-raise-1);
+  --nq-raise-2: var(--nq-day-raise-2);
+  --nq-ink: var(--nq-day-ink);
+  --nq-ink-soft: var(--nq-day-ink-soft);
+  --nq-edge: var(--nq-day-edge);
+  --nq-hairline: var(--nq-day-hairline);
+  --nq-accent: var(--nq-gold-deep);
+  --nq-accent-fill: var(--nq-gold);
+  --nq-accent-border: var(--nq-gold-deep);
+  --nq-on-accent: var(--nq-on-gold);
+  --nq-selection-ink: var(--nq-day);
+  --nq-chip-inuse-ink: var(--nq-status-inuse-ink-day);
+  --nq-chip-inuse-fill: var(--nq-status-inuse-fill-day);
+  --nq-chip-extending-ink: var(--nq-status-extending-ink-day);
+  --nq-chip-extending-fill: var(--nq-status-extending-fill-day);
+  --nq-chip-planned-ink: var(--nq-status-planned-ink-day);
+  --nq-chip-planned-fill: var(--nq-status-planned-fill-day);
+  --nq-chip-planned-border: var(--nq-status-planned-border-day);
+  --nq-map-land: var(--nq-day-raise-1);
+  --nq-map-edge: var(--nq-day-edge);
+  --nq-map-light: var(--nq-gold-deep);
+  --nq-map-label: var(--nq-day-ink);
+  --nq-map-halo: var(--nq-day);
+  --nq-wght-body: 400;
+  --nq-lh-body: 1.6;
+  --nq-track-body: 0em;
+}
+
+/* Scroll Craft theme tokens, re-pointed on every ground element */
+:root,
+[data-ground] {
+  --sc-canvas: var(--nq-canvas);
+  --sc-surface: var(--nq-raise-1);
+  --sc-ink: var(--nq-ink);
+  --sc-ink-soft: var(--nq-ink-soft);
+  --sc-accent: var(--nq-accent);
+  --sc-accent-ink: var(--nq-selection-ink);
+  --sc-hairline: var(--nq-hairline);
+  --sc-hairline-strong: var(--nq-edge);
+}
+
+[data-ground] {
+  background-color: var(--nq-canvas);
+  color: var(--nq-ink);
+}
+
+/* Reduced motion: no position change; opacity still carries comprehension */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --nq-d-ui: 0ms;
+    --nq-d-sheet: 0ms;
+    --nq-d-enter: 220ms;
+    --nq-d-replumb: 0ms;
+    --nq-d-count: 0ms;
+    --nq-rise: 0px;
+  }
+}

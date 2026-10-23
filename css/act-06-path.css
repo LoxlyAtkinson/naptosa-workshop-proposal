@@ -1,0 +1,431 @@
+/* =========================================================================
+   act-06-path.css: act 6, People and path (Night, pan 4.0), piece P3.
+   -------------------------------------------------------------------------
+   Four frames on one rail: People to train, People (the clip), A staged
+   rollout (the map holds while the path passes beneath it) and Handover.
+   js/act-06-path.js moves the rail and the map plane from the act's
+   progress; this file lays the frames out and draws every state.
+   Ground: Night. Gold appears only as the trainee number, the network's light
+   (the map, the path, its nodes) and the focus ring (design-system.md 4).
+   Type per frame: mono, head and body on the opener (no captions there);
+   body and small on the others (bar.md mechanism 3).
+   Never sets height or position on the stage while it pins; the stacked
+   layout at the end (reduced motion, no script) deliberately unpins it.
+   ========================================================================= */
+
+#path {
+  --nq-path-pad: clamp(1.25rem, 4svh, 2.5rem);
+  --nq-path-gap: clamp(4rem, 8vw, 8rem);
+  --nq-path-band: 15.75rem;                       /* the track under the map */
+  --nq-path-win: calc(100vw - var(--nq-panel-w) - 2 * var(--nq-panel-inset));
+  --nq-path-map-h: min(36rem, calc(100svh - var(--nq-path-band) - 3 * var(--nq-path-pad)));
+  --nq-path-map-w: calc(var(--nq-path-map-h) * 1.1143);
+  --nq-path-card: 17rem;
+}
+
+/* ---- stage and rail (the pinned, moving layout) ------------------------ */
+.nq-path { padding: 0; }
+.nq-path__rail {
+  display: flex;
+  align-items: stretch;
+  gap: var(--nq-path-gap);
+  width: max-content;
+  height: 100%;
+  padding-inline: var(--nq-gutter);
+  will-change: transform;
+}
+.nq-path__frame {
+  flex: none;
+  height: 100%;
+  margin: 0;
+  padding-block: var(--nq-path-pad);
+  box-sizing: border-box;
+  min-width: 0;
+}
+@media (min-width: 1024px) {
+  /* while the quote panel shows, the rail runs in a window that ends before
+     it, so no text slides under the panel (design-system.md 8) */
+  html.nq-chrome-on #path .nq-path { clip-path: inset(0 calc(var(--nq-panel-w) + 2 * var(--nq-panel-inset)) 0 0); }
+}
+
+/* ---- frame 1: people to train ------------------------------------------ */
+.nq-path__train {
+  width: calc(var(--nq-path-win) - 2 * var(--nq-gutter));
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  column-gap: clamp(2.5rem, 5vw, 5.5rem);
+  align-items: center;
+}
+.nq-path__open { display: grid; gap: var(--nq-s-4); align-content: center; }
+.nq-path__open .nq-head { max-width: 15ch; }
+.nq-path__open .nq-lead { max-width: 34rem; color: var(--nq-ink); }
+.nq-path__terms { display: grid; gap: var(--nq-s-6); align-content: center; }
+.nq-path__notes { display: grid; gap: var(--nq-s-3); }
+.nq-path__note { color: var(--nq-ink-soft); }
+.nq-path__training { display: grid; gap: var(--nq-s-3); }
+.nq-path__list { gap: var(--nq-s-2); }
+.nq-path__list > li { color: var(--nq-ink); }
+
+/* the trainee stepper (design-system.md 12.4): the act's opener in gold */
+.nq-stepper { display: grid; gap: var(--nq-s-3); margin-top: var(--nq-s-5); justify-items: start; }
+.nq-stepper__label { margin: 0; font-weight: var(--nq-wght-strong); color: var(--nq-ink); }
+.nq-stepper__row { display: flex; align-items: center; gap: clamp(1rem, 2vw, 1.75rem); }
+.nq-step-btn {
+  position: relative;
+  flex: none;
+  width: var(--nq-tap-lg);
+  height: var(--nq-tap-lg);
+  border: 1px solid var(--nq-edge);
+  border-radius: var(--nq-r-1);
+  background: transparent;
+  color: var(--nq-ink);
+  cursor: pointer;
+  transition: border-color var(--nq-d-hover) var(--nq-ease-out), transform var(--nq-d-press) var(--nq-ease-out);
+}
+.nq-step-btn:active:not(:disabled) { transform: translateY(1px); }
+.nq-step-btn:disabled { cursor: not-allowed; color: var(--nq-ink-soft); border-style: dashed; }
+@media (hover: hover) and (pointer: fine) {
+  .nq-step-btn:hover:not(:disabled) { border-color: var(--nq-ink); }
+}
+/* the glyphs are 2 px bars, never typed characters */
+.nq-step-btn__bar { position: absolute; left: 50%; top: 50%; width: 16px; height: 2px; margin: -1px 0 0 -8px; background: currentColor; border-radius: 1px; }
+.nq-step-btn__bar--v { width: 2px; height: 16px; margin: -8px 0 0 -1px; }
+.nq-stepper__value {
+  width: 2.6ch;
+  min-width: 0;
+  padding: 0 0 0.04em;
+  border: 0;
+  border-radius: var(--nq-r-1);
+  background: transparent;
+  color: var(--nq-gold);
+  caret-color: var(--nq-gold);
+  text-align: center;
+}
+.nq-stepper__out { display: block; font-weight: 600; color: var(--nq-ink); }
+
+/* ---- frame 2: people (the clip) ----------------------------------------- */
+.nq-path__people {
+  display: grid;
+  align-content: center;
+  gap: var(--nq-s-3);
+  width: min(58rem, calc(var(--nq-path-win) - 2 * var(--nq-gutter)), calc((100svh - 2 * var(--nq-path-pad) - 4rem) * 1.7778));
+}
+.nq-path__clipbox { position: relative; aspect-ratio: 16 / 9; background: var(--nq-raise-1); overflow: hidden; }
+.nq-path__video { display: block; width: 100%; height: 100%; object-fit: cover; background: var(--nq-raise-1); }
+.nq-path__cap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nq-s-4);
+  font-size: var(--nq-t-small);
+  font-weight: 500;
+  line-height: var(--nq-lh-small);
+  color: var(--nq-ink-soft);
+}
+.nq-path__clipbtn { min-width: 5.5rem; font-size: var(--nq-t-body); }
+
+/* ---- frame 3: a staged rollout ----------------------------------------- */
+.nq-path__route { position: relative; padding-top: 0; padding-bottom: 0; }
+@media (min-width: 1024px) {
+  /* leave the clip frame fully behind before the map settles into its hold */
+  .nq-path__route { margin-left: max(0px, calc((var(--nq-path-win) - var(--nq-path-map-w)) / 2 + 2rem - var(--nq-path-gap))); }
+}
+/* the map plane: in the upper band, held still by the script while the path
+   passes beneath; it rides with the rail before and after the hold */
+.nq-path__plane {
+  position: absolute;
+  left: 0;
+  top: var(--nq-path-pad);
+  width: var(--nq-path-map-w);
+  height: var(--nq-path-map-h);
+  z-index: 1;
+  will-change: transform;
+}
+.nq-path__map { width: 100%; height: 100%; }
+.nq-path__map > svg.nq-map__svg { width: 100%; height: 100%; }
+/* the drop: one gold hairline from the map to the path under its centre */
+.nq-path__drop {
+  position: absolute;
+  left: calc(var(--nq-path-drop-x, 50%) - 0.5px);
+  top: 100%;
+  width: 1px;
+  height: var(--nq-path-drop, 2rem);
+  background: var(--nq-gold);
+  transform-origin: top;
+  opacity: 0;
+  transition: opacity var(--nq-d-ui) var(--nq-ease-out);
+}
+.nq-path__plane[data-hold="on"] .nq-path__drop { opacity: 1; }
+
+.nq-path__track {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: calc(var(--nq-path-pad) + var(--nq-path-map-h) + var(--nq-s-5));
+  padding-bottom: var(--nq-path-pad);
+}
+.nq-path__head {
+  flex: none;
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 15rem);
+  gap: var(--nq-s-4);
+  align-items: start;
+  padding-top: var(--nq-s-1);
+}
+.nq-path__headtext { display: grid; gap: var(--nq-s-2); }
+.nq-path__headtext .nq-small { max-width: 15rem; }
+.nq-path__fig { gap: var(--nq-s-2); }
+.nq-path__fig img { aspect-ratio: 3 / 2; object-fit: cover; }
+.nq-path__fig--inset img { aspect-ratio: 4 / 3; }
+.nq-path__fig figcaption { color: var(--nq-ink-soft); }
+
+/* the path: a line through the nodes, gold up to the map's centre */
+.nq-path__line {
+  position: absolute;
+  left: 0;
+  width: 0;
+  top: calc(var(--nq-path-pad) + var(--nq-path-map-h) + var(--nq-s-5) + 7px);
+  height: 0;
+  border-top: 1px dashed var(--nq-edge);
+}
+.nq-path__fill {
+  position: absolute;
+  left: 0;
+  top: -1.5px;
+  width: 100%;
+  height: 2px;
+  background: var(--nq-gold);
+  transform: scaleX(var(--nq-path-k, 0));
+  transform-origin: left center;
+}
+.nq-path__stages {
+  flex: none;
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nq-path__stage {
+  position: relative;
+  width: var(--nq-path-card);
+  display: grid;
+  gap: var(--nq-s-2);
+  padding-top: calc(14px + var(--nq-s-4));
+  color: var(--nq-ink-soft);
+}
+.nq-path__stage--fig {
+  width: auto;
+  grid-template-columns: var(--nq-path-card) 13rem;
+  column-gap: var(--nq-s-5);
+  align-items: start;
+}
+.nq-path__stagebody { display: grid; gap: var(--nq-s-2); }
+.nq-path__node {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  box-sizing: border-box;
+  border-radius: var(--nq-r-pill);
+  border: 1.5px solid var(--nq-edge);
+  background: var(--nq-night);
+  transition: background-color var(--nq-d-ui) var(--nq-ease-out), border-color var(--nq-d-ui) var(--nq-ease-out);
+}
+.nq-path__label {
+  margin: 0;
+  font-weight: 600;
+  color: var(--nq-ink-soft);
+  transition: color var(--nq-d-ui) var(--nq-ease-out);
+}
+.nq-path__text {
+  margin: 0;
+  color: var(--nq-ink-soft);
+  text-wrap: pretty;
+  transition: color var(--nq-d-ui) var(--nq-ease-out);
+}
+.nq-path__stage.is-reached .nq-path__node { background: var(--nq-gold); border-color: var(--nq-gold); }
+.nq-path__stage.is-current .nq-path__node { outline: 1.5px solid var(--nq-gold); outline-offset: 4px; }
+.nq-path__stage.is-current .nq-path__label { color: var(--nq-ink); font-weight: var(--nq-wght-strong); }
+.nq-path__stage.is-current .nq-path__text { color: var(--nq-ink); }
+
+/* the map's timeline states (BRIEF A5: no province lights before another).
+   network-map.js sets is-lit / is-outline from the stage's progress; this
+   adds what each stage shows on top of it. */
+.nq-path__map .za-network .lbl,
+.nq-path__map .za-network .leader { opacity: 0; transition: opacity var(--nq-d-enter) var(--nq-ease-out); }
+.nq-path__map .za-network .link,
+.nq-path__map .za-network .link.is-lit { stroke-dashoffset: 1; }
+.nq-path__map[data-nq-stage="5"] .za-network .link.is-lit { stroke-dashoffset: 0; }
+/* stage 1, access and inventory: the existing national, Gauteng, KwaZulu-Natal
+   and Western Cape sites are catalogued */
+.nq-path__map[data-nq-stage="1"] .za-network .prov[data-prov="ZA-GT"],
+.nq-path__map[data-nq-stage="1"] .za-network .prov[data-prov="ZA-NL"] {
+  stroke: var(--nq-map-light);
+  stroke-width: 1.5px;
+  stroke-dasharray: 4 3;
+}
+.nq-path__map[data-nq-stage="1"] .za-network .node[data-prov="ZA-GT"],
+.nq-path__map[data-nq-stage="1"] .za-network .node[data-prov="ZA-NL"],
+.nq-path__map[data-nq-stage="1"] .za-network .hub .hub-ring { stroke: var(--nq-map-light); }
+/* stage 5, handover: the network connects and every destination is named */
+.nq-path__map[data-nq-stage="5"] .za-network .lbl,
+.nq-path__map[data-nq-stage="5"] .za-network .leader { opacity: 1; }
+#path .za-network[data-scale="large"] .labels--narrow { font-size: calc(var(--map-k, 1) * var(--nq-t-small)); }
+#path .za-network[data-scale="large"] .labels--wide { font-size: calc(var(--map-k, 1) * var(--nq-t-small)); }
+
+/* ---- frame 4: handover --------------------------------------------------- */
+.nq-path__handover {
+  position: relative;
+  width: min(62rem, calc(var(--nq-path-win) - 2 * var(--nq-gutter)));
+  display: block;
+  padding: 0;
+}
+.nq-path__photo {
+  position: absolute;
+  left: 0;
+  top: var(--nq-path-pad);
+  height: var(--nq-path-map-h);
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: var(--nq-s-2);
+}
+.nq-path__photo picture { min-height: 0; }
+.nq-path__photo img { height: 100%; width: auto; max-width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.nq-path__end {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--nq-path-pad) + var(--nq-path-map-h) + var(--nq-s-5));
+  padding-top: calc(14px + var(--nq-s-4));
+  display: grid;
+  gap: var(--nq-s-3);
+}
+.nq-path__node--end { width: 18px; height: 18px; top: -2px; }
+.nq-path__node--end.is-reached { background: var(--nq-gold); border-color: var(--nq-gold); outline: 1.5px solid var(--nq-gold); outline-offset: 4px; }
+.nq-path__estimate {
+  max-width: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+.nq-path__estimate > li { color: var(--nq-ink); }
+.nq-path__added { color: var(--nq-ink-soft); }
+
+/* ---- phones and tablets: every frame recomposed for a narrow screen ----- */
+@media (max-width: 1023.98px) {
+  #path {
+    --nq-path-win: 100vw;
+    --nq-path-gap: 3rem;
+    --nq-path-band: 16.5rem;
+    --nq-path-bottom: calc(var(--nq-bar-h) + env(safe-area-inset-bottom, 0px) + var(--nq-s-3));
+    --nq-path-map-h: min(calc((100vw - 2 * var(--nq-gutter)) / 1.1143), calc(100svh - var(--nq-path-band) - var(--nq-path-bottom) - 2 * var(--nq-path-pad)));
+    --nq-path-card: min(17rem, 74vw);
+  }
+  .nq-path__frame { padding-bottom: var(--nq-path-bottom); }
+  /* the opener and the training terms become one wide spread the rail reads across */
+  .nq-path__train {
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--nq-s-7);
+  }
+  .nq-path__open { width: calc(100vw - 2 * var(--nq-gutter)); flex: none; }
+  .nq-path__terms { display: flex; align-items: center; gap: var(--nq-s-7); flex: none; }
+  .nq-path__notes, .nq-path__training { width: min(19rem, 80vw); flex: none; }
+  .nq-path__people { width: auto; }
+  .nq-path__clipbox { aspect-ratio: 406 / 720; height: min(36rem, calc(100svh - 2 * var(--nq-path-pad) - var(--nq-path-bottom) - 3.5rem)); width: auto; }
+  .nq-path__track { padding-bottom: var(--nq-path-bottom); }
+  .nq-path__head { grid-template-columns: min(11rem, 46vw) min(14rem, 60vw); }
+  .nq-path__headtext .nq-small { max-width: none; }
+  .nq-path__stage--fig { grid-template-columns: var(--nq-path-card) min(11rem, 46vw); }
+  .nq-path__handover { width: calc(3 * var(--nq-path-card) + 2 * var(--nq-s-6)); }
+  .nq-path__photo { width: calc(100vw - 2 * var(--nq-gutter)); height: auto; }
+  .nq-path__photo img { height: auto; width: 100%; max-height: calc(var(--nq-path-map-h) - 2rem); }
+  .nq-path__estimate { grid-template-columns: repeat(3, var(--nq-path-card)); column-gap: var(--nq-s-6); }
+}
+@media (max-width: 1023.98px) and (max-height: 700px) {
+  .nq-path__open .nq-head { font-size: 2rem; }
+}
+
+/* ---- stacked: reduced motion and no script ------------------------------ */
+/* The rail's travel is a position change, so without motion the act is laid
+   out as an ordinary page: the frames stack, the map stays in view beside the
+   stages, and each stage changes the map without animating. */
+@media (prefers-reduced-motion: reduce), (scripting: none) {
+  #path { height: auto !important; }
+  #path .nq-path {
+    position: relative;
+    top: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+  #path .nq-path__rail {
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    gap: var(--nq-s-9);
+    padding-block: var(--nq-section);
+    transform: none !important;
+    will-change: auto;
+  }
+  #path .nq-path__route { margin-left: 0; }
+  #path .nq-path__frame { width: auto; height: auto; padding-block: 0; }
+  #path .nq-path__train { display: grid; }
+  #path .nq-path__people { width: min(58rem, 100%); }
+  #path .nq-path__clipbox { height: auto; width: 100%; aspect-ratio: 16 / 9; }
+  #path .nq-path__route {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+  #path .nq-path__plane {
+    position: sticky;
+    top: var(--nq-s-5);
+    left: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1036 / 931;
+    transform: none !important;
+    background: var(--nq-night);
+  }
+  #path .nq-path__drop, #path .nq-path__line { display: none; }
+  #path .nq-path__track { display: grid; gap: var(--nq-s-6); height: auto; padding: 0; }
+  #path .nq-path__head { grid-template-columns: minmax(0, 1fr); width: auto; }
+  #path .nq-path__head .nq-path__fig { display: grid; max-width: 26rem; }
+  #path .nq-path__stages { flex-direction: column; gap: var(--nq-s-6); }
+  #path .nq-path__stage { width: auto; padding-top: 0; padding-left: calc(14px + var(--nq-s-4)); }
+  #path .nq-path__stage--fig { grid-template-columns: minmax(0, 1fr); }
+  #path .nq-path__stage--fig .nq-path__fig--inset { display: grid; max-width: 18rem; }
+  #path .nq-path__node { top: 0.35em; }
+  #path .nq-path__handover { display: grid; gap: var(--nq-s-6); width: auto; height: auto; }
+  #path .nq-path__photo,
+  #path .nq-path__end { position: static; width: auto; height: auto; padding-top: 0; }
+  #path .nq-path__photo { max-width: 46rem; }
+  #path .nq-path__photo img { width: 100%; height: auto; }
+  #path .nq-path__node--end { display: none; }
+  #path .nq-path__estimate { grid-template-columns: minmax(0, 1fr); row-gap: var(--nq-s-4); max-width: var(--nq-measure); }
+  #path .nq-path__notes, #path .nq-path__training, #path .nq-path__open { width: auto; }
+  #path .nq-path__terms { display: grid; }
+}
+@media (prefers-reduced-motion: reduce) and (min-width: 1024px), (scripting: none) and (min-width: 1024px) {
+  #path .nq-path__rail { padding-inline-end: calc(var(--nq-panel-w) + 2 * var(--nq-gutter)); }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 1023.98px), (scripting: none) and (max-width: 1023.98px) {
+  #path .nq-path__train,
+  #path .nq-path__handover { grid-template-columns: minmax(0, 1fr); row-gap: var(--nq-s-7); }
+  #path .nq-path__route { grid-template-columns: minmax(0, 1fr); }
+  #path .nq-path__plane { top: 0; z-index: 2; padding-block: var(--nq-s-3); width: 100%; }
+  #path .nq-path__people { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nq-path__node, .nq-path__label, .nq-path__text, .nq-path__drop { transition: none; }
+  .nq-path__map .za-network .lbl, .nq-path__map .za-network .leader { transition: none; }
+}

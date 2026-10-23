@@ -1,0 +1,53 @@
+/* act-07-accept.css: act 7, Acceptance (Day, pin 1.6, the close). The
+   footer overlaps the bottom of this stage (css/base.css .nq-foot), so the
+   stage keeps that much room free at its foot.
+   Shell layout by F0; the act's piece builder owns this file from here. */
+
+.nq-accept {
+  padding-bottom: calc(var(--nq-foot-h, 0px) + var(--nq-s-5));
+}
+/* the quote panel steps aside at the close, so the summary takes its room */
+@media (min-width: 1024px) {
+  .nq-accept { padding-inline-end: var(--nq-gutter); padding-top: clamp(2rem, 5svh, 3.5rem); }
+}
+.nq-accept__lead.nq-stack { gap: var(--nq-s-3); }
+.nq-accept__lead .nq-head { margin-top: var(--nq-s-2); }
+.nq-table--summary th,
+.nq-table--summary td { padding-block: var(--nq-s-2); }
+.nq-accept__body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--nq-s-6) clamp(2rem, 4vw, 5rem);
+  align-items: start;
+  align-content: center;
+}
+.nq-accept__letter { color: var(--nq-accent); }
+.nq-accept__lead .nq-lines { gap: var(--nq-s-2); }
+.nq-accept__action { margin: var(--nq-s-3) 0 0; }
+.nq-summary { display: grid; gap: var(--nq-s-4); }
+.nq-table--summary th { width: 34%; }
+.nq-table--summary td:nth-child(2) { white-space: nowrap; font-weight: var(--nq-wght-strong); }
+.nq-table--summary td:nth-child(3) { color: var(--nq-ink-soft); }
+.nq-table--summary .nq-row--chosen th,
+.nq-table--summary .nq-row--chosen td { background: var(--nq-raise-1); }
+.nq-summary__notes { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--nq-s-1); }
+
+@media (max-width: 1023.98px) {
+  .nq-accept__body { grid-template-columns: minmax(0, 1fr); align-content: start; }
+  .nq-accept__lead > .nq-lines { order: 2; }
+  .nq-accept__lead > .nq-accept__action,
+  .nq-accept__lead > .nq-accept__action + .nq-small { order: 1; }
+  .nq-accept { padding-bottom: calc(var(--nq-foot-h, 0px) + var(--nq-s-4)); }
+}
+@media (max-width: 719.98px) {
+  .nq-table--summary,
+  .nq-table--summary tbody,
+  .nq-table--summary tr,
+  .nq-table--summary th,
+  .nq-table--summary td { display: block; width: auto; }
+  .nq-table--summary tr { padding: var(--nq-s-2) 0; border-top: 1px dashed var(--nq-hairline); }
+  .nq-table--summary th,
+  .nq-table--summary td { border-top: 0; padding: 0; }
+  .nq-table--summary tr[hidden] { display: none; }
+  .nq-accept__action .nq-btn { width: 100%; }
+}

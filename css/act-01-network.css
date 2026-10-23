@@ -1,0 +1,221 @@
+/* act-01-network.css: act 1, The network (Night, pin 2.6) and its coda.
+   Piece P1 (design loop round 1). The map is the object: as large as the
+   frame allows on the right, the copy flanking it on the left. On phones the
+   map sits on top with the opener "1 + 9" in its empty upper left (the land
+   starts below it), and the copy states cross over beneath.
+   Three type sizes per screen: the opener (mono), the heading (head) and
+   body; map labels are set to body size on large maps. */
+
+/* ------------------------------------------------------------ the stage -- */
+.nq-network {
+  grid-template-columns: minmax(0, 0.74fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  column-gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: center;
+}
+.nq-network__copy { grid-column: 1; grid-row: 1; display: grid; align-content: center; min-width: 0; }
+.nq-network__copy > .nq-state { grid-area: 1 / 1; align-self: center; }
+.nq-network__s1 { display: grid; gap: var(--nq-s-5); align-content: start; }
+.nq-network__opener {
+  color: var(--nq-accent);
+  margin-bottom: var(--nq-s-3);
+  white-space: nowrap;
+}
+.nq-network__lines { gap: var(--nq-s-4); }
+.nq-network__lines > li { padding-left: var(--nq-s-5); position: relative; }
+/* each line hangs from an unlit node, drawn as the map draws one */
+.nq-network__lines > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 7px;
+  height: 7px;
+  box-sizing: border-box;
+  border-radius: var(--nq-r-pill);
+  border: 1px solid var(--nq-edge);
+}
+/* The map's column reaches into the gutter beside the quote panel (never
+   under it), so the object gets the room a frame of 1440 can give. */
+.nq-network__map {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  display: grid;
+  place-items: center;
+  margin-inline-end: calc(-1 * var(--nq-gutter));
+}
+.nq-network__map .nq-map { width: 100%; max-width: min(100%, calc((100svh - 7rem) * 1.114)); aspect-ratio: 1024 / 919; }
+
+/* the lit network (map mode "lit"): lit land carries a trace of the light */
+#network .za-network .prov.is-lit,
+#network .za-network .lbl-plate--land.is-lit { fill: var(--nq-raise-2); }
+#network .za-network .hub.is-lit .hub-ring { stroke-width: 1.5px; }
+/* names arrive with their province, rising a little out of place */
+#network .za-network.mode-lit .lbl {
+  transition: opacity var(--nq-d-enter) var(--nq-ease-out), transform var(--nq-d-enter) var(--nq-ease-out);
+}
+#network .za-network.mode-lit .lbl:not(.is-lit) { transform: translateY(0.45em); }
+/* labels at body size on a large map (the narrow set is drawn for phones) */
+#network .za-network[data-scale="large"] .labels--narrow { font-size: calc(var(--map-k, 1) * var(--nq-t-body)); }
+
+@media (max-width: 1023.98px) {
+  .nq-network {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    row-gap: var(--nq-s-4);
+    align-content: start;
+    align-items: start;
+    padding-top: clamp(1rem, 4svh, 2.5rem);
+    padding-bottom: calc(var(--nq-bar-h) + env(safe-area-inset-bottom, 0px) + 2.25rem);
+  }
+  .nq-network__map {
+    grid-column: 1;
+    grid-row: 1;
+    margin-inline-end: 0;
+    justify-items: end;
+    /* room for the opener, which sits over the map's empty upper left */
+    padding-top: 1.75rem;
+  }
+  .nq-network__map .nq-map { max-width: min(100%, 36rem, calc((100svh - 25rem) * 1.114)); }
+  .nq-network__copy { grid-column: 1; grid-row: 2; align-content: start; }
+  .nq-network__copy > .nq-state { align-self: start; }
+  .nq-network__s1 { gap: var(--nq-s-3); }
+  .nq-network__opener {
+    position: absolute;
+    top: clamp(1rem, 4svh, 2.5rem);
+    left: var(--nq-gutter);
+    margin: 0;
+  }
+  .nq-network__lines { gap: var(--nq-s-2); }
+  .nq-network__lines > li { line-height: 1.5; }
+}
+
+/* the camera eases in on the network as the provinces light (act progress) */
+@media (prefers-reduced-motion: no-preference) {
+  .nq-network__map .nq-map { transform: scale(calc(0.94 + 0.07 * var(--sc-p, 0))); transform-origin: 62% 58%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #network .za-network .lbl { transform: none !important; transition: opacity 220ms linear; }
+}
+
+/* ----------------------------------------------------- the coda: atlas -- */
+/* The locator map beside the ten destinations (design-system 12.9). On a
+   wide screen the map holds still while the list passes it. */
+.nq-atlas {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+  column-gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+  padding-top: var(--nq-s-7);
+}
+.nq-atlas__map { grid-column: 1; grid-row: 1 / span 2; align-self: stretch; min-width: 0; }
+.nq-atlas__sticky { position: sticky; top: max(3rem, 14svh); display: grid; gap: var(--nq-s-3); }
+.nq-atlas__hint { margin: var(--nq-s-3) 0 0; font-weight: var(--nq-wght-strong); }
+.nq-atlas__source { margin: 0; color: var(--nq-ink-soft); }
+.nq-locator { position: relative; max-width: 30rem; aspect-ratio: 1024 / 919; }
+.nq-locator .za-network.is-pickable .prov,
+.nq-locator .za-network.is-pickable .hub,
+.nq-locator .za-network.is-pickable .node { cursor: pointer; }
+/* a chosen destination stands out: the rest of the land steps back */
+#network .nq-locator .za-network.has-hl .prov:not(.is-hl) { fill: var(--nq-map-land); stroke: var(--nq-map-edge); stroke-width: var(--nq-map-edge-w); }
+#network .nq-locator .za-network.has-hl .lbl-plate--land:not(.is-hl) { fill: var(--nq-map-land); }
+#network .nq-locator .za-network .lbl-plate--land.is-hl { fill: var(--nq-raise-2); }
+#network .nq-locator .za-network.has-hl .link:not(.is-hl) { stroke: var(--nq-map-edge); }
+#network .nq-locator .za-network .prov.is-hl { fill: var(--nq-raise-2); stroke: var(--nq-map-light); stroke-width: 2px; }
+.nq-locator__tip {
+  position: absolute;
+  z-index: 2;
+  max-width: 17rem;
+  padding: var(--nq-s-3) var(--nq-s-4);
+  border-radius: var(--nq-r-1);
+  background: var(--nq-raise-2);
+  color: var(--nq-ink);
+  pointer-events: none;
+  display: grid;
+  gap: var(--nq-s-1);
+}
+.nq-locator__tip p { margin: 0; color: var(--nq-ink-soft); }
+.nq-locator__tip .nq-locator__tipname { color: var(--nq-ink); font-weight: var(--nq-wght-strong); }
+
+.nq-dests {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px dashed var(--nq-hairline);
+}
+.nq-dest { border-bottom: 1px dashed var(--nq-hairline); }
+.nq-dest__h { margin: 0; font-size: inherit; font-weight: inherit; line-height: inherit; }
+.nq-dest__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nq-s-4);
+  width: 100%;
+  min-height: 3.5rem;
+  padding: var(--nq-s-3) var(--nq-s-1) var(--nq-s-3) 0;
+  border: 0;
+  border-radius: var(--nq-r-1);
+  background: transparent;
+  color: var(--nq-ink);
+  font: inherit;
+  font-weight: var(--nq-wght-strong);
+  text-align: left;
+  cursor: pointer;
+}
+.nq-dest__name {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+  transition: text-decoration-color var(--nq-d-hover) var(--nq-ease-out);
+}
+.nq-dest.is-hl .nq-dest__name,
+.nq-dest.is-open .nq-dest__name { text-decoration-color: currentColor; }
+/* plus and minus drawn with 2 px bars (never a typed character) */
+.nq-dest__mark { position: relative; flex: none; width: 14px; height: 14px; }
+.nq-dest__mark::before,
+.nq-dest__mark::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 14px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--nq-ink-soft);
+  transition: transform var(--nq-d-ui) var(--nq-ease-out);
+}
+.nq-dest__mark::after { transform: rotate(90deg); }
+.nq-dest.is-open .nq-dest__mark::after { transform: rotate(90deg) scaleX(0); }
+.nq-dests:not(.is-enhanced) .nq-dest__mark { display: none; }
+.nq-dests:not(.is-enhanced) .nq-dest__btn { cursor: default; }
+.nq-dest__body { padding: 0 0 var(--nq-s-5); }
+.nq-dest__body .nq-lines { gap: var(--nq-s-2); color: var(--nq-ink-soft); }
+.nq-dest.is-open .nq-dest__body .nq-lines > li:nth-child(2) { color: var(--nq-ink); }
+.nq-dests.is-enhanced .nq-dest.is-open .nq-dest__body { animation: nq-dest-in var(--nq-d-enter) var(--nq-ease-out) both; }
+@keyframes nq-dest-in { from { opacity: 0; transform: translateY(var(--nq-rise)); } to { opacity: 1; transform: none; } }
+
+.nq-wc-address {
+  grid-column: 2;
+  grid-row: 2;
+  display: grid;
+  gap: var(--nq-s-4);
+  margin-top: var(--nq-s-9);
+}
+.nq-wc-address__lines { gap: var(--nq-s-3); }
+
+@media (max-width: 1023.98px) {
+  .nq-atlas { grid-template-columns: minmax(0, 1fr); padding-top: var(--nq-s-5); }
+  .nq-atlas__map { grid-column: 1; grid-row: auto; }
+  .nq-atlas__sticky { position: static; }
+  .nq-locator { max-width: min(100%, 22rem); }
+  .nq-dests { grid-column: 1; grid-row: auto; margin-top: var(--nq-s-6); }
+  .nq-wc-address { grid-column: 1; grid-row: auto; margin-top: var(--nq-s-8); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nq-dests.is-enhanced .nq-dest.is-open .nq-dest__body { animation: none; }
+}

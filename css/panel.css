@@ -1,0 +1,182 @@
+/* =========================================================================
+   panel.css: the quote panel, the phone bar and the sheet
+   (design-system.md 12.1 and 12.2; behaviour in js/quote-panel.js)
+   Body size only. The surface is raised step 1 of whatever ground is under
+   it (data-ground on the panel and the bar is kept current by the script).
+   Without JavaScript the panel is a plain block under the hero.
+   ========================================================================= */
+
+.nq-panel {
+  background-color: var(--nq-raise-1);
+  color: var(--nq-ink);
+  font-size: var(--nq-t-body);
+  line-height: 1.45;
+  transition: background-color var(--nq-d-ui) var(--nq-ease-out), color var(--nq-d-ui) var(--nq-ease-out);
+}
+.nq-panel__head { display: flex; align-items: center; justify-content: space-between; gap: var(--nq-s-3); }
+.nq-panel__title {
+  margin: 0;
+  font-size: var(--nq-t-body);
+  font-weight: var(--nq-wght-strong);
+  line-height: 1.4;
+}
+.nq-panel__title:focus { outline: none; }
+.nq-panel__title:focus-visible { outline: var(--nq-focus-w) solid var(--nq-accent); outline-offset: var(--nq-focus-offset); }
+
+.nq-totals { margin: var(--nq-s-4) 0 0; display: grid; gap: var(--nq-s-3); }
+.nq-total { display: grid; gap: 2px; padding-top: var(--nq-s-3); border-top: 1px dashed var(--nq-hairline); }
+.nq-total:first-child { padding-top: 0; border-top: 0; }
+.nq-total dt { color: var(--nq-ink-soft); font-weight: 500; }
+.nq-total dd { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: var(--nq-s-2); }
+.nq-total__fig {
+  font-weight: var(--nq-wght-strong);
+  font-variant-numeric: var(--nq-numerals);
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+  transition: text-decoration-color var(--nq-d-ui) var(--nq-ease-out);
+}
+.nq-total__note { color: var(--nq-ink-soft); }
+/* a figure that just changed carries a 2 px gold underline for 1.2 s */
+.nq-changed { text-decoration-line: underline; text-decoration-color: var(--nq-accent); text-decoration-thickness: 2px; text-underline-offset: 0.3em; }
+
+.nq-now { margin: var(--nq-s-4) 0 0; color: var(--nq-ink-soft); }
+.nq-now [data-nq-now] { color: var(--nq-ink); font-weight: 600; }
+
+.nq-minimap { height: 7.5rem; margin-top: var(--nq-s-3); }
+.nq-minimap > svg { width: 100%; height: 100%; }
+
+.nq-chapters { margin-top: var(--nq-s-3); }
+.nq-chapters__toggle { width: 100%; margin-top: var(--nq-s-3); }
+.nq-chapters__list { margin: var(--nq-s-3) 0 0; padding: 0; list-style: none; display: grid; }
+.nq-chapters__list a {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  min-height: var(--nq-tap);
+  padding: var(--nq-s-2) var(--nq-s-2) var(--nq-s-2) var(--nq-s-5);
+  border-top: 1px dashed var(--nq-hairline);
+  color: var(--nq-ink);
+  text-decoration: none;
+  border-radius: 0;
+}
+.nq-chapters__list li:first-child a { border-top: 0; }
+.nq-chapters__name { font-weight: 600; }
+.nq-chapters__adds { color: var(--nq-ink-soft); }
+.nq-chapters__list a[aria-current]::before {
+  content: "";
+  position: absolute;
+  left: var(--nq-s-1);
+  top: calc(var(--nq-s-2) + 0.5em);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--nq-accent);
+}
+@media (hover: hover) and (pointer: fine) {
+  .nq-chapters__list a:hover .nq-chapters__name { text-decoration: underline; text-decoration-color: var(--nq-accent); text-underline-offset: 0.22em; }
+}
+.nq-panel__pdf { display: inline-block; margin-top: var(--nq-s-4); padding-block: var(--nq-s-2); font-weight: 600; }
+
+/* ---- without JavaScript: a plain block under the hero ------------------ */
+html:not(.nq-js) .nq-panel { padding: var(--nq-s-7) var(--nq-gutter); }
+html:not(.nq-js) .nq-panel > * { max-width: 40rem; }
+
+/* ---- desktop: a slim panel on the right edge ---------------------------- */
+@media (min-width: 1024px) {
+  html.nq-js .nq-panel {
+    position: fixed;
+    z-index: var(--nq-z-panel);
+    top: calc(env(safe-area-inset-top, 0px) + var(--nq-panel-inset));
+    right: var(--nq-panel-inset);
+    width: var(--nq-panel-w);
+    max-height: calc(100vh - 2 * var(--nq-panel-inset));
+    max-height: calc(100svh - 2 * var(--nq-panel-inset));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    padding: var(--nq-s-5);
+    border: 1px dashed var(--nq-hairline);
+    border-radius: var(--nq-r-1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--nq-d-ui) var(--nq-ease-out), visibility 0s linear var(--nq-d-ui),
+                background-color var(--nq-d-ui) var(--nq-ease-out), color var(--nq-d-ui) var(--nq-ease-out);
+  }
+  html.nq-js.nq-chrome-on:not(.nq-at-close) .nq-panel {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--nq-d-ui) var(--nq-ease-out), visibility 0s linear 0s,
+                background-color var(--nq-d-ui) var(--nq-ease-out), color var(--nq-d-ui) var(--nq-ease-out);
+  }
+  .nq-panel__close, .nq-bar { display: none !important; }
+}
+
+/* ---- phones and tablets: a bar that opens a sheet ----------------------- */
+@media (max-width: 1023.98px) {
+  .nq-chapters__toggle { display: none !important; }
+
+  .nq-bar {
+    position: fixed;
+    z-index: var(--nq-z-panel);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nq-s-3);
+    min-height: calc(var(--nq-bar-h) + env(safe-area-inset-bottom, 0px));
+    padding: 12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+    background-color: var(--nq-raise-1);
+    color: var(--nq-ink);
+    border-top: 1px dashed var(--nq-hairline);
+    line-height: 1.35;
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: transform var(--nq-d-ui) var(--nq-ease-out), visibility 0s linear var(--nq-d-ui),
+                background-color var(--nq-d-ui) var(--nq-ease-out), color var(--nq-d-ui) var(--nq-ease-out);
+  }
+  html.nq-chrome-on:not(.nq-at-close) .nq-bar {
+    transform: none;
+    visibility: visible;
+    transition: transform var(--nq-d-ui) var(--nq-ease-out), visibility 0s linear 0s,
+                background-color var(--nq-d-ui) var(--nq-ease-out), color var(--nq-d-ui) var(--nq-ease-out);
+  }
+  .nq-bar__sum { margin: 0; display: grid; min-width: 0; }
+  .nq-bar__label { color: var(--nq-ink-soft); font-weight: 500; }
+  .nq-bar__fig { font-weight: var(--nq-wght-strong); }
+  .nq-bar__open { flex: none; }
+
+  html.nq-js .nq-panel {
+    position: fixed;
+    z-index: var(--nq-z-sheet);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: var(--nq-sheet-max);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0 var(--nq-gutter) calc(var(--nq-s-5) + env(safe-area-inset-bottom, 0px));
+    border-radius: var(--nq-r-1) var(--nq-r-1) 0 0;
+    border-top: 1px dashed var(--nq-hairline);
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: transform var(--nq-d-sheet) var(--nq-ease-drawer), visibility 0s linear var(--nq-d-sheet);
+  }
+  html.nq-js.nq-sheet-open .nq-panel {
+    transform: none;
+    visibility: visible;
+    transition: transform var(--nq-d-sheet) var(--nq-ease-drawer), visibility 0s linear 0s;
+  }
+  html.nq-js .nq-panel__head {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin-inline: calc(-1 * var(--nq-gutter));
+    padding: var(--nq-s-3) var(--nq-gutter);
+    background-color: var(--nq-raise-2);
+  }
+  .nq-minimap { height: 6rem; }
+}

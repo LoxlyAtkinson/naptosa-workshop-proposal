@@ -1,215 +1,1223 @@
 <!doctype html>
-<html lang="en-ZA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex, nofollow"><meta name="description" content="Proposal and quotation LBTEC-NAPTOSA-NATIONAL-WEB-WS-001 for NAPTOSA National: a connected national and provincial website network and the workshop module."><link rel="icon" href="assets/naptosa-shield.webp" type="image/webp"><link rel="preload" as="image" href="assets/hero-poster.webp">
-<title>NAPTOSA National | Website Network and Workshop Module Proposal</title><style>
-@page { size: A4; margin: 16mm 15mm 18mm; }
-:root { --navy:#132f54; --blue:#225c90; --gold:#bd9238; --cream:#f8f4e9; --ink:#182633; --muted:#536371; --line:#d8e1e8; }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
-body { margin:0; font:16px/1.52 Aptos, 'Segoe UI', Arial, sans-serif; color:var(--ink); background:#e7edf1; }
-.proposal { max-width:1060px; margin:32px auto; background:#fff; box-shadow:0 18px 65px #142c4430; }
-.topbar { background:var(--navy); color:white; padding:16px 48px; display:flex; justify-content:space-between; gap:20px; font-size:13px; letter-spacing:.04em; }
-.topbar b { color:#ebc878; }
-.cover { padding:72px 58px 62px; background:linear-gradient(135deg,#fff 0%,#fff 61%,#f4f8fb 100%); border-bottom:8px solid var(--gold); }
-.eyebrow { color:var(--blue); font-size:13px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
-h1 { font-size:clamp(2.4rem,5vw,4.2rem); line-height:1.08; letter-spacing:-.045em; color:var(--navy); margin:14px 0 20px; max-width:800px; }
-.cover .lead { font-size:1.24rem; max-width:760px; color:#334b60; }
-.cover-meta { display:flex; flex-wrap:wrap; gap:16px 36px; margin-top:44px; border-top:1px solid var(--line); padding-top:20px; font-size:14px; }
-.cover-meta span { display:block; color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.12em; font-weight:700; }
-.content { padding:0 58px 52px; }
-nav { display:flex; flex-wrap:wrap; gap:8px; padding:26px 0 14px; }
-nav a { color:var(--navy); text-decoration:none; font-size:13px; font-weight:700; border:1px solid var(--line); border-radius:99px; padding:7px 11px; }
-nav a:hover, nav a:focus-visible { background:var(--cream); outline:2px solid var(--gold); outline-offset:2px; }
-section { padding:28px 0 18px; border-top:1px solid var(--line); }
-.section-no { color:var(--gold); font-weight:800; letter-spacing:.12em; font-size:12px; text-transform:uppercase; }
-h2 { font-size:1.75rem; line-height:1.2; letter-spacing:-.025em; color:var(--navy); margin:8px 0 12px; }
-h3 { color:var(--navy); font-size:1.08rem; margin:19px 0 7px; break-after:avoid; }
-p { margin:8px 0 12px; }
-.lede { font-size:1.12rem; color:#314b62; }
-.muted, small { color:var(--muted); }
-.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:20px 0; }
-.card { background:#f5f8fa; border:1px solid var(--line); border-radius:10px; padding:18px; break-inside:avoid; }
-.card strong { display:block; color:var(--navy); font-size:1.55rem; line-height:1.1; margin:5px 0; }
-.card .label { font-size:12px; font-weight:800; color:var(--blue); text-transform:uppercase; letter-spacing:.09em; }
-.callout { background:var(--cream); border-left:5px solid var(--gold); padding:16px 20px; margin:18px 0; break-inside:avoid; }
-.two { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-ul,ol { padding-left:23px; }
-li { margin:6px 0; }
-.flow { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; margin:18px 0; }
-.flow div { border-top:3px solid var(--gold); background:#f5f8fa; padding:12px; font-size:14px; }
-.flow b { display:block; color:var(--navy); }
-.network-map,.topology,.money-visual,.timeline,.payment-split { margin:20px 0; break-inside:avoid; }
-
-.storage-comparison { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0; break-inside:avoid; }
-.storage-model { border:1px solid var(--line); border-radius:10px; padding:13px; background:#f7fafc; }
-.storage-model h3 { margin:0 0 8px; }
-.shared-sources { display:flex; flex-wrap:wrap; justify-content:center; gap:5px; margin:10px 0; }
-.shared-sources span { padding:4px 7px; border:1px solid var(--line); border-radius:5px; background:#fff; color:var(--navy); font-size:11px; font-weight:700; }
-.shared-arrow { text-align:center; color:var(--gold); font-size:19px; font-weight:900; line-height:1; }
-.shared-db { margin:7px auto; max-width:220px; border-radius:8px; background:var(--navy); color:#fff; text-align:center; padding:10px; font-weight:800; }
-.shared-db small { display:block; color:#d6e6f2; font-weight:500; }
-.dedicated-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin:10px 0; }
-.dedicated-cell { text-align:center; padding:6px 3px; border:1px solid #cad8e2; border-radius:6px; background:white; color:var(--navy); font-size:10px; font-weight:800; }
-.lock-icon { display:block; width:21px; height:18px; margin:3px auto 1px; position:relative; border-radius:3px; background:#e7f1ea; border:1px solid #4c8061; }
-.lock-icon:before { content:""; position:absolute; width:8px; height:7px; left:5px; top:-7px; border:2px solid #4c8061; border-bottom:0; border-radius:7px 7px 0 0; }
-.national-oversight { text-align:center; background:#eaf1f6; border-radius:6px; padding:6px; color:var(--navy); font-size:11px; font-weight:800; }
-.wc-existing { margin-top:7px; padding:6px; border-left:3px solid var(--gold); background:#fff8e7; font-size:11px; }
-.training-visual { display:grid; grid-template-columns:1fr 26px 1fr 26px 1.1fr; align-items:center; gap:6px; margin:16px 0; text-align:center; }
-.training-visual div { padding:11px 6px; border:1px solid var(--line); border-radius:8px; background:#f7fafc; }
-.training-visual b { display:block; color:var(--navy); }
-.training-visual small { display:block; margin-top:3px; }
-.training-visual .arrow { border:0; background:transparent; color:var(--gold); font-size:21px; font-weight:900; }
-.training-visual .combined { background:#fff3c4; border-color:#efd06f; }
-
-.network-map { border:1px solid var(--line); border-radius:12px; padding:18px; background:#f7fafc; }
-.hub { margin:0 auto 14px; max-width:310px; text-align:center; background:var(--navy); color:#fff; padding:13px; border-radius:9px; font-weight:800; }
-.hub small { display:block; color:#d6e6f2; font-weight:500; }
-.branches { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
-.branch { position:relative; border:1px solid var(--line); border-top:3px solid var(--blue); border-radius:7px; background:#fff; padding:9px; text-align:center; font-size:13px; }
-.branch.retained { border-top-color:var(--gold); background:#fffaf0; }
-.branch b { display:block; color:var(--navy); }
-.route { display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; padding:14px; background:#f5f8fa; border-radius:9px; text-align:center; }
-.route span { padding:8px 12px; background:white; border:1px solid var(--line); border-radius:7px; font-weight:700; color:var(--navy); }
-.route i { color:var(--gold); font-size:20px; font-style:normal; font-weight:800; }
-.status-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:14px 0; break-inside:avoid; }
-.status-card { border:1px solid var(--line); border-radius:9px; padding:12px; background:#f8fafb; break-inside:avoid; }
-.status-card b { display:block; color:var(--navy); margin-bottom:4px; }
-.status-card small { display:block; }
-.journey { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:18px 0; counter-reset:step; }
-.journey article { position:relative; border:1px solid var(--line); border-radius:9px; padding:14px 12px; background:#f7fafc; }
-.journey article:before { counter-increment:step; content:counter(step,decimal-leading-zero); display:block; color:var(--gold); font-weight:900; letter-spacing:.08em; margin-bottom:5px; }
-.journey b { display:block; color:var(--navy); }
-.topology { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-.topology-card { border:1px solid var(--line); border-radius:10px; padding:16px; background:#f8fafb; break-inside:avoid; }
-.stores { display:flex; justify-content:center; align-items:center; gap:5px; flex-wrap:wrap; margin:14px 0; }
-.store { border:1px solid #9eb2c3; border-radius:5px; padding:7px; color:var(--navy); background:#fff; font-size:11px; text-align:center; }
-.store.national { background:var(--navy); color:white; }
-.barrow { display:grid; grid-template-columns:88px 1fr 110px; gap:8px; align-items:center; margin:9px 0; font-size:13px; }
-.bar { height:23px; display:flex; overflow:hidden; border-radius:5px; background:#edf1f4; }
-.bar span { display:block; height:100%; }
-.bar .web { background:#225c90; }.bar .workshop { background:#bd9238; }
-.bar-label { font-variant-numeric:tabular-nums; text-align:right; color:var(--navy); font-weight:800; }
-.saving-banner { margin-top:12px; padding:12px; border-radius:8px; background:#edf5ef; color:#24583d; font-weight:800; }
-.payment-split .bar { height:35px; }
-.timeline { display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:3px solid var(--gold); }
-.timeline div { padding:12px 10px; border-left:1px solid var(--line); font-size:13px; }
-.timeline b { display:block; color:var(--navy); }
-table { width:100%; border-collapse:collapse; margin:15px 0; font-size:14px; }
-caption { text-align:left; color:var(--navy); font-weight:800; margin-bottom:6px; }
-th,td { padding:9px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
-thead th { color:white; background:var(--navy); font-size:12px; }
-tbody tr:nth-child(even) { background:#f7f9fb; }
-td:not(:first-child),.sum { font-variant-numeric:tabular-nums; white-space:nowrap; }
-.total { background:#eaf1f6 !important; color:var(--navy); font-weight:800; }
-.total th,.total td { border-top:2px solid var(--navy); }
-.old-rate { display:block; color:var(--navy); font-size:12px; font-weight:700; }
-.discount-rate { display:inline-block; padding:3px 7px; border-radius:4px; background:#ffe58a; color:#172c42; font-weight:900; white-space:nowrap; }
-.rate-highlight { display:inline-block; padding:3px 7px; border-radius:4px; background:#ffe58a; color:#172c42; font-weight:900; white-space:nowrap; }
-.offer-column { background:#ffe58a !important; color:#172c42 !important; font-weight:900 !important; }
-.revised-column { background:#fff3c4 !important; color:var(--navy); font-weight:900; }
-.price-note { font-size:13px; color:var(--muted); }
-.status { display:inline-block; color:#276047; background:#e6f2ea; padding:1px 7px; border-radius:4px; font-weight:700; font-size:12px; }
-.status.future { color:#785218; background:#fbf0d7; }
-.quote-box { background:var(--navy); color:white; padding:24px; border-radius:10px; margin:18px 0; break-inside:avoid; }
-.quote-box strong { font-size:2rem; display:block; }
-.quote-box span { color:#d6e6f2; }
-.signature { display:grid; grid-template-columns:1.1fr 1.1fr .65fr; gap:24px; margin:36px 0 12px; }
-.signature div { border-top:1px solid var(--navy); padding-top:5px; font-size:13px; color:var(--muted); }
-.tickbox { display:inline-block; width:13px; height:13px; border:1px solid var(--navy); vertical-align:-1px; margin-right:5px; }
-.footer { padding:24px 58px; background:#edf3f7; font-size:12px; color:var(--muted); }
-.download { display:inline-block; margin:18px 0 0; padding:12px 18px; background:var(--navy); color:white; font-weight:700; text-decoration:none; border-radius:5px; }
-.download:hover,.download:focus-visible { background:var(--blue); outline:3px solid var(--gold); outline-offset:3px; }
-@media(max-width:700px) { .proposal{margin:0;box-shadow:none}.topbar{padding:14px 22px}.cover{padding:48px 22px}.content{padding:0 22px 30px}.grid,.two{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.footer{padding:22px}table{display:block;overflow-x:auto;white-space:nowrap} }
-@media(max-width:700px) { .storage-comparison{grid-template-columns:1fr}.training-visual{grid-template-columns:1fr}.training-visual .arrow{transform:rotate(90deg)}.branches,.status-grid{grid-template-columns:repeat(2,1fr)}.journey,.topology{grid-template-columns:1fr 1fr}.barrow{grid-template-columns:72px 1fr 84px}.timeline{grid-template-columns:1fr 1fr;border-top:0;border-left:3px solid var(--gold)} }
-@media print { html{scroll-behavior:auto}body{background:white;font-size:10.5pt}.proposal{box-shadow:none;margin:0;max-width:none}.topbar{padding:10px 0}.cover{padding:26px 0 25px}.cover h1{font-size:35pt}.cover .lead{font-size:14pt}.content{padding:0}.footer{padding:15px 0}nav,.download{display:none}section{padding:17px 0 8px}h2{font-size:18pt}h3{font-size:12pt}.grid{gap:8px}.card{padding:10px}.card strong{font-size:17pt}.flow{gap:5px}.flow div{padding:7px}table{font-size:9pt}th,td{padding:5px 6px}.card, .callout, .quote-box, table, tr, .flow, #acceptance,.network-map,.topology,.journey,.timeline,.payment-split,.status-grid,.status-card { break-inside:avoid-page }.workshop-ops{break-before:page} #overview,#data,#investment,#monthly,#delivery,#acceptance{break-before:page}.print-break{break-before:page} a{color:inherit;text-decoration:none} }
-</style><link rel="stylesheet" href="scrollcraft.css"><link rel="stylesheet" href="proposal.css?v=20261022-13"></head>
-<body><main class="proposal" id="top">
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Proposal and quotation LBTEC-NAPTOSA-NATIONAL-WEB-WS-001 for NAPTOSA National: a connected national and provincial website network and the workshop module.">
+<link rel="icon" href="assets/hero/naptosa-shield.webp?v=1d43189bdd" type="image/webp">
+<link rel="preload" as="image" href="assets/hero/hero-poster.webp?v=22edb4dcee">
+<title>NAPTOSA National | Website Network and Workshop Module Proposal</title>
+<script>document.documentElement.classList.add('nq-js');</script>
+<noscript><style>[data-sc-cue],[data-sc-in],[data-sc-stagger]>*{opacity:1!important;transform:none!important}</style></noscript>
+<link rel="stylesheet" href="scrollcraft.css?v=519e254c18">
+<link rel="stylesheet" href="css/tokens.css?v=b6cd4a9d09">
+<link rel="stylesheet" href="css/fonts.css?v=82a7511edf">
+<link rel="stylesheet" href="css/base.css?v=7a3cf46d9b">
+<link rel="stylesheet" href="css/hero.css?v=a13bc28362">
+<link rel="stylesheet" href="css/panel.css?v=644a4c6e69">
+<link rel="stylesheet" href="css/map.css?v=7663b930d8">
+<link rel="stylesheet" href="css/act-01-network.css?v=1cefe5e367">
+<link rel="stylesheet" href="css/act-02-sites.css?v=a57c57091e">
+<link rel="stylesheet" href="css/act-03-workshop.css?v=17c790f966">
+<link rel="stylesheet" href="css/act-04-data.css?v=58df69fe97">
+<link rel="stylesheet" href="css/act-05-quotation.css?v=e9a0e6c973">
+<link rel="stylesheet" href="css/act-06-path.css?v=b27bf52f5f">
+<link rel="stylesheet" href="css/act-07-accept.css?v=3ba9bc9f71">
+<script defer src="scrollcraft.js?v=62f3c69e1d"></script>
+<script defer src="js/figures.js?v=30b381aa50"></script>
+<script defer src="js/quote-state.js?v=c0cf22bce7"></script>
+<script defer src="js/bind.js?v=f014bf0c6c"></script>
+<script defer src="js/network-map.js?v=c471850a11"></script>
+<script defer src="js/quote-panel.js?v=ab75e50c8e"></script>
+<script defer src="js/controls.js?v=e2fc47a626"></script>
+<script defer src="js/main.js?v=3eb5855168"></script>
+</head>
+<body>
+<header class="cover" id="overview" data-sc-act="scrub" data-sc-span="2.2" data-sc-dwell="0.28" data-nq-chapter="overview">
+<a class="nq-skip" href="#main">Skip to main content</a>
 <div class="topbar"><b>LBTec (Pty) Ltd t/a Smart AI Solutions</b><span>QUOTATION  |  LBTEC-NAPTOSA-NATIONAL-WEB-WS-001</span></div>
-<header class="cover" id="overview" data-sc-act="scrub" data-sc-span="2.2" data-sc-dwell="0.28"><div class="sc-stage" data-sc-stage><img class="sc-stage__poster" src="assets/hero-poster.webp" alt=""><video data-sc-scrub data-sc-src="assets/hero.mp4" data-sc-src-mobile="assets/hero-mobile.mp4" playsinline muted aria-hidden="true"></video><div class="sc-scrim"></div></div><div class="hero-copy"><div class="eyebrow">Proposal and quotation  |  22 October 2026</div>
+<div class="sc-stage" data-sc-stage><img class="sc-stage__poster" src="assets/hero/hero-poster.webp?v=22edb4dcee" alt=""><video data-sc-scrub data-sc-src="assets/hero/hero.mp4?v=dfe05303f4" data-sc-src-mobile="assets/hero/hero-mobile.mp4?v=85890b2d48" playsinline muted aria-hidden="true"></video><div class="sc-scrim"></div><p class="nq-hero-note">Illustrative image</p></div><div class="hero-copy"><div class="eyebrow">Proposal and quotation  |  22 October 2026</div>
 <h1>One NAPTOSA network.<br>Ten distinct voices.</h1>
 <p class="lead">A modern national website, eight new or rebuilt provincial microsites, the existing Western Cape site connected into the network, and a workshop module designed for local control with national oversight.</p>
-<div class="grid"><div class="card"><span class="label">Once-off build  |  excl. VAT</span><strong>R 171,992.00</strong><span>Nine charged entities; Western Cape existing build retained</span></div>
+<div class="grid" data-nq-price-row><div class="card"><span class="label">Once-off build  |  excl. VAT</span><strong>R 171,992.00</strong><span>Nine charged entities; Western Cape existing build retained</span></div>
 <div class="card"><span class="label">Monthly website hosting</span><strong>R 1,791.00</strong><span>Nine new services at R 199 each; Western Cape remains on its existing arrangement</span></div>
 <div class="card"><span class="label">Optional dedicated data</span><strong>R 4,491.00</strong><span>Nine new workshop environments at R 499 each per month; Western Cape remains on its existing arrangement</span></div></div>
 <div class="network-map" aria-label="Ten connected destinations: one national site, eight new provincial sites, and the retained Western Cape site"><b>One national hub  |  nine provincial destinations</b><div class="branches"><div class="branch"><b>National</b>1 site</div><div class="branch"><b>Eight new builds</b>EC  |  FS  |  Gauteng  |  KZN  |  Limpopo  |  Mpumalanga  |  North West  |  Northern Cape</div><div class="branch retained"><b>Western Cape</b>Existing site retained</div></div></div>
 <div class="cover-meta"><div><span>Prepared for</span>NAPTOSA National  |  Attention: Michelle Mosupye</div><div><span>Prepared by</span>LBTec (Pty) Ltd t/a Smart AI Solutions  |  Loxly Atkinson</div><div><span>Decision</span>National acceptance for the agreed rollout</div></div>
-<a class="download" href="downloads/LBTec-NAPTOSA-National-Web-and-Workshop-Proposal.pdf" download>Download the official quotation (PDF)</a></div></header><nav class="chapter-nav" aria-label="Proposal chapters"><button class="chapter-toggle" type="button" aria-expanded="false" aria-controls="proposal-chapter-links" aria-label="Open proposal chapter list"><span aria-hidden="true">☰</span></button><div class="chapter-links" id="proposal-chapter-links"><a href="#overview" aria-label="Overview" aria-current="location"><span>01</span><i>Overview</i></a><a href="#network" aria-label="Network"><span>02</span><i>Network</i></a><a href="#scope" aria-label="Scope"><span>03</span><i>Scope</i></a><a href="#workshop-detail" aria-label="Workshop"><span>04</span><i>Workshop</i></a><a href="#data" aria-label="Data"><span>05</span><i>Data</i></a><a href="#investment" aria-label="Accreditation"><span>06</span><i>Accreditation</i></a><a href="#monthly" aria-label="Monthly services"><span>07</span><i>Monthly</i></a><a href="#training" aria-label="Training"><span>08</span><i>Training</i></a><a href="#delivery" aria-label="Delivery and terms"><span>09</span><i>Delivery</i></a><a href="#acceptance" aria-label="Acceptance"><span>10</span><i>Accept</i></a></div></nav><div class="content"><a class="download" href="downloads/LBTec-NAPTOSA-National-Web-and-Workshop-Proposal.pdf" download>Download the official quotation (PDF)</a>
-
-<section class="chapter-intro" data-sc-act="flow"><div class="section-no">01  |  The decision</div><h2>A single programme, clearly costed</h2>
-<p class="lede">NAPTOSA asked for the full picture: what each province receives, what the workshop module adds, who hosts and maintains the network, how national sees information, and what it costs now and each month.</p>
-<p>This network covers a national mother site and nine provincial destinations: Eastern Cape, Free State, Gauteng, KwaZulu-Natal, Limpopo, Mpumalanga, North West, Northern Cape and Western Cape. NAPTOSA National accepts and pays for the new programme. Western Cape already has a website, domain, infrastructure and a paid workshop build. Its existing work is retained and carries no new website or workshop build charge in the recommended scope.</p>
-<div class="callout"><b>Three separate decisions:</b> the once-off website and workshop build, monthly website hosting, and the choice of shared or dedicated workshop-data infrastructure. Training is billed by the number of people trained.</div></section>
-<section id="network"><div class="section-no">02  |  Structure</div><h2>National oversight. Provincial independence.</h2>
-<div class="story-scene" data-sc-act="pin" data-sc-span="1.05"><div class="sc-stage" data-sc-stage><div class="network-map" role="img" aria-label="National website links to all provinces. Provincial workshop records are province-scoped; national staff have authorised oversight."><div class="hub">National mother site<small>Shared navigation  |  authorised national oversight</small></div><div class="branches"><div class="branch"><b>Eastern Cape</b>New build</div><div class="branch"><b>Free State</b>New build</div><div class="branch"><b>Gauteng</b>New build</div><div class="branch"><b>KwaZulu-Natal</b>New build</div><div class="branch"><b>Limpopo</b>New build</div><div class="branch"><b>Mpumalanga</b>New build</div><div class="branch"><b>North West</b>New build</div><div class="branch"><b>Northern Cape</b>New build</div><div class="branch retained"><b>Western Cape</b>Existing site linked</div></div></div></div></div>
-<p>Provincial sites are planned as microsites, preferably subdomains as discussed. Final domain and subdomain mapping follows a discovery and access review. Gauteng, KwaZulu-Natal and Western Cape already have sites; the others need a new presence. The Western Cape website is reused rather than redesigned under this recommendation. Existing content and records will be inventoried before migration, with a signed mapping of what moves, what is archived and who approves it.</p>
-<div class="callout"><b>Western Cape domain request.</b> Create a provincial <code>.org.za</code> subdomain that routes visitors to the existing <code>naptosawc.co.za</code> site. Both addresses lead to the same paid-for website. The redirect should preserve relevant paths and be tested for links, certificates and analytics; no rebuild or duplicate content is included. Optional full rebuild: R 8,999 excl. VAT if separately requested.</div>
-<div class="community-film" data-sc-act="scrub" data-sc-span="2" data-sc-clip-map="travel" aria-labelledby="community-film-title"><div class="sc-stage" data-sc-stage><picture class="sc-stage__poster"><source media="(max-width: 760px)" srcset="assets/teacher-collaboration-mobile-poster.webp"><img src="assets/teacher-collaboration-poster.webp" alt=""></picture><video data-sc-scrub data-sc-src="assets/teacher-collaboration.mp4" data-sc-src-mobile="assets/teacher-collaboration-mobile.mp4" playsinline muted aria-hidden="true"></video><div class="sc-scrim"></div><div class="community-film__copy"><span>THE NETWORK, IN PRACTICE</span><h3 id="community-film-title">One NAPTOSA community.</h3><p>Provincial teams work close to their members. National coordination keeps the wider picture connected.</p></div></div></div>
+<a class="download" href="downloads/LBTec-NAPTOSA-National-Web-and-Workshop-Proposal.pdf" download>Download the official quotation (PDF)</a></div></header>
+<aside class="nq-panel" id="nq-panel" data-ground="night" aria-labelledby="nq-panel-title" data-nq-panel>
+<div class="nq-panel__head">
+<h2 class="nq-panel__title" id="nq-panel-title" tabindex="-1">Your quote</h2>
+<button type="button" class="nq-btn nq-btn--outline nq-panel__close nq-needs-js" data-nq-sheet-close>Close</button>
+</div>
+<dl class="nq-totals">
+<div class="nq-total">
+<dt>Build, once-off</dt>
+<dd><span class="nq-total__fig nq-money">R 171,992.00</span> <span class="nq-total__note">excl. VAT</span></dd>
+</div>
+<div class="nq-total" data-nq-total="monthly">
+<dt>Monthly</dt>
+<dd><span class="nq-total__fig nq-money" data-nq-bind="monthly">R 1,791.00</span> <span class="nq-total__note" data-nq-bind="monthlyNote">excl. VAT, Option A</span></dd>
+</div>
+<div class="nq-total" data-nq-total="training">
+<dt>Training</dt>
+<dd><span class="nq-total__fig" data-nq-bind="trainingFig">Not chosen yet</span> <span class="nq-total__note" data-nq-bind="trainingNote">R 2,500.00 per person</span></dd>
+</div>
+</dl>
+<div class="nq-minimap nq-needs-js" data-nq-map="mini" data-nq-map-mode="lit" data-nq-map-src="assets/map/za-network.svg?v=f6dc84bd88" aria-hidden="true"></div>
+<nav class="nq-chapters" aria-label="Proposal chapters">
+<p class="nq-now">Chapter: <span data-nq-now>Overview</span></p>
+<button type="button" class="nq-btn nq-btn--outline nq-chapters__toggle nq-needs-js" aria-expanded="false" aria-controls="nq-chapter-list" data-nq-chapters-toggle>Show chapters</button>
+<ol class="nq-chapters__list" id="nq-chapter-list" role="list">
+<li><a href="#overview" data-nq-chapter-link="overview"><span class="nq-chapters__name">Overview</span><span class="nq-chapters__adds">The three headline amounts</span></a></li>
+<li><a href="#network" data-nq-chapter-link="network"><span class="nq-chapters__name">The network</span><span class="nq-chapters__adds">Ten destinations, Western Cape retained</span></a></li>
+<li><a href="#sites" data-nq-chapter-link="sites"><span class="nq-chapters__name">What every site gets</span><span class="nq-chapters__adds">Website builds: R 74,496.00</span></a></li>
+<li><a href="#workshop" data-nq-chapter-link="workshop"><span class="nq-chapters__name">A workshop day</span><span class="nq-chapters__adds">Workshop builds: R 97,496.00</span></a></li>
+<li><a href="#data" data-nq-chapter-link="data"><span class="nq-chapters__name">Your data, your choice</span><span class="nq-chapters__adds">Monthly amount: Option A or Option B</span></a></li>
+<li><a href="#quotation" data-nq-chapter-link="quotation"><span class="nq-chapters__name">The quotation</span><span class="nq-chapters__adds">Every entity, the savings and VAT</span></a></li>
+<li><a href="#path" data-nq-chapter-link="path"><span class="nq-chapters__name">People and path</span><span class="nq-chapters__adds">Training and the rollout</span></a></li>
+<li><a href="#acceptance" data-nq-chapter-link="acceptance"><span class="nq-chapters__name">Acceptance</span><span class="nq-chapters__adds">Your choices and the PDF to sign</span></a></li>
+</ol>
+</nav>
+<a class="nq-link nq-panel__pdf" href="downloads/LBTec-NAPTOSA-National-Web-and-Workshop-Proposal.pdf" download>Download the official quotation (PDF)</a>
+</aside>
+<div class="nq-bar nq-needs-js" data-ground="night" data-nq-bar>
+<p class="nq-bar__sum"><span class="nq-bar__label">Your quote</span><span class="nq-bar__fig nq-fig" data-nq-bind="barSummary">R 171,992.00 build  |  R 1,791.00 a month</span></p>
+<button type="button" class="nq-btn nq-btn--outline nq-bar__open" aria-expanded="false" aria-controls="nq-panel" data-nq-sheet-open>Open quote</button>
+</div>
+<p class="nq-sr" id="nq-live" aria-live="polite"></p>
+<main id="main" tabindex="-1">
+<section id="network" class="nq-act nq-act--network" data-sc-act="pin" data-sc-span="2.6" data-ground="night" data-nq-chapter="network" data-chapter-name="The network" aria-labelledby="network-title">
+<div class="nq-stage nq-network" data-sc-stage>
+<div class="nq-network__map">
+<div class="nq-map" data-nq-map="network" data-nq-map-plates data-nq-map-mode="lit" data-nq-map-progress="act" data-nq-map-src="assets/map/za-network.svg?v=f6dc84bd88"><noscript><img class="nq-map__fallback" src="assets/map/za-network.svg?v=f6dc84bd88" alt="Map of the NAPTOSA network: the national hub and South Africa's nine provinces" width="1024" height="919"></noscript></div>
+</div>
+<div class="nq-network__copy">
+<div class="nq-state nq-network__s1">
+<p class="nq-mono nq-network__opener" aria-hidden="true" data-sc-cue="0 0.3 0 0.22">1 + 9</p>
+<h2 class="nq-head" id="network-title" data-sc-cue="0 0.3 0.42 0.2" data-sc-kinetic="lines">Every province keeps its own voice.</h2>
+<p class="nq-lead" data-sc-cue="0.05 0.3 0.4 0.2">One national mother site at the centre, with nine provincial destinations connected to it.</p>
+</div>
+<ul class="nq-state nq-lines nq-network__lines">
+<li data-sc-cue="0.26 0.64 0.36 0.16">National sets the shared design, the navigation and the oversight.</li>
+<li data-sc-cue="0.29 0.64 0.36 0.16">Each province publishes its own news, resources and pages.</li>
+<li data-sc-cue="0.32 0.64 0.36 0.16">Eight provinces get a new or rebuilt site.</li>
+<li data-sc-cue="0.35 0.64 0.36 0.16">Western Cape is already lit: its site, domain, infrastructure and paid workshop build stay as they are.</li>
+</ul>
+<ul class="nq-state nq-lines nq-network__lines">
+<li data-sc-cue="0.62 1 0.3 0.1">Provincial sites are planned as microsites, preferably on subdomains.</li>
+<li data-sc-cue="0.65 1 0.3 0.1">We settle the final domain and subdomain names with you in discovery.</li>
+<li data-sc-cue="0.68 1 0.3 0.1">Workshop records stay scoped to their province, and national has authorised oversight.</li>
+<li data-sc-cue="0.71 1 0.3 0.1">Where those records are stored is a separate choice, further down the page.</li>
+</ul>
+</div>
+</div>
 </section>
-<section id="scope" data-sc-act="flow"><div class="section-no">03  |  Deliverables</div><h2>What the combined build includes</h2>
-<div class="route" aria-label="Western Cape domain routing"><span>New provincial .org.za subdomain</span><i aria-hidden="true">→</i><span>Routes to existing naptosawc.co.za website</span></div>
-<div class="two"><div><h3>Each newly built website</h3><ul><li>Modern, responsive design with a shared national design language and provincial content areas.</li><li>Accessible navigation, clear calls to action and routes between national, provincial and workshop content.</li><li>Content templates for news, resources, contact information and locally relevant pages.</li><li>Workshop-ready entry points, staff permissions and provincial publishing workflows.</li><li>Technical SEO, AEO and GEO foundations: crawlable structure, metadata, structured information and clear organisation signals. We normally charge R 8,000-R 12,000 per newly built site for this work; it is <span class="rate-highlight">included at no additional build charge</span>. Search or AI-platform placement cannot be guaranteed.</li></ul></div>
-<div><h3>Workshop journey</h3><ul><li>Staff create, preview and publish workshops, then share a booking link or QR code.</li><li>Individuals, schools and companies book; prices, coupons, places and EFT references are tracked.</li><li>Finance-only payment confirmation, invoices and receipts, with creator and Finance permissions separated.</li><li>Reports and Excel registers for bookings, payments, schools and attendance.</li><li>Self check-in, staff attendance, certificates, reminders and follow-up email journeys.</li><li>Western Cape functionality is adapted for each provincial environment and connected to the national oversight view.</li></ul></div></div>
-<h3>Five items carried over from the workshop proposal</h3>
-<div class="status-grid"><div class="status-card"><b>Auditor portal</b><small>Read-only financial records, exports and receipts.</small><span class="status future">To be built</span></div><div class="status-card"><b>Approvals</b><small>Before publishing; controlled workshop and bank-detail changes.</small><span class="status future">To be built</span></div><div class="status-card"><b>Audit trail</b><small>Money-change history in use; extending to other actions.</small><span class="status">In use; extending</span></div><div class="status-card"><b>Self check-in</b><small>Attendees confirm presence at a workshop.</small><span class="status">In use</span></div><div class="status-card"><b>Walk-in registration</b><small>On-site registration, payment, attendance and receipt.</small><span class="status future">To be built</span></div></div>
-<p class="price-note">The current Western Cape module remains the functional reference. The existing proposal distinguishes features in use from work still planned. Card payment processing is not included as a live capability in this quotation.</p></section>
-<section id="workshop-detail"><div class="workshop-scroll-act" data-sc-act="pan" data-sc-span="1.4"><div class="section-no">03a  |  Workshop scope schedule</div><h2>What staff and participants can do</h2><div class="sc-stage" data-sc-stage><div class="journey" data-sc-pan="0.04" aria-label="Publish, book and pay, attend, then follow up"><article><b>Publish</b>Configure event and booking link.</article><article><b>Book &amp; pay</b>Register people and confirm EFT.</article><article><b>Attend</b>Check in and record attendance.</article><article><b>Follow up</b>Certificates, messages and reports.</article></div></div>
-</div><div class="two workshop-ops"><div><h3>Booking and payment</h3><ul><li>Each published workshop has a shareable booking link and QR code. Teachers can book without creating an account; individuals, schools and companies are supported.</li><li>Staff set member and non-member prices, capacity and coupon codes, including free places or limited-use discounts.</li><li>Each EFT booking receives bank instructions and its own payment reference on screen and by email. Finance can match the reference to a bank statement and see paid or outstanding status.</li><li>A school can pay for multiple places, receive a code and register named teachers against those paid places. Staff can see used versus available places.</li><li>When Finance records payment, the payer receives a combined invoice and receipt PDF. A paid attendee receives the workshop reminder before the event. Members can find workshop documents in their member portal.</li></ul></div>
-<div><h3>Staff and Finance controls</h3><ul><li>Creators enter title, date, mode, venue, prices, places, CPTD points and an image, then preview and publish. They can share the link/QR and manage coupons.</li><li>Super admins assign Workshop creator and Finance permissions. Creators can work without seeing money columns; only Finance-authorised staff can confirm EFT payment.</li><li>Staff export booking, payment, school-place and attendance registers for one or multiple workshops. Finance sees money columns; a creator without Finance permission receives a restricted export.</li><li>A practice or unpaid workshop can be deleted with a reason. Once anyone has paid, it is closed and the historical records are retained.</li><li>Finance can inspect payment references and status, preview or resend receipts, and read the money-change audit history.</li></ul></div></div>
-<h3>At the workshop and afterwards</h3><p>Each event has a check-in QR. Staff can open check-in early, mark attendance individually or in a batch, and issue numbered certificates to paid attendees marked present. Self check-in lets an attendee find and confirm their record. Present attendees receive a thank-you email; absent attendees can receive a missed-you email. Staff can export the attendance register.</p>
-<div class="callout"><b>Work still being completed in the existing programme:</b> a next-morning staff summary and register reminder; notification when a workshop date, time or venue changes; part-payment balances on reminders; and a school email listing teachers registered through its code. The five added items above keep their stated in-use or to-be-built position. Rollout acceptance will verify each item rather than assume it is already live.</div>
-<div class="photo-story photo-story--workshop" data-sc-act="flow"><p class="photo-caption"><b>Professional learning, made easier to run.</b><span>From publishing a workshop to attendance and follow-up, the proposed journey supports staff and participants at every step.</span></p><figure class="people-figure" data-sc-parallax="0.05"><div class="people-figure__frame"><img src="assets/teacher-workshop.webp" alt="A South African educator leading a lively professional development session with colleagues" loading="lazy" decoding="async" width="1536" height="1024"></div></figure></div></section>
-<section id="data"><div class="section-no">04  |  Workshop data</div><h2>Two ways to store provincial workshop records</h2>
-<p>The public websites remain one connected network under either option. This choice concerns the workshop module's member, booking, payment and attendance data.</p>
-<div class="two"><div class="card"><span class="label">Option A  |  Shared infrastructure</span><h3>Province-scoped access in the existing Western Cape environment</h3><p>The initial proposal assumed all provincial workshop records would use the Western Cape database, with province-specific permissions and authorised national oversight.</p><strong>No separate storage charge</strong><small>This is the original shared-data assumption; it relies on the existing Western Cape environment.</small></div>
-<div class="card"><span class="label">Option B  |  Separate environments</span><h3>One managed workshop database environment per new entity</h3><p>National and the eight newly built provincial sites receive separately managed cloud data environments and allocated resources, with storage growth planning, backups, security controls and monthly administration. Western Cape retains its existing environment and charges. National oversight uses a controlled cross-environment view; provincial users remain scoped to their own environment.</p><span class="old-rate">Standard: R 699 / new environment / month</span><span class="rate-highlight">Offer: R 499 / new environment / month</span><small>Excl. VAT; nine new environments billed here, plus Western Cape's existing environment.</small></div></div>
-<p class="callout"><b>Data assurance.</b> Final platform, hosting region, retention, backup recovery targets, access roles and cross-border processing terms are documented before migration. We will validate these with NAPTOSA's information and security owners. Separate environments do not imply a dedicated physical machine.</p></section>
-<section id="investment" class="print-break" data-sc-act="flow"><div class="section-no">05  |  Official quotation</div><h2>Once-off build by entity</h2>
-<p class="price-note">Where a discount applies, the original per-site price is shown clearly above the reduced offer, which is highlighted in yellow. Unchanged rates appear once. Amounts are ZAR, excluding VAT. Western Cape is excluded because its existing build has already been paid for.</p><p id="per-entity-pricing-title" class="table-caption-visible">Per-entity quotation  |  all amounts ZAR, excluding VAT</p><p class="table-hint">On a phone, swipe sideways to see every pricing column.</p><div class="table-scroll" role="region" aria-labelledby="per-entity-pricing-title" tabindex="0"><table aria-labelledby="per-entity-pricing-title"><thead><tr><th scope="col">Entity</th><th scope="col">Website pricing</th><th scope="col">Workshop pricing</th><th scope="col">Combined offer</th></tr></thead><tbody><tr><th scope="row">National / Head Office</th><td>R 8,999.00</td><td>R 12,499.00</td><td class="sum">R 21,498.00</td></tr>
-<tr><th scope="row">Eastern Cape</th><td>R 8,999.00</td><td>R 12,499.00</td><td class="sum">R 21,498.00</td></tr>
-<tr><th scope="row">Free State</th><td><span class="old-rate">Original: R 8,999.00</span><span class="discount-rate">Offer: R 7,700.00</span></td><td><span class="old-rate">Original: R 12,499.00</span><span class="discount-rate">Offer: R 9,500.00</span></td><td class="sum">R 17,200.00</td></tr>
-<tr><th scope="row">Gauteng</th><td>R 8,999.00</td><td>R 12,499.00</td><td class="sum">R 21,498.00</td></tr>
-<tr><th scope="row">KwaZulu-Natal</th><td>R 8,999.00</td><td>R 12,499.00</td><td class="sum">R 21,498.00</td></tr>
-<tr><th scope="row">Limpopo</th><td><span class="old-rate">Original: R 8,999.00</span><span class="discount-rate">Offer: R 7,700.00</span></td><td><span class="old-rate">Original: R 12,499.00</span><span class="discount-rate">Offer: R 9,500.00</span></td><td class="sum">R 17,200.00</td></tr>
-<tr><th scope="row">Mpumalanga</th><td><span class="old-rate">Original: R 8,999.00</span><span class="discount-rate">Offer: R 7,700.00</span></td><td><span class="old-rate">Original: R 12,499.00</span><span class="discount-rate">Offer: R 9,500.00</span></td><td class="sum">R 17,200.00</td></tr>
-<tr><th scope="row">North West</th><td><span class="old-rate">Original: R 8,999.00</span><span class="discount-rate">Offer: R 7,700.00</span></td><td><span class="old-rate">Original: R 12,499.00</span><span class="discount-rate">Offer: R 9,500.00</span></td><td class="sum">R 17,200.00</td></tr>
-<tr><th scope="row">Northern Cape</th><td><span class="old-rate">Original: R 8,999.00</span><span class="discount-rate">Offer: R 7,700.00</span></td><td><span class="old-rate">Original: R 12,499.00</span><span class="discount-rate">Offer: R 9,500.00</span></td><td class="sum">R 17,200.00</td></tr>
-<tr><th scope="row">Western Cape</th><td><span class="muted">Excluded - existing site/build</span></td><td><span class="muted">Excluded - existing site/build</span></td><td class="sum">R 0.00</td></tr>
-<tr class="total"><th scope="row">Subtotal</th><td>R 74,496.00</td><td>R 97,496.00</td><td class="sum">R 171,992.00</td></tr></tbody></table>
-</div><h3>From our original estimate to this combined offer</h3>
-<div class="money-visual" role="img" aria-label="Original combined build R202,481; revised R171,992; saving R30,489, excluding VAT"><b>Original estimate compared with revised offer  |  excl. VAT</b><div class="barrow"><b>Original</b><div class="bar"><span class="web" style="width:44.44%"></span><span class="workshop" style="width:55.56%"></span></div><span class="bar-label">R 202,481</span></div><div class="barrow"><b>Revised</b><div class="bar"><span class="web" style="width:36.79%"></span><span class="workshop" style="width:48.15%"></span></div><span class="bar-label">R 171,992</span></div><small>Blue = website  |  gold = workshop</small><div class="saving-banner">Combined saving: R 30,489 excl. VAT</div></div><p id="build-totals-title" class="table-caption-visible">Our prices only; all amounts ZAR, excluding VAT</p><p class="table-hint">On a phone, swipe sideways to see every comparison column.</p><div class="table-scroll" role="region" aria-labelledby="build-totals-title" tabindex="0"><table aria-labelledby="build-totals-title"><thead><tr><th scope="col">Build component</th><th scope="col">Original estimate</th><th scope="col" class="offer-column">Revised offer</th><th scope="col">Saving</th></tr></thead><tbody>
-<tr><th scope="row">Website builds</th><td>R 89,990.00</td><td class="revised-column">R 74,496.00</td><td>R 15,494.00</td></tr>
-<tr><th scope="row">Workshop builds</th><td>R 112,491.00</td><td class="revised-column">R 97,496.00</td><td>R 14,995.00</td></tr>
-<tr class="total"><th scope="row">Combined once-off build</th><td>R 202,481.00</td><td class="revised-column">R 171,992.00</td><td>R 30,489.00</td></tr></tbody></table>
-</div><p class="price-note">The original website estimate assumed R 8,999 for national and all nine provinces. The revised website figure removes Western Cape's paid-for build and prices five provinces at R 7,700. The original workshop estimate is R 12,499 for the nine entities that still needed a build; Western Cape was already paid and remains excluded. Five workshop builds now cost R 9,500. These savings compare our own estimates on those stated scopes.</p>
-<div class="two"><div><h3>VAT and payable amount</h3><table><tbody><tr><th scope="row">Build subtotal, excl. VAT</th><td>R 171,992.00</td></tr><tr><th scope="row">VAT at 15%</th><td>R 25,798.80</td></tr><tr class="total"><th scope="row">Build total, incl. VAT</th><td>R 197,790.80</td></tr></tbody></table></div>
-<div><h3>Usual service value</h3><p>Our website build service is normally about R 18,000 per site. Nine new or rebuilt sites at that benchmark would be about R 162,000.00 excl. VAT; this offer is <span class="rate-highlight">R 74,496.00</span>. The technical SEO/AEO/GEO foundation, usually R 8,000-R 12,000 per newly built site, is included without a separate charge. These reference values are not added to the saving above.</p></div></div>
-<p class="price-note">Western Cape's website and workshop builds are excluded from new charges. Its workshop build was previously paid under invoice INV-NAPTOSA-WS-2026-01. Optional full Western Cape website rebuild: R 8,999 excl. VAT if separately accepted. Training and monthly services are not included in the once-off build total. This is a proposal and quotation, not a tax invoice.</p></section>
-<section id="monthly"><div class="section-no">06  |  Ongoing services</div><h2>Monthly costs and service boundaries</h2><p class="lede">The original workshop proposal assumed one shared data store associated with Western Cape. With independent microsites, each new site needs its own encrypted data store.</p><div class="story-scene data-scene" data-sc-act="pin" data-sc-span="1.05"><div class="sc-stage" data-sc-stage><div class="storage-comparison" role="img" aria-label="Before: nine national and provincial sites shared one database environment associated with the Western Cape website. Revised: each of nine new sites has its own dedicated encrypted database; Western Cape keeps its existing environment. National has authorised oversight across the nine new environments."><div class="storage-model"><h3>Initial assumption  |  shared storage</h3><div class="shared-sources"><span>Eastern Cape</span><span>Free State</span><span>Gauteng</span><span>KZN</span><span>Limpopo</span><span>Mpumalanga</span><span>North West</span><span>Northern Cape</span><span>Western Cape</span></div><div class="shared-arrow" aria-hidden="true">↓</div><div class="shared-db">ONE SHARED DATABASE<small>Hosted with the Western Cape site</small></div><small>Province-specific access rules separate who can see each record.</small></div><div class="storage-model"><h3>Revised structure  |  separate storage</h3><div class="dedicated-grid"><div class="dedicated-cell">National<span class="lock-icon" aria-hidden="true"></span>Encrypted DB</div><div class="dedicated-cell">EC<span class="lock-icon" aria-hidden="true"></span>Encrypted DB</div><div class="dedicated-cell">Free State<span class="lock-icon" aria-hidden="true"></span>Encrypted DB</div><div class="dedicated-cell">Gauteng<span class="lock-icon" aria-hidden="true"></span>Encrypted DB</div><div class="dedicated-cell">KZN<span class="lock-icon" aria-hidden="true"></span>Encrypted DB</div><div class="dedicated-cell">Limpopo<span class="lock-icon" aria-hidden="true"></span>Encrypted DB</div><div class="dedicated-cell">Mpumalanga<span class="lock-icon" aria-hidden="true"></span>Encrypted DB</div><div class="dedicated-cell">North West<span class="lock-icon" aria-hidden="true"></span>Encrypted DB</div><div class="dedicated-cell">Northern Cape<span class="lock-icon" aria-hidden="true"></span>Encrypted DB</div></div><div class="national-oversight">National: authorised oversight across 9 new environments</div><div class="wc-existing">Western Cape keeps its existing data environment; it is excluded from new monthly charges.</div></div></div></div></div><p class="price-note">Each new environment includes encrypted cloud storage, backups, capacity for growth, security controls and ongoing database administration. Under the original shared-data assumption, provincial data used the existing Western Cape database and carried no separate storage charge.</p><div class="monthly-scene" data-sc-act="flow"><div class="money-visual"><b>Dedicated-data monthly composition  |  excl. VAT</b><div class="barrow"><b>Hosting</b><div class="bar"><span class="web" style="width:28.51%"></span></div><span class="bar-label">R 1,791</span></div><div class="barrow"><b>Workshop data</b><div class="bar"><span class="workshop" style="width:71.49%"></span></div><span class="bar-label">R 4,491</span></div></div>
-<p id="monthly-services-title" class="table-caption-visible">Dedicated-data option  |  all amounts per month, ZAR excluding VAT</p><p class="table-hint">On a phone, swipe sideways to see every monthly-cost column.</p><div class="table-scroll" role="region" aria-labelledby="monthly-services-title" tabindex="0"><table aria-labelledby="monthly-services-title"><thead><tr><th scope="col">Service</th><th scope="col">Standard rate</th><th scope="col" class="offer-column">Offered rate</th><th scope="col">Count</th><th scope="col">Offered monthly</th></tr></thead><tbody>
-<tr><th scope="row">New website hosting and network operation</th><td>R 299 / site</td><td class="offer-column"><span class="rate-highlight">R 199 / site</span></td><td>9</td><td class="revised-column">R 1,791.00</td></tr>
-<tr><th scope="row">New dedicated workshop-data environment</th><td>R 699 / environment</td><td class="offer-column"><span class="rate-highlight">R 499 / environment</span></td><td>9</td><td class="revised-column">R 4,491.00</td></tr>
-<tr class="total"><th scope="row">Combined dedicated option</th><td>R 8,982.00</td><td></td><td></td><td class="revised-column"><span class="rate-highlight">R 6,282.00</span></td></tr></tbody></table>
-</div><div class="quote-box"><span>Dedicated-data option  |  monthly</span><strong>R 6,282.00 excl. VAT</strong><span>VAT R 942.30  |  R 7,224.30 incl. VAT. Standard benchmark R 8,982.00 excl. VAT; reduction R 2,700.00 per month.</span></div>
-<p>The R 199 site service hosts the nine newly built national/provincial public sites and runs the connections needed for cross-site navigation and national oversight, including a link to Western Cape's existing site. <b>Website maintenance is quoted separately:</b> monitoring, content updates, security patching, new pages, change requests and response commitments require an agreed maintenance scope and price. The R 499 workshop-data service includes each new dedicated data environment, backups, capacity administration and database maintenance. New workshop features and larger integrations are quoted separately unless covered by a signed maintenance agreement.</p>
-<p>The original shared-data arrangement carries no separate storage charge because provincial records use the existing Western Cape database. If NAPTOSA chooses this arrangement, the parties will confirm that the shared environment meets the agreed capacity, access, security and recovery requirements. Western Cape's website hosting and workshop database/SLA remain under its existing arrangement and outside these totals.</p></section>
-<section id="training"><div class="section-no">07  |  People</div><h2>Training for both modules at one price</h2><div class="story-scene training-scene" data-sc-act="pin" data-sc-span="1.05"><div class="sc-stage" data-sc-stage><div class="training-visual" role="img" aria-label="Website training and workshop training normally cost R2,500 each; together, both cost R2,500 per person, a 50 percent reduction"><div><b>Website module</b><small>R 2,500</small></div><div class="arrow" aria-hidden="true">+</div><div><b>Workshop module</b><small>R 2,500</small></div><div class="arrow" aria-hidden="true">→</div><div class="combined"><b>Both modules</b><small>R 2,500 / person<br>50% saving</small></div></div></div></div>
-<p>Training is billed separately at <b>R 2,500 excl. VAT per person</b> (R 2,875 incl. VAT) for the website publishing tools and the workshop module together. Normally the two modules would cost R 2,500 each, or R 5,000 per person; this combined programme reduces that by 50%. National and provincial staff can be included. The number of trainees is confirmed before invoicing.</p>
-<p>Further training for a new employee, someone taking over a role, or a refresher is <b>R 550 excl. VAT per hour</b> (R 632.50 incl. VAT). Training format, locations and travel, if needed, will be agreed in the rollout plan.</p>
-<div class="photo-story photo-story--training" data-sc-act="flow"><figure class="people-figure" data-sc-parallax="-0.04"><div class="people-figure__frame"><img src="assets/teacher-community.webp" alt="Two South African educators celebrating their shared work in a sunlit school courtyard" loading="lazy" decoding="async" width="1536" height="1024"></div></figure><p class="photo-caption"><b>Good systems make room for good teaching.</b><span>Training brings website publishing and workshop operations together, so provincial teams can confidently keep their communities informed.</span></p></div></section>
-<section id="delivery"><div class="delivery-scroll-act" data-sc-act="pan" data-sc-span="1.4"><div class="section-no">08  |  Delivery and terms</div><h2>A staged transition with visible checkpoints</h2><div class="sc-stage" data-sc-stage><div class="timeline" data-sc-pan="0.04"><div><b>1  |  Access</b>Inventory and approvals</div><div><b>2  |  Build</b>About one site per week</div><div><b>3  |  Verify</b>Test roles, data and journeys</div><div><b>4  |  Handover</b>Work toward early January 2027</div></div></div>
-</div><ol><li><b>Access and inventory:</b> NAPTOSA identifies the domain owner and current providers; we issue the formal hosting-access request and catalogue the existing national, Gauteng, KwaZulu-Natal and Western Cape sites and any records to migrate.</li>
-<li><b>Design and national foundation:</b> agree the content model, permissions, brand system, national oversight requirements and domain/subdomain map.</li>
-<li><b>Provincial batches:</b> build two or three at a time, check desktop/mobile journeys, provincial autonomy, cross-site navigation, security boundaries and national visibility between batches.</li>
-<li><b>Workshop activation:</b> configure each agreed workshop environment and data option, migrate approved data, train staff and verify booking-to-reporting journeys before go-live.</li>
-<li><b>Handover:</b> provide administrator access, documentation, backup/export process and monthly service start date.</li></ol>
-<p><b>Estimated pace:</b> approximately one website or province per week once access, content and design approval are in place. Some may take longer and others less. We will work toward having the new website network running by early January 2027 and plan the workshop rollout with NAPTOSA in parallel. This is an estimate, not a promised completion date; a dated sequence follows the access, migration and dependency review.</p>
-<h3>Commercial and operational notes</h3><ul><li>NAPTOSA National is the contracting and paying entity. This quotation is issued 22 October 2026 and is valid for 30 calendar days, until 21 November 2026. A 50% deposit of R 85,996.00 excl. VAT (R 98,895.40 incl. VAT) is due before build work begins. The remaining 50% is due before final launch and handover. A tax invoice follows acceptance; monthly service start dates are confirmed in the service schedule.</li><li>NAPTOSA continues to own its domains and data. We document administrator access and an exit/export process.</li><li>Any unrelated .co.za cancellation or domain-transfer fee charged by a third party will be disclosed before action. The Western Cape <code>naptosawc.co.za</code> domain is retained under the recommended route and is not cancelled.</li><li>Provider subscriptions, email delivery, payment processing, content production, material new features and a full SLA are separately scoped unless expressly included above.</li><li>The quoted monthly data option assumes nine new independently managed environments alongside Western Cape's existing environment. Final storage limits and service levels are recorded in the service schedule.</li></ul></section>
-<section id="acceptance" data-sc-act="flow"><div class="section-no">09  |  Acceptance</div><h2>Approval by NAPTOSA National</h2><div class="quote-box"><span>Combined build  |  50% before work and 50% before launch</span><strong>R 171,992.00 excl. VAT</strong><span>R 197,790.80 incl. VAT  |  deposit R 85,996.00 excl. VAT / R 98,895.40 incl. VAT</span><div class="payment-split"><div class="bar"><span class="web" style="width:50%"></span><span class="workshop" style="width:50%"></span></div><small>50% deposit  |  50% balance</small></div></div>
-<p>We accept the once-off combined website and workshop build of <b>R 171,992.00 excl. VAT</b> (<b>R 197,790.80 incl. VAT</b>), with Western Cape's existing website and workshop builds shown at zero, and hosting for nine new sites at R 1,791.00 excl. VAT per month, subject to the final service schedule. Western Cape's existing monthly services remain separate.</p>
-<p><span class="tickbox" aria-hidden="true"></span> We also select Option B: nine new dedicated workshop-data environments at R 4,491.00 excl. VAT per month, subject to the final data service schedule; Western Cape keeps its existing environment. Option A uses the original shared-database assumption and carries no separate storage charge in this quotation. Before selecting it, NAPTOSA and LBTec must confirm that the existing Western Cape environment meets capacity, access, security and recovery requirements; this quotation selects Option B.</p>
-<p>People to train: __________ at R 2,500 excl. VAT per person for both modules. A 50% build deposit is payable before work begins; the balance is due before final launch and handover. This quotation is valid until 21 November 2026.</p>
-<div class="signature"><div>Name and title</div><div>Digital signature</div><div>Date</div></div>
-<p class="price-note">Prepared by LBTec (Pty) Ltd t/a Smart AI Solutions  |  Reg. 2020/138701/07  |  VAT 4440290809  |  loxly@lbtec.co.za  |  083 713 2113. No banking details are included; they appear on the issued invoice.</p></section>
-</div><footer class="footer">NAPTOSA National  |  Connected provincial websites and workshop module  |  Proposal LBTEC-NAPTOSA-NATIONAL-WEB-WS-001</footer>
-</main><script src="scrollcraft.js"></script><script>ScrollCraft.mount(document.querySelector(".proposal"));(function(){var nav=document.querySelector(".chapter-nav"),toggle=document.querySelector(".chapter-toggle"),links=[...nav.querySelectorAll("a")],targets=links.map(a=>document.querySelector(a.getAttribute("href")));function closeMenu(){nav.classList.remove("is-open");toggle.setAttribute("aria-expanded","false");toggle.setAttribute("aria-label","Open proposal chapter list")}toggle.addEventListener("click",function(){var open=nav.classList.toggle("is-open");toggle.setAttribute("aria-expanded",String(open));toggle.setAttribute("aria-label",open?"Close proposal chapter list":"Open proposal chapter list")});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&nav.classList.contains("is-open")){closeMenu();toggle.focus()}});function activate(target){links.forEach(a=>a.removeAttribute("aria-current"));var active=links[targets.indexOf(target)];if(active)active.setAttribute("aria-current","location")}links.forEach(function(a,i){a.addEventListener("click",function(e){e.preventDefault();activate(targets[i]);history.replaceState(null,"",a.hash);targets[i].scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches||Math.abs(targets[i].getBoundingClientRect().top)>1800?"instant":"smooth",block:"start"});closeMenu()})});var io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)activate(e.target)}),{rootMargin:"-35% 0px -55% 0px"});targets.filter(Boolean).forEach(t=>io.observe(t));})();</script></body></html>
+<div class="nq-coda nq-coda--network" data-sc-act="flow" data-ground="night" data-nq-chapter="network">
+<div class="nq-wrap nq-atlas">
+<div class="nq-atlas__map">
+<div class="nq-atlas__sticky">
+<div class="nq-map nq-locator" data-nq-map="locator" data-nq-map-plates data-nq-map-mode="lit" data-nq-map-src="assets/map/za-network.svg?v=f6dc84bd88" data-nq-map-label="Map of the NAPTOSA network: the national hub and South Africa's nine provinces"><noscript><img class="nq-map__fallback" src="assets/map/za-network.svg?v=f6dc84bd88" alt="Map of the NAPTOSA network: the national hub and South Africa's nine provinces" width="1024" height="919"></noscript><div class="nq-locator__tip" aria-hidden="true" hidden></div></div>
+<p class="nq-atlas__hint" data-nq-fade>Select a province to see what it gets.</p>
+<p class="nq-atlas__source" data-nq-fade>Province outlines: Natural Earth, public domain, simplified.</p>
+</div>
+</div>
+<ul class="nq-dests" role="list" data-nq-dests>
+<li class="nq-dest" data-prov="national" data-nq-fade>
+<h3 class="nq-dest__h"><button type="button" class="nq-dest__btn" id="nq-dest-national-btn" aria-controls="nq-dest-national" data-nq-dest="national"><span class="nq-dest__name">National hub</span><span class="nq-dest__mark" aria-hidden="true"></span></button></h3>
+<div class="nq-dest__body" id="nq-dest-national" role="region" aria-labelledby="nq-dest-national-btn">
+<ul class="nq-lines">
+<li>The national mother site: a new, modern national website.</li>
+<li>Website build R 8,999.00, workshop build R 12,499.00.</li>
+<li>Authorised oversight across every province.</li>
+</ul>
+</div>
+</li>
+<li class="nq-dest" data-prov="ZA-EC" data-nq-fade>
+<h3 class="nq-dest__h"><button type="button" class="nq-dest__btn" id="nq-dest-ec-btn" aria-controls="nq-dest-ec" data-nq-dest="ZA-EC"><span class="nq-dest__name">Eastern Cape</span><span class="nq-dest__mark" aria-hidden="true"></span></button></h3>
+<div class="nq-dest__body" id="nq-dest-ec" role="region" aria-labelledby="nq-dest-ec-btn">
+<ul class="nq-lines">
+<li>A new site.</li>
+<li>Website build R 8,999.00, workshop build R 12,499.00.</li>
+<li>It publishes its own pages, and its workshop records stay scoped to the province.</li>
+</ul>
+</div>
+</li>
+<li class="nq-dest" data-prov="ZA-FS" data-nq-fade>
+<h3 class="nq-dest__h"><button type="button" class="nq-dest__btn" id="nq-dest-fs-btn" aria-controls="nq-dest-fs" data-nq-dest="ZA-FS"><span class="nq-dest__name">Free State</span><span class="nq-dest__mark" aria-hidden="true"></span></button></h3>
+<div class="nq-dest__body" id="nq-dest-fs" role="region" aria-labelledby="nq-dest-fs-btn">
+<ul class="nq-lines">
+<li>A new site.</li>
+<li>Website build R 7,700.00, workshop build R 9,500.00.</li>
+<li>It publishes its own pages, and its workshop records stay scoped to the province.</li>
+</ul>
+</div>
+</li>
+<li class="nq-dest" data-prov="ZA-GT" data-nq-fade>
+<h3 class="nq-dest__h"><button type="button" class="nq-dest__btn" id="nq-dest-gt-btn" aria-controls="nq-dest-gt" data-nq-dest="ZA-GT"><span class="nq-dest__name">Gauteng</span><span class="nq-dest__mark" aria-hidden="true"></span></button></h3>
+<div class="nq-dest__body" id="nq-dest-gt" role="region" aria-labelledby="nq-dest-gt-btn">
+<ul class="nq-lines">
+<li>Has a site today, rebuilt into the network.</li>
+<li>Website build R 8,999.00, workshop build R 12,499.00.</li>
+<li>It publishes its own pages, and its workshop records stay scoped to the province.</li>
+</ul>
+</div>
+</li>
+<li class="nq-dest" data-prov="ZA-NL" data-nq-fade>
+<h3 class="nq-dest__h"><button type="button" class="nq-dest__btn" id="nq-dest-nl-btn" aria-controls="nq-dest-nl" data-nq-dest="ZA-NL"><span class="nq-dest__name">KwaZulu-Natal</span><span class="nq-dest__mark" aria-hidden="true"></span></button></h3>
+<div class="nq-dest__body" id="nq-dest-nl" role="region" aria-labelledby="nq-dest-nl-btn">
+<ul class="nq-lines">
+<li>Has a site today, rebuilt into the network.</li>
+<li>Website build R 8,999.00, workshop build R 12,499.00.</li>
+<li>It publishes its own pages, and its workshop records stay scoped to the province.</li>
+</ul>
+</div>
+</li>
+<li class="nq-dest" data-prov="ZA-LP" data-nq-fade>
+<h3 class="nq-dest__h"><button type="button" class="nq-dest__btn" id="nq-dest-lp-btn" aria-controls="nq-dest-lp" data-nq-dest="ZA-LP"><span class="nq-dest__name">Limpopo</span><span class="nq-dest__mark" aria-hidden="true"></span></button></h3>
+<div class="nq-dest__body" id="nq-dest-lp" role="region" aria-labelledby="nq-dest-lp-btn">
+<ul class="nq-lines">
+<li>A new site.</li>
+<li>Website build R 7,700.00, workshop build R 9,500.00.</li>
+<li>It publishes its own pages, and its workshop records stay scoped to the province.</li>
+</ul>
+</div>
+</li>
+<li class="nq-dest" data-prov="ZA-MP" data-nq-fade>
+<h3 class="nq-dest__h"><button type="button" class="nq-dest__btn" id="nq-dest-mp-btn" aria-controls="nq-dest-mp" data-nq-dest="ZA-MP"><span class="nq-dest__name">Mpumalanga</span><span class="nq-dest__mark" aria-hidden="true"></span></button></h3>
+<div class="nq-dest__body" id="nq-dest-mp" role="region" aria-labelledby="nq-dest-mp-btn">
+<ul class="nq-lines">
+<li>A new site.</li>
+<li>Website build R 7,700.00, workshop build R 9,500.00.</li>
+<li>It publishes its own pages, and its workshop records stay scoped to the province.</li>
+</ul>
+</div>
+</li>
+<li class="nq-dest" data-prov="ZA-NW" data-nq-fade>
+<h3 class="nq-dest__h"><button type="button" class="nq-dest__btn" id="nq-dest-nw-btn" aria-controls="nq-dest-nw" data-nq-dest="ZA-NW"><span class="nq-dest__name">North West</span><span class="nq-dest__mark" aria-hidden="true"></span></button></h3>
+<div class="nq-dest__body" id="nq-dest-nw" role="region" aria-labelledby="nq-dest-nw-btn">
+<ul class="nq-lines">
+<li>A new site.</li>
+<li>Website build R 7,700.00, workshop build R 9,500.00.</li>
+<li>It publishes its own pages, and its workshop records stay scoped to the province.</li>
+</ul>
+</div>
+</li>
+<li class="nq-dest" data-prov="ZA-NC" data-nq-fade>
+<h3 class="nq-dest__h"><button type="button" class="nq-dest__btn" id="nq-dest-nc-btn" aria-controls="nq-dest-nc" data-nq-dest="ZA-NC"><span class="nq-dest__name">Northern Cape</span><span class="nq-dest__mark" aria-hidden="true"></span></button></h3>
+<div class="nq-dest__body" id="nq-dest-nc" role="region" aria-labelledby="nq-dest-nc-btn">
+<ul class="nq-lines">
+<li>A new site.</li>
+<li>Website build R 7,700.00, workshop build R 9,500.00.</li>
+<li>It publishes its own pages, and its workshop records stay scoped to the province.</li>
+</ul>
+</div>
+</li>
+<li class="nq-dest nq-dest--retained" data-prov="ZA-WC" data-nq-fade>
+<h3 class="nq-dest__h"><button type="button" class="nq-dest__btn" id="nq-dest-wc-btn" aria-controls="nq-dest-wc" data-nq-dest="ZA-WC"><span class="nq-dest__name">Western Cape</span><span class="nq-dest__mark" aria-hidden="true"></span></button></h3>
+<div class="nq-dest__body" id="nq-dest-wc" role="region" aria-labelledby="nq-dest-wc-btn">
+<ul class="nq-lines">
+<li>Its existing site, domain and paid workshop build are retained.</li>
+<li>No new build charge: R 0.00.</li>
+<li>Its monthly arrangement stays separate.</li>
+</ul>
+</div>
+</li>
+</ul>
+<div class="nq-wc-address">
+<h3 class="nq-h3 nq-wc-address__h" data-nq-fade>Western Cape's address</h3>
+<ul class="nq-lines nq-wc-address__lines">
+<li data-nq-fade>A NAPTOSA .org.za subdomain for Western Cape will redirect to naptosawc.co.za.</li>
+<li data-nq-fade>It never redirects the other way, so naptosawc.co.za stays the home address.</li>
+<li data-nq-fade>Both addresses lead to the same paid-for website.</li>
+<li data-nq-fade>We test the redirect for paths, links, certificates and analytics.</li>
+<li data-nq-fade>There is no rebuild and no duplicate site.</li>
+<li data-nq-fade>The naptosawc.co.za domain is kept, not cancelled.</li>
+<li data-nq-fade>If a provider charges a fee to cancel or transfer an unrelated .co.za domain, we tell you the amount before we act.</li>
+<li data-nq-fade>A full Western Cape rebuild is available at R 8,999.00 excl. VAT, only if you commission it separately. It is not in any total.</li>
+</ul>
+</div>
+</div>
+</div>
+<script defer src="js/act-01-network.js?v=f758bf5e48"></script>
+<section id="sites" class="nq-act nq-act--sites" data-sc-act="flow" data-ground="day" data-nq-chapter="sites" data-chapter-name="What every site gets" aria-labelledby="sites-title">
+<div class="nq-sites__frame" data-nq-sites-frame>
+<div class="nq-sites__night" data-ground="night" aria-hidden="true">
+<div class="nq-sites__map"><div class="nq-map" data-nq-map="sites" data-nq-map-mode="lit" data-nq-map-src="assets/map/za-network.svg?v=f6dc84bd88"></div></div>
+</div>
+<div class="nq-sites__iris" data-sc-reveal="iris" data-sc-reveal-at="0.12 0.42">
+<div class="nq-sites__sheet" data-ground="day">
+<div class="nq-sites__sheet-in">
+<div class="nq-sites__head">
+<p class="nq-mono nq-sites__nine nq-sites__nine--sheet" aria-hidden="true">9</p>
+<div class="nq-map nq-sites__key nq-sites__key--sheet" data-nq-map="sites-key" data-nq-map-mode="blueprint" data-nq-map-src="assets/map/za-network.svg?v=f6dc84bd88" aria-hidden="true"></div>
+</div>
+<figure class="nq-plan" data-nq-plan>
+<div class="nq-plan__draw">
+<svg class="nq-plan__svg nq-plan__svg--desk" viewBox="0 -16 620 530" role="img" aria-label="Line drawing of the plan every new site follows: shared national header, provincial news, resources, contact details, local pages, workshop bookings and a search foundation, on phone and desktop." focusable="false">
+<g class="nq-plan__part" data-part="frames">
+<rect class="pl" x="98" y="20" width="300" height="390" rx="6" pathLength="1"/>
+<line class="pl" x1="98" y1="38" x2="398" y2="38" pathLength="1"/>
+<rect class="pl pl--fine" x="170" y="26" width="130" height="6" rx="3" pathLength="1"/>
+<rect class="pl" x="0" y="214" width="80" height="196" rx="9" pathLength="1"/>
+<line class="pl pl--fine" x1="32" y1="222" x2="48" y2="222" pathLength="1"/>
+<line class="pl pl--fine" x1="28" y1="400" x2="52" y2="400" pathLength="1"/>
+<circle class="pl-node" cx="14" cy="240" r="2.6"/>
+</g>
+<g class="nq-plan__part" data-part="header">
+<rect class="pl" x="108" y="48" width="280" height="30" pathLength="1"/>
+<circle class="pl" cx="124" cy="63" r="8" pathLength="1"/>
+<line class="pl pl--fine" x1="246" y1="63" x2="262" y2="63" pathLength="1"/>
+<line class="pl pl--fine" x1="270" y1="63" x2="286" y2="63" pathLength="1"/>
+<line class="pl pl--fine" x1="294" y1="63" x2="310" y2="63" pathLength="1"/>
+<line class="pl pl--fine" x1="318" y1="63" x2="334" y2="63" pathLength="1"/>
+<rect class="pl" x="344" y="57" width="34" height="12" rx="6" pathLength="1"/>
+<rect class="pl" x="6" y="232" width="68" height="16" pathLength="1"/>
+<circle class="pl" cx="14" cy="240" r="4.5" pathLength="1"/>
+<line class="pl pl--fine" x1="58" y1="236" x2="68" y2="236" pathLength="1"/>
+<line class="pl pl--fine" x1="58" y1="240" x2="68" y2="240" pathLength="1"/>
+<line class="pl pl--fine" x1="58" y1="244" x2="68" y2="244" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="hero">
+<rect class="pl" x="108" y="88" width="280" height="64" pathLength="1"/>
+<line class="pl" x1="122" y1="106" x2="282" y2="106" pathLength="1"/>
+<line class="pl" x1="122" y1="117" x2="236" y2="117" pathLength="1"/>
+<line class="pl pl--fine" x1="122" y1="127" x2="220" y2="127" pathLength="1"/>
+<rect class="pl" x="122" y="136" width="52" height="10" rx="5" pathLength="1"/>
+<rect class="pl" x="6" y="254" width="68" height="34" pathLength="1"/>
+<line class="pl" x1="12" y1="266" x2="58" y2="266" pathLength="1"/>
+<line class="pl" x1="12" y1="274" x2="46" y2="274" pathLength="1"/>
+<rect class="pl" x="12" y="280" width="24" height="5" rx="2.5" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="news">
+<rect class="pl" x="108" y="162" width="88" height="34" pathLength="1"/>
+<line class="pl pl--fine" x1="112" y1="206" x2="182" y2="206" pathLength="1"/>
+<line class="pl pl--fine" x1="112" y1="215" x2="160" y2="215" pathLength="1"/>
+<rect class="pl" x="204" y="162" width="88" height="34" pathLength="1"/>
+<line class="pl pl--fine" x1="208" y1="206" x2="278" y2="206" pathLength="1"/>
+<line class="pl pl--fine" x1="208" y1="215" x2="256" y2="215" pathLength="1"/>
+<rect class="pl" x="300" y="162" width="88" height="34" pathLength="1"/>
+<line class="pl pl--fine" x1="304" y1="206" x2="374" y2="206" pathLength="1"/>
+<line class="pl pl--fine" x1="304" y1="215" x2="352" y2="215" pathLength="1"/>
+<rect class="pl" x="6" y="294" width="68" height="18" pathLength="1"/>
+<line class="pl pl--fine" x1="12" y1="318" x2="62" y2="318" pathLength="1"/>
+<line class="pl pl--fine" x1="12" y1="326" x2="46" y2="326" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="resources">
+<path class="pl" d="M108 232H122L128 238V262H108Z" pathLength="1"/>
+<path class="pl pl--fine" d="M122 232V238H128" pathLength="1"/>
+<line class="pl pl--fine" x1="112" y1="248.5" x2="124" y2="248.5" pathLength="1"/>
+<line class="pl pl--fine" x1="112" y1="254.5" x2="121" y2="254.5" pathLength="1"/>
+<path class="pl" d="M155.2 232H169.2L175.2 238V262H155.2Z" pathLength="1"/>
+<path class="pl pl--fine" d="M169.2 232V238H175.2" pathLength="1"/>
+<line class="pl pl--fine" x1="159.2" y1="248.5" x2="171.2" y2="248.5" pathLength="1"/>
+<line class="pl pl--fine" x1="159.2" y1="254.5" x2="168.2" y2="254.5" pathLength="1"/>
+<path class="pl" d="M202.4 232H216.4L222.4 238V262H202.4Z" pathLength="1"/>
+<path class="pl pl--fine" d="M216.4 232V238H222.4" pathLength="1"/>
+<line class="pl pl--fine" x1="206.4" y1="248.5" x2="218.4" y2="248.5" pathLength="1"/>
+<line class="pl pl--fine" x1="206.4" y1="254.5" x2="215.4" y2="254.5" pathLength="1"/>
+<path class="pl" d="M249.6 232H263.6L269.6 238V262H249.6Z" pathLength="1"/>
+<path class="pl pl--fine" d="M263.6 232V238H269.6" pathLength="1"/>
+<line class="pl pl--fine" x1="253.6" y1="248.5" x2="265.6" y2="248.5" pathLength="1"/>
+<line class="pl pl--fine" x1="253.6" y1="254.5" x2="262.6" y2="254.5" pathLength="1"/>
+<path class="pl" d="M296.8 232H310.8L316.8 238V262H296.8Z" pathLength="1"/>
+<path class="pl pl--fine" d="M310.8 232V238H316.8" pathLength="1"/>
+<line class="pl pl--fine" x1="300.8" y1="248.5" x2="312.8" y2="248.5" pathLength="1"/>
+<line class="pl pl--fine" x1="300.8" y1="254.5" x2="309.8" y2="254.5" pathLength="1"/>
+<path class="pl" d="M344 232H358L364 238V262H344Z" pathLength="1"/>
+<path class="pl pl--fine" d="M358 232V238H364" pathLength="1"/>
+<line class="pl pl--fine" x1="348" y1="248.5" x2="360" y2="248.5" pathLength="1"/>
+<line class="pl pl--fine" x1="348" y1="254.5" x2="357" y2="254.5" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="bookings">
+<rect class="pl" x="108" y="274" width="280" height="44" pathLength="1"/>
+<line class="pl" x1="108" y1="284" x2="388" y2="284" pathLength="1"/>
+<line class="pl pl--fine" x1="136" y1="284" x2="136" y2="318" pathLength="1"/>
+<line class="pl pl--fine" x1="164" y1="284" x2="164" y2="318" pathLength="1"/>
+<line class="pl pl--fine" x1="192" y1="284" x2="192" y2="318" pathLength="1"/>
+<line class="pl pl--fine" x1="220" y1="284" x2="220" y2="318" pathLength="1"/>
+<line class="pl pl--fine" x1="248" y1="284" x2="248" y2="318" pathLength="1"/>
+<line class="pl pl--fine" x1="276" y1="284" x2="276" y2="318" pathLength="1"/>
+<line class="pl pl--fine" x1="304" y1="284" x2="304" y2="318" pathLength="1"/>
+<line class="pl pl--fine" x1="332" y1="284" x2="332" y2="318" pathLength="1"/>
+<line class="pl pl--fine" x1="360" y1="284" x2="360" y2="318" pathLength="1"/>
+<line class="pl pl--fine" x1="108" y1="301" x2="388" y2="301" pathLength="1"/>
+<circle class="pl pl--mark" cx="234" cy="292.5" r="3.6" pathLength="1"/>
+<rect class="pl" x="6" y="340" width="68" height="20" pathLength="1"/>
+<line class="pl pl--fine" x1="6" y1="346" x2="74" y2="346" pathLength="1"/>
+<line class="pl pl--fine" x1="19.6" y1="346" x2="19.6" y2="360" pathLength="1"/>
+<line class="pl pl--fine" x1="33.2" y1="346" x2="33.2" y2="360" pathLength="1"/>
+<line class="pl pl--fine" x1="46.8" y1="346" x2="46.8" y2="360" pathLength="1"/>
+<line class="pl pl--fine" x1="60.4" y1="346" x2="60.4" y2="360" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="local">
+<rect class="pl" x="108" y="328" width="50" height="26" pathLength="1"/>
+<line class="pl pl--fine" x1="114" y1="337" x2="140" y2="337" pathLength="1"/>
+<line class="pl pl--fine" x1="114" y1="345" x2="132" y2="345" pathLength="1"/>
+<rect class="pl" x="165.5" y="328" width="50" height="26" pathLength="1"/>
+<line class="pl pl--fine" x1="171.5" y1="337" x2="197.5" y2="337" pathLength="1"/>
+<line class="pl pl--fine" x1="171.5" y1="345" x2="189.5" y2="345" pathLength="1"/>
+<rect class="pl" x="223" y="328" width="50" height="26" pathLength="1"/>
+<line class="pl pl--fine" x1="229" y1="337" x2="255" y2="337" pathLength="1"/>
+<line class="pl pl--fine" x1="229" y1="345" x2="247" y2="345" pathLength="1"/>
+<rect class="pl" x="280.5" y="328" width="50" height="26" pathLength="1"/>
+<line class="pl pl--fine" x1="286.5" y1="337" x2="312.5" y2="337" pathLength="1"/>
+<line class="pl pl--fine" x1="286.5" y1="345" x2="304.5" y2="345" pathLength="1"/>
+<rect class="pl" x="338" y="328" width="50" height="26" pathLength="1"/>
+<line class="pl pl--fine" x1="344" y1="337" x2="370" y2="337" pathLength="1"/>
+<line class="pl pl--fine" x1="344" y1="345" x2="362" y2="345" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="contact">
+<rect class="pl" x="108" y="364" width="280" height="32" pathLength="1"/>
+<path class="pl" d="M122 381.7L118.22 376.2A4.4 4.4 0 1 1 125.78 376.2Z" pathLength="1"/>
+<circle class="pl pl--fine" cx="122" cy="374" r="1.54" pathLength="1"/>
+<line class="pl pl--fine" x1="138" y1="376" x2="230" y2="376" pathLength="1"/>
+<line class="pl pl--fine" x1="138" y1="386" x2="200" y2="386" pathLength="1"/>
+<rect class="pl" x="6" y="366" width="68" height="14" pathLength="1"/>
+<path class="pl" d="M13 374.2L10.94 371.2A2.4 2.4 0 1 1 15.06 371.2Z" pathLength="1"/>
+<circle class="pl pl--fine" cx="13" cy="370" r="0.84" pathLength="1"/>
+<line class="pl pl--fine" x1="20" y1="374" x2="58" y2="374" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="ground">
+<line class="pl" x1="-6" y1="410" x2="404" y2="410" pathLength="1"/>
+<line class="pl pl--dash" x1="20" y1="410" x2="20" y2="424" pathLength="1"/>
+<line class="pl pl--dash" x1="60" y1="410" x2="60" y2="424" pathLength="1"/>
+<line class="pl pl--dash" x1="130" y1="410" x2="130" y2="424" pathLength="1"/>
+<line class="pl pl--dash" x1="200" y1="410" x2="200" y2="424" pathLength="1"/>
+<line class="pl pl--dash" x1="270" y1="410" x2="270" y2="424" pathLength="1"/>
+<line class="pl pl--dash" x1="340" y1="410" x2="340" y2="424" pathLength="1"/>
+<line class="pl pl--dash" x1="390" y1="410" x2="390" y2="424" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="foundation">
+<rect class="pl pl--dash" x="0" y="424" width="398" height="80" pathLength="1"/>
+<rect class="pl" x="194" y="436" width="10" height="8" pathLength="1"/>
+<line class="pl" x1="199" y1="444" x2="199" y2="452" pathLength="1"/>
+<line class="pl" x1="39" y1="452" x2="359" y2="452" pathLength="1"/>
+<line class="pl" x1="39" y1="452" x2="39" y2="458" pathLength="1"/>
+<rect class="pl" x="34" y="458" width="10" height="8" pathLength="1"/>
+<line class="pl pl--fine" x1="39" y1="466" x2="39" y2="474" pathLength="1"/>
+<line class="pl pl--fine" x1="19" y1="474" x2="59" y2="474" pathLength="1"/>
+<line class="pl pl--fine" x1="19" y1="474" x2="19" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="15" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="39" y1="474" x2="39" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="35" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="59" y1="474" x2="59" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="55" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl" x1="119" y1="452" x2="119" y2="458" pathLength="1"/>
+<rect class="pl" x="114" y="458" width="10" height="8" pathLength="1"/>
+<line class="pl pl--fine" x1="119" y1="466" x2="119" y2="474" pathLength="1"/>
+<line class="pl pl--fine" x1="99" y1="474" x2="139" y2="474" pathLength="1"/>
+<line class="pl pl--fine" x1="99" y1="474" x2="99" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="95" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="119" y1="474" x2="119" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="115" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="139" y1="474" x2="139" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="135" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl" x1="199" y1="452" x2="199" y2="458" pathLength="1"/>
+<rect class="pl" x="194" y="458" width="10" height="8" pathLength="1"/>
+<line class="pl pl--fine" x1="199" y1="466" x2="199" y2="474" pathLength="1"/>
+<line class="pl pl--fine" x1="179" y1="474" x2="219" y2="474" pathLength="1"/>
+<line class="pl pl--fine" x1="179" y1="474" x2="179" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="175" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="199" y1="474" x2="199" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="195" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="219" y1="474" x2="219" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="215" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl" x1="279" y1="452" x2="279" y2="458" pathLength="1"/>
+<rect class="pl" x="274" y="458" width="10" height="8" pathLength="1"/>
+<line class="pl pl--fine" x1="279" y1="466" x2="279" y2="474" pathLength="1"/>
+<line class="pl pl--fine" x1="259" y1="474" x2="299" y2="474" pathLength="1"/>
+<line class="pl pl--fine" x1="259" y1="474" x2="259" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="255" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="279" y1="474" x2="279" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="275" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="299" y1="474" x2="299" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="295" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl" x1="359" y1="452" x2="359" y2="458" pathLength="1"/>
+<rect class="pl" x="354" y="458" width="10" height="8" pathLength="1"/>
+<line class="pl pl--fine" x1="359" y1="466" x2="359" y2="474" pathLength="1"/>
+<line class="pl pl--fine" x1="339" y1="474" x2="379" y2="474" pathLength="1"/>
+<line class="pl pl--fine" x1="339" y1="474" x2="339" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="335" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="359" y1="474" x2="359" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="355" y="480" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="379" y1="474" x2="379" y2="480" pathLength="1"/>
+<rect class="pl pl--fine" x="375" y="480" width="8" height="6" pathLength="1"/>
+</g>
+<g class="nq-plan__leader" data-leader="frames">
+<path class="pl-leader" d="M40 214V-2H436" pathLength="1"/>
+<circle class="pl-dot" cx="40" cy="214" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="header">
+<path class="pl-leader" d="M388 63H436" pathLength="1"/>
+<circle class="pl-dot" cx="388" cy="63" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="news">
+<path class="pl-leader" d="M388 179H436" pathLength="1"/>
+<circle class="pl-dot" cx="388" cy="179" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="resources">
+<path class="pl-leader" d="M364 247H436" pathLength="1"/>
+<circle class="pl-dot" cx="364" cy="247" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="bookings">
+<path class="pl-leader" d="M388 296H436" pathLength="1"/>
+<circle class="pl-dot" cx="388" cy="296" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="local">
+<path class="pl-leader" d="M388 341H436" pathLength="1"/>
+<circle class="pl-dot" cx="388" cy="341" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="contact">
+<path class="pl-leader" d="M388 380H436" pathLength="1"/>
+<circle class="pl-dot" cx="388" cy="380" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="foundation">
+<path class="pl-leader" d="M398 464H436" pathLength="1"/>
+<circle class="pl-dot" cx="398" cy="464" r="2.2"/>
+</g>
+<circle class="nq-plan__anchor" data-nq-iris-anchor cx="14" cy="240" r="0.01"/>
+</svg>
+<svg class="nq-plan__svg nq-plan__svg--phone" viewBox="0 0 380 572" role="img" aria-label="Line drawing of the plan every new site follows: shared national header, provincial news, resources, contact details, local pages, workshop bookings and a search foundation, on phone and desktop." focusable="false">
+<g class="nq-plan__part" data-part="frames">
+<rect class="pl" x="252" y="18" width="128" height="96" rx="5" pathLength="1"/>
+<line class="pl" x1="252" y1="30" x2="380" y2="30" pathLength="1"/>
+<rect class="pl pl--body" x="204" y="52" width="152" height="420" rx="12" pathLength="1"/>
+<line class="pl pl--fine" x1="270" y1="62" x2="290" y2="62" pathLength="1"/>
+<line class="pl pl--fine" x1="266" y1="460" x2="294" y2="460" pathLength="1"/>
+<circle class="pl-node" cx="228" cy="87" r="3"/>
+</g>
+<g class="nq-plan__part" data-part="header">
+<rect class="pl" x="214" y="74" width="132" height="26" pathLength="1"/>
+<circle class="pl" cx="228" cy="87" r="6" pathLength="1"/>
+<line class="pl pl--fine" x1="326" y1="82" x2="340" y2="82" pathLength="1"/>
+<line class="pl pl--fine" x1="326" y1="87" x2="340" y2="87" pathLength="1"/>
+<line class="pl pl--fine" x1="326" y1="92" x2="340" y2="92" pathLength="1"/>
+<rect class="pl pl--fine" x="360" y="36" width="14" height="4" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="hero">
+<rect class="pl" x="214" y="108" width="132" height="58" pathLength="1"/>
+<line class="pl" x1="224" y1="126" x2="324" y2="126" pathLength="1"/>
+<line class="pl" x1="224" y1="136" x2="304" y2="136" pathLength="1"/>
+<rect class="pl" x="224" y="148" width="48" height="9" rx="4.5" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="news">
+<rect class="pl" x="214" y="174" width="132" height="22" pathLength="1"/>
+<line class="pl pl--fine" x1="220" y1="202" x2="314" y2="202" pathLength="1"/>
+<line class="pl pl--fine" x1="220" y1="209" x2="288" y2="209" pathLength="1"/>
+<rect class="pl" x="214" y="220" width="132" height="22" pathLength="1"/>
+<line class="pl pl--fine" x1="220" y1="248" x2="314" y2="248" pathLength="1"/>
+<line class="pl pl--fine" x1="220" y1="255" x2="288" y2="255" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="resources">
+<path class="pl" d="M214 270H228L234 276V296H214Z" pathLength="1"/>
+<path class="pl pl--fine" d="M228 270V276H234" pathLength="1"/>
+<line class="pl pl--fine" x1="218" y1="284.3" x2="230" y2="284.3" pathLength="1"/>
+<line class="pl pl--fine" x1="218" y1="289.5" x2="227" y2="289.5" pathLength="1"/>
+<path class="pl" d="M248 270H262L268 276V296H248Z" pathLength="1"/>
+<path class="pl pl--fine" d="M262 270V276H268" pathLength="1"/>
+<line class="pl pl--fine" x1="252" y1="284.3" x2="264" y2="284.3" pathLength="1"/>
+<line class="pl pl--fine" x1="252" y1="289.5" x2="261" y2="289.5" pathLength="1"/>
+<path class="pl" d="M282 270H296L302 276V296H282Z" pathLength="1"/>
+<path class="pl pl--fine" d="M296 270V276H302" pathLength="1"/>
+<line class="pl pl--fine" x1="286" y1="284.3" x2="298" y2="284.3" pathLength="1"/>
+<line class="pl pl--fine" x1="286" y1="289.5" x2="295" y2="289.5" pathLength="1"/>
+<path class="pl" d="M316 270H330L336 276V296H316Z" pathLength="1"/>
+<path class="pl pl--fine" d="M330 270V276H336" pathLength="1"/>
+<line class="pl pl--fine" x1="320" y1="284.3" x2="332" y2="284.3" pathLength="1"/>
+<line class="pl pl--fine" x1="320" y1="289.5" x2="329" y2="289.5" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="bookings">
+<rect class="pl" x="214" y="304" width="132" height="40" pathLength="1"/>
+<line class="pl" x1="214" y1="314" x2="346" y2="314" pathLength="1"/>
+<line class="pl pl--fine" x1="240.4" y1="314" x2="240.4" y2="344" pathLength="1"/>
+<line class="pl pl--fine" x1="266.8" y1="314" x2="266.8" y2="344" pathLength="1"/>
+<line class="pl pl--fine" x1="293.2" y1="314" x2="293.2" y2="344" pathLength="1"/>
+<line class="pl pl--fine" x1="319.6" y1="314" x2="319.6" y2="344" pathLength="1"/>
+<line class="pl pl--fine" x1="214" y1="329" x2="346" y2="329" pathLength="1"/>
+<circle class="pl pl--mark" cx="280" cy="321.5" r="3" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="local">
+<rect class="pl" x="214" y="352" width="40" height="26" pathLength="1"/>
+<line class="pl pl--fine" x1="219" y1="361" x2="242" y2="361" pathLength="1"/>
+<line class="pl pl--fine" x1="219" y1="368" x2="234" y2="368" pathLength="1"/>
+<rect class="pl" x="260" y="352" width="40" height="26" pathLength="1"/>
+<line class="pl pl--fine" x1="265" y1="361" x2="288" y2="361" pathLength="1"/>
+<line class="pl pl--fine" x1="265" y1="368" x2="280" y2="368" pathLength="1"/>
+<rect class="pl" x="306" y="352" width="40" height="26" pathLength="1"/>
+<line class="pl pl--fine" x1="311" y1="361" x2="334" y2="361" pathLength="1"/>
+<line class="pl pl--fine" x1="311" y1="368" x2="326" y2="368" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="contact">
+<rect class="pl" x="214" y="386" width="132" height="30" pathLength="1"/>
+<path class="pl" d="M227 404L223.56 399A4 4 0 1 1 230.44 399Z" pathLength="1"/>
+<circle class="pl pl--fine" cx="227" cy="397" r="1.4" pathLength="1"/>
+<line class="pl pl--fine" x1="240" y1="397" x2="306" y2="397" pathLength="1"/>
+<line class="pl pl--fine" x1="240" y1="405" x2="286" y2="405" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="ground">
+<line class="pl" x1="180" y1="472" x2="380" y2="472" pathLength="1"/>
+<line class="pl pl--dash" x1="196" y1="472" x2="196" y2="486" pathLength="1"/>
+<line class="pl pl--dash" x1="238" y1="472" x2="238" y2="486" pathLength="1"/>
+<line class="pl pl--dash" x1="280" y1="472" x2="280" y2="486" pathLength="1"/>
+<line class="pl pl--dash" x1="322" y1="472" x2="322" y2="486" pathLength="1"/>
+<line class="pl pl--dash" x1="364" y1="472" x2="364" y2="486" pathLength="1"/>
+</g>
+<g class="nq-plan__part" data-part="foundation">
+<rect class="pl pl--dash" x="180" y="486" width="200" height="74" pathLength="1"/>
+<rect class="pl" x="275" y="494" width="10" height="8" pathLength="1"/>
+<line class="pl" x1="280" y1="502" x2="280" y2="510" pathLength="1"/>
+<line class="pl" x1="200" y1="510" x2="360" y2="510" pathLength="1"/>
+<line class="pl" x1="200" y1="510" x2="200" y2="516" pathLength="1"/>
+<rect class="pl" x="195" y="516" width="10" height="8" pathLength="1"/>
+<line class="pl pl--fine" x1="200" y1="524" x2="200" y2="532" pathLength="1"/>
+<line class="pl pl--fine" x1="188" y1="532" x2="212" y2="532" pathLength="1"/>
+<line class="pl pl--fine" x1="188" y1="532" x2="188" y2="538" pathLength="1"/>
+<rect class="pl pl--fine" x="184" y="538" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="212" y1="532" x2="212" y2="538" pathLength="1"/>
+<rect class="pl pl--fine" x="208" y="538" width="8" height="6" pathLength="1"/>
+<line class="pl" x1="240" y1="510" x2="240" y2="516" pathLength="1"/>
+<rect class="pl" x="235" y="516" width="10" height="8" pathLength="1"/>
+<line class="pl pl--fine" x1="240" y1="524" x2="240" y2="532" pathLength="1"/>
+<line class="pl pl--fine" x1="228" y1="532" x2="252" y2="532" pathLength="1"/>
+<line class="pl pl--fine" x1="228" y1="532" x2="228" y2="538" pathLength="1"/>
+<rect class="pl pl--fine" x="224" y="538" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="252" y1="532" x2="252" y2="538" pathLength="1"/>
+<rect class="pl pl--fine" x="248" y="538" width="8" height="6" pathLength="1"/>
+<line class="pl" x1="280" y1="510" x2="280" y2="516" pathLength="1"/>
+<rect class="pl" x="275" y="516" width="10" height="8" pathLength="1"/>
+<line class="pl pl--fine" x1="280" y1="524" x2="280" y2="532" pathLength="1"/>
+<line class="pl pl--fine" x1="268" y1="532" x2="292" y2="532" pathLength="1"/>
+<line class="pl pl--fine" x1="268" y1="532" x2="268" y2="538" pathLength="1"/>
+<rect class="pl pl--fine" x="264" y="538" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="292" y1="532" x2="292" y2="538" pathLength="1"/>
+<rect class="pl pl--fine" x="288" y="538" width="8" height="6" pathLength="1"/>
+<line class="pl" x1="320" y1="510" x2="320" y2="516" pathLength="1"/>
+<rect class="pl" x="315" y="516" width="10" height="8" pathLength="1"/>
+<line class="pl pl--fine" x1="320" y1="524" x2="320" y2="532" pathLength="1"/>
+<line class="pl pl--fine" x1="308" y1="532" x2="332" y2="532" pathLength="1"/>
+<line class="pl pl--fine" x1="308" y1="532" x2="308" y2="538" pathLength="1"/>
+<rect class="pl pl--fine" x="304" y="538" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="332" y1="532" x2="332" y2="538" pathLength="1"/>
+<rect class="pl pl--fine" x="328" y="538" width="8" height="6" pathLength="1"/>
+<line class="pl" x1="360" y1="510" x2="360" y2="516" pathLength="1"/>
+<rect class="pl" x="355" y="516" width="10" height="8" pathLength="1"/>
+<line class="pl pl--fine" x1="360" y1="524" x2="360" y2="532" pathLength="1"/>
+<line class="pl pl--fine" x1="348" y1="532" x2="372" y2="532" pathLength="1"/>
+<line class="pl pl--fine" x1="348" y1="532" x2="348" y2="538" pathLength="1"/>
+<rect class="pl pl--fine" x="344" y="538" width="8" height="6" pathLength="1"/>
+<line class="pl pl--fine" x1="372" y1="532" x2="372" y2="538" pathLength="1"/>
+<rect class="pl pl--fine" x="368" y="538" width="8" height="6" pathLength="1"/>
+</g>
+<g class="nq-plan__leader" data-leader="frames">
+<path class="pl-leader" d="M252 24H166" pathLength="1"/>
+<circle class="pl-dot" cx="252" cy="24" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="header">
+<path class="pl-leader" d="M214 87H166" pathLength="1"/>
+<circle class="pl-dot" cx="214" cy="87" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="news">
+<path class="pl-leader" d="M214 194H166" pathLength="1"/>
+<circle class="pl-dot" cx="214" cy="194" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="resources">
+<path class="pl-leader" d="M214 283H166" pathLength="1"/>
+<circle class="pl-dot" cx="214" cy="283" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="bookings">
+<path class="pl-leader" d="M214 324H166" pathLength="1"/>
+<circle class="pl-dot" cx="214" cy="324" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="local">
+<path class="pl-leader" d="M214 365H166" pathLength="1"/>
+<circle class="pl-dot" cx="214" cy="365" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="contact">
+<path class="pl-leader" d="M214 401H166" pathLength="1"/>
+<circle class="pl-dot" cx="214" cy="401" r="2.2"/>
+</g>
+<g class="nq-plan__leader" data-leader="foundation">
+<path class="pl-leader" d="M180 523H166" pathLength="1"/>
+<circle class="pl-dot" cx="180" cy="523" r="2.2"/>
+</g>
+<circle class="nq-plan__anchor" data-nq-iris-anchor cx="228" cy="87" r="0.01"/>
+</svg>
+<ul class="nq-plan__labels" aria-hidden="true">
+<li data-label="frames" style="--dy:2.642%;--py:4.196%">Phone and desktop</li>
+<li data-label="header" style="--dy:14.906%;--py:15.210%">Shared national header</li>
+<li data-label="news" style="--dy:36.792%;--py:33.916%">Provincial news</li>
+<li data-label="resources" style="--dy:49.623%;--py:49.476%">Resources</li>
+<li data-label="bookings" style="--dy:58.868%;--py:56.643%">Workshop bookings</li>
+<li data-label="local" style="--dy:67.358%;--py:63.811%">Local pages</li>
+<li data-label="contact" style="--dy:74.717%;--py:70.105%">Contact details</li>
+<li data-label="foundation" style="--dy:90.566%;--py:91.434%">Search foundation</li>
+</ul>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<div class="nq-sites__marker" data-ground="night" aria-hidden="true"></div>
+</div>
+<div class="nq-sites__copy">
+<div class="nq-sites__copyhead" data-nq-line>
+<p class="nq-mono nq-sites__nine nq-sites__nine--copy" aria-hidden="true">9</p>
+<div class="nq-map nq-sites__key nq-sites__key--copy" data-nq-map="sites-key-desk" data-nq-map-mode="blueprint" data-nq-map-src="assets/map/za-network.svg?v=f6dc84bd88" aria-hidden="true"></div>
+</div>
+<h2 class="nq-head nq-sites__title" id="sites-title" data-sc-cue="0.2 1 0.1 0.001" data-sc-kinetic="lines">One plan, built nine times.</h2>
+<p class="nq-lead" data-nq-line>The national site and the eight new or rebuilt provincial sites share one plan. Each team then runs its own site.</p>
+<ul class="nq-lines nq-sites__lines">
+<li data-nq-line>A modern, responsive design in the shared national style, on phone and desktop.</li>
+<li data-nq-line>Accessible navigation between the national site, the provincial site and the workshop pages.</li>
+<li data-nq-line>Templates for news, resources, contact details and local pages.</li>
+<li data-nq-line>Publishing workflows and staff permissions for each provincial team.</li>
+<li data-nq-line>A way into the workshop module from every site.</li>
+<li data-nq-line>Clear calls to action on every page.</li>
+</ul>
+<div class="nq-sites__search" data-nq-search>
+<h3 class="nq-h3" data-nq-line>Search foundation, included</h3>
+<ul class="nq-lines">
+<li data-nq-line>Every newly built site gets a technical SEO, AEO and GEO foundation.</li>
+<li data-nq-line>SEO helps search engines find the site. AEO and GEO help answer engines and AI assistants read it correctly.</li>
+<li data-nq-line>In practice: a crawlable structure, metadata, structured information and clear organisation signals.</li>
+<li data-nq-line>We normally charge R 8,000 to R 12,000 per newly built site for this work. Here it carries no extra build charge.</li>
+<li data-nq-line>We cannot guarantee rankings or placement in search engines or AI answers.</li>
+</ul>
+<p class="nq-small nq-sites__added" data-nq-line>Added to your quote: website builds for nine destinations, R 74,496.00 excl. VAT.</p>
+</div>
+</div>
+</section>
+<script defer src="js/act-02-sites.js?v=e6169bacd1"></script>
+<section id="workshop" class="nq-act nq-act--workshop" data-sc-act="pan" data-sc-span="4" data-ground="night" data-nq-chapter="workshop" data-chapter-name="A workshop day" aria-labelledby="workshop-title">
+<div class="nq-stage nq-pan nq-day" data-sc-stage>
+<div class="nq-rail nq-day__rail" data-sc-pan="0">
+<div class="nq-rail__item nq-day__intro">
+<p class="nq-mono nq-day__word"><span class="nq-day__word-i">Before</span></p>
+<h2 class="nq-head nq-day__title" id="workshop-title">From the first plan to the certificate.</h2>
+</div>
+<div class="nq-rail__item nq-day__beat nq-day__beat--before">
+<div class="nq-day__text">
+<div class="nq-day__col">
+<p class="nq-lead" data-nq-rline>The workshop module already runs in Western Cape. Each province gets it, adapted to its own environment and linked to the national view.</p>
+<p class="nq-text nq-day__note" data-nq-rline>Creators and Finance work with separate permissions.</p>
+<section class="nq-day__step" aria-labelledby="ws-create">
+<div class="nq-day__steprow"><h3 class="nq-h3 nq-day__name" id="ws-create">Create</h3> <span class="nq-chip nq-chip--inuse">In use</span> <span class="nq-chip nq-chip--planned">To be built</span></div>
+<ul class="nq-lines">
+<li data-nq-rline>Staff enter the title, date, mode, venue, prices, places, CPTD points and an image.</li>
+<li data-nq-rline>They preview the workshop, publish it and share its booking link or QR code.</li>
+<li data-nq-rline>Creators manage coupon codes, including free places and limited-use discounts.</li>
+</ul>
+</section>
+</div>
+<div class="nq-day__col">
+<section class="nq-day__step" aria-labelledby="ws-book">
+<div class="nq-day__steprow"><h3 class="nq-h3 nq-day__name" id="ws-book">Book</h3> <span class="nq-chip nq-chip--inuse">In use</span></div>
+<ul class="nq-lines">
+<li data-nq-rline>Teachers book without creating an account.</li>
+<li data-nq-rline>Individuals, schools and companies can all book.</li>
+<li data-nq-rline>Staff set member and non-member prices and the number of places.</li>
+<li data-nq-rline>Members give their NAP number or South African ID number.</li>
+<li data-nq-rline>Non-members give a South African ID number, and the form checks that it is a valid 13-digit number.</li>
+<li data-nq-rline>A school can pay for several places, receive a code and register named teachers against them.</li>
+<li data-nq-rline>Staff see how many places are used and how many are still free.</li>
+</ul>
+</section>
+</div>
+<div class="nq-day__col">
+<section class="nq-day__step" aria-labelledby="ws-pay">
+<div class="nq-day__steprow"><h3 class="nq-h3 nq-day__name" id="ws-pay">Pay</h3> <span class="nq-chip nq-chip--inuse">In use</span> <span class="nq-chip nq-chip--extending">Extending</span> <span class="nq-chip nq-chip--planned">To be built</span></div>
+<ul class="nq-lines">
+<li data-nq-rline>Each EFT booking gets bank instructions and its own payment reference, on screen and by email.</li>
+<li data-nq-rline>Only Finance-authorised staff can confirm a payment.</li>
+<li data-nq-rline>Once Finance records it, the payer receives a combined invoice and receipt PDF.</li>
+<li data-nq-rline>Finance matches references to the bank statement, sees what is paid or outstanding, and can preview or resend receipts.</li>
+</ul>
+</section>
+</div>
+</div>
+<div class="nq-day__media">
+<figure class="nq-figure nq-day__main">
+<div class="nq-day__frame"><picture>
+<source type="image/avif" srcset="assets/media/a1-create-720.avif 720w, assets/media/a1-create-1344.avif 1344w" sizes="(max-width: 1023px) 86vw, 40vw">
+<source type="image/webp" srcset="assets/media/a1-create-720.webp 720w, assets/media/a1-create-1344.webp 1344w" sizes="(max-width: 1023px) 86vw, 40vw">
+<img src="assets/media/a1-create-1344.webp?v=d299b4cb9d" alt="An educator in a mustard jacket works on a laptop at an office desk, with a notebook and a blue folder beside her." width="1344" height="752" loading="lazy" decoding="async">
+</picture></div>
+<figcaption>Illustrative image</figcaption>
+</figure>
+<figure class="nq-figure nq-day__inset nq-day__inset--tall">
+<div class="nq-day__frame"><picture>
+<source type="image/avif" srcset="assets/media/a2-paid-desk-360.avif 360w, assets/media/a2-paid-desk-552.avif 552w" sizes="(max-width: 1023px) 30vw, 12vw">
+<source type="image/webp" srcset="assets/media/a2-paid-desk-360.webp 360w, assets/media/a2-paid-desk-552.webp 552w" sizes="(max-width: 1023px) 30vw, 12vw">
+<img src="assets/media/a2-paid-desk-552.webp?v=d719ba7afd" alt="An educator sits back in her chair at a desk in warm evening light, a closed notebook and a pen in front of her." width="552" height="690" loading="lazy" decoding="async">
+</picture></div>
+<figcaption>Illustrative image</figcaption>
+</figure>
+</div>
+</div>
+<div class="nq-rail__item nq-day__beat nq-day__beat--day">
+<p class="nq-mono nq-day__word"><span class="nq-day__word-i">On the day</span></p>
+<div class="nq-day__text">
+<div class="nq-day__col">
+<section class="nq-day__step" aria-labelledby="ws-attend">
+<div class="nq-day__steprow"><h3 class="nq-h3 nq-day__name" id="ws-attend">Attend</h3> <span class="nq-chip nq-chip--inuse">In use</span> <span class="nq-chip nq-chip--planned">To be built</span></div>
+<ul class="nq-lines">
+<li data-nq-rline>Each event has a check-in QR code; staff can open check-in early and close it again.</li>
+<li data-nq-rline>Attendees can check themselves in.</li>
+<li data-nq-rline>Staff mark attendance one by one or in a batch.</li>
+<li data-nq-rline>Paid attendees marked present receive numbered certificates.</li>
+</ul>
+</section>
+</div>
+</div>
+<div class="nq-day__media">
+<figure class="nq-figure nq-day__main nq-day__clip" data-nq-clip>
+<div class="nq-day__frame">
+<video class="nq-day__video nq-day__video--wide" muted playsinline preload="none" poster="assets/media/workshop-educators-poster.webp?v=b65a8002c6" width="1280" height="720" aria-label="A facilitator talks with educators seated around a table in a bright room with large windows."><source src="assets/media/workshop-educators.mp4?v=dc8686b63f" type="video/mp4"></video>
+<video class="nq-day__video nq-day__video--tall" muted playsinline preload="none" poster="assets/media/workshop-educators-m-poster.webp?v=9bfb0a25da" width="406" height="720" aria-label="A facilitator talks with educators seated around a table in a bright room with large windows."><source src="assets/media/workshop-educators-m.mp4?v=6a7ad9fcc6" type="video/mp4"></video>
+</div>
+<figcaption class="nq-day__clipcap"><span>Illustrative image</span> <button type="button" class="nq-btn nq-btn--outline nq-day__play nq-needs-js" data-nq-clip-toggle aria-label="Play the workshop clip">Play</button></figcaption>
+</figure>
+<figure class="nq-figure nq-day__inset">
+<div class="nq-day__frame"><picture>
+<source type="image/avif" srcset="assets/media/day-hall-poster-720.avif 720w, assets/media/day-hall-poster-1280.avif 1280w" sizes="(max-width: 1023px) 40vw, 15vw">
+<source type="image/webp" srcset="assets/media/day-hall-poster-720.webp 720w, assets/media/day-hall-poster-1280.webp 1280w" sizes="(max-width: 1023px) 40vw, 15vw">
+<img src="assets/media/day-hall-poster-1280.webp?v=be59492b83" alt="An empty training room seen through open doors, with rows of chairs facing a blank projector screen." width="1280" height="720" loading="lazy" decoding="async">
+</picture></div>
+<figcaption>Illustrative image</figcaption>
+</figure>
+</div>
+</div>
+<div class="nq-rail__item nq-day__beat nq-day__beat--after">
+<p class="nq-mono nq-day__word"><span class="nq-day__word-i">After</span></p>
+<div class="nq-day__text">
+<div class="nq-day__col">
+<section class="nq-day__step" aria-labelledby="ws-follow">
+<div class="nq-day__steprow"><h3 class="nq-h3 nq-day__name" id="ws-follow">Follow up</h3> <span class="nq-chip nq-chip--inuse">In use</span> <span class="nq-chip nq-chip--extending">Extending</span></div>
+<ul class="nq-lines">
+<li data-nq-rline>Present attendees get a thank-you email. Absent ones can get a missed-you email.</li>
+<li data-nq-rline>Paid attendees get a reminder before the event, and members find workshop documents in their member portal.</li>
+<li data-nq-rline>Staff export booking, payment, school-place and attendance registers to Excel, for one workshop or several.</li>
+<li data-nq-rline>Finance sees the money columns. A creator without Finance permission gets the export without them.</li>
+<li data-nq-rline>A practice or unpaid workshop can be deleted with a reason. Once anyone has paid, it closes and its records are kept.</li>
+</ul>
+</section>
+</div>
+</div>
+<div class="nq-day__media">
+<figure class="nq-figure nq-day__main">
+<div class="nq-day__frame"><picture>
+<source type="image/avif" srcset="assets/media/a4-after-phone-720.avif 720w, assets/media/a4-after-phone-1440.avif 1440w" sizes="(max-width: 1023px) 86vw, 40vw">
+<source type="image/webp" srcset="assets/media/a4-after-phone-720.webp 720w, assets/media/a4-after-phone-1440.webp 1440w" sizes="(max-width: 1023px) 86vw, 40vw">
+<img src="assets/media/a4-after-phone-1440.webp?v=d724f8428d" alt="An educator in a school corridor smiles as she reads a message on her phone." width="1440" height="810" loading="lazy" decoding="async">
+</picture></div>
+<figcaption>Illustrative image</figcaption>
+</figure>
+</div>
+</div>
+<div class="nq-day__end" aria-hidden="true"></div>
+</div>
+</div>
+</section>
+<div class="nq-coda nq-coda--workshop nq-ledger" data-sc-act="flow" data-ground="night" data-nq-chapter="workshop">
+<div class="nq-wrap nq-ledger__wrap">
+<dl class="nq-status-key nq-ledger__key">
+<div><dt><span class="nq-chip nq-chip--inuse">In use</span></dt><dd>Running in Western Cape's module today.</dd></div>
+<div><dt><span class="nq-chip nq-chip--extending">Extending</span></dt><dd>In use, with more being added or completed.</dd></div>
+<div><dt><span class="nq-chip nq-chip--planned">To be built</span></dt><dd>In this scope, not live yet.</dd></div>
+</dl>
+<div class="nq-ledger__groups">
+<div class="nq-ledger__group">
+<p class="nq-chip nq-chip--extending">Extending</p>
+<dl class="nq-ledger__items">
+<div data-nq-wline><dt>Pay</dt><dd>The audit trail records every money change today and is being extended to other actions.</dd></div>
+<div data-nq-wline><dt>Follow up</dt><dd>Being completed in the current module: a next-morning staff summary and register reminder, a notice when a workshop's date, time or venue changes, part-payment balances on reminders, and an email to each school listing the teachers registered with its code.</dd></div>
+</dl>
+</div>
+<div class="nq-ledger__group">
+<p class="nq-chip nq-chip--planned">To be built</p>
+<dl class="nq-ledger__items">
+<div data-nq-wline><dt>Create</dt><dd>Approval before publishing, and controlled changes to workshop and bank details.</dd></div>
+<div data-nq-wline><dt>Pay</dt><dd>A read-only auditor portal for financial records, exports and receipts.</dd></div>
+<div data-nq-wline><dt>Attend</dt><dd>Walk-in registration on the day, including payment, attendance and receipt.</dd></div>
+</dl>
+<p class="nq-small" data-nq-wline>Card payments are not part of this quotation.</p>
+</div>
+<section class="nq-ledger__train" aria-labelledby="ws-train">
+<div class="nq-day__steprow"><h3 class="nq-h3 nq-day__name" id="ws-train" data-nq-wline>Train</h3> <span class="nq-chip nq-chip--step">Rollout step</span></div>
+<ul class="nq-lines">
+<li data-nq-wline>Before go-live, your staff learn the website tools and the workshop module together.</li>
+<li data-nq-wline>With them, we test every step from booking to reporting.</li>
+<li data-nq-wline>Training is priced per person under People and path.</li>
+</ul>
+</section>
+</div>
+<div class="nq-ledger__foot">
+<p class="nq-small" data-nq-wline>Rollout acceptance checks each item before anyone calls it live.</p>
+<p class="nq-small" data-nq-wline>Added to your quote: workshop builds for nine destinations, R 97,496.00 excl. VAT.</p>
+</div>
+</div>
+</div>
+<script defer src="js/act-03-workshop.js?v=eb9c830416"></script>
+<section class="nq-silence" data-sc-act="flow" data-ground="night-deep" data-nq-silence aria-hidden="true"></section>
+<section id="data" class="nq-act nq-act--data" data-sc-act="pin" data-sc-span="6" data-ground="night" data-nq-chapter="data" data-chapter-name="Your data, your choice" aria-labelledby="data-title">
+<div class="nq-stage nq-data" data-sc-stage>
+<div class="nq-data__side">
+<div class="nq-state nq-data__q">
+<p class="nq-eyebrow nq-data__eyebrow" data-sc-cue="0 0.17 0.08 0.25">Your data, your choice</p>
+<h2 class="nq-head" id="data-title" data-sc-cue="0 0.17 0.1 0.25" data-sc-kinetic="lines">Where should the workshop records live?</h2>
+<p class="nq-lead" data-sc-cue="0 0.17 0.11 0.25">The websites form one network either way. This choice only concerns the records the workshop module keeps: members, bookings, payments and attendance.</p>
+</div>
+<div class="nq-data__text">
+<div class="nq-state nq-data__page nq-data__page--phone" data-nq-window="0.15 0.25 0.3 0.25">
+<p data-nq-when="A">Website hosting only. No separate storage charge for the workshop data. VAT is added at 15%.</p>
+<p data-nq-when="B">Hosting R 1,791.00 plus Option B data R 4,491.00. VAT R 942.30, so R 7,224.30 incl. VAT.</p>
+<p class="nq-data__pkey" data-nq-when="A">Nine lines, one shared environment</p>
+<p class="nq-data__pkey" data-nq-when="B">Nine encrypted environments, one controlled national view</p>
+</div>
+<div class="nq-data__panel" data-nq-when="A">
+<div class="nq-state nq-data__page" data-sc-cue="0.3 0.48 0.3 0.25">
+<h3 class="nq-h3 nq-data__option">Option A: shared workshop data</h3>
+<ul class="nq-lines">
+<li>The workshop records of national and every province share Western Cape's existing environment.</li>
+</ul>
+</div>
+<ul class="nq-state nq-data__page nq-lines" data-sc-cue="0.47 0.66 0.3 0.25">
+<li>Each province sees only its own records, and national has authorised oversight.</li>
+<li>No separate storage charge, under the initial proposal assumption.</li>
+</ul>
+<ul class="nq-state nq-data__page nq-lines" data-sc-cue="0.65 0.85 0.3 0.25">
+<li>If you choose it, we first confirm together that the shared environment meets the agreed requirements for capacity, access, security and recovery.</li>
+</ul>
+<ul class="nq-state nq-data__page nq-lines" data-sc-cue="0.84 1 0.3 0.04">
+<li class="nq-data__keyline">Option A applies unless the Option B box is ticked.</li>
+</ul>
+</div>
+<div class="nq-data__panel" data-nq-when="B">
+<div class="nq-state nq-data__page" data-sc-cue="0.3 0.48 0.3 0.25">
+<h3 class="nq-h3 nq-data__option">Option B: nine dedicated environments</h3>
+<ul class="nq-lines">
+<li>National and the eight new or rebuilt provincial sites each get their own encrypted workshop data environment.</li>
+</ul>
+</div>
+<ul class="nq-state nq-data__page nq-lines" data-sc-cue="0.47 0.66 0.3 0.25">
+<li>R 499.00 each per month, against a standard rate of R 699.00.</li>
+<li>Nine environments: R 4,491.00 excl. VAT per month.</li>
+</ul>
+<ul class="nq-state nq-data__page nq-lines" data-sc-cue="0.65 0.85 0.3 0.25">
+<li>Each covers the environment itself, backups, capacity administration and database maintenance.</li>
+<li>National sees across all nine through a controlled view, and each province stays within its own.</li>
+</ul>
+<ul class="nq-state nq-data__page nq-lines" data-sc-cue="0.84 1 0.3 0.04">
+<li>Western Cape keeps its existing environment and its existing charges.</li>
+<li>Separate environments do not mean separate physical hardware.</li>
+</ul>
+</div>
+<p class="nq-state nq-data__page nq-data__page--phone nq-data__rule" data-nq-window="0.23 0.32 0.3 0.25">This switch lets you compare the two options. Your formal choice is the Option B box on the signing page of the PDF: leave it blank and Option A applies, or tick it to choose Option B.</p>
+</div>
+<div class="nq-data__console" data-sc-cue="0.14 1 0.09 0.015">
+<div class="nq-choice" role="region" aria-label="Workshop data choice">
+<p class="nq-choice__label" id="nq-switch-label">Workshop data</p>
+<button type="button" class="nq-switch nq-needs-js" role="switch" aria-checked="false" aria-label="Option B, dedicated environments" aria-describedby="nq-switch-desc nq-switch-rule" data-nq-switch>
+<span class="nq-switch__side nq-switch__side--a" aria-hidden="true">Option A: shared</span>
+<span class="nq-switch__track" aria-hidden="true"><span class="nq-switch__thumb" data-nq-bind="option">A</span></span>
+<span class="nq-switch__side nq-switch__side--b" aria-hidden="true">Option B: dedicated</span>
+</button>
+<p class="nq-sr" id="nq-switch-desc">Off means Option A applies, as on the PDF when the Option B box is left blank.</p>
+<p class="nq-choice__rule" id="nq-switch-rule">This switch lets you compare the two options. Your formal choice is the Option B box on the signing page of the PDF: leave it blank and Option A applies, or tick it to choose Option B.</p>
+</div>
+<div class="nq-monthly">
+<p class="nq-monthly__label">Monthly, excl. VAT</p>
+<p class="nq-head nq-monthly__value nq-money" data-nq-when="A" data-nq-count="monthly">R 1,791.00</p>
+<p class="nq-head nq-monthly__value nq-money" data-nq-when="B" data-nq-count="monthly">R 6,282.00</p>
+<p class="nq-monthly__note" data-nq-when="A">Website hosting only. No separate storage charge for the workshop data. VAT is added at 15%.</p>
+<p class="nq-monthly__note" data-nq-when="B">Hosting R 1,791.00 plus Option B data R 4,491.00. VAT R 942.30, so R 7,224.30 incl. VAT.</p>
+</div>
+</div>
+</div>
+<div class="nq-data__visual">
+<div class="nq-data__figure">
+<p class="nq-mono nq-data__letter" aria-hidden="true" data-sc-cue="0 1 0 0.015"><span class="nq-data__mask"><span class="nq-data__glyph" data-nq-bind="option">A</span></span></p>
+<div class="nq-data__map">
+<div class="nq-map" data-nq-map="data" data-nq-map-plates data-nq-map-mode="data-A" data-nq-map-progress="act" data-nq-plumb="0.16 0.4" data-nq-map-src="assets/map/za-network.svg?v=f6dc84bd88" data-nq-map-aria="dataMapAria"><noscript><img class="nq-map__fallback" src="assets/map/za-network.svg?v=f6dc84bd88" alt="Map of the NAPTOSA network: the national hub and South Africa's nine provinces" width="1024" height="919"></noscript></div>
+</div>
+</div>
+<div class="nq-data__legend" data-sc-cue="0.16 1 0.06 0.015">
+<p class="nq-data__key" data-nq-when="A"><svg class="nq-data__icon" viewBox="-9 -10 18 20" width="18" height="20" aria-hidden="true" focusable="false"><ellipse cx="0" cy="5" rx="7" ry="2.7"/><ellipse cx="0" cy="0" rx="7" ry="2.7"/><ellipse cx="0" cy="-5" rx="7" ry="2.7"/></svg><span>Western Cape's existing environment</span></p>
+<p class="nq-data__keynote" data-nq-when="A">Nine lines, one shared environment</p>
+<p class="nq-data__key" data-nq-when="B"><svg class="nq-data__icon" viewBox="-8 -9 16 17" width="16" height="17" aria-hidden="true" focusable="false"><path d="M-3.1 -0.8V-4.4A3.1 3.1 0 0 1 3.1 -4.4V-0.8"/><rect x="-5" y="-0.8" width="10" height="7.6" rx="1.4"/><circle class="nq-data__iconkey" cx="0" cy="2.9" r="1.15"/></svg><span>Encrypted environment</span></p>
+<p class="nq-data__key nq-data__key--existing" data-nq-when="B"><svg class="nq-data__icon" viewBox="-8 -9 16 17" width="16" height="17" aria-hidden="true" focusable="false"><path d="M-3.1 -0.8V-4.4A3.1 3.1 0 0 1 3.1 -4.4V-0.8"/><rect x="-5" y="-0.8" width="10" height="7.6" rx="1.4"/><circle class="nq-data__iconkey" cx="0" cy="2.9" r="1.15"/></svg><span>Western Cape: existing environment</span></p>
+<p class="nq-data__keynote" data-nq-when="B">Nine encrypted environments, one controlled national view</p>
+</div>
+</div>
+</div>
+</section>
+<div class="nq-coda nq-coda--data" data-sc-act="flow" data-ground="night" data-nq-chapter="data">
+<div class="nq-wrap nq-ledger">
+<div class="nq-ledger__block">
+<h3 class="nq-h3 nq-ledger__h" data-nq-fade>What the monthly amount covers</h3>
+<ul class="nq-lines nq-ledger__body">
+<li data-nq-fade>Hosting is R 199.00 per site per month instead of the standard R 299.00. For the nine new sites that is R 1,791.00 excl. VAT.</li>
+<li data-nq-fade>It hosts the nine newly built national and provincial sites and runs the connections for cross-site navigation and national oversight, including the link to Western Cape's site.</li>
+<li data-nq-fade>Website maintenance is quoted separately: monitoring, content updates, security patching, new pages, change requests and response commitments need an agreed scope and price.</li>
+<li data-nq-fade>New workshop features and larger integrations are quoted separately too, unless a signed maintenance agreement covers them.</li>
+<li data-nq-fade data-nq-when="B">With Option B, the standard rates would come to R 8,982.00 a month. This offer is R 2,700.00 a month lower.</li>
+<li data-nq-fade>Western Cape's hosting and workshop database stay on its existing arrangement, outside these totals.</li>
+<li data-nq-fade>Storage limits and service levels go into the service schedule.</li>
+</ul>
+</div>
+<div class="nq-ledger__block">
+<h3 class="nq-h3 nq-ledger__h" data-nq-fade>Your data questions</h3>
+<dl class="nq-qa nq-ledger__body">
+<div class="nq-qa__item" data-nq-fade>
+<dt>Who can see what?</dt>
+<dd><p class="nq-text">Provincial staff see only their own province's workshop records. National staff have authorised oversight across provinces.</p><p class="nq-text">Creator and Finance permissions are separate, so only Finance can confirm payments.</p></dd>
+</div>
+<div class="nq-qa__item" data-nq-fade>
+<dt>What happens to the data we already have?</dt>
+<dd><p class="nq-text">Before anything moves, we inventory the existing content and records and agree a signed mapping: what moves, what is archived and who approves it.</p><p class="nq-text">We migrate only approved data.</p></dd>
+</div>
+<div class="nq-qa__item" data-nq-fade>
+<dt>Who owns the domains and the data?</dt>
+<dd><p class="nq-text">NAPTOSA does, under either option.</p><p class="nq-text">We document administrator access and an exit and export process, and hand both over with the system.</p></dd>
+</div>
+<div class="nq-qa__item" data-nq-fade>
+<dt>How is the data kept secure?</dt>
+<dd><p class="nq-text">In the current module, creator and Finance permissions are separate and every money change is logged.</p><p class="nq-text">In the network, each province's access is scoped to its own records.</p><p class="nq-text">Option B environments are encrypted and backed up. Under Option A, the shared environment is checked against the agreed requirements first.</p><p class="nq-text">Before migration we document the platform, hosting region, retention, backup recovery targets, access roles and cross-border processing terms, and validate them with NAPTOSA's information and security owners.</p></dd>
+</div>
+</dl>
+</div>
+<p class="nq-small nq-ledger__note" data-nq-fade>Added to your quote: R 1,791.00 excl. VAT a month with Option A, or R 6,282.00 excl. VAT a month with Option B.</p>
+</div>
+</div>
+<script defer src="js/act-04-data.js?v=daf961fff2"></script>
+<section id="quotation" class="nq-act nq-act--quote" data-sc-act="flow" data-ground="day" data-nq-chapter="quotation" aria-labelledby="quote-title">
+<div class="nq-wrap nq-quote">
+<header class="nq-quote__open">
+<p class="nq-mono nq-quote__ten" aria-hidden="true">10</p>
+<div class="nq-quote__title">
+<h2 class="nq-head" id="quote-title">Every entity, every rand.</h2>
+<p class="nq-lead">NAPTOSA National is the contracting and paying entity for all ten destinations.</p>
+</div>
+<ul class="nq-lines nq-quote__terms">
+<li>Quotation LBTEC-NAPTOSA-NATIONAL-WEB-WS-001, issued by LBTec (Pty) Ltd t/a Smart AI Solutions.</li>
+<li>Where an offer price applies, the original price is shown beside it.</li>
+<li>All amounts are in rand, excluding VAT.</li>
+</ul>
+</header>
+<div class="nq-ledger" data-ground="day" data-nq-ledger data-nq-map-src="assets/map/za-network.svg?v=f6dc84bd88">
+<table class="nq-table nq-table--entities" role="table">
+<caption>Once-off build by entity, ZAR excl. VAT</caption>
+<thead role="rowgroup">
+<tr role="row"><th scope="col" role="columnheader">Entity</th><th scope="col" role="columnheader">Website build</th><th scope="col" role="columnheader">Workshop build</th><th scope="col" role="columnheader">Entity total</th></tr>
+</thead>
+<tbody role="rowgroup">
+<tr role="row" data-nq-prov="national"><th scope="row" role="rowheader"><span class="nq-loc" aria-hidden="true"></span><span class="nq-ledger__name">National</span></th><td role="cell" data-label="Website build">R 8,999.00</td><td role="cell" data-label="Workshop build">R 12,499.00</td><td role="cell" data-label="Entity total">R 21,498.00</td></tr>
+<tr role="row" data-nq-prov="ZA-EC"><th scope="row" role="rowheader"><span class="nq-loc" aria-hidden="true"></span><span class="nq-ledger__name">Eastern Cape</span></th><td role="cell" data-label="Website build">R 8,999.00</td><td role="cell" data-label="Workshop build">R 12,499.00</td><td role="cell" data-label="Entity total">R 21,498.00</td></tr>
+<tr role="row" data-nq-prov="ZA-FS"><th scope="row" role="rowheader"><span class="nq-loc" aria-hidden="true"></span><span class="nq-ledger__name">Free State</span></th><td role="cell" data-label="Website build"><span class="nq-offer">R 7,700.00</span> <span class="nq-orig">(original R 8,999.00)</span></td><td role="cell" data-label="Workshop build"><span class="nq-offer">R 9,500.00</span> <span class="nq-orig">(original R 12,499.00)</span></td><td role="cell" data-label="Entity total">R 17,200.00</td></tr>
+<tr role="row" data-nq-prov="ZA-GT"><th scope="row" role="rowheader"><span class="nq-loc" aria-hidden="true"></span><span class="nq-ledger__name">Gauteng</span></th><td role="cell" data-label="Website build">R 8,999.00</td><td role="cell" data-label="Workshop build">R 12,499.00</td><td role="cell" data-label="Entity total">R 21,498.00</td></tr>
+<tr role="row" data-nq-prov="ZA-NL"><th scope="row" role="rowheader"><span class="nq-loc" aria-hidden="true"></span><span class="nq-ledger__name">KwaZulu-Natal</span></th><td role="cell" data-label="Website build">R 8,999.00</td><td role="cell" data-label="Workshop build">R 12,499.00</td><td role="cell" data-label="Entity total">R 21,498.00</td></tr>
+<tr role="row" data-nq-prov="ZA-LP"><th scope="row" role="rowheader"><span class="nq-loc" aria-hidden="true"></span><span class="nq-ledger__name">Limpopo</span></th><td role="cell" data-label="Website build"><span class="nq-offer">R 7,700.00</span> <span class="nq-orig">(original R 8,999.00)</span></td><td role="cell" data-label="Workshop build"><span class="nq-offer">R 9,500.00</span> <span class="nq-orig">(original R 12,499.00)</span></td><td role="cell" data-label="Entity total">R 17,200.00</td></tr>
+<tr role="row" data-nq-prov="ZA-MP"><th scope="row" role="rowheader"><span class="nq-loc" aria-hidden="true"></span><span class="nq-ledger__name">Mpumalanga</span></th><td role="cell" data-label="Website build"><span class="nq-offer">R 7,700.00</span> <span class="nq-orig">(original R 8,999.00)</span></td><td role="cell" data-label="Workshop build"><span class="nq-offer">R 9,500.00</span> <span class="nq-orig">(original R 12,499.00)</span></td><td role="cell" data-label="Entity total">R 17,200.00</td></tr>
+<tr role="row" data-nq-prov="ZA-NW"><th scope="row" role="rowheader"><span class="nq-loc" aria-hidden="true"></span><span class="nq-ledger__name">North West</span></th><td role="cell" data-label="Website build"><span class="nq-offer">R 7,700.00</span> <span class="nq-orig">(original R 8,999.00)</span></td><td role="cell" data-label="Workshop build"><span class="nq-offer">R 9,500.00</span> <span class="nq-orig">(original R 12,499.00)</span></td><td role="cell" data-label="Entity total">R 17,200.00</td></tr>
+<tr role="row" data-nq-prov="ZA-NC"><th scope="row" role="rowheader"><span class="nq-loc" aria-hidden="true"></span><span class="nq-ledger__name">Northern Cape</span></th><td role="cell" data-label="Website build"><span class="nq-offer">R 7,700.00</span> <span class="nq-orig">(original R 8,999.00)</span></td><td role="cell" data-label="Workshop build"><span class="nq-offer">R 9,500.00</span> <span class="nq-orig">(original R 12,499.00)</span></td><td role="cell" data-label="Entity total">R 17,200.00</td></tr>
+<tr role="row" class="nq-row--retained" data-nq-prov="ZA-WC"><th scope="row" role="rowheader"><span class="nq-loc" aria-hidden="true"></span><span class="nq-ledger__name">Western Cape</span></th><td role="cell" data-label="Website build">Existing site retained: R 0.00</td><td role="cell" data-label="Workshop build">Existing build, already paid: R 0.00</td><td role="cell" data-label="Entity total">R 0.00</td></tr>
+</tbody>
+<tbody class="nq-table__totals" role="rowgroup">
+<tr role="row" class="nq-row--total"><th scope="row" role="rowheader">Subtotal</th><td role="cell" data-label="Website build">R 74,496.00</td><td role="cell" data-label="Workshop build">R 97,496.00</td><td role="cell" data-label="Entity total">R 171,992.00</td></tr>
+<tr role="row" class="nq-row--total"><th scope="row" role="rowheader">VAT at 15%</th><td role="cell" colspan="3" data-label="Entity total">R 25,798.80</td></tr>
+<tr role="row" class="nq-row--total nq-row--grand"><th scope="row" role="rowheader">Build total incl. VAT</th><td role="cell" colspan="3" data-label="Entity total">R 197,790.80</td></tr>
+</tbody>
+</table>
+<ul class="nq-lines nq-quote__notes">
+<li>Western Cape's row is R 0.00 because its website and paid workshop build stay in place.</li>
+<li>Training and monthly services are not part of the once-off build.</li>
+<li>This is a proposal and quotation, not a tax invoice. A tax invoice follows acceptance.</li>
+</ul>
+</div>
+<div class="nq-savings" data-ground="day">
+<h3 class="nq-h3">Against our own first estimate</h3>
+<ul class="nq-lines nq-savings__lines">
+<li>Websites: our first estimate was R 89,990.00, at R 8,999.00 for national and all nine provinces. The saving is R 15,494.00.</li>
+<li>Workshop module: our first estimate was R 112,491.00, at R 12,499.00 for nine builds. The saving is R 14,995.00.</li>
+<li class="nq-saving" data-ground="day"><span class="nq-saving__text"><span class="nq-saving__first">Combined: our first estimate was R 202,481.00.</span> The saving is <span class="nq-saving__fig" data-nq-saving><span class="nq-saving__real">R 30,489.00</span></span> excl. VAT.</span><span class="nq-saving__map nq-map" data-nq-map="ledger-sum" data-nq-map-mode="timeline" data-nq-map-src="assets/map/za-network.svg?v=f6dc84bd88" aria-hidden="true"></span></li>
+<li>The saving comes from leaving out Western Cape's paid-for website build and pricing five provinces at R 7,700.00 for the website and R 9,500.00 for the workshop module.</li>
+<li>These savings compare our own estimates only.</li>
+</ul>
+</div>
+<div class="nq-quote__more">
+<div class="nq-block nq-quote__ref" data-ground="day">
+<h3 class="nq-h3">Reference values</h3>
+<ul class="nq-lines">
+<li>Our website build service is normally about R 18,000 per site.</li>
+<li>The search foundation is normally R 8,000 to R 12,000 per newly built site, and is included here.</li>
+<li>Neither reference value is added to the saving.</li>
+</ul>
+</div>
+<div class="nq-block nq-quote__ref" data-ground="day">
+<h3 class="nq-h3">Not in this quotation</h3>
+<ul class="nq-lines">
+<li>Provider subscriptions, email delivery, payment processing, content production, major new features and a full service level agreement are scoped separately, unless this quotation includes them.</li>
+<li>Fees that other providers charge, such as domain transfer fees, are disclosed before we act.</li>
+</ul>
+</div>
+</div>
+</div>
+<script defer src="js/act-05-quotation.js?v=01558ec92a"></script>
+</section>
+<section id="path" class="nq-act nq-act--path" data-sc-act="pan" data-sc-span="4" data-ground="night" data-nq-chapter="path" aria-labelledby="path-title">
+<div class="nq-path" data-sc-stage>
+<div class="nq-path__rail" data-nq-path-rail>
+
+<div class="nq-rail__item nq-path__frame nq-path__train" data-nq-frame="train">
+<div class="nq-path__open">
+<h2 class="nq-head" id="path-title">Training your people and staging the rollout.</h2>
+<p class="nq-lead">Training covers both modules at one price per person, and the provinces go live in batches.</p>
+<div class="nq-stepper" role="group" aria-labelledby="nq-stepper-label">
+<p class="nq-stepper__label" id="nq-stepper-label">People to train</p>
+<div class="nq-stepper__row nq-needs-js">
+<button type="button" class="nq-step-btn" aria-label="Remove one person" data-nq-step="-1" disabled><span class="nq-step-btn__bar" aria-hidden="true"></span></button>
+<input class="nq-stepper__value nq-mono" type="text" inputmode="numeric" role="spinbutton" aria-labelledby="nq-stepper-label" aria-valuemin="0" aria-valuemax="200" aria-valuenow="0" value="0" maxlength="3" autocomplete="off" spellcheck="false" data-nq-trainees>
+<button type="button" class="nq-step-btn" aria-label="Add one person" data-nq-step="1"><span class="nq-step-btn__bar" aria-hidden="true"></span><span class="nq-step-btn__bar nq-step-btn__bar--v" aria-hidden="true"></span></button>
+</div>
+<output class="nq-stepper__out" aria-live="polite" data-nq-bind="trainingLive">No one chosen yet. Training is R 2,500.00 excl. VAT per person.</output>
+</div>
+</div>
+<div class="nq-path__terms">
+<div class="nq-path__notes">
+<p class="nq-text nq-path__note">Choose a number to see the training cost. You write the final number on the signing page of the PDF, and we confirm it with you before invoicing.</p>
+<p class="nq-text nq-path__note">VAT at 15% makes it R 2,875.00 incl. VAT per person.</p>
+</div>
+<div class="nq-path__training">
+<h3 class="nq-h3" id="path-training">Training on both modules</h3>
+<ul class="nq-lines nq-path__list">
+<li>One programme covers the website publishing tools and the workshop module.</li>
+<li>R 2,500.00 excl. VAT per person, a 50% reduction on the normal R 5,000.00 for both modules.</li>
+<li>National and provincial staff can both take part.</li>
+<li>Training is billed separately, by the number of people trained.</li>
+<li>Later training for a new employee, someone taking over a role, or a refresher costs R 550.00 excl. VAT per hour (R 632.50 incl. VAT).</li>
+<li>Format, locations and any travel are agreed in the rollout plan.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<figure class="nq-rail__item nq-path__frame nq-path__people" data-nq-frame="people">
+<div class="nq-path__clipbox">
+<video class="nq-path__video" muted playsinline preload="none" poster="assets/media/network-educator-poster.webp?v=8a9fc3e463" data-sc-src="assets/media/network-educator.mp4?v=e433ee733b" data-sc-src-mobile="assets/media/network-educator-m.mp4?v=e3bd392dac" data-nq-poster-mobile="assets/media/network-educator-m-poster.webp" data-nq-label-mobile="Blank paper on a table, then the view rises to an educator in an olive jacket talking with his hands together." aria-label="The camera pulls back from blank papers on a shared table to three educators planning together." width="1280" height="720" data-nq-clip></video>
+</div>
+<figcaption class="nq-path__cap"><span>Illustrative image</span><button type="button" class="nq-btn nq-btn--outline nq-path__clipbtn nq-needs-js" data-nq-clip-toggle>Play</button></figcaption>
+</figure>
+
+<div class="nq-rail__item nq-path__frame nq-path__route" data-nq-frame="route">
+<div class="nq-path__plane" data-nq-path-plane>
+<div class="nq-map nq-path__map" data-nq-map="path" data-nq-map-mode="timeline" data-nq-map-src="assets/map/za-network.svg?v=f6dc84bd88" data-nq-map-label="The map lights the provinces one after another to show a staged rollout. The order shown is illustrative." data-nq-stage="0"><noscript><img class="nq-map__fallback" src="assets/map/za-network.svg?v=f6dc84bd88" alt="The map lights the provinces one after another to show a staged rollout. The order shown is illustrative." width="1024" height="919"></noscript></div>
+<span class="nq-path__drop" aria-hidden="true"></span>
+</div>
+<div class="nq-path__track">
+<div class="nq-path__head">
+<figure class="nq-figure nq-path__fig">
+<picture>
+<source type="image/avif" srcset="assets/media/a1-plan-360.avif 360w, assets/media/a1-plan-720.avif 720w" sizes="(max-width: 719px) 60vw, 20rem">
+<img src="assets/media/a1-plan-720.webp?v=758646cdda" srcset="assets/media/a1-plan-360.webp 360w, assets/media/a1-plan-720.webp 720w" sizes="(max-width: 719px) 60vw, 20rem" width="720" height="480" alt="Seen from above, three colleagues plan around a wooden table with blank cards, notebooks, coffee cups and a tablet." loading="lazy" decoding="async">
+</picture>
+<figcaption>Illustrative image</figcaption>
+</figure>
+<div class="nq-path__headtext">
+<h3 class="nq-h3" id="path-rollout">A staged rollout</h3>
+<p class="nq-small">The provinces light up here in an illustrative order. The real order is agreed after the access review.</p>
+</div>
+</div>
+<div class="nq-path__line" aria-hidden="true"><span class="nq-path__fill" data-nq-path-fill></span></div>
+<ol class="nq-path__stages" aria-labelledby="path-rollout">
+<li class="nq-path__stage" data-nq-stage-item="1"><span class="nq-path__node" aria-hidden="true"></span><p class="nq-path__label">Access and inventory</p><p class="nq-path__text">NAPTOSA names the domain owner and current providers. We send the formal hosting access request and catalogue the existing national, Gauteng, KwaZulu-Natal and Western Cape sites, with any records to migrate.</p></li>
+<li class="nq-path__stage" data-nq-stage-item="2"><span class="nq-path__node" aria-hidden="true"></span><p class="nq-path__label">Design and national foundation</p><p class="nq-path__text">Together we agree the content model, permissions, brand system, national oversight needs and the domain and subdomain map.</p></li>
+<li class="nq-path__stage" data-nq-stage-item="3"><span class="nq-path__node" aria-hidden="true"></span><p class="nq-path__label">Provincial batches</p><p class="nq-path__text">We build two or three provinces at a time. Between batches we check phone and desktop use, provincial independence, cross-site navigation, security boundaries and national visibility.</p></li>
+<li class="nq-path__stage nq-path__stage--fig" data-nq-stage-item="4"><span class="nq-path__node" aria-hidden="true"></span><div class="nq-path__stagebody"><p class="nq-path__label">Workshop activation</p><p class="nq-path__text">We set up each agreed workshop environment with the chosen data option, migrate approved data, train staff and test every step from booking to reporting before go-live.</p></div>
+<figure class="nq-figure nq-path__fig nq-path__fig--inset">
+<picture>
+<source type="image/avif" srcset="assets/media/a7-training-360.avif 360w, assets/media/a7-training-720.avif 720w" sizes="(max-width: 719px) 50vw, 15rem">
+<img src="assets/media/a7-training-720.webp?v=bc1b48d46a" srcset="assets/media/a7-training-360.webp 360w, assets/media/a7-training-720.webp 720w" sizes="(max-width: 719px) 50vw, 15rem" width="720" height="540" alt="Three colleagues study a laptop together in an office; one points at the screen while another takes notes." loading="lazy" decoding="async">
+</picture>
+<figcaption>Illustrative image</figcaption>
+</figure></li>
+<li class="nq-path__stage" data-nq-stage-item="5"><span class="nq-path__node" aria-hidden="true"></span><p class="nq-path__label">Handover</p><p class="nq-path__text">You receive administrator access, documentation, the backup and export process, and the monthly service start date.</p></li>
+</ol>
+</div>
+</div>
+
+<div class="nq-rail__item nq-path__frame nq-path__handover" data-nq-frame="handover">
+<figure class="nq-figure nq-path__photo">
+<picture>
+<source type="image/avif" srcset="assets/media/teacher-community-720.avif 720w, assets/media/teacher-community-1440.avif 1440w" sizes="(max-width: 719px) 92vw, 34rem">
+<img src="assets/media/teacher-community-720.webp?v=422023c3e6" srcset="assets/media/teacher-community-720.webp 720w, assets/media/teacher-community-1440.webp 1440w" sizes="(max-width: 719px) 92vw, 34rem" width="1440" height="960" alt="Two educators laugh together in a sunlit school courtyard under a flowering jacaranda, notebooks in hand, with colleagues talking behind them." loading="lazy" decoding="async">
+</picture>
+<figcaption>Illustrative image</figcaption>
+</figure>
+<div class="nq-path__end">
+<span class="nq-path__node nq-path__node--end" data-nq-path-end aria-hidden="true"></span>
+<ul class="nq-lines nq-path__estimate">
+<li>The pace is about one website or province a week, once access, content and design approval are in place. Some take longer, some less.</li>
+<li>We are working toward the new website network running by early January 2027, and we plan the workshop rollout with you in parallel.</li>
+<li>This is an estimate, not a promised completion date. A dated sequence follows once we have reviewed access, migration and dependencies.</li>
+</ul>
+<p class="nq-small nq-path__added">Added to your quote: training at R 2,500.00 excl. VAT per person, for the number you choose.</p>
+</div>
+</div>
+
+</div>
+</div>
+<script defer src="js/act-06-path.js?v=7ffdc43a71"></script>
+</section>
+<section id="acceptance" class="nq-act nq-act--accept" data-sc-act="pin" data-sc-span="1.6" data-ground="day" data-nq-chapter="acceptance" aria-labelledby="accept-title">
+<div class="nq-stage nq-accept" data-sc-stage>
+<div class="nq-accept__body nq-stage__body" data-sc-cue="0 1 0 0">
+<div class="nq-accept__lead nq-stack">
+<p class="nq-mono nq-accept__letter" aria-hidden="true"><span data-nq-bind="option">A</span></p>
+<p class="nq-eyebrow">Acceptance</p>
+<h2 class="nq-head" id="accept-title">Your choices, ready to sign.</h2>
+<p class="nq-lead">This is your quote as you set it on this page. The PDF is the document you sign.</p>
+<ul class="nq-lines">
+<li>Signing accepts the once-off build, hosting for the nine new sites subject to the final service schedule, the data option as marked, and the number of people to train.</li>
+<li>The last page of the PDF has five fields: the Option B box, people to train, name and title, digital signature, and date.</li>
+<li>Option A applies unless the Option B box is ticked.</li>
+</ul>
+<p class="nq-accept__action"><a class="nq-btn nq-btn--filled" href="downloads/LBTec-NAPTOSA-National-Web-and-Workshop-Proposal.pdf" download>Download the official quotation (PDF)</a></p>
+<p class="nq-small">PDF, A4</p>
+</div>
+<div class="nq-summary" role="region" aria-label="Acceptance summary">
+<table class="nq-table nq-table--summary" role="table">
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader">Once-off build</th><td role="cell">R 171,992.00 excl. VAT</td><td role="cell">R 197,790.80 incl. VAT</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Deposit (50%), due before work starts</th><td role="cell">R 85,996.00 excl. VAT</td><td role="cell">R 98,895.40 incl. VAT</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Balance (50%), due before final launch and handover</th><td role="cell">R 85,996.00 excl. VAT</td><td role="cell">R 98,895.40 incl. VAT</td></tr>
+<tr role="row" class="nq-row--chosen" data-nq-when="A"><th scope="row" role="rowheader">Monthly</th><td role="cell">R 1,791.00 excl. VAT</td><td role="cell">Website hosting. Option A: shared workshop data, no separate storage charge.</td></tr>
+<tr role="row" class="nq-row--chosen" data-nq-when="B"><th scope="row" role="rowheader">Monthly</th><td role="cell">R 6,282.00 excl. VAT</td><td role="cell">R 7,224.30 incl. VAT. Hosting R 1,791.00 plus Option B data R 4,491.00.</td></tr>
+<tr role="row" class="nq-row--chosen" data-nq-when="A"><th scope="row" role="rowheader">Workshop data</th><td role="cell">Option A applies</td><td role="cell">Leave the Option B box on the PDF blank.</td></tr>
+<tr role="row" class="nq-row--chosen" data-nq-when="B"><th scope="row" role="rowheader">Workshop data</th><td role="cell">Option B</td><td role="cell">Tick the Option B box on the PDF.</td></tr>
+<tr role="row" class="nq-row--chosen" data-nq-when-n="0"><th scope="row" role="rowheader">Training</th><td role="cell">Not chosen yet</td><td role="cell">R 2,500.00 excl. VAT per person</td></tr>
+<tr role="row" class="nq-row--chosen" data-nq-when-n="1" hidden><th scope="row" role="rowheader">Training</th><td role="cell">R 2,500.00 excl. VAT</td><td role="cell">1 person. Write 1 under "People to train" on the PDF.</td></tr>
+<tr role="row" class="nq-row--chosen" data-nq-when-n="n" hidden><th scope="row" role="rowheader">Training</th><td role="cell"><span class="nq-money" data-nq-bind="training">R 0.00</span> excl. VAT</td><td role="cell"><span data-nq-bind="trainees">0</span> people. Write <span data-nq-bind="trainees">0</span> under "People to train" on the PDF.</td></tr>
+<tr role="row"><th scope="row" role="rowheader">Valid until</th><td role="cell">21 November 2026</td><td role="cell">Issued 22 October 2026, valid for 30 calendar days.</td></tr>
+</tbody>
+</table>
+<ul class="nq-summary__notes" role="list">
+<li class="nq-small">These amounts are billed separately and are not added together.</li>
+<li class="nq-small">Western Cape's existing website, domain, infrastructure and paid workshop build are retained, and its monthly arrangement stays separate.</li>
+<li class="nq-small">This is a proposal and quotation, not a tax invoice.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="nq-foot" data-ground="day" data-nq-foot>
+<div class="nq-foot__inner">
+<p class="nq-small">NAPTOSA National  |  Connected provincial websites and workshop module  |  Proposal LBTEC-NAPTOSA-NATIONAL-WEB-WS-001</p>
+<p class="nq-small">Prepared by LBTec (Pty) Ltd t/a Smart AI Solutions  |  Reg. 2020/138701/07  |  VAT 4440290809  |  loxly@lbtec.co.za  |  083 713 2113. No banking details are included; they appear on the issued invoice.</p>
+<p class="nq-small">Photographs and clips on this page are illustrative. Province outlines: Natural Earth, public domain, simplified.</p>
+</div>
+</footer>
+</body>
+</html>
